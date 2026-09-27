@@ -11,7 +11,7 @@ not features of the current app. No target dates are assigned.
 | M0 | Ten-question IKD scaffold | Verified locally |
 | M1 | Reproducible project baseline | Complete |
 | M2 | Read-only Picorules ruleblock viewer | Complete |
-| M3 | Clinically reviewed IKD content | Next |
+| M3 | Clinically reviewed IKD content | In progress |
 | M4 | Assessment review and FHIR handoff | Planned |
 | M5 | Questionnaire pilot on HTTPS | Planned |
 | M6 | Validated clinical evaluation, if pursued | Decision gate |
@@ -107,6 +107,14 @@ the viewer that these first ruleblocks declare features and do not contain a
 diagnostic algorithm.
 
 ## M3 — Clinically reviewed IKD content
+
+**Progress record**
+
+| Step | Status | Evidence |
+| --- | --- | --- |
+| Prepare versioned review materials and source crosswalk | In progress | Pending review packet and provenance checks |
+| Review all ten features and global wording | Awaiting qualified reviewers | Reviewer identities and decisions pending |
+| Apply decisions, rebuild, inspect FHIR, and validate | Pending review decisions | Final content and sign-off required |
 
 **Work**
 
