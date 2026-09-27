@@ -12,10 +12,10 @@ dates are assigned.
 | M0 | Ten-question IKD scaffold | Verified locally |
 | M1 | Reproducible project baseline | Complete |
 | M2 | Read-only Picorules ruleblock viewer | Complete |
-| M3 | Clinically reviewed IKD content | In progress |
+| M3 | IKD content accepted for prototype | Complete for proof of concept; accuracy review deferred |
 | M4 | Assessment review and FHIR handoff | Complete for local proof of concept |
-| M5 | Questionnaire pilot on HTTPS | Planned |
-| M6 | Validated clinical evaluation, if pursued | Decision gate; illustrative prompt only |
+| M5 | Rule results and possible-diagnosis handoff | In progress |
+| M6 | Hosted demonstration and later clinical validation | Planned |
 
 ## End-to-end proof of concept (complete locally)
 
@@ -129,6 +129,12 @@ the viewer that these first ruleblocks declare features and do not contain a
 diagnostic algorithm.
 
 ## M3 — Clinically reviewed IKD content
+
+**Prototype decision:** The clinical reviewer accepted the current questions and
+workflow for building the end-to-end application on 27 September 2026. See
+[prototype sign-off](reviews/ikd/PROTOTYPE-SIGNOFF.md). This closes M3 for the
+prototype only. The detailed review record remains pending for a future clinical
+accuracy and release decision; it does not block application development.
 
 **Progress record**
 
