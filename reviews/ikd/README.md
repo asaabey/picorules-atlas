@@ -1,6 +1,6 @@
 # IKD clinical content review (M3)
 
-**Status: awaiting qualified clinical reviewers.** This folder prepares the current
+**Status: awaiting clinical review decisions.** This folder prepares the current
 candidate content for review. Its presence does not approve the questionnaire.
 
 ## What to review
@@ -38,11 +38,11 @@ them in JSON. No endorsement is implied.
 2. Resolve requested changes in the authored `.prb` files or UI. Increment the
    relevant version when changing clinical content; run `npm run content:build`.
    Update the review record's content version, run `npm run review:build`, and have
-   reviewers inspect the resulting questionnaire and FHIR mapping again. A prior
+   the clinical reviewer inspects the resulting questionnaire and FHIR mapping again. A prior
    approval does not carry over automatically to changed content.
-3. Record two distinct qualified clinical reviewers' names, qualifications, dates,
-   and final content version in `signOffs` only after they approve the questionnaire
-   and its limitations. `npm run review:gate` checks that all decisions and sign-offs
+3. Record the qualified clinical reviewer's name, qualification, date,
+   and final content version in `signOffs` only after approving the questionnaire
+   and its limitations. `npm run review:gate` checks that all decisions and the sign-off
    refer to the current content. It cannot verify professional qualifications.
 4. Run `npm run content:check`, `npm run review:check`, `npm run typecheck`,
    `npm test`, `npm run build`, and the static browser suite before closing M3.

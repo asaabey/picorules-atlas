@@ -1,6 +1,10 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { CollectionManifest } from '../src/lib/types';
+import {
+  assertClinicalReviewApproved,
+  type ClinicalReviewRecord,
+} from '../src/lib/content/reviewGate';
 
 const root = resolve(import.meta.dirname, '..');
 const reviewRoot = resolve(root, 'reviews/ikd');
@@ -17,22 +21,7 @@ const evidence = JSON.parse(readFileSync(resolve(reviewRoot, 'orphadata-evidence
     sourceDate: string; frequency: string; diagnosticCriterion: string;
   }[];
 };
-const record = JSON.parse(readFileSync(resolve(reviewRoot, 'review-record.json'), 'utf8')) as {
-  schemaVersion: string;
-  collectionId: string;
-  contentVersion: string;
-  featureReviews: Record<string, ReviewDecision>;
-  globalReviews: Record<string, ReviewDecision>;
-  signOffs: { name: string; qualification: string; date: string; contentVersion: string }[];
-};
-
-interface ReviewDecision {
-  status: 'pending' | 'approved' | 'changes_requested';
-  reviewer: string | null;
-  reviewedAt: string | null;
-  decisionNotes: string;
-  wordingChanges?: string[];
-}
+const record = JSON.parse(readFileSync(resolve(reviewRoot, 'review-record.json'), 'utf8')) as ClinicalReviewRecord;
 
 function assert(condition: unknown, message: string): asserts condition {
   if (!condition) throw new Error(`Clinical review: ${message}`);
@@ -143,15 +132,7 @@ if (process.argv.includes('--check') || process.argv.includes('--gate')) {
 
 const pending = decisions.filter(decision => decision.status !== 'approved').length;
 if (process.argv.includes('--gate')) {
-  assert(pending === 0, `${pending} decisions are not approved`);
-  assert(record.signOffs.length >= 2, 'two qualified clinical reviewer sign-offs are required');
-  assert(new Set(record.signOffs.map(signOff => signOff.name)).size === record.signOffs.length,
-    'sign-offs need distinct reviewers');
-  for (const signOff of record.signOffs) {
-    assert(signOff.name?.trim() && signOff.qualification?.trim() &&
-      /^\d{4}-\d{2}-\d{2}$/.test(signOff.date) && signOff.contentVersion === manifest.contentVersion,
-    'sign-off needs name, qualification, date, and matching content version');
-  }
+  assertClinicalReviewApproved(record, manifest.contentVersion);
   console.log('IKD clinical review gate passed.');
 } else if (process.argv.includes('--check')) {
   console.log(`IKD review materials match content ${manifest.contentVersion}; ${pending} decisions await approval.`);

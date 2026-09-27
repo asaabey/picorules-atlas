@@ -115,27 +115,28 @@ diagnostic algorithm.
 | Prepare versioned review materials and source crosswalk | Done locally | Ten-row Orphadata evidence snapshot, content-versioned packet, pending decision record; `review:check` passed |
 | Show candidate limits and source provenance in Atlas | Done locally | Static build and six browser tests passed; assessment explains incomplete coverage and the viewer exposes release, attribution, and license details |
 | Version clinical context wording with collection content | Done locally | Limitations and disease-context text now enter the content hash; version `442bae27603451e8`; 20 unit tests and six static browser tests passed |
-| Review all ten features and global wording | Awaiting qualified reviewers | Reviewer identities and decisions pending |
+| Set clinical review sign-off count | Done locally | User confirmed one clinical reviewer is sufficient; gate accepts one sign-off and still requires all decisions and matching content version; 23 unit tests passed |
+| Review all ten features and global wording | Awaiting clinical reviewer decisions | User identified themself as the clinical reviewer; recorded decisions and sign-off pending |
 | Apply decisions, rebuild, inspect FHIR, and validate | Partly done | Real IKD FHIR mapping tests pass; final content and sign-off require reviewer decisions |
 
 The [M3 review packet](reviews/ikd/README.md) contains the exact candidate wording,
 ten source pairings, source provenance, answer semantics, and points requiring
 clinical judgment. Its integrity check passes. `npm run review:gate` currently
-stops on 15 pending decisions, as intended. Two qualified clinical reviewers
+stops on 15 pending decisions, as intended. One qualified clinical reviewer
 must record decisions and sign off on the final content version before M3 can
 be marked complete. Technical validation does not substitute for that review.
 
 **Work**
 
-- Have qualified clinical reviewers check all ten feature labels, HPO mappings,
+- Have the qualified clinical reviewer check all ten feature labels, HPO mappings,
   question wording, answer semantics, help text, and disease-context language.
 - Record reviewer, date, source version, decisions, and any wording changes.
   Rebuild the manifest and inspect the resulting questionnaire and FHIR mappings.
 - State clearly what the ten-feature set does and does not cover. Do not turn
   Orphadata frequency labels into scores or probabilities.
 
-**Exit checks:** The reviewed content and source provenance are versioned; reviewers
-sign off on the questionnaire and limitations; content, FHIR, and browser checks pass.
+**Exit checks:** The reviewed content and source provenance are versioned; the clinical
+reviewer signs off on the questionnaire and limitations; content, FHIR, and browser checks pass.
 Any added feature has a documented source and clinical meaning.
 
 ## M4 — Assessment review and FHIR handoff
@@ -192,7 +193,7 @@ documented limitations, and approval of the exact user-facing result language.
 | --- | --- | --- |
 | CI workflow and clean-checkout setup | M1 | Atlas is in the workspace repository; CI remains to be added |
 | Ruleblock source display and navigation | M2 | Delivered read-only for selected collection, with versioned static source and input links |
-| Named clinical reviewers and review process | M3 | Review required before clinical use |
+| Named clinical reviewer and review process | M3 | User is the clinical reviewer; name, qualification, decisions, and sign-off pending in review record |
 | Completion summary and FHIR download behavior | M4 | Proposed; no results today |
 | Hosting, DNS, and pilot access | M5 | No deployment authorized by this roadmap |
 | Whether to provide clinical evaluation | M6 | Undecided; no score or diagnosis today |
