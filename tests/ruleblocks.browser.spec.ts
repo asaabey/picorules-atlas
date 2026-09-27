@@ -11,13 +11,14 @@ test('static viewer preserves both authored IKD sources and question declaration
 
   for (const ruleId of ['ikd_fabry', 'ikd_tuberous_sclerosis']) {
     const card = page.locator('article.ruleblock-card').filter({ has: page.locator(`#rule-title-${ruleId}`) });
-    const committed = readFileSync(resolve(process.cwd(), `content/collections/ikd/rules/${ruleId}.prb`), 'utf8');
+    const committedBytes = readFileSync(resolve(process.cwd(), `content/collections/ikd/rules/${ruleId}.prb`));
+    const committed = committedBytes.toString('utf8');
     await expect(card.locator('pre.rule-source')).toHaveText(committed);
     const href = await card.getByRole('link', { name: /Open exact .prb source/ }).getAttribute('href');
     expect(href).toMatch(new RegExp(`^/generated/ruleblocks/ikd/${ruleId}-[a-f0-9]{16}\\.prb$`));
     const response = await request.get(new URL(href!, page.url()).toString());
     expect(response.ok()).toBe(true);
-    expect(await response.text()).toBe(committed);
+    expect(await response.body()).toEqual(committedBytes);
   }
 
   for (const question of await page.locator('article.question-card').all()) {
@@ -47,6 +48,7 @@ test('keyboard and mobile users can reach the input declaration', async ({ page 
   const target = await link.getAttribute('href');
   await expect(page).toHaveURL(new RegExp(`${target}$`));
   await expect(page.locator(target!)).toBeInViewport();
+  await expect(page.locator(target!)).toBeFocused();
   await expect(page.locator(target!)).toContainText('#define_attribute(proteinuria,');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });

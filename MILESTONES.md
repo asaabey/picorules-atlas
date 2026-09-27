@@ -10,8 +10,8 @@ not features of the current app. No target dates are assigned.
 | --- | --- | --- |
 | M0 | Ten-question IKD scaffold | Verified locally |
 | M1 | Reproducible project baseline | Complete |
-| M2 | Read-only Picorules ruleblock viewer | In progress |
-| M3 | Clinically reviewed IKD content | Planned |
+| M2 | Read-only Picorules ruleblock viewer | Complete |
+| M3 | Clinically reviewed IKD content | Next |
 | M4 | Assessment review and FHIR handoff | Planned |
 | M5 | Questionnaire pilot on HTTPS | Planned |
 | M6 | Validated clinical evaluation, if pursued | Decision gate |
@@ -73,7 +73,16 @@ the project has a tracked change history. This milestone does not deploy the sit
 | --- | --- | --- |
 | Publish exact authored source in the static build | Done locally | Versioned `.prb` assets, manifest source text, input line locations; source-fidelity and synthetic isolation tests passed |
 | Add selected-collection viewer and input links | Done locally | Five static browser tests passed, including keyboard and 390px mobile navigation; rendered source matches authored files |
-| Validate and close M2 | In progress | Final gate and review pending |
+| Validate and close M2 | Done locally | `content:check`, `typecheck`, 17 unit tests, static build, and 5 static browser tests passed on 27 September 2026 |
+
+All M2 exit checks passed locally on 27 September 2026. Both IKD ruleblocks are
+served as versioned static `.prb` assets and displayed byte-for-byte as their
+committed UTF-8 text. Every question association links to its authored
+`#define_attribute` input declaration. Synthetic fixtures verify collection
+isolation and shared-feature links. Browser checks verify all ten links, source
+fidelity, keyboard activation and focus, and a 390px mobile layout. The viewer
+states that these ruleblocks declare features and contain no diagnostic logic.
+This completion does not represent clinical review or deployment.
 
 The current app shows disease context beside each question, but it does not show
 the authored `.prb` ruleblock. Its static manifest contains executable input
@@ -165,7 +174,7 @@ documented limitations, and approval of the exact user-facing result language.
 | Decision | Needed for | Current assumption |
 | --- | --- | --- |
 | CI workflow and clean-checkout setup | M1 | Atlas is in the workspace repository; CI remains to be added |
-| Ruleblock source display and navigation | M2 | Read-only, selected collection only |
+| Ruleblock source display and navigation | M2 | Delivered read-only for selected collection, with versioned static source and input links |
 | Named clinical reviewers and review process | M3 | Review required before clinical use |
 | Completion summary and FHIR download behavior | M4 | Proposed; no results today |
 | Hosting, DNS, and pilot access | M5 | No deployment authorized by this roadmap |
