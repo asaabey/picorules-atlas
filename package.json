@@ -8,6 +8,7 @@
     "dev": "npm run content:build && next dev",
     "build": "npm run content:build && next build",
     "start:static": "serve out",
+    "preview:lan": "serve out -l tcp://0.0.0.0:3000",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:browser": "playwright test"

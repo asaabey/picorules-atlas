@@ -6,16 +6,25 @@ Development status and next steps are tracked in [MILESTONES.md](MILESTONES.md).
 
 ## Run locally
 
-Requirements: Node.js 20.9 or newer and npm. The application depends on the adjacent `picorules-compiler-js-core/` package in this workspace. Build that package before installing Atlas:
+Requirements: Node.js 20.9 or newer and npm. Node.js 24 is used for CI. The application
+depends on an adjacent `picorules-compiler-js-core/` checkout. From a clean checkout
+of this workspace repository, run these commands at the workspace root:
 
 ```bash
-cd ../picorules-compiler-js-core
-npm install
+git clone https://github.com/asaabey/picorules-compiler-js-core.git picorules-compiler-js-core
+git -C picorules-compiler-js-core checkout "$(cat picorules-atlas/CORE_COMPILER_SHA)"
+cd picorules-compiler-js-core
+npm ci
 npm run build
 cd ../picorules-atlas
 npm ci
 npm run dev
 ```
+
+The pinned compiler commit is recorded in `CORE_COMPILER_SHA`. Update it only after
+checking Atlas against the new compiler revision. If the adjacent compiler checkout
+already exists, verify its revision with `git -C ../picorules-compiler-js-core rev-parse HEAD`
+before building it.
 
 Open `http://localhost:3000`. All answers stay in the current browser page's memory and disappear on reload. The planned address is `atlas.picorules.com`; deployment and DNS are outside this project.
 
@@ -29,11 +38,17 @@ npm run content:check   # validate content and check generated output is current
 npm run typecheck
 npm test
 npm run build           # regenerate content and export static files to out/
+npm run preview:lan     # serve out/ on 0.0.0.0:3000 for LAN checks
 npx playwright install chromium
 npm run test:browser    # Playwright desktop and mobile interaction checks
 ```
 
-`npm run build` uses Next.js static export. The resulting `out/` directory can be served by any static file host. For a local preview, run `npm run start:static`. There is no application API, database, account service, or runtime compilation endpoint.
+`npm run build` uses Next.js static export. The resulting `out/` directory can be
+served by any static file host. For a localhost preview, run `npm run start:static`;
+for access from another device on the same network, run `npm run preview:lan` and
+open `http://<this-machine's-LAN-IP>:3000`. The preview command binds to all IPv4
+interfaces; access from another device also depends on the host firewall and network.
+There is no application API, database, account service, or runtime compilation endpoint.
 
 The FHIR schema test uses the official [FHIR R4 JSON Schema](https://hl7.org/fhir/R4/fhir.schema.json), copied to `tests/fixtures/fhir-r4.schema.json` for reproducible offline tests (retrieved 2026-09-27). Browser screenshots are written under `test-results/`; reviewed reference captures are in `screenshots/`.
 

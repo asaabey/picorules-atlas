@@ -37,6 +37,15 @@ Atlas was added to the workspace Git repository in commit `cc2ce19`.
 
 ## M1 — Reproducible project baseline (in progress)
 
+**Progress record**
+
+| Step | Status | Evidence |
+| --- | --- | --- |
+| Track Atlas in Git | Done | Commit `cc2ce19` |
+| Pin compiler and document clean setup | Implemented; clean-checkout check pending | `CORE_COMPILER_SHA`, README |
+| Add automated validation | Pending | CI workflow and first run needed |
+| Check static LAN preview and answer privacy | Pending | Browser and network checks needed |
+
 **Work**
 
 - Document how Atlas and its adjacent `picorules-compiler-js-core` dependency are
