@@ -15,7 +15,8 @@ dates are assigned.
 | M3 | IKD content accepted for prototype | Complete for proof of concept; accuracy review deferred |
 | M4 | Assessment review and FHIR handoff | Complete for local proof of concept |
 | M5 | Rule results and possible-diagnosis handoff | Complete locally |
-| M6 | Hosted demonstration | Planned |
+| M6 | Single-action results on the assessment page | In progress |
+| M7 | Hosted demonstration | Deferred at user request |
 
 ## End-to-end proof of concept (complete locally)
 
@@ -216,7 +217,18 @@ of answer-bearing requests or browser storage writes. M5 is complete locally.
 results, the full bundle validates against the official FHIR R4 JSON Schema,
 collection isolation holds, and browser tests cover both candidate branches.
 
-## M6 — Hosted demonstration
+## M6 — Single-action results on the assessment page
+
+The reviewer found the separate review and result pages added unnecessary
+clicks. Replace them with one action at the end of the questionnaire that runs
+the selected rules and displays scores, possible diagnoses, and FHIR download
+on the same page. Keep answer editing available in place and never show a stale
+result after an answer changes. Verify keyboard focus, mobile layout, and the
+downloaded handoff against the displayed results.
+
+## M7 — Hosted demonstration
+
+Deployment is on hold while the application interface is improved.
 
 **Work**
 
@@ -254,5 +266,5 @@ documented limitations, and approval of the exact user-facing result language.
 | Ruleblock source display and navigation | M2 | Delivered read-only for selected collection, with versioned static source and input links |
 | Prototype content and workflow | M3 | User is the clinical reviewer and signed off for proof of concept; detailed accuracy decisions remain pending for clinical release |
 | Completion summary and FHIR download behavior | M4 | Implemented and accepted by the clinical reviewer in the local proof of concept |
-| Hosting, DNS, and pilot access | M6 | No deployment authorized by this roadmap |
+| Hosting, DNS, and pilot access | M7 | On hold at the user's request while the application is improved |
 | Clinical accuracy claim | Later clinical validation | No clinical claim; current score and possible diagnosis are demonstration outputs |
