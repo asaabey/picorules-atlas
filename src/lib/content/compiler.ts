@@ -15,6 +15,8 @@ export interface CollectionDefinition {
   title: string;
   description: string;
   version: string;
+  limitations: string;
+  associationContext: string;
   sections: AtlasSection[];
   rules: string[];
 }
@@ -132,7 +134,7 @@ export function compileCollection(
 ): CollectionManifest {
   validateSources(sources);
   if (definition.schemaVersion !== '1') throw new Error('collection.json: unsupported schemaVersion');
-  for (const key of ['id', 'title', 'description', 'version'] as const) {
+  for (const key of ['id', 'title', 'description', 'version', 'limitations', 'associationContext'] as const) {
     if (!definition[key]) throw new Error(`collection.json: missing ${key}`);
   }
   if (!Array.isArray(definition.sections) || !definition.sections.length) {
@@ -266,7 +268,10 @@ export function compileCollection(
   }
   return {
     schemaVersion: '1', id: definition.id, title: definition.title,
-    description: definition.description, version: definition.version, contentVersion,
+    description: definition.description, version: definition.version,
+    limitations: string(definition.limitations, 'collection.json', 1, 'limitations'),
+    associationContext: string(definition.associationContext, 'collection.json', 1, 'associationContext'),
+    contentVersion,
     sections: definition.sections,
     questions: [...questions.values()].sort((a, b) =>
       sectionIds.indexOf(a.section) - sectionIds.indexOf(b.section) || a.label.localeCompare(b.label)),

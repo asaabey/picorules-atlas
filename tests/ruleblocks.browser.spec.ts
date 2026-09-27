@@ -56,7 +56,7 @@ test('keyboard and mobile users can reach the input declaration', async ({ page 
 test('candidate limitations and source provenance are visible to reviewers', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Open assessment' }).click();
-  await expect(page.getByText(/not a complete screening instrument or diagnostic criteria/)).toBeVisible();
+  await expect(page.getByText(/do not form a complete inherited kidney disease screening instrument or diagnostic criteria/)).toBeVisible();
   await expect(page.getByText(/an absent finding does not exclude it/)).toBeVisible();
   const provenance = page.locator('details.source-provenance');
   await provenance.locator('summary').focus();

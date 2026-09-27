@@ -6,7 +6,7 @@ candidate content for review. Its presence does not approve the questionnaire.
 ## What to review
 
 Open the static Atlas assessment and [candidate content packet](CANDIDATE-CONTENT.md)
-for content version `83cc02f489586a56`. Check each of the ten features against the
+for the content version named in the packet. Check each of the ten features against the
 authored ruleblock and its sources. For every feature, decide whether the short
 label, HPO code and meaning, question, help text, section, answer control, and
 disease association are suitable. Check the shared answer semantics, disease
@@ -63,6 +63,9 @@ completed review record still match the manifest. It does not signify approval.
   cover the full disease spectrum or quantify proteinuria.
 - Orphadata frequency categories are preserved only as source context in the
   evidence snapshot. They are not scores, calibrated probabilities, or weights.
-  Differences between source frequency descriptions need reviewer interpretation.
+  In particular, the local Orphadata row calls TSC renal angiomyolipoma
+  “Occasional (29-5%),” while the [GeneReviews TSC clinical-features table](https://www.ncbi.nlm.nih.gov/books/NBK1220/)
+  gives 70%. The discrepancy needs reviewer interpretation; Atlas displays
+  neither frequency to assessment users.
 - No patient answers are persisted or sent to a service. The FHIR bundle is
   transient and has no disease Condition resource or diagnostic conclusion.

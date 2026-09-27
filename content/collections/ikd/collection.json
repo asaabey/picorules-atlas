@@ -4,6 +4,8 @@
   "title": "Inherited kidney disease",
   "description": "Structured history and findings for an inherited kidney disease assessment.",
   "version": "0.1.0",
+  "limitations": "These ten candidate features do not form a complete inherited kidney disease screening instrument or diagnostic criteria. A finding does not establish a disease, and an absent finding does not exclude it.",
+  "associationContext": "This is background context; an answer here does not establish or exclude a diagnosis.",
   "sections": [
     { "id": "kidney", "label": "Kidney" },
     { "id": "skin_sweating", "label": "Skin and sweating" },

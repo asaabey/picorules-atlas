@@ -51,6 +51,8 @@ export interface CollectionManifest {
   title: string;
   description: string;
   version: string;
+  limitations: string;
+  associationContext: string;
   contentVersion: string;
   sections: AtlasSection[];
   questions: AtlasQuestion[];

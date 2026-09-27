@@ -109,17 +109,20 @@ for (const [index, question] of manifest.questions.entries()) {
   lines.push(`- HPO: ${question.hpoId}; EADV input: \`${question.sourceAttribute}\`.`);
   lines.push(`- Question: ${question.question}`);
   lines.push(`- Help: ${question.help ?? '(none)'}`);
+  lines.push(`- Feature source IDs: ${question.sourceRefs.join(', ')}.`);
   for (const disease of question.diseases) {
     const row = evidenceByKey.get(`${disease.ruleId}/${question.featureId}`)!;
     lines.push(`- Association: ${disease.label} (${disease.diseaseId}); rule \`${disease.ruleId}\` v${disease.version}, input declaration line ${disease.inputLine}.`);
     lines.push(`- Orphadata row: ${row.hpoId} “${row.hpoLabel}”, source date ${row.sourceDate}; frequency category “${row.frequency}” is provenance context only, never a score or patient probability.`);
-    lines.push(`- Source IDs: ${disease.sourceRefs.join(', ')}.`);
+    lines.push(`- Disease source IDs: ${disease.sourceRefs.join(', ')}.`);
   }
   lines.push('');
 }
 
 lines.push(
   '## Shared review decisions', '',
+  `- Assessment limitations shown in Atlas: ${manifest.limitations}`,
+  `- Disease association context shown in Atlas: ${manifest.associationContext}`,
   '- Answer semantics: present and absent are explicit findings; unknown / not assessed is explicit; unanswered remains distinct and optional.',
   '- FHIR mapping: present/absent become boolean Observations; unknown has dataAbsentReason; unanswered produces no Observation. Check displayed wording against these states.',
   '- Disease context: an association is background information and cannot establish or exclude disease.',

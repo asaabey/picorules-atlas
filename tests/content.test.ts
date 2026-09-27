@@ -24,7 +24,11 @@ proteinuria => eadv.phen_proteinuria.val.last();
 }
 
 function definition(id: string, rules: string[]): CollectionDefinition {
-  return { schemaVersion: '1', id, title: id, description: 'Fixture', version: '1', sections, rules };
+  return {
+    schemaVersion: '1', id, title: id, description: 'Fixture', version: '1',
+    limitations: 'Candidate content only.', associationContext: 'Background context only.',
+    sections, rules,
+  };
 }
 
 describe('Atlas content compilation', () => {
@@ -52,6 +56,14 @@ describe('Atlas content compilation', () => {
     const text = fixture('disease_a', '<strong>Has this been found?</strong>');
     expect(() => compileCollection(definition('one', ['rules/disease_a.prb']),
       [{ path: 'rules/disease_a.prb', text }], sources)).toThrow(/plain text without HTML/);
+  });
+
+  it('keeps collection limitations in the manifest and rejects markup in clinical context', () => {
+    const candidate = definition('one', ['rules/disease_a.prb']);
+    const rules = [{ path: 'rules/disease_a.prb', text: fixture('disease_a') }];
+    expect(compileCollection(candidate, rules, sources).limitations).toBe('Candidate content only.');
+    candidate.associationContext = '<script>unsafe</script>';
+    expect(() => compileCollection(candidate, rules, sources)).toThrow(/plain text without HTML/);
   });
 
   it('deduplicates a shared feature and preserves both disease associations', () => {

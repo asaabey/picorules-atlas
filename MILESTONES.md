@@ -112,10 +112,18 @@ diagnostic algorithm.
 
 | Step | Status | Evidence |
 | --- | --- | --- |
-| Prepare versioned review materials and source crosswalk | Done locally | Ten-row Orphadata evidence snapshot, content-versioned packet, pending decision record; `review:check`, typecheck, and 19 unit tests passed |
+| Prepare versioned review materials and source crosswalk | Done locally | Ten-row Orphadata evidence snapshot, content-versioned packet, pending decision record; `review:check` passed |
 | Show candidate limits and source provenance in Atlas | Done locally | Static build and six browser tests passed; assessment explains incomplete coverage and the viewer exposes release, attribution, and license details |
+| Version clinical context wording with collection content | Done locally | Limitations and disease-context text now enter the content hash; version `442bae27603451e8`; 20 unit tests and six static browser tests passed |
 | Review all ten features and global wording | Awaiting qualified reviewers | Reviewer identities and decisions pending |
 | Apply decisions, rebuild, inspect FHIR, and validate | Partly done | Real IKD FHIR mapping tests pass; final content and sign-off require reviewer decisions |
+
+The [M3 review packet](reviews/ikd/README.md) contains the exact candidate wording,
+ten source pairings, source provenance, answer semantics, and points requiring
+clinical judgment. Its integrity check passes. `npm run review:gate` currently
+stops on 15 pending decisions, as intended. Two qualified clinical reviewers
+must record decisions and sign off on the final content version before M3 can
+be marked complete. Technical validation does not substitute for that review.
 
 **Work**
 

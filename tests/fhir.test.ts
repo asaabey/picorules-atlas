@@ -17,6 +17,8 @@ const manifest: CollectionManifest = {
   title: 'Synthetic features',
   description: 'Fixture for FHIR behavior',
   version: '0.1.0',
+  limitations: 'Candidate content only.',
+  associationContext: 'Background context only.',
   contentVersion: 'sha256-fixture',
   sections: [{ id: 'kidney', label: 'Kidney' }],
   questions: ['present', 'absent', 'unknown', 'unanswered'].map((featureId, index) => ({

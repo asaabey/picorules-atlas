@@ -8,6 +8,7 @@ describe('read-only ruleblock source', () => {
     const source = '/* <script>alert("unsafe")</script> */\nfeature => eadv.phen_feature.val.last();\n';
     const manifest: CollectionManifest = {
       schemaVersion: '1', id: 'one', title: 'One', description: 'Fixture', version: '1',
+      limitations: 'Candidate content only.', associationContext: 'Background context only.',
       contentVersion: 'content-one', sections: [], questions: [], sources: {},
       rules: [{
         id: 'disease_one', source: 'feature => eadv.phen_feature.val.last();',

@@ -164,7 +164,7 @@ function DiseaseContext({
         <span className="context-chevron" aria-hidden="true">⌄</span>
       </summary>
       <div className="context-body">
-        <p><strong>{question.label}</strong> is a feature associated with {disease.label}. This is background context; an answer here does not establish or exclude a diagnosis.</p>
+        <p><strong>{question.label}</strong> is a feature associated with {disease.label}. {collection.associationContext}</p>
         {question.help && <p>{question.help}</p>}
         <a className="input-source-link" href={`#${sourceLineId(disease.ruleId, disease.inputLine)}`}>
           View the {question.featureId} input declaration in {disease.ruleId}
@@ -399,7 +399,7 @@ function Assessment({
               <span className="banner-icon" aria-hidden="true">i</span>
               <div>
                 <strong>Context, not a conclusion</strong>
-                <p>These {collection.questions.length} candidate features are not a complete screening instrument or diagnostic criteria. An associated finding does not establish a disease, and an absent finding does not exclude it.</p>
+                <p>{collection.limitations}</p>
               </div>
             </div>
             <div className="included-diseases" aria-label="Included diseases">
