@@ -112,9 +112,9 @@ diagnostic algorithm.
 
 | Step | Status | Evidence |
 | --- | --- | --- |
-| Prepare versioned review materials and source crosswalk | In progress | Pending review packet and provenance checks |
+| Prepare versioned review materials and source crosswalk | Done locally | Ten-row Orphadata evidence snapshot, content-versioned packet, pending decision record; `review:check`, typecheck, and 19 unit tests passed |
 | Review all ten features and global wording | Awaiting qualified reviewers | Reviewer identities and decisions pending |
-| Apply decisions, rebuild, inspect FHIR, and validate | Pending review decisions | Final content and sign-off required |
+| Apply decisions, rebuild, inspect FHIR, and validate | Partly done | Real IKD FHIR mapping tests pass; final content and sign-off require reviewer decisions |
 
 **Work**
 

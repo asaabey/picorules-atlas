@@ -5,6 +5,9 @@
   "scripts": {
     "content:build": "tsx scripts/build-content.ts",
     "content:check": "tsx scripts/build-content.ts --check",
+    "review:build": "tsx scripts/clinical-review.ts",
+    "review:check": "tsx scripts/clinical-review.ts --check",
+    "review:gate": "tsx scripts/clinical-review.ts --gate",
     "dev": "npm run content:build && next dev",
     "build": "npm run content:build && next build",
     "start:static": "serve out",

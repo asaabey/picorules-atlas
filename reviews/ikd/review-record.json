@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1",
+  "collectionId": "ikd",
+  "contentVersion": "83cc02f489586a56",
+  "featureReviews": {
+    "proteinuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_angiomyolipoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "angiofibromas": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "angiokeratoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypomelanotic_macule": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypohidrosis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "shagreen_patch": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "cornea_verticillata": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "acroparesthesia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "seizure": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    }
+  },
+  "globalReviews": {
+    "answerSemantics": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": ""
+    },
+    "diseaseContext": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": ""
+    },
+    "limitations": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": ""
+    },
+    "sourceProvenance": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": ""
+    },
+    "fhirMapping": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": ""
+    }
+  },
+  "signOffs": []
+}
