@@ -60,6 +60,24 @@ describe('FHIR rule-result handoff', () => {
     expect(impression.summary).toContain('does not exclude');
   });
 
+  it('includes results only from the selected collection', () => {
+    const selected: CollectionManifest = {
+      ...manifest, id: 'fabry-only', rules: manifest.rules.filter(rule => rule.id === 'ikd_fabry'),
+      questions: manifest.questions.filter(question =>
+        question.diseases.some(disease => disease.ruleId === 'ikd_fabry')),
+    };
+    const answers = createAnswers(selected);
+    answers.proteinuria = 'present';
+    answers.angiokeratoma = 'present';
+    const assessment = buildAssessmentBundle(selected, answers, sessionId, date);
+    const { bundle, results } = buildHandoffBundle(selected, assessment);
+    const { scores, impression } = output(bundle);
+    expect(results.map(result => result.ruleId)).toEqual(['ikd_fabry']);
+    expect(scores.map(score => score.identifier[0].value)).toEqual(['ikd_fabry']);
+    expect(impression.finding.map(finding => finding.itemCodeableConcept.text)).toEqual(['Fabry disease']);
+    expect(JSON.stringify(bundle)).not.toContain('ikd_tuberous_sclerosis');
+  });
+
   it('validates the full handoff against the official FHIR R4 JSON Schema', () => {
     const { bundle } = handoff(['proteinuria', 'angiokeratoma']);
     const ajv = new Ajv({ schemaId: 'id', allErrors: true, validateSchema: false, meta: false });

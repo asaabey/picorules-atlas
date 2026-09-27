@@ -1,7 +1,9 @@
 # IKD clinical content review (M3)
 
-**Status: awaiting clinical review decisions.** This folder prepares the current
-candidate content for review. Its presence does not approve the questionnaire.
+**Status: accepted for proof of concept; detailed accuracy review pending.** The
+clinical reviewer accepted the current questions and workflow for application
+development in [prototype sign-off](PROTOTYPE-SIGNOFF.md). The decision record
+below remains pending for any later clinical release claim.
 
 ## Current calculation boundary
 
@@ -11,11 +13,11 @@ present. The browser runs these authored rules against the transient FHIR bundle
 and shows the count and contributing findings. The threshold is an invented
 demonstration rule, not a disease criterion, calibrated score, or probability.
 The next action is authored workflow text for reviewing findings or clarifying
-missing answers; it does not advise tests or treatment. This M3 packet asks for
-review of the questionnaire content and its limitations. The
-[M6 decision gate](../../MILESTONES.md#m6--validated-clinical-evaluation-decision-gate)
-covers any future conclusions or recommendations, including a clinician-authored
-logic specification, missing-data behavior, test cases, and validation before use.
+missing answers; it does not advise tests or treatment. Atlas displays the count
+as a per-rule demonstration score and hands over raised diseases as possible
+diagnoses for review in a FHIR ClinicalImpression. The
+[later clinical validation](../../MILESTONES.md#later-clinical-validation-and-release-decision)
+covers accuracy and clinical use of this output.
 
 ## What to review
 
@@ -59,7 +61,8 @@ them in JSON. No endorsement is implied.
    and its limitations. `npm run review:gate` checks that all decisions and the sign-off
    refer to the current content. It cannot verify professional qualifications.
 4. Run `npm run content:check`, `npm run review:check`, `npm run typecheck`,
-   `npm test`, `npm run build`, and the static browser suite before closing M3.
+   `npm test`, `npm run build`, and the static browser suite before any clinical
+   release decision. Prototype acceptance is recorded separately.
 
 `npm run review:check` verifies that the packet, source crosswalk, and pending or
 completed review record still match the manifest. It does not signify approval.
@@ -82,4 +85,5 @@ completed review record still match the manifest. It does not signify approval.
   gives 70%. The discrepancy needs reviewer interpretation; Atlas displays
   neither frequency to assessment users.
 - No patient answers are persisted or sent to a service. The FHIR bundle is
-  transient and has no disease Condition resource or diagnostic conclusion.
+  transient and has no confirmed disease Condition. Its in-progress
+  ClinicalImpression holds possible diagnoses for review only.

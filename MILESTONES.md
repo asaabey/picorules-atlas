@@ -14,8 +14,8 @@ dates are assigned.
 | M2 | Read-only Picorules ruleblock viewer | Complete |
 | M3 | IKD content accepted for prototype | Complete for proof of concept; accuracy review deferred |
 | M4 | Assessment review and FHIR handoff | Complete for local proof of concept |
-| M5 | Rule results and possible-diagnosis handoff | In progress |
-| M6 | Hosted demonstration and later clinical validation | Planned |
+| M5 | Rule results and possible-diagnosis handoff | Complete locally |
+| M6 | Hosted demonstration | Planned |
 
 ## End-to-end proof of concept (complete locally)
 
@@ -132,7 +132,7 @@ tests verify isolation; browser tests cover keyboard and mobile access. Explain 
 the viewer that these first ruleblocks declare features and do not contain a
 diagnostic algorithm.
 
-## M3 — Clinically reviewed IKD content
+## M3 — IKD content accepted for prototype
 
 **Prototype decision:** The clinical reviewer accepted the current questions and
 workflow for building the end-to-end application on 27 September 2026. See
@@ -148,16 +148,16 @@ accuracy and release decision; it does not block application development.
 | Show candidate limits and source provenance in Atlas | Done locally | Static build and six browser tests passed; assessment explains incomplete coverage and the viewer exposes release, attribution, and license details |
 | Version clinical context wording with collection content | Done locally | Limitations and disease-context text now enter the content hash; version `442bae27603451e8`; 20 unit tests and six static browser tests passed |
 | Set clinical review sign-off count | Done locally | User confirmed one clinical reviewer is sufficient; gate accepts one sign-off and still requires all decisions and matching content version; 23 unit tests passed |
-| Clarify conclusion and recommendation scope | Local proof of concept delivered | Reviewer asked how conclusions and recommendations are computed. The new rules count present findings and emit an illustrative review prompt; clinical conclusions remain an M6 decision. |
-| Review all ten features and global wording | Awaiting clinical reviewer decisions | User identified themself as the clinical reviewer; recorded decisions and sign-off pending |
-| Apply decisions, rebuild, inspect FHIR, and validate | Partly done | Real IKD FHIR mapping tests pass; final content and sign-off require reviewer decisions |
+| Clarify conclusion and recommendation scope | Local proof of concept delivered | Reviewer asked how conclusions and recommendations are computed. The new rules count present findings and emit an illustrative review prompt; clinical accuracy remains a later release decision. |
+| Accept ten questions and workflow for prototype | Done | Reviewer tested the app, accepted the current questions for the proof of concept, and signed off on application-first development |
+| Detailed clinical accuracy review | Deferred | The existing 15-decision record stays pending for a later clinical release decision |
 
 The [M3 review packet](reviews/ikd/README.md) contains the exact candidate wording,
 ten source pairings, source provenance, answer semantics, and points requiring
 clinical judgment. Its integrity check passes. `npm run review:gate` currently
-stops on 15 pending decisions, as intended. One qualified clinical reviewer
-must record decisions and sign off on the final content version before M3 can
-be marked complete. Technical validation does not substitute for that review.
+stops on 15 pending decisions, as intended for later clinical validation.
+Prototype acceptance is recorded separately and is sufficient to continue
+application development. Technical validation does not establish clinical accuracy.
 
 **Work**
 
@@ -168,9 +168,9 @@ be marked complete. Technical validation does not substitute for that review.
 - State clearly what the ten-feature set does and does not cover. Do not turn
   Orphadata frequency labels into scores or probabilities.
 
-**Exit checks:** The reviewed content and source provenance are versioned; the clinical
-reviewer signs off on the questionnaire and limitations; content, FHIR, and browser checks pass.
-Any added feature has a documented source and clinical meaning.
+**Prototype exit checks:** The source and content version are recorded; the
+clinical reviewer accepted the prototype workflow and questions in principle;
+content, FHIR, and browser checks pass. Detailed accuracy review remains open.
 
 ## M4 — Assessment review and FHIR handoff
 
@@ -193,10 +193,30 @@ confirms the flow, not clinical validity of the questions or rule threshold.
 
 **Exit checks:** A completed assessment has a clear, accessible review path; the
 exported bundle matches the displayed answers and validates; reload still clears
-the assessment; there is no disease ranking or diagnostic conclusion. Confirm the
-review and export behavior with users before marking M4 complete.
+the assessment. The M4 review/export flow was accepted before M5 added possible
+diagnoses for prototype review.
 
-## M5 — Questionnaire pilot on HTTPS
+## M5 — Rule results and possible-diagnosis handoff
+
+Each selected rule set now contributes a present-feature score and its threshold
+decision. The result screen displays the score, contributing findings, source
+rule, and a possible diagnosis for review when the prompt fires. The FHIR R4
+download includes a score Observation for every selected rule and a
+ClinicalImpression with the raised candidates, their basis, and workflow actions.
+It includes an anonymous Patient reference and no confirmed Condition. The
+result is still a demonstration: the count is not a calibrated clinical score.
+
+On 27 September 2026, `content:check`, `review:check`, `typecheck`, 30 unit
+tests, the static build, and eight browser tests passed. Tests cover both
+candidate branches, selected-collection isolation, score and source trace,
+FHIR R4 schema validity, download content, keyboard and mobile use, and absence
+of answer-bearing requests or browser storage writes. M5 is complete locally.
+
+**Exit checks:** The exported scores and candidates match the displayed rule
+results, the full bundle validates against the official FHIR R4 JSON Schema,
+collection isolation holds, and browser tests cover both candidate branches.
+
+## M6 — Hosted demonstration
 
 **Work**
 
@@ -209,21 +229,19 @@ review and export behavior with users before marking M4 complete.
   collect feedback without transmitting assessment answers to analytics or logs.
 
 **Exit checks:** Deployment and DNS are approved separately; the hosted app passes
-smoke checks; the clinical reviewer approves the pilot content and limitations; a
-feedback and issue triage process exists. The illustrative prompt remains a
-demonstration until M6 clinical validation is complete.
+smoke checks; the prototype limitations are visible; and a feedback and issue
+triage process exists. The score and possible diagnosis remain demonstration
+outputs until a separate clinical validation effort is completed.
 
-## M6 — Validated clinical evaluation (decision gate)
+## Later clinical validation and release decision
 
-Do not begin user-visible scoring or disease conclusions solely because ten answers
-have been recorded. First decide whether Atlas should evaluate rules at all and what
-clinical claim, if any, the output may make.
+The application can show an illustrative score and possible diagnosis for review
+without claiming clinical accuracy. Before clinical use, decide what claim the
+output may make and validate the exact rules and wording.
 
-If evaluation is approved, specify each disease rule and its source, expected
-behavior for missing and conflicting data, representative positive and negative
-cases, and independent clinical review. Implement and test the rules behind the
-existing runtime boundary. Expose results only after clinical validation and a
-separate release decision; retain the source/version trail for every output.
+For clinical release, review each disease rule and its source, expected behavior
+for missing and conflicting data, representative positive and negative cases,
+and clinical performance. Retain the source/version trail for every output.
 
 **Exit checks if pursued:** Signed clinical logic specification, reviewed test cases,
 documented limitations, and approval of the exact user-facing result language.
@@ -234,7 +252,7 @@ documented limitations, and approval of the exact user-facing result language.
 | --- | --- | --- |
 | CI workflow and clean-checkout setup | M1 | Atlas is in the workspace repository; CI remains to be added |
 | Ruleblock source display and navigation | M2 | Delivered read-only for selected collection, with versioned static source and input links |
-| Named clinical reviewer and review process | M3 | User is the clinical reviewer; name, qualification, decisions, and sign-off pending in review record |
+| Prototype content and workflow | M3 | User is the clinical reviewer and signed off for proof of concept; detailed accuracy decisions remain pending for clinical release |
 | Completion summary and FHIR download behavior | M4 | Implemented and accepted by the clinical reviewer in the local proof of concept |
-| Hosting, DNS, and pilot access | M5 | No deployment authorized by this roadmap |
-| Whether to provide clinical evaluation | M6 | Undecided; illustrative review prompt only, no clinical score or diagnosis |
+| Hosting, DNS, and pilot access | M6 | No deployment authorized by this roadmap |
+| Clinical accuracy claim | Later clinical validation | No clinical claim; current score and possible diagnosis are demonstration outputs |
