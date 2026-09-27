@@ -1,0 +1,324 @@
+{
+  "ikd": {
+    "schemaVersion": "1",
+    "id": "ikd",
+    "title": "Inherited kidney disease",
+    "description": "Structured history and findings for an inherited kidney disease assessment.",
+    "version": "0.1.0",
+    "contentVersion": "83cc02f489586a56",
+    "sections": [
+      {
+        "id": "kidney",
+        "label": "Kidney"
+      },
+      {
+        "id": "skin_sweating",
+        "label": "Skin and sweating"
+      },
+      {
+        "id": "eyes",
+        "label": "Eyes"
+      },
+      {
+        "id": "neurological_history",
+        "label": "Neurological history"
+      }
+    ],
+    "questions": [
+      {
+        "featureId": "proteinuria",
+        "sourceAttribute": "phen_proteinuria",
+        "label": "Proteinuria",
+        "question": "Has proteinuria been documented?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000093",
+        "help": "Records documented protein in the urine without applying a quantitative threshold.",
+        "sourceRefs": [
+          "genereviews_fabry",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_fabry",
+            "label": "Fabry disease",
+            "diseaseId": "ORPHA:324",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_fabry",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "renal_angiomyolipoma",
+        "sourceAttribute": "phen_renal_angiomyolipoma",
+        "label": "Renal angiomyolipoma",
+        "question": "Has a renal angiomyolipoma been documented on imaging?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0006772",
+        "help": "Records a documented kidney lesion, without applying a size or number threshold.",
+        "sourceRefs": [
+          "genereviews_tsc",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_tuberous_sclerosis",
+            "label": "Tuberous sclerosis complex",
+            "diseaseId": "ORPHA:805",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_tsc",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "angiofibromas",
+        "sourceAttribute": "phen_angiofibromas",
+        "label": "Angiofibromas",
+        "question": "Have angiofibromas been identified?",
+        "section": "skin_sweating",
+        "answerType": "presence",
+        "hpoId": "HP:0010615",
+        "help": "Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.",
+        "sourceRefs": [
+          "genereviews_tsc",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_tuberous_sclerosis",
+            "label": "Tuberous sclerosis complex",
+            "diseaseId": "ORPHA:805",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_tsc",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "angiokeratoma",
+        "sourceAttribute": "phen_angiokeratoma",
+        "label": "Angiokeratomas",
+        "question": "Have angiokeratomas been identified?",
+        "section": "skin_sweating",
+        "answerType": "presence",
+        "hpoId": "HP:0001014",
+        "help": "Records whether these vascular skin lesions have been identified.",
+        "sourceRefs": [
+          "genereviews_fabry",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_fabry",
+            "label": "Fabry disease",
+            "diseaseId": "ORPHA:324",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_fabry",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "hypomelanotic_macule",
+        "sourceAttribute": "phen_hypomelanotic_macule",
+        "label": "Hypomelanotic macules",
+        "question": "Have hypomelanotic macules been identified?",
+        "section": "skin_sweating",
+        "answerType": "presence",
+        "hpoId": "HP:0009719",
+        "help": "Records identified patches of skin with reduced pigmentation; no lesion count is applied.",
+        "sourceRefs": [
+          "genereviews_tsc",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_tuberous_sclerosis",
+            "label": "Tuberous sclerosis complex",
+            "diseaseId": "ORPHA:805",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_tsc",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "hypohidrosis",
+        "sourceAttribute": "phen_hypohidrosis",
+        "label": "Reduced sweating",
+        "question": "Does the patient report reduced sweating?",
+        "section": "skin_sweating",
+        "answerType": "presence",
+        "hpoId": "HP:0000966",
+        "help": "Records a history of sweating less than expected.",
+        "sourceRefs": [
+          "genereviews_fabry",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_fabry",
+            "label": "Fabry disease",
+            "diseaseId": "ORPHA:324",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_fabry",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "shagreen_patch",
+        "sourceAttribute": "phen_shagreen_patch",
+        "label": "Shagreen patch",
+        "question": "Has a shagreen patch been identified?",
+        "section": "skin_sweating",
+        "answerType": "presence",
+        "hpoId": "HP:0009721",
+        "help": "Records whether this skin finding has been identified.",
+        "sourceRefs": [
+          "genereviews_tsc",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_tuberous_sclerosis",
+            "label": "Tuberous sclerosis complex",
+            "diseaseId": "ORPHA:805",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_tsc",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "cornea_verticillata",
+        "sourceAttribute": "phen_cornea_verticillata",
+        "label": "Cornea verticillata",
+        "question": "Has cornea verticillata been documented on eye examination?",
+        "section": "eyes",
+        "answerType": "presence",
+        "hpoId": "HP:0500008",
+        "help": "Records a documented corneal finding; it does not ask the patient to identify it.",
+        "sourceRefs": [
+          "genereviews_fabry",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_fabry",
+            "label": "Fabry disease",
+            "diseaseId": "ORPHA:324",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_fabry",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "acroparesthesia",
+        "sourceAttribute": "phen_acroparesthesia",
+        "label": "Acroparaesthesia",
+        "question": "Has the patient experienced episodes of burning or tingling pain in the hands or feet?",
+        "section": "neurological_history",
+        "answerType": "presence",
+        "hpoId": "HP:0031006",
+        "help": "Episodes of pain or abnormal sensation in the extremities.",
+        "sourceRefs": [
+          "genereviews_fabry",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_fabry",
+            "label": "Fabry disease",
+            "diseaseId": "ORPHA:324",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_fabry",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      },
+      {
+        "featureId": "seizure",
+        "sourceAttribute": "phen_seizure",
+        "label": "Seizures",
+        "question": "Is there a history of seizures?",
+        "section": "neurological_history",
+        "answerType": "presence",
+        "hpoId": "HP:0001250",
+        "help": "Records a history of seizures without implying when they occurred.",
+        "sourceRefs": [
+          "genereviews_tsc",
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_tuberous_sclerosis",
+            "label": "Tuberous sclerosis complex",
+            "diseaseId": "ORPHA:805",
+            "version": "0.1.0",
+            "sourceRefs": [
+              "genereviews_tsc",
+              "orphadata_2026_06"
+            ]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "id": "ikd_fabry",
+        "source": "acroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();"
+      },
+      {
+        "id": "ikd_tuberous_sclerosis",
+        "source": "hypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();"
+      }
+    ],
+    "sources": {
+      "orphadata_2026_06": {
+        "title": "Orphadata Science: Phenotypes Associated with Rare Disorders, English phenotype XML",
+        "url": "https://sciences.orphadata.com/phenotypes/",
+        "release": "July 2026 knowledge-base release; source XML generated 2026-06-23",
+        "accessed": "2026-09-26",
+        "attribution": "Orphadata Science: Free access data from Orphanet. © INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected ten disease–phenotype associations and adapted the question wording. No endorsement implied.",
+        "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
+      },
+      "genereviews_fabry": {
+        "title": "GeneReviews: Fabry Disease",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1292/",
+        "release": "Revised 2024-04-11",
+        "accessed": "2026-09-27",
+        "attribution": "Mehta A, Hughes DA. Fabry Disease. GeneReviews, University of Washington, Seattle."
+      },
+      "genereviews_tsc": {
+        "title": "GeneReviews: Tuberous Sclerosis Complex",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/",
+        "release": "Updated 2024-08-01",
+        "accessed": "2026-09-27",
+        "attribution": "Northrup H, Koenig MK, Pearson DA, Au KS. Tuberous Sclerosis Complex. GeneReviews, University of Washington, Seattle."
+      }
+    }
+  }
+}

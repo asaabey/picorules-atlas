@@ -1,0 +1,93 @@
+/* Atlas IKD collection: five tuberous sclerosis complex-associated assessment features. */
+#define_ruleblock(ikd_tuberous_sclerosis, {
+    description: "Tuberous sclerosis complex assessment features",
+    is_active: 2,
+    atlas: {
+        schema_version: "1",
+        version: "0.1.0",
+        disease_label: "Tuberous sclerosis complex",
+        disease_id: "ORPHA:805",
+        source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    }
+});
+
+hypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();
+angiofibromas => eadv.phen_angiofibromas.val.last();
+shagreen_patch => eadv.phen_shagreen_patch.val.last();
+renal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();
+seizure => eadv.phen_seizure.val.last();
+
+#define_attribute(hypomelanotic_macule, {
+    label: "Hypomelanotic macules",
+    atlas: {
+        role: "input",
+        feature_id: "hypomelanotic_macule",
+        source_attribute: "phen_hypomelanotic_macule",
+        section: "skin_sweating",
+        question: "Have hypomelanotic macules been identified?",
+        answer_type: "presence",
+        hpo_id: "HP:0009719",
+        help: "Records identified patches of skin with reduced pigmentation; no lesion count is applied.",
+        source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(angiofibromas, {
+    label: "Angiofibromas",
+    atlas: {
+        role: "input",
+        feature_id: "angiofibromas",
+        source_attribute: "phen_angiofibromas",
+        section: "skin_sweating",
+        question: "Have angiofibromas been identified?",
+        answer_type: "presence",
+        hpo_id: "HP:0010615",
+        help: "Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.",
+        source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(shagreen_patch, {
+    label: "Shagreen patch",
+    atlas: {
+        role: "input",
+        feature_id: "shagreen_patch",
+        source_attribute: "phen_shagreen_patch",
+        section: "skin_sweating",
+        question: "Has a shagreen patch been identified?",
+        answer_type: "presence",
+        hpo_id: "HP:0009721",
+        help: "Records whether this skin finding has been identified.",
+        source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(renal_angiomyolipoma, {
+    label: "Renal angiomyolipoma",
+    atlas: {
+        role: "input",
+        feature_id: "renal_angiomyolipoma",
+        source_attribute: "phen_renal_angiomyolipoma",
+        section: "kidney",
+        question: "Has a renal angiomyolipoma been documented on imaging?",
+        answer_type: "presence",
+        hpo_id: "HP:0006772",
+        help: "Records a documented kidney lesion, without applying a size or number threshold.",
+        source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(seizure, {
+    label: "Seizures",
+    atlas: {
+        role: "input",
+        feature_id: "seizure",
+        source_attribute: "phen_seizure",
+        section: "neurological_history",
+        question: "Is there a history of seizures?",
+        answer_type: "presence",
+        hpo_id: "HP:0001250",
+        help: "Records a history of seizures without implying when they occurred.",
+        source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    }
+});

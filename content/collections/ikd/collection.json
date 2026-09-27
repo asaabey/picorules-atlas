@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1",
+  "id": "ikd",
+  "title": "Inherited kidney disease",
+  "description": "Structured history and findings for an inherited kidney disease assessment.",
+  "version": "0.1.0",
+  "sections": [
+    { "id": "kidney", "label": "Kidney" },
+    { "id": "skin_sweating", "label": "Skin and sweating" },
+    { "id": "eyes", "label": "Eyes" },
+    { "id": "neurological_history", "label": "Neurological history" }
+  ],
+  "rules": [
+    "rules/ikd_fabry.prb",
+    "rules/ikd_tuberous_sclerosis.prb"
+  ]
+}

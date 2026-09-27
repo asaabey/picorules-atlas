@@ -1,0 +1,24 @@
+{
+  "orphadata_2026_06": {
+    "title": "Orphadata Science: Phenotypes Associated with Rare Disorders, English phenotype XML",
+    "url": "https://sciences.orphadata.com/phenotypes/",
+    "release": "July 2026 knowledge-base release; source XML generated 2026-06-23",
+    "accessed": "2026-09-26",
+    "attribution": "Orphadata Science: Free access data from Orphanet. © INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected ten disease–phenotype associations and adapted the question wording. No endorsement implied.",
+    "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
+  },
+  "genereviews_fabry": {
+    "title": "GeneReviews: Fabry Disease",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1292/",
+    "release": "Revised 2024-04-11",
+    "accessed": "2026-09-27",
+    "attribution": "Mehta A, Hughes DA. Fabry Disease. GeneReviews, University of Washington, Seattle."
+  },
+  "genereviews_tsc": {
+    "title": "GeneReviews: Tuberous Sclerosis Complex",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/",
+    "release": "Updated 2024-08-01",
+    "accessed": "2026-09-27",
+    "attribution": "Northrup H, Koenig MK, Pearson DA, Au KS. Tuberous Sclerosis Complex. GeneReviews, University of Washington, Seattle."
+  }
+}
