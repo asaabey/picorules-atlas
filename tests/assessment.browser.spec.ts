@@ -136,11 +136,11 @@ test('review, authored rule output, and FHIR download follow recorded answers', 
   await expect(page.getByRole('heading', { name: 'Illustrative rule output' })).toBeFocused();
   const fabry = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Fabry disease' }) });
   const tsc = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Tuberous sclerosis complex' }) });
-  await expect(fabry).toContainText('Illustrative conclusion: review prompt triggered');
-  await expect(fabry).toContainText('2 of 5 linked findings marked present');
+  await expect(fabry).toContainText('Possible diagnosis for review: Fabry disease');
+  await expect(fabry).toContainText('Rule score: 2 / 5');
   await expect(fabry).toContainText('Proteinuria, Angiokeratomas');
-  await expect(tsc).toContainText('Illustrative conclusion: review prompt not triggered');
-  await expect(tsc).toContainText('0 of 5 linked findings marked present');
+  await expect(tsc).toContainText('No possible diagnosis raised by this rule');
+  await expect(tsc).toContainText('Rule score: 0 / 5');
   await expect(fabry.getByRole('link', { name: /Read exact authored ruleblock/ }))
     .toHaveAttribute('href', /ikd_fabry-.*\.prb$/);
 
@@ -152,10 +152,19 @@ test('review, authored rule output, and FHIR download follow recorded answers', 
   const bundle = JSON.parse(await fs.readFile(await download.path(), 'utf8'));
   expect(bundle.resourceType).toBe('Bundle');
   expect(bundle.entry.filter((entry: { resource: { resourceType: string } }) =>
-    entry.resource.resourceType === 'Observation')).toHaveLength(4);
+    entry.resource.resourceType === 'Observation')).toHaveLength(6);
   expect(bundle.entry.some((entry: { resource: { identifier?: { value: string }[]; valueBoolean?: boolean } }) =>
     entry.resource.identifier?.[0]?.value === 'proteinuria' && entry.resource.valueBoolean === true)).toBe(true);
-  expect(JSON.stringify(bundle)).not.toContain('present_feature_count');
+  const scores = bundle.entry.map((entry: { resource: unknown }) => entry.resource)
+    .filter((resource: { identifier?: { system: string }[] }) =>
+      resource.identifier?.[0]?.system === 'https://atlas.picorules.com/fhir/NamingSystem/rule-id');
+  expect(scores.map((score: { valueInteger: number }) => score.valueInteger)).toEqual([2, 0]);
+  const impression = bundle.entry.find((entry: { resource: { resourceType: string } }) =>
+    entry.resource.resourceType === 'ClinicalImpression')?.resource;
+  expect(impression.finding).toHaveLength(1);
+  expect(impression.finding[0].itemCodeableConcept.text).toBe('Fabry disease');
+  expect(bundle.entry.some((entry: { resource: { resourceType: string } }) =>
+    entry.resource.resourceType === 'Condition')).toBe(false);
   expect(writes).toEqual([]);
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
 
@@ -163,7 +172,7 @@ test('review, authored rule output, and FHIR download follow recorded answers', 
   await card('Angiokeratomas').getByRole('radio', { name: 'Absent' }).check();
   await page.getByRole('button', { name: 'Review findings' }).click();
   await page.getByRole('button', { name: 'Run demonstration' }).click();
-  await expect(fabry).toContainText('Illustrative conclusion: review prompt not triggered');
+  await expect(fabry).toContainText('No possible diagnosis raised by this rule');
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
 });

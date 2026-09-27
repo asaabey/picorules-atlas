@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { countAnswered, createAnswers, resetAnswers, setAnswer } from '../lib/assessment/answers';
-import { buildAssessmentBundle, type AssessmentBundle } from '../lib/fhir';
-import { evaluateCollectionDemo, parseCollectionRules, type DemoResult } from '../lib/runtime/ruleEngine';
+import { buildAssessmentBundle } from '../lib/fhir';
+import { buildHandoffBundle, type HandoffBundle } from '../lib/fhir/handoff';
+import { parseCollectionRules, type DemoResult } from '../lib/runtime/ruleEngine';
 import { createUuid } from '../lib/uuid';
 import RuleblockViewer, { sourceLineId } from './RuleblockViewer';
 import type {
@@ -507,8 +508,8 @@ function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
       <div className="context-banner flow-warning"><span className="banner-icon" aria-hidden="true">i</span><div>
         <strong>Proof of concept only</strong>
         <p>These ruleblocks count present features and trigger a review prompt at an illustrative threshold of two.
-          This threshold is not a diagnostic criterion, disease probability, validated score, or advice about tests or treatment.
-          No prompt does not exclude disease. Use clinical judgment and the cited sources.</p>
+          This is a simple count, not a diagnostic criterion, disease probability, validated clinical score,
+          or advice about tests or treatment. A low count does not exclude disease.</p>
       </div></div>
       <div className="result-list">
         {results.map(result => {
@@ -516,10 +517,11 @@ function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
           return <section className="result-card" key={result.ruleId} aria-labelledby={`result-${result.ruleId}`}>
             <p className="overline">AUTHORED RULE / {result.ruleId} / v{result.ruleVersion}</p>
             <h2 id={`result-${result.ruleId}`}>{result.label}</h2>
-            <p className="result-status">Illustrative conclusion: {result.flagged
-              ? 'review prompt triggered' : 'review prompt not triggered'}</p>
-            <p><strong>How computed:</strong> {result.presentCount} of {result.totalFeatures} linked findings marked present.
-              The authored Picorules rule counts those inputs and emits a prompt when the count is at least {result.threshold}.</p>
+            <p className="result-status">{result.flagged
+              ? `Possible diagnosis for review: ${result.label}`
+              : 'No possible diagnosis raised by this rule'}</p>
+            <p><strong>Rule score:</strong> {result.presentCount} / {result.totalFeatures} linked findings marked present.
+              The authored Picorules rule counts those inputs and raises a candidate when the count is at least {result.threshold}.</p>
             <p><strong>Contributing findings:</strong> {result.presentFeatures.length
               ? result.presentFeatures.map(feature => feature.label).join(', ') : 'None marked present'}.</p>
             <p><strong>Next action from the ruleblock:</strong> {result.action}
@@ -532,8 +534,9 @@ function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
       </div>
       <div className="flow-handoff">
         <h2>Assessment handoff</h2>
-        <p>Download the FHIR R4 bundle containing the questionnaire, your answers, and the recorded feature observations.
-          It does not contain these illustrative rule outputs. The file is created in this browser when you choose to download it.</p>
+        <p>Download the FHIR R4 bundle containing the questionnaire, answers, one score Observation per rule,
+          and a ClinicalImpression with possible diagnoses for review. It contains an anonymous Patient reference
+          and no confirmed Condition. The file is created in this browser when you choose to download it.</p>
         <div className="flow-actions">
           <button type="button" className="button-secondary" onClick={onEdit}>Edit answers</button>
           <button type="button" className="button-primary" onClick={onDownload}>Download FHIR bundle</button>
@@ -550,7 +553,7 @@ export default function AtlasApp({ collections }: AppProps) {
   const [error, setError] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [view, setView] = useState<'questions' | 'review' | 'results'>('questions');
-  const [result, setResult] = useState<{ bundle: AssessmentBundle; items: DemoResult[] } | null>(null);
+  const [result, setResult] = useState<{ bundle: HandoffBundle; items: DemoResult[] } | null>(null);
   const availableCollections = Object.values(collections);
   const selected = collectionId ? collections[collectionId] : null;
 
@@ -600,9 +603,8 @@ export default function AtlasApp({ collections }: AppProps) {
     if (!selected || !sessionId) return;
     try {
       const bundle = buildAssessmentBundle(selected, answers, sessionId);
-      const items = evaluateCollectionDemo(selected, bundle);
-      if (!items.length) throw new Error('No demonstration rules in this collection');
-      setResult({ bundle, items });
+      const handoff = buildHandoffBundle(selected, bundle);
+      setResult({ bundle: handoff.bundle, items: handoff.results });
       setError(null);
       setView('results');
     } catch (cause) {

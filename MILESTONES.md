@@ -33,6 +33,10 @@ and deployment remain separate decisions.
 | Complete review, result, and FHIR download UI | Done locally | Eight static browser tests passed, including changed-answer output, FHIR download, keyboard, mobile, and privacy checks |
 | Validate full flow and record evidence | Done locally | `content:check`, `review:check`, `typecheck`, 26 unit tests, static build, and eight static browser tests passed on 27 September 2026 |
 
+The next application step adds structured rule scores and possible diagnoses to
+the downloaded FHIR handoff. Prototype score semantics remain the authored
+present-feature count and two-feature threshold.
+
 The browser checks cover both branches of the illustrative conclusion, answer
 editing, the downloaded FHIR observations, keyboard focus, a 390px viewport,
 assessment clearing on reload, and absence of answer-bearing requests or browser
