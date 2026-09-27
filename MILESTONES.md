@@ -13,7 +13,7 @@ dates are assigned.
 | M1 | Reproducible project baseline | Complete |
 | M2 | Read-only Picorules ruleblock viewer | Complete |
 | M3 | Clinically reviewed IKD content | In progress |
-| M4 | Assessment review and FHIR handoff | Local proof of concept complete; user validation pending |
+| M4 | Assessment review and FHIR handoff | Complete for local proof of concept |
 | M5 | Questionnaire pilot on HTTPS | Planned |
 | M6 | Validated clinical evaluation, if pursued | Decision gate; illustrative prompt only |
 
@@ -164,10 +164,11 @@ Any added feature has a documented source and clinical meaning.
 
 ## M4 — Assessment review and FHIR handoff
 
-**Local proof of concept:** The assessment now has a review screen that distinguishes
-present, absent, unknown, and unanswered; a user-initiated FHIR download follows
-the illustrative rule output. User validation of the handoff remains open before
-M4 is marked complete.
+**Local proof of concept complete:** The assessment has a review screen that
+distinguishes present, absent, unknown, and unanswered; a user-initiated FHIR
+download follows the illustrative rule output. The clinical reviewer tested the
+running app on 27 September 2026 and reported that it works as expected. This
+confirms the flow, not clinical validity of the questions or rule threshold.
 
 **Work**
 
@@ -193,12 +194,14 @@ review and export behavior with users before marking M4 complete.
   the app over HTTPS and verify the deployed artifact against the tested build.
 - Review accessibility with keyboard and screen-reader use, mobile layouts,
   privacy behavior, source attribution, and user-facing limitations.
-- Run a small, supervised pilot of the questionnaire and review/export flow;
+- Run a small, supervised demonstration with synthetic cases across the questionnaire,
+  rule output, and review/export flow;
   collect feedback without transmitting assessment answers to analytics or logs.
 
 **Exit checks:** Deployment and DNS are approved separately; the hosted app passes
-smoke checks; clinical reviewers approve the pilot content; a feedback and issue
-triage process exists. This milestone can ship the questionnaire without evaluation.
+smoke checks; the clinical reviewer approves the pilot content and limitations; a
+feedback and issue triage process exists. The illustrative prompt remains a
+demonstration until M6 clinical validation is complete.
 
 ## M6 — Validated clinical evaluation (decision gate)
 
@@ -222,6 +225,6 @@ documented limitations, and approval of the exact user-facing result language.
 | CI workflow and clean-checkout setup | M1 | Atlas is in the workspace repository; CI remains to be added |
 | Ruleblock source display and navigation | M2 | Delivered read-only for selected collection, with versioned static source and input links |
 | Named clinical reviewer and review process | M3 | User is the clinical reviewer; name, qualification, decisions, and sign-off pending in review record |
-| Completion summary and FHIR download behavior | M4 | Implemented locally; user validation pending |
+| Completion summary and FHIR download behavior | M4 | Implemented and accepted by the clinical reviewer in the local proof of concept |
 | Hosting, DNS, and pilot access | M5 | No deployment authorized by this roadmap |
 | Whether to provide clinical evaluation | M6 | Undecided; illustrative review prompt only, no clinical score or diagnosis |
