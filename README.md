@@ -41,6 +41,7 @@ npm run build           # regenerate content and export static files to out/
 npm run preview:lan     # serve out/ on 0.0.0.0:3000 for LAN checks
 npx playwright install chromium
 npm run test:browser    # Playwright desktop and mobile interaction checks
+ATLAS_TEST_STATIC=1 npm run test:browser # browser checks against the static export
 ```
 
 `npm run build` uses Next.js static export. The resulting `out/` directory can be
@@ -49,6 +50,9 @@ for access from another device on the same network, run `npm run preview:lan` an
 open `http://<this-machine's-LAN-IP>:3000`. The preview command binds to all IPv4
 interfaces; access from another device also depends on the host firewall and network.
 There is no application API, database, account service, or runtime compilation endpoint.
+The repository's Atlas CI workflow builds the pinned compiler and runs these checks
+against the static export. Browser checks include an HTTP compatibility case where
+`crypto.randomUUID()` is unavailable.
 
 The FHIR schema test uses the official [FHIR R4 JSON Schema](https://hl7.org/fhir/R4/fhir.schema.json), copied to `tests/fixtures/fhir-r4.schema.json` for reproducible offline tests (retrieved 2026-09-27). Browser screenshots are written under `test-results/`; reviewed reference captures are in `screenshots/`.
 

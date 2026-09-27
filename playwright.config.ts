@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const staticPreview = process.env.ATLAS_TEST_STATIC === '1';
+
 export default defineConfig({
   testDir: './tests',
   testMatch: '**/*.browser.spec.ts',
@@ -11,7 +13,7 @@ export default defineConfig({
       : {}),
   },
   webServer: {
-    command: 'npm run dev -- --hostname 127.0.0.1',
+    command: staticPreview ? 'npm run preview:lan' : 'npm run dev -- --hostname 127.0.0.1',
     url: 'http://127.0.0.1:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

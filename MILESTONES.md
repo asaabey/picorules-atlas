@@ -43,7 +43,7 @@ Atlas was added to the workspace Git repository in commit `cc2ce19`.
 | --- | --- | --- |
 | Track Atlas in Git | Done | Commit `cc2ce19` |
 | Pin compiler and document clean setup | Implemented; clean-checkout check pending | `CORE_COMPILER_SHA`, README |
-| Add automated validation | Pending | CI workflow and first run needed |
+| Add automated validation | Implemented; first GitHub run pending | `.github/workflows/atlas.yml` |
 | Check static LAN preview and answer privacy | Pending | Browser and network checks needed |
 
 **Work**
