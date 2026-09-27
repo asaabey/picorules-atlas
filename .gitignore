@@ -4,3 +4,12 @@ out/
 *.tsbuildinfo
 test-results/
 playwright-report/
+
+# Credentials and local hosting state
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+.netlify/

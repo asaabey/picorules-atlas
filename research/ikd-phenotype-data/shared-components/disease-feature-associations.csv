@@ -1,0 +1,450 @@
+feature_key,disease_group,orpha_id,disease_name,hpo_id,hpo_label,frequency,diagnostic_criterion,source_date,source_ref,association_review_status
+HP:0000083,fabry,ORPHA:324,Fabry disease,HP:0000083,Renal insufficiency,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000100,fabry,ORPHA:324,Fabry disease,HP:0000100,Nephrotic syndrome,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000365,fabry,ORPHA:324,Fabry disease,HP:0000365,Hearing impairment,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000524,fabry,ORPHA:324,Fabry disease,HP:0000524,Conjunctival telangiectasia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000790,fabry,ORPHA:324,Fabry disease,HP:0000790,Hematuria,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000962,fabry,ORPHA:324,Fabry disease,HP:0000962,Hyperkeratosis,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000966,fabry,ORPHA:324,Fabry disease,HP:0000966,Hypohidrosis,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001014,fabry,ORPHA:324,Fabry disease,HP:0001014,Angiokeratoma,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001131,fabry,ORPHA:324,Fabry disease,HP:0001131,Corneal dystrophy,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001369,fabry,ORPHA:324,Fabry disease,HP:0001369,Arthritis,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001482,fabry,ORPHA:324,Fabry disease,HP:0001482,Subcutaneous nodule,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001635,fabry,ORPHA:324,Fabry disease,HP:0001635,Congestive heart failure,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001903,fabry,ORPHA:324,Fabry disease,HP:0001903,Anemia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002024,fabry,ORPHA:324,Fabry disease,HP:0002024,Malabsorption,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002027,fabry,ORPHA:324,Fabry disease,HP:0002027,Abdominal pain,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002326,fabry,ORPHA:324,Fabry disease,HP:0002326,Transient ischemic attack,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002829,fabry,ORPHA:324,Fabry disease,HP:0002829,Arthralgia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003326,fabry,ORPHA:324,Fabry disease,HP:0003326,Myalgia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004343,fabry,ORPHA:324,Fabry disease,HP:0004343,Abnormal glycosphingolipid metabolism,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007957,fabry,ORPHA:324,Fabry disease,HP:0007957,Corneal opacity,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012378,fabry,ORPHA:324,Fabry disease,HP:0012378,Fatigue,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0033595,fabry,ORPHA:324,Fabry disease,HP:0033595,Elevated circulating globotriaosylceramide concentration,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0034864,fabry,ORPHA:324,Fabry disease,HP:0034864,Decreased alpha-galactosidase A activity,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100579,fabry,ORPHA:324,Fabry disease,HP:0100579,Mucosal telangiectasiae,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100585,fabry,ORPHA:324,Fabry disease,HP:0100585,Telangiectasia of the skin,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000091,fabry,ORPHA:324,Fabry disease,HP:0000091,Abnormal renal tubule morphology,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000093,fabry,ORPHA:324,Fabry disease,HP:0000093,Proteinuria,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000112,fabry,ORPHA:324,Fabry disease,HP:0000112,Nephropathy,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000179,fabry,ORPHA:324,Fabry disease,HP:0000179,Thick lower lip vermilion,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000280,fabry,ORPHA:324,Fabry disease,HP:0000280,Coarse facial features,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000360,fabry,ORPHA:324,Fabry disease,HP:0000360,Tinnitus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000518,fabry,ORPHA:324,Fabry disease,HP:0000518,Cataract,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000648,fabry,ORPHA:324,Fabry disease,HP:0000648,Optic atrophy,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000708,fabry,ORPHA:324,Fabry disease,HP:0000708,Atypical behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000823,fabry,ORPHA:324,Fabry disease,HP:0000823,Delayed puberty,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001646,fabry,ORPHA:324,Fabry disease,HP:0001646,Abnormal aortic valve morphology,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001653,fabry,ORPHA:324,Fabry disease,HP:0001653,Mitral regurgitation,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001678,fabry,ORPHA:324,Fabry disease,HP:0001678,Atrioventricular block,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002017,fabry,ORPHA:324,Fabry disease,HP:0002017,Nausea and vomiting,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002039,fabry,ORPHA:324,Fabry disease,HP:0002039,Anorexia,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002046,fabry,ORPHA:324,Fabry disease,HP:0002046,Heat intolerance,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002097,fabry,ORPHA:324,Fabry disease,HP:0002097,Emphysema,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003077,fabry,ORPHA:324,Fabry disease,HP:0003077,Hyperlipidemia,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003119,fabry,ORPHA:324,Fabry disease,HP:0003119,Abnormal circulating lipid concentration,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003546,fabry,ORPHA:324,Fabry disease,HP:0003546,Exercise intolerance,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004322,fabry,ORPHA:324,Fabry disease,HP:0004322,Short stature,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011710,fabry,ORPHA:324,Fabry disease,HP:0011710,Bundle branch block,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012532,fabry,ORPHA:324,Fabry disease,HP:0012532,Chronic pain,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0031006,fabry,ORPHA:324,Fabry disease,HP:0031006,Acroparesthesia,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100543,fabry,ORPHA:324,Fabry disease,HP:0100543,Cognitive impairment,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0500008,fabry,ORPHA:324,Fabry disease,HP:0500008,Cornea verticillata,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000407,fabry,ORPHA:324,Fabry disease,HP:0000407,Sensorineural hearing impairment,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000716,fabry,ORPHA:324,Fabry disease,HP:0000716,Depression,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000739,fabry,ORPHA:324,Fabry disease,HP:0000739,Anxiety,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000822,fabry,ORPHA:324,Fabry disease,HP:0000822,Hypertension,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000873,fabry,ORPHA:324,Fabry disease,HP:0000873,Diabetes insipidus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001004,fabry,ORPHA:324,Fabry disease,HP:0001004,Lymphedema,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001250,fabry,ORPHA:324,Fabry disease,HP:0001250,Seizure,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001297,fabry,ORPHA:324,Fabry disease,HP:0001297,Stroke,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001637,fabry,ORPHA:324,Fabry disease,HP:0001637,Abnormal myocardium morphology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001639,fabry,ORPHA:324,Fabry disease,HP:0001639,Hypertrophic cardiomyopathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001681,fabry,ORPHA:324,Fabry disease,HP:0001681,Angina pectoris,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001712,fabry,ORPHA:324,Fabry disease,HP:0001712,Left ventricular hypertrophy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001945,fabry,ORPHA:324,Fabry disease,HP:0001945,Fever,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002093,fabry,ORPHA:324,Fabry disease,HP:0002093,Respiratory insufficiency,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002094,fabry,ORPHA:324,Fabry disease,HP:0002094,Dyspnea,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002321,fabry,ORPHA:324,Fabry disease,HP:0002321,Vertigo,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002376,fabry,ORPHA:324,Fabry disease,HP:0002376,Developmental regression,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002571,fabry,ORPHA:324,Fabry disease,HP:0002571,Achalasia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002823,fabry,ORPHA:324,Fabry disease,HP:0002823,Abnormality of femur morphology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004306,fabry,ORPHA:324,Fabry disease,HP:0004306,Abnormality of the endocardium,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004349,fabry,ORPHA:324,Fabry disease,HP:0004349,Reduced bone mineral density,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0006510,fabry,ORPHA:324,Fabry disease,HP:0006510,Chronic pulmonary obstruction,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011675,fabry,ORPHA:324,Fabry disease,HP:0011675,Arrhythmia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100820,fabry,ORPHA:324,Fabry disease,HP:0100820,Glomerulopathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000975,fabry,ORPHA:324,Fabry disease,HP:0000975,Hyperhidrosis,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000112,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000112,Nephropathy,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000556,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000556,Retinal dystrophy,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001249,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001249,Intellectual disability,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001251,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001251,Ataxia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001252,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001252,Hypotonia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001263,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001263,Global developmental delay,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001320,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001320,Cerebellar vermis hypoplasia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002104,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002104,Apnea,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002419,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002419,Molar tooth sign on MRI,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002789,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002789,Tachypnea,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000276,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000276,Long face,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000505,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000505,Visual impairment,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000508,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000508,Ptosis,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000567,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000567,Chorioretinal coloboma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000612,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000612,Iris coloboma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000618,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000618,Blindness,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000639,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000639,Nystagmus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000708,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000708,Atypical behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000729,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000729,Autistic behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004422,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0004422,Biparietal narrowing,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000083,Renal insufficiency,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000238,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000238,Hydrocephalus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000426,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000426,Prominent nasal bridge,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000463,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000463,Anteverted nares,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000486,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000486,Strabismus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000864,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000864,Abnormality of the hypothalamus-pituitary axis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001161,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001161,Hand polydactyly,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001250,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001250,Seizure,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001829,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0001829,Foot polydactyly,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002084,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002084,Encephalocele,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002251,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002251,Aganglionic megacolon,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002269,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002269,Abnormality of neuronal migration,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002553,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002553,Highly arched eyebrow,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002650,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0002650,Scoliosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007370,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0007370,Aplasia/Hypoplasia of the corpus callosum,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030680,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0030680,Abnormal cardiovascular system morphology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000358,nephronophthisis_ciliopathy,ORPHA:2318,Joubert syndrome with oculorenal defect,HP:0000358,Posteriorly rotated ears,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000657,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000657,Oculomotor apraxia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001249,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001249,Intellectual disability,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001251,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001251,Ataxia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001252,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001252,Hypotonia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001263,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001263,Global developmental delay,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001320,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001320,Cerebellar vermis hypoplasia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002104,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002104,Apnea,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002793,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002793,Abnormal pattern of respiration,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002876,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002876,Episodic tachypnea,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000276,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000276,Long face,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000639,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000639,Nystagmus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001288,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001288,Gait disturbance,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004422,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0004422,Biparietal narrowing,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0008872,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0008872,Feeding difficulties in infancy,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000202,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000202,Orofacial cleft,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000238,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000238,Hydrocephalus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000369,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000369,Low-set ears,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000426,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000426,Prominent nasal bridge,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000463,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000463,Anteverted nares,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000486,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000486,Strabismus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000508,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000508,Ptosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000612,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000612,Iris coloboma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000864,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0000864,Abnormality of the hypothalamus-pituitary axis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001161,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001161,Hand polydactyly,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001250,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001250,Seizure,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001337,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001337,Tremor,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001696,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001696,Situs inversus totalis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001829,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0001829,Foot polydactyly,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002084,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002084,Encephalocele,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002126,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002126,Polymicrogyria,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002251,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002251,Aganglionic megacolon,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002269,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002269,Abnormality of neuronal migration,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002553,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002553,Highly arched eyebrow,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002650,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0002650,Scoliosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003312,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0003312,Abnormal form of the vertebral bodies,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007370,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0007370,Aplasia/Hypoplasia of the corpus callosum,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030680,nephronophthisis_ciliopathy,ORPHA:475,Isolated Joubert syndrome,HP:0030680,Abnormal cardiovascular system morphology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,nephronophthisis_ciliopathy,ORPHA:655,Nephronophthisis,HP:0000083,Renal insufficiency,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001903,nephronophthisis_ciliopathy,ORPHA:655,Nephronophthisis,HP:0001903,Anemia,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007703,nephronophthisis_ciliopathy,ORPHA:655,Nephronophthisis,HP:0007703,Abnormality of retinal pigmentation,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000003,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000003,Multicystic kidney dysplasia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000047,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000047,Hypospadias,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000083,Renal insufficiency,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000085,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000085,Horseshoe kidney,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000104,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000104,Renal agenesis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000303,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000303,Mandibular prognathia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000365,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000365,Hearing impairment,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000813,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000813,Bicornuate uterus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000819,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000819,Diabetes mellitus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000821,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000821,Hypothyroidism,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000952,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0000952,Jaundice,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001249,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001249,Intellectual disability,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001263,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001263,Global developmental delay,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001369,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001369,Arthritis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001397,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001397,Hepatic steatosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001919,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001919,Acute kidney injury,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001959,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001959,Polydipsia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001994,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001994,Renal Fanconi syndrome,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002021,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0002021,Pyloric stenosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002149,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0002149,Hyperuricemia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002910,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0002910,Elevated circulating hepatic transaminase concentration,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005584,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0005584,Renal cell carcinoma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009715,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0009715,Papillary cystadenoma of the epididymis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012092,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0012092,Abnormality of exocrine pancreas physiology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012093,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0012093,Abnormality of endocrine pancreas physiology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012873,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0012873,Absent vas deferens,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100800,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0100800,Aplasia/Hypoplasia of the pancreas,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100820,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0100820,Glomerulopathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001382,hnf1b,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,HP:0001382,Joint hypermobility,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000112,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000112,Nephropathy,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000657,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000657,Oculomotor apraxia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001249,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001249,Intellectual disability,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001251,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001251,Ataxia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001252,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001252,Hypotonia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001263,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001263,Global developmental delay,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001320,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001320,Cerebellar vermis hypoplasia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002104,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002104,Apnea,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002419,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002419,Molar tooth sign on MRI,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002793,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002793,Abnormal pattern of respiration,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000276,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000276,Long face,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000358,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000358,Posteriorly rotated ears,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000639,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000639,Nystagmus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001288,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001288,Gait disturbance,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004422,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0004422,Biparietal narrowing,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011968,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0011968,Feeding difficulties,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000083,Renal insufficiency,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000175,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000175,Cleft palate,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000202,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000202,Orofacial cleft,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000238,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000238,Hydrocephalus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000426,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000426,Prominent nasal bridge,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000463,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000463,Anteverted nares,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000486,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000486,Strabismus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000508,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000508,Ptosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000612,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000612,Iris coloboma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000864,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0000864,Abnormality of the hypothalamus-pituitary axis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001161,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001161,Hand polydactyly,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001250,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001250,Seizure,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001274,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001274,Agenesis of corpus callosum,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001337,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0001337,Tremor,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002084,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002084,Encephalocele,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002126,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002126,Polymicrogyria,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002251,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002251,Aganglionic megacolon,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002553,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002553,Highly arched eyebrow,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002650,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0002650,Scoliosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030680,nephronophthisis_ciliopathy,ORPHA:220497,Joubert syndrome with renal defect,HP:0030680,Abnormal cardiovascular system morphology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000077,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000077,Abnormality of the kidney,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000708,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000708,Atypical behavior,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001250,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0001250,Seizure,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002539,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002539,Cortical dysplasia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009716,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0009716,Subependymal nodules,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009717,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0009717,Cortical tubers,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009719,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0009719,Hypomelanotic macule,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011354,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0011354,Generalized abnormality of skin,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000107,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000107,Renal cyst,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000716,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000716,Depression,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000717,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000717,Autism,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000718,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000718,Aggressive behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000729,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000729,Autistic behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000752,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000752,Hyperactivity,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001249,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0001249,Intellectual disability,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001328,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0001328,Specific learning disability,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002133,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002133,Status epilepticus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002360,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002360,Sleep abnormality,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007359,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0007359,Focal-onset seizure,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007449,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0007449,Confetti-like hypopigmented macules,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0008762,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0008762,Repetitive compulsive behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009594,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0009594,Retinal hamartoma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009721,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0009721,Shagreen patch,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009729,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0009729,Cardiac rhabdomyoma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0010615,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0010615,Angiofibromas,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011097,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0011097,Epileptic spasm,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012433,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0012433,Abnormal social behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012469,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0012469,Infantile spasms,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012622,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0012622,Chronic kidney disease,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012758,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0012758,Neurodevelopmental delay,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012798,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0012798,Pulmonary lymphangiomyomatosis,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0040030,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0040030,Chorioretinal hypopigmentation,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100710,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0100710,Impulsivity,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100716,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0100716,Self-injurious behavior,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0200035,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0200035,Skin plaque,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000083,Renal insufficiency,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000739,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000739,Anxiety,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000822,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000822,Hypertension,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001407,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0001407,Hepatic cysts,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002098,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002098,Respiratory distress,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002105,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002105,Hemoptysis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002465,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002465,Poor speech,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0006772,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0006772,Renal angiomyolipoma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007018,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0007018,Attention deficit hyperactivity disorder,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009718,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0009718,Subependymal giant-cell astrocytoma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0010953,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0010953,Noncommunicating hydrocephalus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011947,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0011947,Respiratory tract infection,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100804,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0100804,Ungual fibroma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0200040,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0200040,Epidermoid cyst,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000113,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0000113,Polycystic kidney dysplasia,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002666,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002666,Pheochromocytoma,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002878,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002878,Respiratory failure,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002893,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002893,Pituitary adenoma,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002897,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0002897,Parathyroid adenoma,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003774,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0003774,Stage 5 chronic kidney disease,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004942,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0004942,Aortic aneurysm,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005584,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0005584,Renal cell carcinoma,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0008208,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0008208,Parathyroid hyperplasia,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011029,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0011029,Internal hemorrhage,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012778,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0012778,Retinal astrocytic hamartoma,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030405,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0030405,Pancreatic endocrine tumor,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100570,tsc,ORPHA:805,Tuberous sclerosis complex,HP:0100570,Carcinoid tumor,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000790,alport,ORPHA:63,Alport syndrome,HP:0000790,Hematuria,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030034,alport,ORPHA:63,Alport syndrome,HP:0030034,Glomerular basement membrane lamellation,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,alport,ORPHA:63,Alport syndrome,HP:0000083,Renal insufficiency,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000093,alport,ORPHA:63,Alport syndrome,HP:0000093,Proteinuria,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000822,alport,ORPHA:63,Alport syndrome,HP:0000822,Hypertension,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003774,alport,ORPHA:63,Alport syndrome,HP:0003774,Stage 5 chronic kidney disease,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007663,alport,ORPHA:63,Alport syndrome,HP:0007663,Reduced visual acuity,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0008619,alport,ORPHA:63,Alport syndrome,HP:0008619,Bilateral sensorineural hearing impairment,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012045,alport,ORPHA:63,Alport syndrome,HP:0012045,Retinal flecks,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012574,alport,ORPHA:63,Alport syndrome,HP:0012574,Mesangial hypercellularity,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012577,alport,ORPHA:63,Alport syndrome,HP:0012577,Thin glomerular basement membrane,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000097,alport,ORPHA:63,Alport syndrome,HP:0000097,Focal segmental glomerulosclerosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000495,alport,ORPHA:63,Alport syndrome,HP:0000495,Recurrent corneal erosions,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000545,alport,ORPHA:63,Alport syndrome,HP:0000545,Myopia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000969,alport,ORPHA:63,Alport syndrome,HP:0000969,Edema,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002907,alport,ORPHA:63,Alport syndrome,HP:0002907,Microscopic hematuria,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004722,alport,ORPHA:63,Alport syndrome,HP:0004722,Thickening of the glomerular basement membrane,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005576,alport,ORPHA:63,Alport syndrome,HP:0005576,Tubulointerstitial fibrosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011488,alport,ORPHA:63,Alport syndrome,HP:0011488,Abnormal corneal endothelium morphology,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011501,alport,ORPHA:63,Alport syndrome,HP:0011501,Anterior lenticonus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0025005,alport,ORPHA:63,Alport syndrome,HP:0025005,Thickening of glomerular capillary wall,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0032583,alport,ORPHA:63,Alport syndrome,HP:0032583,Renal glomerular foam cells,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0200020,alport,ORPHA:63,Alport syndrome,HP:0200020,Corneal erosion,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000608,alport,ORPHA:63,Alport syndrome,HP:0000608,Macular degeneration,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001131,alport,ORPHA:63,Alport syndrome,HP:0001131,Corneal dystrophy,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002013,alport,ORPHA:63,Alport syndrome,HP:0002013,Vomiting,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002015,alport,ORPHA:63,Alport syndrome,HP:0002015,Dysphagia,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002094,alport,ORPHA:63,Alport syndrome,HP:0002094,Dyspnea,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002837,alport,ORPHA:63,Alport syndrome,HP:0002837,Recurrent bronchitis,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0006756,alport,ORPHA:63,Alport syndrome,HP:0006756,Diffuse leiomyomatosis,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0007787,alport,ORPHA:63,Alport syndrome,HP:0007787,Posterior subcapsular cataract,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0010307,alport,ORPHA:63,Alport syndrome,HP:0010307,Stridor,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012735,alport,ORPHA:63,Alport syndrome,HP:0012735,Cough,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0410019,alport,ORPHA:63,Alport syndrome,HP:0410019,Epigastric pain,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000105,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000105,Enlarged kidney,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000113,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000113,Polycystic kidney dysplasia,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000822,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000822,Hypertension,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001395,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001395,Hepatic fibrosis,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001405,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001405,Periportal fibrosis,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000083,Renal insufficiency,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001396,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001396,Cholestasis,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001409,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001409,Portal hypertension,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001510,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001510,Growth delay,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001562,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001562,Oligohydramnios,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001744,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001744,Splenomegaly,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001971,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001971,Hypersplenism,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002040,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002040,Esophageal varix,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002089,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002089,Pulmonary hypoplasia,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002612,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002612,Congenital hepatic fibrosis,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002630,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002630,Fat malabsorption,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002878,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002878,Respiratory failure,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002902,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002902,Hyponatremia,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003774,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0003774,Stage 5 chronic kidney disease,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0004905,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0004905,Low levels of vitamin A,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005565,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0005565,Reduced renal corticomedullary differentiation,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0006560,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0006560,Biliary hyperplasia,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011040,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0011040,Abnormality of the intrahepatic bile duct,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011892,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0011892,Low levels of vitamin K,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011968,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0011968,Feeding difficulties,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012202,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0012202,Increased serum bile acid concentration,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030948,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0030948,Elevated gamma-glutamyltransferase level,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100512,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0100512,Low levels of vitamin D,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100513,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0100513,Low levels of vitamin E,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000010,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000010,Recurrent urinary tract infections,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000952,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000952,Jaundice,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001433,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001433,Hepatosplenomegaly,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001541,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001541,Ascites,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001873,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001873,Thrombocytopenia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001919,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001919,Acute kidney injury,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001959,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001959,Polydipsia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002239,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002239,Gastrointestinal hemorrhage,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002243,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002243,Protein-losing enteropathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002791,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002791,Hypoventilation,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002884,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002884,Hepatoblastoma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0006532,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0006532,Recurrent pneumonia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030151,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0030151,Cholangitis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100520,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0100520,Oliguria,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000347,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000347,Micrognathia,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000369,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000369,Low-set ears,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000457,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0000457,Depressed nasal ridge,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001737,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0001737,Pancreatic cysts,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002108,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0002108,Spontaneous pneumothorax,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030153,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0030153,Cholangiocarcinoma,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0040064,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0040064,Abnormality of limbs,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0100543,arpkd,ORPHA:731,Autosomal recessive polycystic kidney disease,HP:0100543,Cognitive impairment,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009715,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0009715,Papillary cystadenoma of the epididymis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009763,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0009763,Limb pain,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011675,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0011675,Arrhythmia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030393,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0030393,Endolymphatic sac tumor,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030405,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0030405,Pancreatic endocrine tumor,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0040049,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0040049,Macular edema,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000541,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0000541,Retinal detachment,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001658,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001658,Myocardial infarction,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001901,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001901,Polycythemia,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002516,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0002516,Increased intracranial pressure,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002668,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0002668,Paraganglioma,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002894,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0002894,Neoplasm of the pancreas,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012819,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0012819,Myocarditis,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030424,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0030424,Epididymal cyst,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000478,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0000478,Abnormality of the eye,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000822,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0000822,Hypertension,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005584,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0005584,Renal cell carcinoma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0006748,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0006748,Adrenal pheochromocytoma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0006880,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0006880,Cerebellar hemangioblastoma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009711,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0009711,Retinal capillary hemangioma,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011976,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0011976,Elevated urinary catecholamines,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000572,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0000572,Visual loss,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000739,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0000739,Anxiety,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000975,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0000975,Hyperhidrosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000980,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0000980,Pallor,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001085,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001085,Papilledema,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001095,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001095,Hypertensive retinopathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001297,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001297,Stroke,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001638,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001638,Cardiomyopathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001737,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001737,Pancreatic cysts,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001962,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0001962,Palpitations,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002027,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0002027,Abdominal pain,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002315,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0002315,Headache,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002321,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0002321,Vertigo,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003334,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0003334,Elevated circulating catecholamine level,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003418,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0003418,Back pain,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003484,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0003484,Upper limb muscle weakness,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005162,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0005162,Abnormal left ventricular function,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005562,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0005562,Multiple renal cysts,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0008261,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0008261,Pancreatic islet cell adenoma,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0009053,vhl,ORPHA:892,Von Hippel-Lindau disease,HP:0009053,Distal lower limb muscle weakness,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000083,Renal insufficiency,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000093,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000093,Proteinuria,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000790,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000790,Hematuria,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0008043,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0008043,Retinal arteriolar constriction,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030034,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0030034,Glomerular basement membrane lamellation,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000365,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000365,Hearing impairment,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000573,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000573,Retinal hemorrhage,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001142,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0001142,Lenticonus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003774,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0003774,Stage 5 chronic kidney disease,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000097,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000097,Focal segmental glomerulosclerosis,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000523,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000523,Subcapsular cataract,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001095,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0001095,Hypertensive retinopathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011501,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0011501,Anterior lenticonus,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012045,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0012045,Retinal flecks,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000546,alport,ORPHA:88919,Autosomal recessive Alport syndrome,HP:0000546,Retinal degeneration,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000093,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000093,Proteinuria,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0002907,alport,ORPHA:88917,X-linked Alport syndrome,HP:0002907,Microscopic hematuria,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000083,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000083,Renal insufficiency,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000365,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000365,Hearing impairment,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000573,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000573,Retinal hemorrhage,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000822,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000822,Hypertension,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003774,alport,ORPHA:88917,X-linked Alport syndrome,HP:0003774,Stage 5 chronic kidney disease,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005562,alport,ORPHA:88917,X-linked Alport syndrome,HP:0005562,Multiple renal cysts,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0008043,alport,ORPHA:88917,X-linked Alport syndrome,HP:0008043,Retinal arteriolar constriction,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011501,alport,ORPHA:88917,X-linked Alport syndrome,HP:0011501,Anterior lenticonus,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012587,alport,ORPHA:88917,X-linked Alport syndrome,HP:0012587,Macroscopic hematuria,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0030034,alport,ORPHA:88917,X-linked Alport syndrome,HP:0030034,Glomerular basement membrane lamellation,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000483,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000483,Astigmatism,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000518,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000518,Cataract,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000545,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000545,Myopia,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001095,alport,ORPHA:88917,X-linked Alport syndrome,HP:0001095,Hypertensive retinopathy,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012045,alport,ORPHA:88917,X-linked Alport syndrome,HP:0012045,Retinal flecks,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000100,alport,ORPHA:88917,X-linked Alport syndrome,HP:0000100,Nephrotic syndrome,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0011508,alport,ORPHA:88917,X-linked Alport syndrome,HP:0011508,Macular hole,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000790,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0000790,Hematuria,Very frequent (99-80%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000093,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0000093,Proteinuria,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0005562,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0005562,Multiple renal cysts,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012622,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0012622,Chronic kidney disease,Frequent (79-30%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000407,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0000407,Sensorineural hearing impairment,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0003774,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0003774,Stage 5 chronic kidney disease,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0012587,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0012587,Macroscopic hematuria,Occasional (29-5%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0000495,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0000495,Recurrent corneal erosions,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending
+HP:0001131,alport,ORPHA:88918,Autosomal dominant Alport syndrome,HP:0001131,Corneal dystrophy,Very rare (<4-1%),,2026-06-23 07:57:18,orphadata_2026_06,pending

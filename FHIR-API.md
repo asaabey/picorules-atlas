@@ -53,17 +53,18 @@ or logged by the handler. This is a custom evaluation operation, not a full FHIR
 
 ## Netlify
 
-This workspace keeps the compiler in a separate pinned repository. Configure:
+Connect the private `asaabey/picorules-atlas` repository to Netlify:
 
-- Base directory: workspace repository root (`.`).
-- Package directory: `picorules-atlas` (so Netlify discovers its netlify.toml).
-- Build command and publish directory: supplied in `netlify.toml`.
+- Base directory: repository root (leave blank).
+- Package directory: leave blank.
+- Build command: `npm run build`.
+- Publish directory: `.next`.
 - Secret environment variable `ATLAS_API_KEY`, available to Functions at runtime.
 
-The build script clones the compiler when absent, checks out CORE_COMPILER_SHA,
-builds it, installs Atlas and builds Next.js. An existing compiler at a different
-revision causes an explicit failure. Netlify's OpenNext plugin handles the page
-and server route. Static export has been removed.
+Netlify installs the integrity-locked npm dependencies, including compiler 1.1.1,
+and uses its automatic OpenNext integration for the page and server route.
+The repository's `netlify.toml` supplies the build settings. No sibling repositories,
+custom clone script or static export are required.
 
 No deployment is performed by these changes. After deployment, repeat the curl
 request against the Netlify URL with the bearer header. Keep keys on server clients;

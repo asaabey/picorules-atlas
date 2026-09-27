@@ -6,25 +6,19 @@ Development status and next steps are tracked in [MILESTONES.md](MILESTONES.md).
 
 ## Run locally
 
-Requirements: Node.js 20.9 or newer and npm. Node.js 24 is used for CI. The application
-depends on an adjacent `picorules-compiler-js-core/` checkout. From a clean checkout
-of this workspace repository, run these commands at the workspace root:
+Requirements: Node.js 22 or newer and npm. This repository is self-contained;
+the compiler is pinned to npm version `1.1.1` with an integrity-locked dependency.
 
 ```bash
-git clone https://github.com/asaabey/picorules-compiler-js-core.git picorules-compiler-js-core
-git -C picorules-compiler-js-core checkout "$(cat picorules-atlas/CORE_COMPILER_SHA)"
-cd picorules-compiler-js-core
-npm ci
-npm run build
-cd ../picorules-atlas
+git clone https://github.com/asaabey/picorules-atlas.git
+cd picorules-atlas
 npm ci
 npm run dev
 ```
 
-The pinned compiler commit is recorded in `CORE_COMPILER_SHA`. Update it only after
-checking Atlas against the new compiler revision. If the adjacent compiler checkout
-already exists, verify its revision with `git -C ../picorules-compiler-js-core rev-parse HEAD`
-before building it.
+`CORE_COMPILER_SHA` records the previously validated source revision. The published
+1.1.1 package's source commit is `cafe91f03a2ca29ba75415c7e99604281640b386`;
+the recorded revision differs only in its package-lock version metadata.
 
 Open `http://localhost:3000`. All answers stay in the current browser page's memory and disappear on reload. The planned address is `atlas.picorules.com`; deployment and DNS are outside this project.
 
@@ -66,6 +60,6 @@ The downloaded FHIR R4 handoff contains the original answers, a score `Observati
 
 ## Clinical content status
 
-The 60 questions are a compact demonstration, not a complete screening instrument. The earlier prototype acceptance covers the original ten questions and workflow. Later profiles, including all six new ones, are pending clinical content review. Orphadata, HPOA, GeneReviews and Orphanet sources are identified in `content/sources.json`; the local Orphadata source audit is at `../working-docs/docs/ikd-phenotype-data/README.md`. Source frequency labels are not used as scores or probabilities. NPHP12 has sparse subtype annotations, and related nephronophthisis profiles can produce similar counts.
+The 60 questions are a compact demonstration, not a complete screening instrument. The earlier prototype acceptance covers the original ten questions and workflow. Later profiles, including all six new ones, are pending clinical content review. Orphadata, HPOA, GeneReviews and Orphanet sources are identified in `content/sources.json`; the local Orphadata source audit is at `research/ikd-phenotype-data/README.md`. Source frequency labels are not used as scores or probabilities. NPHP12 has sparse subtype annotations, and related nephronophthisis profiles can produce similar counts.
 
 Prototype sign-off and later clinical review materials are in [`reviews/ikd/`](reviews/ikd/README.md). The candidate packet is tied to the current content version and includes all 60 questions, mappings, source pairings, and limitations. `npm run review:check` verifies that the packet and pending decision record match the generated manifest; `npm run review:gate` is reserved for a later clinical release decision. It is not an application-development gate.

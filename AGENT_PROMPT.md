@@ -1,8 +1,8 @@
 Build the initial Picorules Atlas application from its specification.
 
-Workspace: /home/asaabey/projects/picorules-top-node
-Project: picorules-atlas/
-Specification: picorules-atlas/SPEC.md
+Repository: asaabey/picorules-atlas
+Project: repository root
+Specification: SPEC.md
 
 First read the workspace AGENTS.md, any applicable project instructions, and the complete specification. Use relevant skills. The spec is the source of truth; implement the application, not just a plan.
 
@@ -61,7 +61,7 @@ Run the production/static build and meaningful tests covering:
 Use browser tooling if available and capture screenshots. If any verification cannot be performed, state that explicitly rather than claiming success.
 
 Deliverables
-- Working application in picorules-atlas/.
+- Working application at the repository root.
 - File-based collection definition, source records, and two new .prb files.
 - Content validation/build tooling and bundled browser compiler integration.
 - Tests and a README with exact setup, development, build, and content-authoring commands.

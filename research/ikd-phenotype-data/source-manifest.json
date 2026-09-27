@@ -1,0 +1,132 @@
+{
+  "checked_on": "2026-09-26",
+  "orphadata": {
+    "url": "https://www.orphadata.com/data/xml/en_product4.xml",
+    "release_header": {
+      "date": "2026-06-23 07:57:18",
+      "version": "1.3.42 / 4.1.8 [2025-03-03]",
+      "copyright": "Orphanet (c) 2026",
+      "dbserver": "jdbc:sybase:Tds:canard.orpha.net:2020"
+    },
+    "license": "CC-BY-4.0",
+    "sha256": "4f44e8a61201399911aa1ba44a293c0ccaa5ce11272c47d40862255cb72f6b32",
+    "selected_records": 449,
+    "selected_profiles": [
+      {
+        "orpha_id": "ORPHA:324",
+        "disease_name": "Fabry disease",
+        "annotation_rows": 76
+      },
+      {
+        "orpha_id": "ORPHA:2318",
+        "disease_name": "Joubert syndrome with oculorenal defect",
+        "annotation_rows": 37
+      },
+      {
+        "orpha_id": "ORPHA:475",
+        "disease_name": "Isolated Joubert syndrome",
+        "annotation_rows": 37
+      },
+      {
+        "orpha_id": "ORPHA:655",
+        "disease_name": "Nephronophthisis",
+        "annotation_rows": 3
+      },
+      {
+        "orpha_id": "ORPHA:93111",
+        "disease_name": "HNF1B-related autosomal dominant tubulointerstitial kidney disease",
+        "annotation_rows": 29
+      },
+      {
+        "orpha_id": "ORPHA:220497",
+        "disease_name": "Joubert syndrome with renal defect",
+        "annotation_rows": 36
+      },
+      {
+        "orpha_id": "ORPHA:805",
+        "disease_name": "Tuberous sclerosis complex",
+        "annotation_rows": 62
+      },
+      {
+        "orpha_id": "ORPHA:63",
+        "disease_name": "Alport syndrome",
+        "annotation_rows": 34
+      },
+      {
+        "orpha_id": "ORPHA:731",
+        "disease_name": "Autosomal recessive polycystic kidney disease",
+        "annotation_rows": 51
+      },
+      {
+        "orpha_id": "ORPHA:892",
+        "disease_name": "Von Hippel-Lindau disease",
+        "annotation_rows": 41
+      },
+      {
+        "orpha_id": "ORPHA:88919",
+        "disease_name": "Autosomal recessive Alport syndrome",
+        "annotation_rows": 15
+      },
+      {
+        "orpha_id": "ORPHA:88917",
+        "disease_name": "X-linked Alport syndrome",
+        "annotation_rows": 19
+      },
+      {
+        "orpha_id": "ORPHA:88918",
+        "disease_name": "Autosomal dominant Alport syndrome",
+        "annotation_rows": 9
+      }
+    ],
+    "requested_ids_absent": [
+      "140969",
+      "34149"
+    ]
+  },
+  "hpo": {
+    "release": "v2026-09-01",
+    "hpoa_header_version": "2026-09-02",
+    "hpoa_url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa",
+    "hpoa_sha256": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72",
+    "ontology_sha256": "93dace952fcb3ec4728818857f6ba76bc2d5312f4d83266519b8694b8e798f22",
+    "license_source": "https://github.com/TheJacksonLaboratory/hpo-web/blob/main/src/app/static/resources/license/license.component.html"
+  },
+  "authors": {
+    "repository": "http://b2sdata.upc.edu:30080/b2slab/KidneyDatabaseComparison",
+    "commit": "ef9217ddaeb0f7a78f97c2f2c73f87cc9b02f912",
+    "commit_date": "2024-12-19",
+    "curated_file": "kidney/src/main/resources/databases/curated_data.json",
+    "sha256": "5d458f99f0287cf4781e748429664123e5cc0f62d2f93d2dff5a32cdea7bdc22",
+    "groups": 49,
+    "profiles": 83,
+    "license": "No repository license found in full file listing; no data license in inspected README or JSON",
+    "symptom_ids_missing_from_current_hpo": [
+      "HP:0012907",
+      "HP:0012908",
+      "HP:0012912",
+      "HP:0012913",
+      "HP:0012914",
+      "HP:0012917",
+      "HP:0012919",
+      "HP:0012920",
+      "HP:0012927",
+      "HP:0012928",
+      "HP:0012934",
+      "HP:0012936",
+      "HP:0012937",
+      "HP:0012938",
+      "HP:0012940",
+      "HP:0012941",
+      "HP:0012942",
+      "HP:0012943",
+      "HP:0012946",
+      "HP:0012947",
+      "HP:0012948",
+      "HP:0012949",
+      "HP:01000512"
+    ],
+    "obsolete_symptom_ids": [
+      "HP:0005435"
+    ]
+  }
+}

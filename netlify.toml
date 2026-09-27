@@ -1,10 +1,6 @@
 [build]
-  base = "."
-  command = "bash picorules-atlas/scripts/netlify-build.sh"
-  publish = "picorules-atlas/.next"
+  command = "npm run build"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "22"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"

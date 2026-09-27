@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "0.1-draft",
+  "meaning": "Editorial review clusters only, not verified HPO edges, equivalence mappings, or executable inference.",
+  "clusters": [
+    {
+      "id": "haematuria",
+      "featureKeys": [
+        "HP:0000790",
+        "HP:0002907",
+        "HP:0012587"
+      ],
+      "reviewStatus": "pending",
+      "instruction": "Keep broad, microscopic and macroscopic findings distinct.",
+      "automaticPropagation": false
+    },
+    {
+      "id": "hearing",
+      "featureKeys": [
+        "HP:0000365",
+        "HP:0000407",
+        "HP:0008619"
+      ],
+      "reviewStatus": "pending",
+      "instruction": "Keep hearing type and laterality explicit.",
+      "automaticPropagation": false
+    },
+    {
+      "id": "kidney_function",
+      "featureKeys": [
+        "HP:0000083",
+        "HP:0012622",
+        "HP:0003774",
+        "HP:0000112"
+      ],
+      "reviewStatus": "pending",
+      "instruction": "Renal insufficiency, CKD, CKD stage 5 and nephropathy require different definitions.",
+      "automaticPropagation": false
+    },
+    {
+      "id": "kidney_morphology",
+      "featureKeys": [
+        "HP:0000107",
+        "HP:0005562",
+        "HP:0000113",
+        "HP:0000003"
+      ],
+      "reviewStatus": "pending",
+      "instruction": "Cyst number and dysplasia are distinct findings; no automatic equivalence.",
+      "automaticPropagation": false
+    },
+    {
+      "id": "retinal_hamartoma",
+      "featureKeys": [
+        "HP:0009594",
+        "HP:0012778"
+      ],
+      "reviewStatus": "pending",
+      "instruction": "Broad versus astrocytic retinal hamartoma needs terminology review.",
+      "automaticPropagation": false
+    },
+    {
+      "id": "hepatic_fibrosis",
+      "featureKeys": [
+        "HP:0001395",
+        "HP:0002612",
+        "HP:0001405"
+      ],
+      "reviewStatus": "pending",
+      "instruction": "Broad, congenital and periportal fibrosis must not be counted as independent evidence from the same report.",
+      "automaticPropagation": false
+    }
+  ]
+}

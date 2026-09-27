@@ -22,7 +22,7 @@ contains the exact candidate wording and input declaration line for each item.
 The source pairings in [orphadata-evidence.json](orphadata-evidence.json) reproduce
 the 35 relevant rows from the locally audited Orphadata phenotype export. Its
 provenance records the source XML URL, SHA-256, release, and CC BY 4.0 license.
-The local audit at `../working-docs/docs/ikd-phenotype-data/README.md` is
+The local audit at `research/ikd-phenotype-data/README.md` is
 untracked working material, so this committed subset is the stable evidence
 snapshot for M3. [GeneReviews: Fabry Disease](https://www.ncbi.nlm.nih.gov/books/NBK1292/)
 and [GeneReviews: Tuberous Sclerosis Complex](https://www.ncbi.nlm.nih.gov/books/NBK1220/)

@@ -1,0 +1,669 @@
+{
+  "schemaVersion": "0.1-draft",
+  "answerStates": [
+    "present",
+    "absent",
+    "unknown",
+    "unanswered"
+  ],
+  "features": [
+    {
+      "featureId": "proteinuria",
+      "sourceAttribute": "phen_proteinuria",
+      "label": "Proteinuria",
+      "question": "Has proteinuria been documented?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0000093",
+      "help": "Records documented protein in the urine without applying a quantitative threshold.",
+      "featureKey": "HP:0000093",
+      "definition": "Records documented protein in the urine without applying a quantitative threshold.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_fabry",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "renal_angiomyolipoma",
+      "sourceAttribute": "phen_renal_angiomyolipoma",
+      "label": "Renal angiomyolipoma",
+      "question": "Has a renal angiomyolipoma been documented on imaging?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0006772",
+      "help": "Records a documented kidney lesion, without applying a size or number threshold.",
+      "featureKey": "HP:0006772",
+      "definition": "Records a documented kidney lesion, without applying a size or number threshold.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_tsc",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "angiofibromas",
+      "sourceAttribute": "phen_angiofibromas",
+      "label": "Angiofibromas",
+      "question": "Have angiofibromas been identified?",
+      "section": "skin_sweating",
+      "answerType": "presence",
+      "hpoId": "HP:0010615",
+      "help": "Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.",
+      "featureKey": "HP:0010615",
+      "definition": "Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_tsc",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "angiokeratoma",
+      "sourceAttribute": "phen_angiokeratoma",
+      "label": "Angiokeratomas",
+      "question": "Have angiokeratomas been identified?",
+      "section": "skin_sweating",
+      "answerType": "presence",
+      "hpoId": "HP:0001014",
+      "help": "Records whether these vascular skin lesions have been identified.",
+      "featureKey": "HP:0001014",
+      "definition": "Records whether these vascular skin lesions have been identified.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_fabry",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "hypomelanotic_macule",
+      "sourceAttribute": "phen_hypomelanotic_macule",
+      "label": "Hypomelanotic macules",
+      "question": "Have hypomelanotic macules been identified?",
+      "section": "skin_sweating",
+      "answerType": "presence",
+      "hpoId": "HP:0009719",
+      "help": "Records identified patches of skin with reduced pigmentation; no lesion count is applied.",
+      "featureKey": "HP:0009719",
+      "definition": "Records identified patches of skin with reduced pigmentation; no lesion count is applied.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_tsc",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "hypohidrosis",
+      "sourceAttribute": "phen_hypohidrosis",
+      "label": "Reduced sweating",
+      "question": "Does the patient report reduced sweating?",
+      "section": "skin_sweating",
+      "answerType": "presence",
+      "hpoId": "HP:0000966",
+      "help": "Records a history of sweating less than expected.",
+      "featureKey": "HP:0000966",
+      "definition": "Records a history of sweating less than expected.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_fabry",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "shagreen_patch",
+      "sourceAttribute": "phen_shagreen_patch",
+      "label": "Shagreen patch",
+      "question": "Has a shagreen patch been identified?",
+      "section": "skin_sweating",
+      "answerType": "presence",
+      "hpoId": "HP:0009721",
+      "help": "Records whether this skin finding has been identified.",
+      "featureKey": "HP:0009721",
+      "definition": "Records whether this skin finding has been identified.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_tsc",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "cornea_verticillata",
+      "sourceAttribute": "phen_cornea_verticillata",
+      "label": "Cornea verticillata",
+      "question": "Has cornea verticillata been documented on eye examination?",
+      "section": "eyes",
+      "answerType": "presence",
+      "hpoId": "HP:0500008",
+      "help": "Records a documented corneal finding; it does not ask the patient to identify it.",
+      "featureKey": "HP:0500008",
+      "definition": "Records a documented corneal finding; it does not ask the patient to identify it.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_fabry",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "acroparesthesia",
+      "sourceAttribute": "phen_acroparesthesia",
+      "label": "Acroparaesthesia",
+      "question": "Has the patient experienced episodes of burning or tingling pain in the hands or feet?",
+      "section": "neurological_history",
+      "answerType": "presence",
+      "hpoId": "HP:0031006",
+      "help": "Episodes of pain or abnormal sensation in the extremities.",
+      "featureKey": "HP:0031006",
+      "definition": "Episodes of pain or abnormal sensation in the extremities.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_fabry",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureId": "seizure",
+      "sourceAttribute": "phen_seizure",
+      "label": "Seizures",
+      "question": "Is there a history of seizures?",
+      "section": "neurological_history",
+      "answerType": "presence",
+      "hpoId": "HP:0001250",
+      "help": "Records a history of seizures without implying when they occurred.",
+      "featureKey": "HP:0001250",
+      "definition": "Records a history of seizures without implying when they occurred.",
+      "authoringStatus": "existing_atlas_prototype",
+      "clinicalReviewStatus": "pending",
+      "definitionSourceRefs": [
+        "genereviews_tsc",
+        "orphadata_2026_06"
+      ],
+      "temporalScope": "as_worded",
+      "evidenceRequirement": "as_worded",
+      "notes": "Preserved from Atlas content bc826888e7405139. Prototype acceptance is not clinical accuracy approval."
+    },
+    {
+      "featureKey": "HP:0000790",
+      "featureId": "hematuria",
+      "sourceAttribute": "phen_hematuria",
+      "label": "Haematuria",
+      "question": "Has haematuria been documented?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0000790",
+      "help": "Includes microscopic and visible haematuria. Record the subtype separately when known. A missing urine result is unknown, not absent.",
+      "definition": "Documented blood in the urine, including microscopic or visible haematuria; the subtype may be known or unknown.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Do not infer from proteinuria or a diagnosis of Alport syndrome. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "revise",
+        "rationale": "Broaden the definition to include known subtypes. The parent concept does not mean subtype unknown.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0002907",
+      "featureId": "microscopic_hematuria",
+      "sourceAttribute": "phen_microscopic_hematuria",
+      "label": "Microscopic haematuria",
+      "question": "Has microscopic haematuria been documented on urine testing?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0002907",
+      "help": "Specifically documented microscopic haematuria.",
+      "definition": "Specifically documented microscopic haematuria.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Do not infer microscopic haematuria from an unspecified haematuria record. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain documented microscopic haematuria. Do not treat unspecified haematuria as sufficient evidence or introduce a new RBC threshold.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0012587",
+      "featureId": "macroscopic_hematuria",
+      "sourceAttribute": "phen_macroscopic_hematuria",
+      "label": "Visible haematuria",
+      "question": "Has visible blood in the urine been documented?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0012587",
+      "help": "Documented macroscopic haematuria.",
+      "definition": "Documented macroscopic haematuria.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Retain separately from microscopic haematuria; no persistence or cause is inferred. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain visible haematuria. Record the historical event; no inference of persistence or cause.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0000365",
+      "featureId": "hearing_impairment",
+      "sourceAttribute": "phen_hearing_impairment",
+      "label": "Hearing impairment",
+      "question": "Has hearing impairment been documented?",
+      "section": "hearing",
+      "answerType": "presence",
+      "hpoId": "HP:0000365",
+      "help": "Includes hearing impairment with a known or unknown type. Record sensorineural type and laterality separately when documented.",
+      "definition": "Documented reduction in hearing, whether or not the type or laterality is known.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Does not establish sensorineural impairment or laterality. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "revise",
+        "rationale": "Correct overly narrow unspecified-type definition. Known sensorineural impairment also falls within the broad concept.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0000407",
+      "featureId": "sensorineural_hearing_impairment",
+      "sourceAttribute": "phen_sensorineural_hearing_impairment",
+      "label": "Sensorineural hearing impairment",
+      "question": "Has sensorineural hearing impairment been documented on hearing assessment?",
+      "section": "hearing",
+      "answerType": "presence",
+      "hpoId": "HP:0000407",
+      "help": "Documented sensorineural hearing impairment.",
+      "definition": "Documented sensorineural hearing impairment.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "General hearing difficulty alone does not establish this finding. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain explicit hearing-assessment evidence; subjective hearing difficulty cannot establish the type.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0008619",
+      "featureId": "bilateral_sensorineural_hearing_impairment",
+      "sourceAttribute": "phen_bilateral_sensorineural_hearing_impairment",
+      "label": "Bilateral sensorineural hearing impairment",
+      "question": "Has sensorineural hearing impairment in both ears been documented?",
+      "section": "hearing",
+      "answerType": "presence",
+      "hpoId": "HP:0008619",
+      "help": "Documented sensorineural impairment affecting both ears.",
+      "definition": "Documented sensorineural impairment affecting both ears.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Do not infer laterality from an unspecified hearing impairment record. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain explicit documentation that both ears are affected; preserve laterality.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0000107",
+      "featureId": "renal_cyst",
+      "sourceAttribute": "phen_renal_cyst",
+      "label": "Renal cyst",
+      "question": "Has at least one renal cyst been documented on imaging?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0000107",
+      "help": "Includes a single cyst or multiple cysts. This finding alone does not establish cystic dysplasia or inherited cystic disease.",
+      "definition": "One or more documented renal cysts; number, distribution and morphology require separate detail.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Does not establish multiple cysts, dysplasia or inherited cystic disease. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "revise",
+        "rationale": "Clarify one-or-more wording so multiple cysts do not appear excluded by a singular question.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0005562",
+      "featureId": "multiple_renal_cysts",
+      "sourceAttribute": "phen_multiple_renal_cysts",
+      "label": "Multiple renal cysts",
+      "question": "Have multiple renal cysts been documented on imaging?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0005562",
+      "help": "Multiple renal cysts explicitly documented in an imaging report.",
+      "definition": "Multiple renal cysts explicitly documented in an imaging report.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Do not infer from a record that mentions only a renal cyst; no new numerical cutoff is proposed. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain report-based multiple-cyst finding. The ontology does not supply a numerical cutoff to implement here.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0012622",
+      "featureId": "chronic_kidney_disease",
+      "sourceAttribute": "phen_chronic_kidney_disease",
+      "label": "Chronic kidney disease",
+      "question": "Has chronic kidney disease been documented?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0012622",
+      "help": "Documented CKD; this question does not derive chronicity from test results.",
+      "definition": "Documented CKD; this question does not derive chronicity from test results.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "A single reduced eGFR is insufficient to answer this documented-history question. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain documented CKD history. Automated chronicity assessment requires a separate dated rule.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0000083",
+      "featureId": "renal_insufficiency",
+      "sourceAttribute": "phen_renal_insufficiency",
+      "label": "Renal insufficiency",
+      "question": "Has renal insufficiency or impaired kidney function been documented?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0000083",
+      "help": "Documented impaired kidney function without an assertion of chronicity or stage.",
+      "definition": "Documented impaired kidney function without an assertion of chronicity or stage.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Candidate wording needs review because the source term is broad; do not equate it with confirmed CKD. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain_as_context",
+        "rationale": "Retain as broad context/fallback when this is what the record supports; do not make it an independent disease-discriminating score or require it to be answered again after CKD.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0000822",
+      "featureId": "hypertension",
+      "sourceAttribute": "phen_hypertension",
+      "label": "Hypertension",
+      "question": "Has hypertension been documented?",
+      "section": "cardiovascular",
+      "answerType": "presence",
+      "hpoId": "HP:0000822",
+      "help": "Documented hypertension without deriving a diagnosis from a single blood pressure.",
+      "definition": "Documented hypertension without deriving a diagnosis from a single blood pressure.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Age at onset, severity and measurement thresholds are not captured. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain documented hypertension. A single elevated blood pressure is not equivalent to the HPO chronic-pressure concept.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0003774",
+      "featureId": "stage_5_chronic_kidney_disease",
+      "sourceAttribute": "phen_stage_5_chronic_kidney_disease",
+      "label": "Stage 5 chronic kidney disease",
+      "question": "Has stage 5 chronic kidney disease been documented?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0003774",
+      "help": "Explicit documentation of CKD stage 5.",
+      "definition": "Explicit documentation of CKD stage 5.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Do not infer stage from any kidney disease or dialysis mention alone. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain explicit documented stage. Do not require dialysis or infer this stage from any dialysis exposure.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0001251",
+      "featureId": "ataxia",
+      "sourceAttribute": "phen_ataxia",
+      "label": "Ataxia",
+      "question": "Has ataxia been documented on clinical assessment?",
+      "section": "neurological_history",
+      "answerType": "presence",
+      "hpoId": "HP:0001251",
+      "help": "Documented ataxia.",
+      "definition": "Documented ataxia.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Unspecified imbalance or dizziness is not automatically equivalent. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain clinician-documented impaired coordination; unqualified dizziness or imbalance is insufficient.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0001252",
+      "featureId": "hypotonia",
+      "sourceAttribute": "phen_hypotonia",
+      "label": "Hypotonia",
+      "question": "Has hypotonia been documented on clinical assessment?",
+      "section": "neurological_history",
+      "answerType": "presence",
+      "hpoId": "HP:0001252",
+      "help": "Documented reduced muscle tone.",
+      "definition": "Documented reduced muscle tone.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Do not equate muscle weakness with reduced muscle tone. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain documented reduced muscle tone; weakness is a different finding.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0001263",
+      "featureId": "global_developmental_delay",
+      "sourceAttribute": "phen_global_developmental_delay",
+      "label": "Global developmental delay",
+      "question": "Was global developmental delay documented in early childhood, before age five?",
+      "section": "neurological_history",
+      "answerType": "presence",
+      "hpoId": "HP:0001263",
+      "help": "An older patient can have a documented childhood history. Do not use a new assessment of adult difficulties or an isolated developmental concern to establish this finding. If the childhood timing cannot be established, record unknown.",
+      "definition": "A documented history of global developmental delay in a child younger than five at the relevant assessment.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "historical_assessment_before_age_five",
+      "evidenceRequirement": "documented_finding",
+      "notes": "Do not infer this from one isolated developmental concern. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "revise",
+        "rationale": "Add age at the historical assessment. The source definition restricts this term to children younger than five.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    },
+    {
+      "featureKey": "HP:0005584",
+      "featureId": "renal_cell_carcinoma",
+      "sourceAttribute": "phen_renal_cell_carcinoma",
+      "label": "Renal cell carcinoma",
+      "question": "Has renal cell carcinoma been documented?",
+      "section": "kidney",
+      "answerType": "presence",
+      "hpoId": "HP:0005584",
+      "help": "A documented renal cell carcinoma diagnosis.",
+      "definition": "A documented renal cell carcinoma diagnosis.",
+      "definitionSourceRefs": [
+        "orphadata_2026_06"
+      ],
+      "authoringStatus": "draft_question",
+      "clinicalReviewStatus": "pending",
+      "temporalScope": "documented_history_unspecified_date",
+      "evidenceRequirement": "documented_finding",
+      "notes": "An unspecified renal mass is not equivalent; record timing separately before use in pre-diagnosis research. Question wording is locally authored and pending review.",
+      "editorialReview": {
+        "date": "2026-09-27",
+        "reviewer": "Codex",
+        "recommendation": "retain",
+        "rationale": "Retain explicit documented tumour diagnosis. An unspecified renal mass is insufficient; preserve diagnosis date for later research use.",
+        "sourceRef": "hpo_2026_09_01",
+        "clinicalApproval": false
+      }
+    }
+  ]
+}

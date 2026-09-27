@@ -1,0 +1,18 @@
+study_entity,candidate_source_id,source_label,positive_unique_hpo_terms,negative_rows,mapping_caveat
+"Alport, autosomal dominant",OMIM:104200,"Alport syndrome 3, autosomal dominant",19,0,Exact named subtype
+"Alport, X-linked",OMIM:301050,"Alport syndrome, X-linked",20,0,Exact named subtype; authors split by sex
+"Alport, autosomal recessive",OMIM:203780,"Alport syndrome 2, autosomal recessive",14,0,Candidate core subtype; current HPO also has OMIM:620536
+"ADTKD, UMOD",OMIM:162000,"Tubulointerstitial kidney disease, autosomal dominant, 1",33,0,Gene subtype
+"ADTKD, MUC1",OMIM:174000,"Tubulointerstitial kidney disease, autosomal dominant, 2",19,0,Gene subtype
+Nephronophthisis 1,OMIM:256100,Nephronophthisis 1,12,0,Exact named subtype
+Joubert syndrome,OMIM:213300,Joubert syndrome 1,53,0,Joubert type 1 only; not equivalent to the whole study group
+"Nephronophthisis, unspecified",ORPHA:655,Nephronophthisis,3,0,Broad profile; only 3 features
+Nephronophthisis 12,OMIM:613820,Nephronophthisis 12,2,0,Only 2 phenotypic-anomaly features
+Nephronophthisis 4,OMIM:606966,Nephronophthisis 4,9,0,Exact named subtype
+Mainzer-Saldino,OMIM:266920,Short-rib thoracic dysplasia 9 with or without polydactyly,93,0,Related broader SRTD9 concept; requires crosswalk review
+Tuberous sclerosis,ORPHA:805,Tuberous sclerosis complex,62,0,Broad disease profile
+"Fabry, classic",ORPHA:324,Fabry disease,76,0,Shared general Fabry profile; no classic-specific separation verified
+"Fabry, non-classic",ORPHA:324,Fabry disease,76,0,Shared general Fabry profile; no non-classic-specific separation verified
+ARPKD,ORPHA:731,Autosomal recessive polycystic kidney disease,51,0,Broad disease profile
+HNF1B-related disease,ORPHA:93111,HNF1B-related autosomal dominant tubulointerstitial kidney disease,29,0,Named HNF1B renal profile
+Von Hippel-Lindau,ORPHA:892,Von Hippel-Lindau disease,41,0,Broad disease profile

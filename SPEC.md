@@ -77,7 +77,7 @@ These associations are supported by [GeneReviews: Fabry Disease](https://www.ncb
 
 These associations are supported by [GeneReviews: Tuberous Sclerosis Complex](https://www.ncbi.nlm.nih.gov/books/NBK1220/). The questions do not implement diagnostic lesion counts, sizes, or combinations. The broad HPO term for angiofibromas is retained rather than silently treating it as a facial-only code.
 
-All ten feature identifiers and disease associations also occur in the local [Orphadata phenotype export](../working-docs/docs/ikd-phenotype-data/orphadata-phenotypes.csv). Preserve source attribution and release information from its [source audit](../working-docs/docs/ikd-phenotype-data/README.md). The question wording above is Atlas-authored adaptation, not source text. Imported frequency labels must not become scoring weights or probabilities.
+All ten feature identifiers and disease associations also occur in the local [Orphadata phenotype export](research/ikd-phenotype-data/orphadata-phenotypes.csv). Preserve source attribution and release information from its [source audit](research/ikd-phenotype-data/README.md). The question wording above is Atlas-authored adaptation, not source text. Imported frequency labels must not become scoring weights or probabilities.
 
 ## Answer semantics
 
@@ -138,7 +138,7 @@ acroparesthesia => eadv.phen_acroparesthesia.val.last();
 
 At this stage, ruleblocks declare phenotype inputs without disease-detection thresholds or diagnostic outputs. Adding a referenced input with valid metadata to a member rule must add its question without editing UI code.
 
-The existing core parser currently skips compiler directives: see [ruleblock-parser.ts](../picorules-compiler-js-core/src/parsing/ruleblock-parser.ts). Implementation must add a structured metadata extraction step, either as a focused parser extension or an Atlas content compiler. It must handle nested objects, strings and comments; do not execute metadata using JavaScript `eval` or rely on a single regular expression. Validate metadata against a versioned schema and check input references against parsed rules.
+The existing core parser currently skips compiler directives: see [ruleblock-parser.ts](https://github.com/asaabey/picorules-compiler-js-core/blob/a456331a6da938c6509e4d9ba824440924014678/src/parsing/ruleblock-parser.ts). Implementation must add a structured metadata extraction step, either as a focused parser extension or an Atlas content compiler. It must handle nested objects, strings and comments; do not execute metadata using JavaScript `eval` or rely on a single regular expression. Validate metadata against a versioned schema and check input references against parsed rules.
 
 Produce a collection manifest at build time from the rules and metadata. Keep the source metadata authoritative; do not maintain a second hand-written questionnaire. Disease-level sources and feature-level mappings must remain traceable in the manifest.
 

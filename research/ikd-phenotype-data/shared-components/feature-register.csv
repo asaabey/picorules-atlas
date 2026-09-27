@@ -1,0 +1,306 @@
+feature_key,hpo_id,hpo_label,feature_id,source_attribute,authoring_status,clinical_review_status,source_profile_count,disease_group_count,source_profiles,disease_groups
+HP:0000003,HP:0000003,Multicystic kidney dysplasia,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000010,HP:0000010,Recurrent urinary tract infections,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0000047,HP:0000047,Hypospadias,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000077,HP:0000077,Abnormality of the kidney,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0000083,HP:0000083,Renal insufficiency,renal_insufficiency,phen_renal_insufficiency,draft_question,pending,10,6,ORPHA:220497|ORPHA:2318|ORPHA:324|ORPHA:63|ORPHA:655|ORPHA:731|ORPHA:805|ORPHA:88917|ORPHA:88919|ORPHA:93111,alport|arpkd|fabry|hnf1b|nephronophthisis_ciliopathy|tsc
+HP:0000085,HP:0000085,Horseshoe kidney,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000091,HP:0000091,Abnormal renal tubule morphology,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000093,HP:0000093,Proteinuria,proteinuria,phen_proteinuria,existing_atlas_prototype,pending,5,2,ORPHA:324|ORPHA:63|ORPHA:88917|ORPHA:88918|ORPHA:88919,alport|fabry
+HP:0000097,HP:0000097,Focal segmental glomerulosclerosis,,,inventory_pending_triage,pending,2,1,ORPHA:63|ORPHA:88919,alport
+HP:0000100,HP:0000100,Nephrotic syndrome,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:88917,alport|fabry
+HP:0000104,HP:0000104,Renal agenesis,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000105,HP:0000105,Enlarged kidney,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0000107,HP:0000107,Renal cyst,renal_cyst,phen_renal_cyst,draft_question,pending,1,1,ORPHA:805,tsc
+HP:0000112,HP:0000112,Nephropathy,,,inventory_pending_triage,pending,3,2,ORPHA:220497|ORPHA:2318|ORPHA:324,fabry|nephronophthisis_ciliopathy
+HP:0000113,HP:0000113,Polycystic kidney dysplasia,,,inventory_pending_triage,pending,2,2,ORPHA:731|ORPHA:805,arpkd|tsc
+HP:0000175,HP:0000175,Cleft palate,,,inventory_pending_triage,pending,1,1,ORPHA:220497,nephronophthisis_ciliopathy
+HP:0000179,HP:0000179,Thick lower lip vermilion,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000202,HP:0000202,Orofacial cleft,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000238,HP:0000238,Hydrocephalus,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000276,HP:0000276,Long face,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000280,HP:0000280,Coarse facial features,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000303,HP:0000303,Mandibular prognathia,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000347,HP:0000347,Micrognathia,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0000358,HP:0000358,Posteriorly rotated ears,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:2318,nephronophthisis_ciliopathy
+HP:0000360,HP:0000360,Tinnitus,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000365,HP:0000365,Hearing impairment,hearing_impairment,phen_hearing_impairment,draft_question,pending,4,3,ORPHA:324|ORPHA:88917|ORPHA:88919|ORPHA:93111,alport|fabry|hnf1b
+HP:0000369,HP:0000369,Low-set ears,,,inventory_pending_triage,pending,2,2,ORPHA:475|ORPHA:731,arpkd|nephronophthisis_ciliopathy
+HP:0000407,HP:0000407,Sensorineural hearing impairment,sensorineural_hearing_impairment,phen_sensorineural_hearing_impairment,draft_question,pending,2,2,ORPHA:324|ORPHA:88918,alport|fabry
+HP:0000426,HP:0000426,Prominent nasal bridge,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000457,HP:0000457,Depressed nasal ridge,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0000463,HP:0000463,Anteverted nares,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000478,HP:0000478,Abnormality of the eye,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0000483,HP:0000483,Astigmatism,,,inventory_pending_triage,pending,1,1,ORPHA:88917,alport
+HP:0000486,HP:0000486,Strabismus,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000495,HP:0000495,Recurrent corneal erosions,,,inventory_pending_triage,pending,2,1,ORPHA:63|ORPHA:88918,alport
+HP:0000505,HP:0000505,Visual impairment,,,inventory_pending_triage,pending,1,1,ORPHA:2318,nephronophthisis_ciliopathy
+HP:0000508,HP:0000508,Ptosis,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000518,HP:0000518,Cataract,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:88917,alport|fabry
+HP:0000523,HP:0000523,Subcapsular cataract,,,inventory_pending_triage,pending,1,1,ORPHA:88919,alport
+HP:0000524,HP:0000524,Conjunctival telangiectasia,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000541,HP:0000541,Retinal detachment,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0000545,HP:0000545,Myopia,,,inventory_pending_triage,pending,2,1,ORPHA:63|ORPHA:88917,alport
+HP:0000546,HP:0000546,Retinal degeneration,,,inventory_pending_triage,pending,1,1,ORPHA:88919,alport
+HP:0000556,HP:0000556,Retinal dystrophy,,,inventory_pending_triage,pending,1,1,ORPHA:2318,nephronophthisis_ciliopathy
+HP:0000567,HP:0000567,Chorioretinal coloboma,,,inventory_pending_triage,pending,1,1,ORPHA:2318,nephronophthisis_ciliopathy
+HP:0000572,HP:0000572,Visual loss,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0000573,HP:0000573,Retinal hemorrhage,,,inventory_pending_triage,pending,2,1,ORPHA:88917|ORPHA:88919,alport
+HP:0000608,HP:0000608,Macular degeneration,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0000612,HP:0000612,Iris coloboma,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000618,HP:0000618,Blindness,,,inventory_pending_triage,pending,1,1,ORPHA:2318,nephronophthisis_ciliopathy
+HP:0000639,HP:0000639,Nystagmus,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000648,HP:0000648,Optic atrophy,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000657,HP:0000657,Oculomotor apraxia,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000708,HP:0000708,Atypical behavior,,,inventory_pending_triage,pending,3,3,ORPHA:2318|ORPHA:324|ORPHA:805,fabry|nephronophthisis_ciliopathy|tsc
+HP:0000716,HP:0000716,Depression,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:805,fabry|tsc
+HP:0000717,HP:0000717,Autism,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0000718,HP:0000718,Aggressive behavior,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0000729,HP:0000729,Autistic behavior,,,inventory_pending_triage,pending,2,2,ORPHA:2318|ORPHA:805,nephronophthisis_ciliopathy|tsc
+HP:0000739,HP:0000739,Anxiety,,,inventory_pending_triage,pending,3,3,ORPHA:324|ORPHA:805|ORPHA:892,fabry|tsc|vhl
+HP:0000752,HP:0000752,Hyperactivity,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0000790,HP:0000790,Hematuria,hematuria,phen_hematuria,draft_question,pending,4,2,ORPHA:324|ORPHA:63|ORPHA:88918|ORPHA:88919,alport|fabry
+HP:0000813,HP:0000813,Bicornuate uterus,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000819,HP:0000819,Diabetes mellitus,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000821,HP:0000821,Hypothyroidism,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0000822,HP:0000822,Hypertension,hypertension,phen_hypertension,draft_question,pending,6,5,ORPHA:324|ORPHA:63|ORPHA:731|ORPHA:805|ORPHA:88917|ORPHA:892,alport|arpkd|fabry|tsc|vhl
+HP:0000823,HP:0000823,Delayed puberty,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000864,HP:0000864,Abnormality of the hypothalamus-pituitary axis,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0000873,HP:0000873,Diabetes insipidus,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000952,HP:0000952,Jaundice,,,inventory_pending_triage,pending,2,2,ORPHA:731|ORPHA:93111,arpkd|hnf1b
+HP:0000962,HP:0000962,Hyperkeratosis,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0000966,HP:0000966,Hypohidrosis,hypohidrosis,phen_hypohidrosis,existing_atlas_prototype,pending,1,1,ORPHA:324,fabry
+HP:0000969,HP:0000969,Edema,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0000975,HP:0000975,Hyperhidrosis,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:892,fabry|vhl
+HP:0000980,HP:0000980,Pallor,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0001004,HP:0001004,Lymphedema,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001014,HP:0001014,Angiokeratoma,angiokeratoma,phen_angiokeratoma,existing_atlas_prototype,pending,1,1,ORPHA:324,fabry
+HP:0001085,HP:0001085,Papilledema,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0001095,HP:0001095,Hypertensive retinopathy,,,inventory_pending_triage,pending,3,2,ORPHA:88917|ORPHA:88919|ORPHA:892,alport|vhl
+HP:0001131,HP:0001131,Corneal dystrophy,,,inventory_pending_triage,pending,3,2,ORPHA:324|ORPHA:63|ORPHA:88918,alport|fabry
+HP:0001142,HP:0001142,Lenticonus,,,inventory_pending_triage,pending,1,1,ORPHA:88919,alport
+HP:0001161,HP:0001161,Hand polydactyly,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0001249,HP:0001249,Intellectual disability,,,inventory_pending_triage,pending,5,3,ORPHA:220497|ORPHA:2318|ORPHA:475|ORPHA:805|ORPHA:93111,hnf1b|nephronophthisis_ciliopathy|tsc
+HP:0001250,HP:0001250,Seizure,seizure,phen_seizure,existing_atlas_prototype,pending,5,3,ORPHA:220497|ORPHA:2318|ORPHA:324|ORPHA:475|ORPHA:805,fabry|nephronophthisis_ciliopathy|tsc
+HP:0001251,HP:0001251,Ataxia,ataxia,phen_ataxia,draft_question,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0001252,HP:0001252,Hypotonia,hypotonia,phen_hypotonia,draft_question,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0001263,HP:0001263,Global developmental delay,global_developmental_delay,phen_global_developmental_delay,draft_question,pending,4,2,ORPHA:220497|ORPHA:2318|ORPHA:475|ORPHA:93111,hnf1b|nephronophthisis_ciliopathy
+HP:0001274,HP:0001274,Agenesis of corpus callosum,,,inventory_pending_triage,pending,1,1,ORPHA:220497,nephronophthisis_ciliopathy
+HP:0001288,HP:0001288,Gait disturbance,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:475,nephronophthisis_ciliopathy
+HP:0001297,HP:0001297,Stroke,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:892,fabry|vhl
+HP:0001320,HP:0001320,Cerebellar vermis hypoplasia,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0001328,HP:0001328,Specific learning disability,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0001337,HP:0001337,Tremor,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:475,nephronophthisis_ciliopathy
+HP:0001369,HP:0001369,Arthritis,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:93111,fabry|hnf1b
+HP:0001382,HP:0001382,Joint hypermobility,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0001395,HP:0001395,Hepatic fibrosis,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001396,HP:0001396,Cholestasis,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001397,HP:0001397,Hepatic steatosis,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0001405,HP:0001405,Periportal fibrosis,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001407,HP:0001407,Hepatic cysts,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0001409,HP:0001409,Portal hypertension,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001433,HP:0001433,Hepatosplenomegaly,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001482,HP:0001482,Subcutaneous nodule,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001510,HP:0001510,Growth delay,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001541,HP:0001541,Ascites,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001562,HP:0001562,Oligohydramnios,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001635,HP:0001635,Congestive heart failure,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001637,HP:0001637,Abnormal myocardium morphology,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001638,HP:0001638,Cardiomyopathy,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0001639,HP:0001639,Hypertrophic cardiomyopathy,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001646,HP:0001646,Abnormal aortic valve morphology,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001653,HP:0001653,Mitral regurgitation,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001658,HP:0001658,Myocardial infarction,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0001678,HP:0001678,Atrioventricular block,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001681,HP:0001681,Angina pectoris,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001696,HP:0001696,Situs inversus totalis,,,inventory_pending_triage,pending,1,1,ORPHA:475,nephronophthisis_ciliopathy
+HP:0001712,HP:0001712,Left ventricular hypertrophy,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001737,HP:0001737,Pancreatic cysts,,,inventory_pending_triage,pending,2,2,ORPHA:731|ORPHA:892,arpkd|vhl
+HP:0001744,HP:0001744,Splenomegaly,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001829,HP:0001829,Foot polydactyly,,,inventory_pending_triage,pending,2,1,ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0001873,HP:0001873,Thrombocytopenia,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001901,HP:0001901,Polycythemia,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0001903,HP:0001903,Anemia,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:655,fabry|nephronophthisis_ciliopathy
+HP:0001919,HP:0001919,Acute kidney injury,,,inventory_pending_triage,pending,2,2,ORPHA:731|ORPHA:93111,arpkd|hnf1b
+HP:0001945,HP:0001945,Fever,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0001959,HP:0001959,Polydipsia,,,inventory_pending_triage,pending,2,2,ORPHA:731|ORPHA:93111,arpkd|hnf1b
+HP:0001962,HP:0001962,Palpitations,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0001971,HP:0001971,Hypersplenism,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0001994,HP:0001994,Renal Fanconi syndrome,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0002013,HP:0002013,Vomiting,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0002015,HP:0002015,Dysphagia,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0002017,HP:0002017,Nausea and vomiting,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002021,HP:0002021,Pyloric stenosis,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0002024,HP:0002024,Malabsorption,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002027,HP:0002027,Abdominal pain,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:892,fabry|vhl
+HP:0002039,HP:0002039,Anorexia,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002040,HP:0002040,Esophageal varix,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002046,HP:0002046,Heat intolerance,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002084,HP:0002084,Encephalocele,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002089,HP:0002089,Pulmonary hypoplasia,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002093,HP:0002093,Respiratory insufficiency,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002094,HP:0002094,Dyspnea,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:63,alport|fabry
+HP:0002097,HP:0002097,Emphysema,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002098,HP:0002098,Respiratory distress,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002104,HP:0002104,Apnea,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002105,HP:0002105,Hemoptysis,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002108,HP:0002108,Spontaneous pneumothorax,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002126,HP:0002126,Polymicrogyria,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002133,HP:0002133,Status epilepticus,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002149,HP:0002149,Hyperuricemia,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0002239,HP:0002239,Gastrointestinal hemorrhage,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002243,HP:0002243,Protein-losing enteropathy,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002251,HP:0002251,Aganglionic megacolon,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002269,HP:0002269,Abnormality of neuronal migration,,,inventory_pending_triage,pending,2,1,ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002315,HP:0002315,Headache,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0002321,HP:0002321,Vertigo,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:892,fabry|vhl
+HP:0002326,HP:0002326,Transient ischemic attack,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002360,HP:0002360,Sleep abnormality,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002376,HP:0002376,Developmental regression,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002419,HP:0002419,Molar tooth sign on MRI,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:2318,nephronophthisis_ciliopathy
+HP:0002465,HP:0002465,Poor speech,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002516,HP:0002516,Increased intracranial pressure,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0002539,HP:0002539,Cortical dysplasia,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002553,HP:0002553,Highly arched eyebrow,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002571,HP:0002571,Achalasia,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002612,HP:0002612,Congenital hepatic fibrosis,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002630,HP:0002630,Fat malabsorption,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002650,HP:0002650,Scoliosis,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002666,HP:0002666,Pheochromocytoma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002668,HP:0002668,Paraganglioma,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0002789,HP:0002789,Tachypnea,,,inventory_pending_triage,pending,1,1,ORPHA:2318,nephronophthisis_ciliopathy
+HP:0002791,HP:0002791,Hypoventilation,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002793,HP:0002793,Abnormal pattern of respiration,,,inventory_pending_triage,pending,2,1,ORPHA:220497|ORPHA:475,nephronophthisis_ciliopathy
+HP:0002823,HP:0002823,Abnormality of femur morphology,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002829,HP:0002829,Arthralgia,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0002837,HP:0002837,Recurrent bronchitis,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0002876,HP:0002876,Episodic tachypnea,,,inventory_pending_triage,pending,1,1,ORPHA:475,nephronophthisis_ciliopathy
+HP:0002878,HP:0002878,Respiratory failure,,,inventory_pending_triage,pending,2,2,ORPHA:731|ORPHA:805,arpkd|tsc
+HP:0002884,HP:0002884,Hepatoblastoma,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002893,HP:0002893,Pituitary adenoma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002894,HP:0002894,Neoplasm of the pancreas,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0002897,HP:0002897,Parathyroid adenoma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0002902,HP:0002902,Hyponatremia,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0002907,HP:0002907,Microscopic hematuria,microscopic_hematuria,phen_microscopic_hematuria,draft_question,pending,2,1,ORPHA:63|ORPHA:88917,alport
+HP:0002910,HP:0002910,Elevated circulating hepatic transaminase concentration,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0003077,HP:0003077,Hyperlipidemia,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0003119,HP:0003119,Abnormal circulating lipid concentration,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0003312,HP:0003312,Abnormal form of the vertebral bodies,,,inventory_pending_triage,pending,1,1,ORPHA:475,nephronophthisis_ciliopathy
+HP:0003326,HP:0003326,Myalgia,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0003334,HP:0003334,Elevated circulating catecholamine level,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0003418,HP:0003418,Back pain,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0003484,HP:0003484,Upper limb muscle weakness,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0003546,HP:0003546,Exercise intolerance,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0003774,HP:0003774,Stage 5 chronic kidney disease,stage_5_chronic_kidney_disease,phen_stage_5_chronic_kidney_disease,draft_question,pending,6,3,ORPHA:63|ORPHA:731|ORPHA:805|ORPHA:88917|ORPHA:88918|ORPHA:88919,alport|arpkd|tsc
+HP:0004306,HP:0004306,Abnormality of the endocardium,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0004322,HP:0004322,Short stature,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0004343,HP:0004343,Abnormal glycosphingolipid metabolism,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0004349,HP:0004349,Reduced bone mineral density,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0004422,HP:0004422,Biparietal narrowing,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0004722,HP:0004722,Thickening of the glomerular basement membrane,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0004905,HP:0004905,Low levels of vitamin A,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0004942,HP:0004942,Aortic aneurysm,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0005162,HP:0005162,Abnormal left ventricular function,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0005562,HP:0005562,Multiple renal cysts,multiple_renal_cysts,phen_multiple_renal_cysts,draft_question,pending,3,2,ORPHA:88917|ORPHA:88918|ORPHA:892,alport|vhl
+HP:0005565,HP:0005565,Reduced renal corticomedullary differentiation,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0005576,HP:0005576,Tubulointerstitial fibrosis,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0005584,HP:0005584,Renal cell carcinoma,renal_cell_carcinoma,phen_renal_cell_carcinoma,draft_question,pending,3,3,ORPHA:805|ORPHA:892|ORPHA:93111,hnf1b|tsc|vhl
+HP:0006510,HP:0006510,Chronic pulmonary obstruction,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0006532,HP:0006532,Recurrent pneumonia,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0006560,HP:0006560,Biliary hyperplasia,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0006748,HP:0006748,Adrenal pheochromocytoma,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0006756,HP:0006756,Diffuse leiomyomatosis,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0006772,HP:0006772,Renal angiomyolipoma,renal_angiomyolipoma,phen_renal_angiomyolipoma,existing_atlas_prototype,pending,1,1,ORPHA:805,tsc
+HP:0006880,HP:0006880,Cerebellar hemangioblastoma,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0007018,HP:0007018,Attention deficit hyperactivity disorder,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0007359,HP:0007359,Focal-onset seizure,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0007370,HP:0007370,Aplasia/Hypoplasia of the corpus callosum,,,inventory_pending_triage,pending,2,1,ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0007449,HP:0007449,Confetti-like hypopigmented macules,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0007663,HP:0007663,Reduced visual acuity,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0007703,HP:0007703,Abnormality of retinal pigmentation,,,inventory_pending_triage,pending,1,1,ORPHA:655,nephronophthisis_ciliopathy
+HP:0007787,HP:0007787,Posterior subcapsular cataract,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0007957,HP:0007957,Corneal opacity,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0008043,HP:0008043,Retinal arteriolar constriction,,,inventory_pending_triage,pending,2,1,ORPHA:88917|ORPHA:88919,alport
+HP:0008208,HP:0008208,Parathyroid hyperplasia,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0008261,HP:0008261,Pancreatic islet cell adenoma,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0008619,HP:0008619,Bilateral sensorineural hearing impairment,bilateral_sensorineural_hearing_impairment,phen_bilateral_sensorineural_hearing_impairment,draft_question,pending,1,1,ORPHA:63,alport
+HP:0008762,HP:0008762,Repetitive compulsive behavior,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0008872,HP:0008872,Feeding difficulties in infancy,,,inventory_pending_triage,pending,1,1,ORPHA:475,nephronophthisis_ciliopathy
+HP:0009053,HP:0009053,Distal lower limb muscle weakness,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0009594,HP:0009594,Retinal hamartoma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0009711,HP:0009711,Retinal capillary hemangioma,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0009715,HP:0009715,Papillary cystadenoma of the epididymis,,,inventory_pending_triage,pending,2,2,ORPHA:892|ORPHA:93111,hnf1b|vhl
+HP:0009716,HP:0009716,Subependymal nodules,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0009717,HP:0009717,Cortical tubers,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0009718,HP:0009718,Subependymal giant-cell astrocytoma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0009719,HP:0009719,Hypomelanotic macule,hypomelanotic_macule,phen_hypomelanotic_macule,existing_atlas_prototype,pending,1,1,ORPHA:805,tsc
+HP:0009721,HP:0009721,Shagreen patch,shagreen_patch,phen_shagreen_patch,existing_atlas_prototype,pending,1,1,ORPHA:805,tsc
+HP:0009729,HP:0009729,Cardiac rhabdomyoma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0009763,HP:0009763,Limb pain,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0010307,HP:0010307,Stridor,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0010615,HP:0010615,Angiofibromas,angiofibromas,phen_angiofibromas,existing_atlas_prototype,pending,1,1,ORPHA:805,tsc
+HP:0010953,HP:0010953,Noncommunicating hydrocephalus,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0011029,HP:0011029,Internal hemorrhage,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0011040,HP:0011040,Abnormality of the intrahepatic bile duct,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0011097,HP:0011097,Epileptic spasm,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0011354,HP:0011354,Generalized abnormality of skin,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0011488,HP:0011488,Abnormal corneal endothelium morphology,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0011501,HP:0011501,Anterior lenticonus,,,inventory_pending_triage,pending,3,1,ORPHA:63|ORPHA:88917|ORPHA:88919,alport
+HP:0011508,HP:0011508,Macular hole,,,inventory_pending_triage,pending,1,1,ORPHA:88917,alport
+HP:0011675,HP:0011675,Arrhythmia,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:892,fabry|vhl
+HP:0011710,HP:0011710,Bundle branch block,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0011892,HP:0011892,Low levels of vitamin K,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0011947,HP:0011947,Respiratory tract infection,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0011968,HP:0011968,Feeding difficulties,,,inventory_pending_triage,pending,2,2,ORPHA:220497|ORPHA:731,arpkd|nephronophthisis_ciliopathy
+HP:0011976,HP:0011976,Elevated urinary catecholamines,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0012045,HP:0012045,Retinal flecks,,,inventory_pending_triage,pending,3,1,ORPHA:63|ORPHA:88917|ORPHA:88919,alport
+HP:0012092,HP:0012092,Abnormality of exocrine pancreas physiology,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0012093,HP:0012093,Abnormality of endocrine pancreas physiology,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0012202,HP:0012202,Increased serum bile acid concentration,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0012378,HP:0012378,Fatigue,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0012433,HP:0012433,Abnormal social behavior,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0012469,HP:0012469,Infantile spasms,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0012532,HP:0012532,Chronic pain,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0012574,HP:0012574,Mesangial hypercellularity,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0012577,HP:0012577,Thin glomerular basement membrane,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0012587,HP:0012587,Macroscopic hematuria,macroscopic_hematuria,phen_macroscopic_hematuria,draft_question,pending,2,1,ORPHA:88917|ORPHA:88918,alport
+HP:0012622,HP:0012622,Chronic kidney disease,chronic_kidney_disease,phen_chronic_kidney_disease,draft_question,pending,2,2,ORPHA:805|ORPHA:88918,alport|tsc
+HP:0012735,HP:0012735,Cough,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0012758,HP:0012758,Neurodevelopmental delay,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0012778,HP:0012778,Retinal astrocytic hamartoma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0012798,HP:0012798,Pulmonary lymphangiomyomatosis,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0012819,HP:0012819,Myocarditis,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0012873,HP:0012873,Absent vas deferens,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0025005,HP:0025005,Thickening of glomerular capillary wall,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0030034,HP:0030034,Glomerular basement membrane lamellation,,,inventory_pending_triage,pending,3,1,ORPHA:63|ORPHA:88917|ORPHA:88919,alport
+HP:0030151,HP:0030151,Cholangitis,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0030153,HP:0030153,Cholangiocarcinoma,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0030393,HP:0030393,Endolymphatic sac tumor,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0030405,HP:0030405,Pancreatic endocrine tumor,,,inventory_pending_triage,pending,2,2,ORPHA:805|ORPHA:892,tsc|vhl
+HP:0030424,HP:0030424,Epididymal cyst,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0030680,HP:0030680,Abnormal cardiovascular system morphology,,,inventory_pending_triage,pending,3,1,ORPHA:220497|ORPHA:2318|ORPHA:475,nephronophthisis_ciliopathy
+HP:0030948,HP:0030948,Elevated gamma-glutamyltransferase level,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0031006,HP:0031006,Acroparesthesia,acroparesthesia,phen_acroparesthesia,existing_atlas_prototype,pending,1,1,ORPHA:324,fabry
+HP:0032583,HP:0032583,Renal glomerular foam cells,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0033595,HP:0033595,Elevated circulating globotriaosylceramide concentration,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0034864,HP:0034864,Decreased alpha-galactosidase A activity,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0040030,HP:0040030,Chorioretinal hypopigmentation,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0040049,HP:0040049,Macular edema,,,inventory_pending_triage,pending,1,1,ORPHA:892,vhl
+HP:0040064,HP:0040064,Abnormality of limbs,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0100512,HP:0100512,Low levels of vitamin D,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0100513,HP:0100513,Low levels of vitamin E,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0100520,HP:0100520,Oliguria,,,inventory_pending_triage,pending,1,1,ORPHA:731,arpkd
+HP:0100543,HP:0100543,Cognitive impairment,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:731,arpkd|fabry
+HP:0100570,HP:0100570,Carcinoid tumor,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0100579,HP:0100579,Mucosal telangiectasiae,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0100585,HP:0100585,Telangiectasia of the skin,,,inventory_pending_triage,pending,1,1,ORPHA:324,fabry
+HP:0100710,HP:0100710,Impulsivity,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0100716,HP:0100716,Self-injurious behavior,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0100800,HP:0100800,Aplasia/Hypoplasia of the pancreas,,,inventory_pending_triage,pending,1,1,ORPHA:93111,hnf1b
+HP:0100804,HP:0100804,Ungual fibroma,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0100820,HP:0100820,Glomerulopathy,,,inventory_pending_triage,pending,2,2,ORPHA:324|ORPHA:93111,fabry|hnf1b
+HP:0200020,HP:0200020,Corneal erosion,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0200035,HP:0200035,Skin plaque,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0200040,HP:0200040,Epidermoid cyst,,,inventory_pending_triage,pending,1,1,ORPHA:805,tsc
+HP:0410019,HP:0410019,Epigastric pain,,,inventory_pending_triage,pending,1,1,ORPHA:63,alport
+HP:0500008,HP:0500008,Cornea verticillata,cornea_verticillata,phen_cornea_verticillata,existing_atlas_prototype,pending,1,1,ORPHA:324,fabry

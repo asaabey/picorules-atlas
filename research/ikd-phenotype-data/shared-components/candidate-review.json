@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "0.1-draft",
+  "date": "2026-09-27",
+  "reviewType": "editorial_and_terminology",
+  "reviewer": "Codex",
+  "clinicalReviewStatus": "pending",
+  "respondentAssumption": "clinician_using_history_and_records_pending_user_preference",
+  "source": {
+    "id": "hpo_2026_09_01",
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp.obo",
+    "release": "v2026-09-01",
+    "sha256": "93dace952fcb3ec4728818857f6ba76bc2d5312f4d83266519b8694b8e798f22",
+    "checked": "All 16 candidate IDs exist and are not obsolete; definitions and six overlap clusters inspected against the unmodified release. No ontology content repackaged."
+  },
+  "recommendations": [
+    {
+      "featureId": "hematuria",
+      "hpoId": "HP:0000790",
+      "recommendation": "revise",
+      "rationale": "Broaden the definition to include known subtypes. The parent concept does not mean subtype unknown.",
+      "previousValues": {
+        "definition": "Blood in the urine, without specifying microscopic or visible haematuria.",
+        "help": "Blood in the urine, without specifying microscopic or visible haematuria."
+      },
+      "proposedValues": {
+        "definition": "Documented blood in the urine, including microscopic or visible haematuria; the subtype may be known or unknown.",
+        "help": "Includes microscopic and visible haematuria. Record the subtype separately when known. A missing urine result is unknown, not absent."
+      }
+    },
+    {
+      "featureId": "microscopic_hematuria",
+      "hpoId": "HP:0002907",
+      "recommendation": "retain",
+      "rationale": "Retain documented microscopic haematuria. Do not treat unspecified haematuria as sufficient evidence or introduce a new RBC threshold.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "macroscopic_hematuria",
+      "hpoId": "HP:0012587",
+      "recommendation": "retain",
+      "rationale": "Retain visible haematuria. Record the historical event; no inference of persistence or cause.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "hearing_impairment",
+      "hpoId": "HP:0000365",
+      "recommendation": "revise",
+      "rationale": "Correct overly narrow unspecified-type definition. Known sensorineural impairment also falls within the broad concept.",
+      "previousValues": {
+        "definition": "Documented hearing impairment of unspecified type.",
+        "help": "Documented hearing impairment of unspecified type."
+      },
+      "proposedValues": {
+        "definition": "Documented reduction in hearing, whether or not the type or laterality is known.",
+        "help": "Includes hearing impairment with a known or unknown type. Record sensorineural type and laterality separately when documented."
+      }
+    },
+    {
+      "featureId": "sensorineural_hearing_impairment",
+      "hpoId": "HP:0000407",
+      "recommendation": "retain",
+      "rationale": "Retain explicit hearing-assessment evidence; subjective hearing difficulty cannot establish the type.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "bilateral_sensorineural_hearing_impairment",
+      "hpoId": "HP:0008619",
+      "recommendation": "retain",
+      "rationale": "Retain explicit documentation that both ears are affected; preserve laterality.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "renal_cyst",
+      "hpoId": "HP:0000107",
+      "recommendation": "revise",
+      "rationale": "Clarify one-or-more wording so multiple cysts do not appear excluded by a singular question.",
+      "previousValues": {
+        "question": "Has a renal cyst been documented on imaging?",
+        "definition": "A documented renal cyst without a number or distribution requirement.",
+        "help": "A documented renal cyst without a number or distribution requirement."
+      },
+      "proposedValues": {
+        "question": "Has at least one renal cyst been documented on imaging?",
+        "definition": "One or more documented renal cysts; number, distribution and morphology require separate detail.",
+        "help": "Includes a single cyst or multiple cysts. This finding alone does not establish cystic dysplasia or inherited cystic disease."
+      }
+    },
+    {
+      "featureId": "multiple_renal_cysts",
+      "hpoId": "HP:0005562",
+      "recommendation": "retain",
+      "rationale": "Retain report-based multiple-cyst finding. The ontology does not supply a numerical cutoff to implement here.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "chronic_kidney_disease",
+      "hpoId": "HP:0012622",
+      "recommendation": "retain",
+      "rationale": "Retain documented CKD history. Automated chronicity assessment requires a separate dated rule.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "renal_insufficiency",
+      "hpoId": "HP:0000083",
+      "recommendation": "retain_as_context",
+      "rationale": "Retain as broad context/fallback when this is what the record supports; do not make it an independent disease-discriminating score or require it to be answered again after CKD.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "hypertension",
+      "hpoId": "HP:0000822",
+      "recommendation": "retain",
+      "rationale": "Retain documented hypertension. A single elevated blood pressure is not equivalent to the HPO chronic-pressure concept.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "stage_5_chronic_kidney_disease",
+      "hpoId": "HP:0003774",
+      "recommendation": "retain",
+      "rationale": "Retain explicit documented stage. Do not require dialysis or infer this stage from any dialysis exposure.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "ataxia",
+      "hpoId": "HP:0001251",
+      "recommendation": "retain",
+      "rationale": "Retain clinician-documented impaired coordination; unqualified dizziness or imbalance is insufficient.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "hypotonia",
+      "hpoId": "HP:0001252",
+      "recommendation": "retain",
+      "rationale": "Retain documented reduced muscle tone; weakness is a different finding.",
+      "previousValues": {},
+      "proposedValues": {}
+    },
+    {
+      "featureId": "global_developmental_delay",
+      "hpoId": "HP:0001263",
+      "recommendation": "revise",
+      "rationale": "Add age at the historical assessment. The source definition restricts this term to children younger than five.",
+      "previousValues": {
+        "question": "Has global developmental delay been documented?",
+        "definition": "Documented global developmental delay.",
+        "help": "Documented global developmental delay.",
+        "temporalScope": "documented_history_unspecified_date"
+      },
+      "proposedValues": {
+        "question": "Was global developmental delay documented in early childhood, before age five?",
+        "definition": "A documented history of global developmental delay in a child younger than five at the relevant assessment.",
+        "help": "An older patient can have a documented childhood history. Do not use a new assessment of adult difficulties or an isolated developmental concern to establish this finding. If the childhood timing cannot be established, record unknown.",
+        "temporalScope": "historical_assessment_before_age_five"
+      }
+    },
+    {
+      "featureId": "renal_cell_carcinoma",
+      "hpoId": "HP:0005584",
+      "recommendation": "retain",
+      "rationale": "Retain explicit documented tumour diagnosis. An unspecified renal mass is insufficient; preserve diagnosis date for later research use.",
+      "previousValues": {},
+      "proposedValues": {}
+    }
+  ]
+}

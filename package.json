@@ -19,7 +19,7 @@
   "dependencies": {
     "json5": "^2.2.3",
     "next": "16.3.6",
-    "picorules-compiler-js-core": "file:../picorules-compiler-js-core",
+    "picorules-compiler-js-core": "1.1.1",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },

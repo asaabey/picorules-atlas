@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "0.1-draft",
+  "created": "2026-09-27",
+  "status": "authoring_material_not_runtime_content",
+  "inputCsv": "../orphadata-phenotypes.csv",
+  "inputCsvSha256": "a5991502b1f918f97c874372eda16edfe54810355a9bd18cfff4e1607268663b",
+  "sourceManifest": "../source-manifest.json",
+  "atlasContentVersion": "bc826888e7405139",
+  "sourceProfiles": {
+    "ORPHA:324": "fabry",
+    "ORPHA:805": "tsc",
+    "ORPHA:63": "alport",
+    "ORPHA:88917": "alport",
+    "ORPHA:88918": "alport",
+    "ORPHA:88919": "alport",
+    "ORPHA:93111": "hnf1b",
+    "ORPHA:731": "arpkd",
+    "ORPHA:892": "vhl",
+    "ORPHA:655": "nephronophthisis_ciliopathy",
+    "ORPHA:475": "nephronophthisis_ciliopathy",
+    "ORPHA:2318": "nephronophthisis_ciliopathy",
+    "ORPHA:220497": "nephronophthisis_ciliopathy"
+  },
+  "counts": {
+    "associations": 449,
+    "uniqueFeatures": 305,
+    "sharedAcrossSourceProfiles": 83,
+    "sharedAcrossDiseaseGroups": 42,
+    "existingDefinitions": 10,
+    "draftDefinitions": 16,
+    "pendingTriage": 279
+  },
+  "attribution": "Orphadata Science: Free access data from Orphanet. \u00a9 INSERM 1999. https://sciences.orphadata.com/. July 2026 knowledge-base release; XML generated 2026-06-23; accessed 2026-09-26. CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: grouped original export by HPO ID, added local authoring metadata and proposed questions. No endorsement implied."
+}
