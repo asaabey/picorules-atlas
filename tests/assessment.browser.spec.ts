@@ -26,12 +26,15 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   const proteinuria = page.locator('article.question-card').filter({
     has: page.getByRole('heading', { name: 'Proteinuria' }),
   });
+  const requestsAfterAnswering: string[] = [];
+  page.on('request', request => requestsAfterAnswering.push(request.url()));
   await proteinuria.getByRole('radio', { name: 'Present' }).check();
   await expect(page.getByText('1 / 10 answered')).toBeVisible();
   await proteinuria.getByRole('radio', { name: 'Absent' }).check();
   await expect(proteinuria.getByRole('radio', { name: 'Absent' })).toBeChecked();
   await proteinuria.getByRole('radio', { name: 'Unknown / not assessed' }).check();
   await expect(proteinuria.getByRole('radio', { name: 'Unknown / not assessed' })).toBeChecked();
+  expect(requestsAfterAnswering).toEqual([]);
   expect(await page.evaluate(() => ({
     local: Object.keys(localStorage),
     session: Object.keys(sessionStorage),

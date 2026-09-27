@@ -42,9 +42,12 @@ Atlas was added to the workspace Git repository in commit `cc2ce19`.
 | Step | Status | Evidence |
 | --- | --- | --- |
 | Track Atlas in Git | Done | Commit `cc2ce19` |
-| Pin compiler and document clean setup | Implemented; clean-checkout check pending | `CORE_COMPILER_SHA`, README |
+| Pin compiler and document clean setup | Done locally | Clean temporary checkout passed install, validation, 16 tests, and build on 27 September 2026 |
 | Add automated validation | Implemented; first GitHub run pending | `.github/workflows/atlas.yml` |
-| Check static LAN preview and answer privacy | Pending | Browser and network checks needed |
+| Check static LAN preview and answer privacy | Done locally | 3 static browser tests passed; HTTP LAN opened 10 questions, answered without new requests or browser storage |
+
+The remaining M1 exit check is the first GitHub Actions run. The workflow is
+committed locally but has not run on GitHub while these commits remain unpushed.
 
 **Work**
 
