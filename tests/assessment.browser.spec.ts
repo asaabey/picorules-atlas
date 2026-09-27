@@ -136,10 +136,10 @@ test('review, authored rule output, and FHIR download follow recorded answers', 
   await expect(page.getByRole('heading', { name: 'Illustrative rule output' })).toBeFocused();
   const fabry = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Fabry disease' }) });
   const tsc = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Tuberous sclerosis complex' }) });
-  await expect(fabry).toContainText('Illustrative review prompt triggered');
+  await expect(fabry).toContainText('Illustrative conclusion: review prompt triggered');
   await expect(fabry).toContainText('2 of 5 linked findings marked present');
   await expect(fabry).toContainText('Proteinuria, Angiokeratomas');
-  await expect(tsc).toContainText('Illustrative review prompt not triggered');
+  await expect(tsc).toContainText('Illustrative conclusion: review prompt not triggered');
   await expect(tsc).toContainText('0 of 5 linked findings marked present');
   await expect(fabry.getByRole('link', { name: /Read exact authored ruleblock/ }))
     .toHaveAttribute('href', /ikd_fabry-.*\.prb$/);
@@ -163,7 +163,7 @@ test('review, authored rule output, and FHIR download follow recorded answers', 
   await card('Angiokeratomas').getByRole('radio', { name: 'Absent' }).check();
   await page.getByRole('button', { name: 'Review findings' }).click();
   await page.getByRole('button', { name: 'Run demonstration' }).click();
-  await expect(fabry).toContainText('Illustrative review prompt not triggered');
+  await expect(fabry).toContainText('Illustrative conclusion: review prompt not triggered');
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
 });

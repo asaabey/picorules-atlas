@@ -516,12 +516,14 @@ function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
           return <section className="result-card" key={result.ruleId} aria-labelledby={`result-${result.ruleId}`}>
             <p className="overline">AUTHORED RULE / {result.ruleId} / v{result.ruleVersion}</p>
             <h2 id={`result-${result.ruleId}`}>{result.label}</h2>
-            <p className="result-status">{result.flagged ? 'Illustrative review prompt triggered' : 'Illustrative review prompt not triggered'}</p>
+            <p className="result-status">Illustrative conclusion: {result.flagged
+              ? 'review prompt triggered' : 'review prompt not triggered'}</p>
             <p><strong>How computed:</strong> {result.presentCount} of {result.totalFeatures} linked findings marked present.
               The authored Picorules rule counts those inputs and emits a prompt when the count is at least {result.threshold}.</p>
             <p><strong>Contributing findings:</strong> {result.presentFeatures.length
               ? result.presentFeatures.map(feature => feature.label).join(', ') : 'None marked present'}.</p>
-            <p><strong>Next action:</strong> {result.action}</p>
+            <p><strong>Next action from the ruleblock:</strong> {result.action}
+              {' '}The rule output selects this authored text.</p>
             <a href={rule.assetPath} target="_blank" rel="noopener noreferrer">
               Read exact authored ruleblock <span className="sr-only">(opens in a new tab)</span>
             </a>

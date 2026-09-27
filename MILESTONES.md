@@ -1,8 +1,9 @@
 # Picorules Atlas development milestones
 
 Status date: 27 September 2026. This roadmap covers development after the initial
-questionnaire scaffold in [SPEC.md](SPEC.md). Milestones M1–M6 are proposed work,
-not features of the current app. No target dates are assigned.
+questionnaire scaffold in [SPEC.md](SPEC.md). The local proof of concept extends
+that initial scope; clinical approval and deployment remain separate. No target
+dates are assigned.
 
 ## Current position
 
@@ -12,25 +13,30 @@ not features of the current app. No target dates are assigned.
 | M1 | Reproducible project baseline | Complete |
 | M2 | Read-only Picorules ruleblock viewer | Complete |
 | M3 | Clinically reviewed IKD content | In progress |
-| M4 | Assessment review and FHIR handoff | Planned |
+| M4 | Assessment review and FHIR handoff | Local proof of concept complete; user validation pending |
 | M5 | Questionnaire pilot on HTTPS | Planned |
-| M6 | Validated clinical evaluation, if pursued | Decision gate |
+| M6 | Validated clinical evaluation, if pursued | Decision gate; illustrative prompt only |
 
-## End-to-end proof of concept (in progress)
+## End-to-end proof of concept (complete locally)
 
 The clinical reviewer accepted the ten questions in principle for a proof of
-concept and asked to see how rules lead to conclusions and next actions. Complete
-the local questionnaire → answer review → Picorules evaluation → explanatory
-result → user-initiated FHIR download flow. The example rule output will use an
-explicit demonstration threshold and show the contributing findings. It will not
-claim diagnostic accuracy or recommend tests or treatment. Clinical release and
-deployment remain separate decisions.
+concept and asked to see how rules lead to conclusions and next actions. The local
+questionnaire → answer review → Picorules evaluation → explanatory result →
+user-initiated FHIR download flow is implemented. The example rule output uses an
+explicit demonstration threshold and shows the contributing findings. It does
+not claim diagnostic accuracy or recommend tests or treatment. Clinical release
+and deployment remain separate decisions.
 
 | Step | Status | Evidence |
 | --- | --- | --- |
 | Author and validate executable demonstration outputs | Done locally | Two versioned ruleblocks emit review prompts; content checks, FHIR bridge evaluation tests, and 26 unit tests passed |
 | Complete review, result, and FHIR download UI | Done locally | Eight static browser tests passed, including changed-answer output, FHIR download, keyboard, mobile, and privacy checks |
-| Validate full flow and record evidence | Planned | Pending content, typecheck, unit, build, browser checks |
+| Validate full flow and record evidence | Done locally | `content:check`, `review:check`, `typecheck`, 26 unit tests, static build, and eight static browser tests passed on 27 September 2026 |
+
+The browser checks cover both branches of the illustrative conclusion, answer
+editing, the downloaded FHIR observations, keyboard focus, a 390px viewport,
+assessment clearing on reload, and absence of answer-bearing requests or browser
+storage writes. The current content version is `bc826888e7405139`.
 
 Mark a milestone complete only when its exit checks and review evidence are recorded
 here or linked from here. Keep candidate clinical content and unvalidated evaluation
@@ -38,10 +44,10 @@ out of clinical release claims.
 
 ## M0 — Ten-question IKD scaffold (verified locally)
 
-**Delivered:** The static Atlas app selects IKD, generates ten questions from two
-Picorules ruleblocks, records four answer states, and creates a transient FHIR R4
-bundle in browser memory. It has no submission, diagnosis, score, recommendation,
-saved assessment, or results screen.
+**Delivered at M0:** The static Atlas app selected IKD, generated ten questions from two
+Picorules ruleblocks, recorded four answer states, and created a transient FHIR R4
+bundle in browser memory. At M0 it had no submission, diagnosis, score,
+recommendation, saved assessment, or results screen.
 
 **Evidence:** On 27 September 2026, `npm run content:check`, `npm run typecheck`,
 `npm test` (16 tests), `npm run build`, and `npm run test:browser` (3 tests) passed.
@@ -100,9 +106,9 @@ fidelity, keyboard activation and focus, and a 390px mobile layout. The viewer
 states that these ruleblocks declare features and contain no diagnostic logic.
 This completion does not represent clinical review or deployment.
 
-The current app shows disease context beside each question, but it does not show
-the authored `.prb` ruleblock. Its static manifest contains executable input
-statements and metadata-derived questions, not the complete source text.
+Before M2, the app showed disease context beside each question but did not show
+the authored `.prb` ruleblock. Its manifest held only executable input statements
+and metadata-derived questions.
 
 **Work**
 
@@ -132,7 +138,7 @@ diagnostic algorithm.
 | Show candidate limits and source provenance in Atlas | Done locally | Static build and six browser tests passed; assessment explains incomplete coverage and the viewer exposes release, attribution, and license details |
 | Version clinical context wording with collection content | Done locally | Limitations and disease-context text now enter the content hash; version `442bae27603451e8`; 20 unit tests and six static browser tests passed |
 | Set clinical review sign-off count | Done locally | User confirmed one clinical reviewer is sufficient; gate accepts one sign-off and still requires all decisions and matching content version; 23 unit tests passed |
-| Clarify conclusion and recommendation scope | Reviewer question recorded | Reviewer asked how conclusions and recommendations are computed; the current ruleblocks and runtime compute neither. Whether to specify clinical evaluation is an open M6 decision. |
+| Clarify conclusion and recommendation scope | Local proof of concept delivered | Reviewer asked how conclusions and recommendations are computed. The new rules count present findings and emit an illustrative review prompt; clinical conclusions remain an M6 decision. |
 | Review all ten features and global wording | Awaiting clinical reviewer decisions | User identified themself as the clinical reviewer; recorded decisions and sign-off pending |
 | Apply decisions, rebuild, inspect FHIR, and validate | Partly done | Real IKD FHIR mapping tests pass; final content and sign-off require reviewer decisions |
 
@@ -158,6 +164,11 @@ Any added feature has a documented source and clinical meaning.
 
 ## M4 — Assessment review and FHIR handoff
 
+**Local proof of concept:** The assessment now has a review screen that distinguishes
+present, absent, unknown, and unanswered; a user-initiated FHIR download follows
+the illustrative rule output. User validation of the handoff remains open before
+M4 is marked complete.
+
 **Work**
 
 - Define the clinician's next action after answering the questions. The proposed
@@ -172,7 +183,7 @@ Any added feature has a documented source and clinical meaning.
 **Exit checks:** A completed assessment has a clear, accessible review path; the
 exported bundle matches the displayed answers and validates; reload still clears
 the assessment; there is no disease ranking or diagnostic conclusion. Confirm the
-review and export behavior with users before implementation.
+review and export behavior with users before marking M4 complete.
 
 ## M5 — Questionnaire pilot on HTTPS
 
@@ -211,6 +222,6 @@ documented limitations, and approval of the exact user-facing result language.
 | CI workflow and clean-checkout setup | M1 | Atlas is in the workspace repository; CI remains to be added |
 | Ruleblock source display and navigation | M2 | Delivered read-only for selected collection, with versioned static source and input links |
 | Named clinical reviewer and review process | M3 | User is the clinical reviewer; name, qualification, decisions, and sign-off pending in review record |
-| Completion summary and FHIR download behavior | M4 | Proposed; no results today |
+| Completion summary and FHIR download behavior | M4 | Implemented locally; user validation pending |
 | Hosting, DNS, and pilot access | M5 | No deployment authorized by this roadmap |
-| Whether to provide clinical evaluation | M6 | Undecided; no score or diagnosis today |
+| Whether to provide clinical evaluation | M6 | Undecided; illustrative review prompt only, no clinical score or diagnosis |

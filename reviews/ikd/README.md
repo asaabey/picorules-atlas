@@ -5,11 +5,14 @@ candidate content for review. Its presence does not approve the questionnaire.
 
 ## Current calculation boundary
 
-The two `.prb` files contain feature fetches and metadata only. They have no
-conditional disease criteria, conclusion outputs, or recommendation statements.
-Atlas parses the selected inputs and records answers in a transient FHIR bundle;
-it does not call the rule evaluator or compute a patient-specific result. This M3
-packet asks for review of the questionnaire content and its limitations. The
+The two `.prb` files declare feature fetches and a simple count of present findings.
+Each emits an illustrative review prompt when at least two of its five inputs are
+present. The browser runs these authored rules against the transient FHIR bundle
+and shows the count and contributing findings. The threshold is an invented
+demonstration rule, not a disease criterion, calibrated score, or probability.
+The next action is authored workflow text for reviewing findings or clarifying
+missing answers; it does not advise tests or treatment. This M3 packet asks for
+review of the questionnaire content and its limitations. The
 [M6 decision gate](../../MILESTONES.md#m6--validated-clinical-evaluation-decision-gate)
 covers any future conclusions or recommendations, including a clinician-authored
 logic specification, missing-data behavior, test cases, and validation before use.
