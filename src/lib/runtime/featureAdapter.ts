@@ -1,5 +1,4 @@
 import {
-  DATA_ABSENT_REASON_SYSTEM,
   COLLECTION_VERSION_EXTENSION,
   FEATURE_ID_SYSTEM,
   HPO_SYSTEM,
@@ -10,7 +9,7 @@ import {
 } from '../fhir';
 import type { CollectionManifest } from '../types';
 
-export type EadvFeatureValues = Record<string, 0 | 1 | null>;
+export type EadvFeatureValues = Record<string, 0 | 1>;
 
 /** Maps only declared HPO-coded Atlas features, never arbitrary FHIR observations. */
 export function observationsToEadv(
@@ -40,7 +39,7 @@ export function observationsToEadv(
 
   const questions = new Map(manifest.questions.map((question) => [question.featureId, question]));
   const values: EadvFeatureValues = Object.fromEntries(
-    manifest.questions.map((question) => [question.sourceAttribute, null]),
+    manifest.questions.map((question) => [question.sourceAttribute, 0]),
   );
   const seen = new Set<string>();
   for (const entry of bundle.entry) {
@@ -70,17 +69,13 @@ export function observationsToEadv(
       throw new Error(`Observation ${featureId} does not reference its QuestionnaireResponse`);
     }
     if (typeof observation.valueBoolean === 'boolean') {
-      if (observation.dataAbsentReason) {
-        throw new Error(`Observation ${featureId} has both a value and dataAbsentReason`);
-      }
       values[question.sourceAttribute] = observation.valueBoolean ? 1 : 0;
-    } else if (observation.dataAbsentReason?.coding.some(
-      (coding) => coding.system === DATA_ABSENT_REASON_SYSTEM && coding.code === 'unknown',
-    )) {
-      values[question.sourceAttribute] = null;
     } else {
-      throw new Error(`Observation ${featureId} has neither a boolean value nor unknown reason`);
+      throw new Error(`Observation ${featureId} must have a boolean value`);
     }
+  }
+  if (seen.size !== questions.size) {
+    throw new Error('FHIR bundle must contain a boolean Observation for every selected feature');
   }
   return values;
 }

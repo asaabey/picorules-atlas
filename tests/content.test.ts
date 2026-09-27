@@ -96,7 +96,7 @@ describe('Atlas content compilation', () => {
     expect(first.questions[0].diseases[0].inputLine).toBeGreaterThan(1);
   });
 
-  it('compiles the ten authored IKD questions with five associations per rule', () => {
+  it('compiles eight authored IKD profiles with shared source-backed questions', () => {
     const root = new URL('../content/', import.meta.url);
     const collection = JSON.parse(readFileSync(new URL('collections/ikd/collection.json', root), 'utf8'));
     const sourceRecords = JSON.parse(readFileSync(new URL('sources.json', root), 'utf8'));
@@ -115,12 +115,12 @@ describe('Atlas content compilation', () => {
           .toMatch(new RegExp(`^#define_attribute\\(${question.featureId},`));
       }
     }
-    expect(manifest.questions).toHaveLength(10);
-    expect(manifest.rules.map(rule => rule.demo?.threshold)).toEqual([2, 2]);
+    expect(manifest.questions).toHaveLength(42);
+    expect(manifest.rules.every(rule => rule.scoring?.model === 'ikd-positive-log10-v1')).toBe(true);
     expect(manifest.rules.every(rule => rule.source.includes('present_feature_count :'))).toBe(true);
-    expect(manifest.questions.filter(q => q.diseases[0].ruleId === 'ikd_fabry')).toHaveLength(5);
-    expect(manifest.questions.filter(q => q.diseases[0].ruleId === 'ikd_tuberous_sclerosis')).toHaveLength(5);
-    expect(Object.fromEntries(manifest.questions.map(q => [q.featureId, [q.hpoId, q.diseases[0].ruleId]]))).toEqual({
+    expect(manifest.questions.filter(q => q.diseases.some(d => d.ruleId === 'ikd_fabry'))).toHaveLength(6);
+    expect(manifest.questions.filter(q => q.diseases.some(d => d.ruleId === 'ikd_tuberous_sclerosis'))).toHaveLength(6);
+    expect(Object.fromEntries(manifest.questions.map(q => [q.featureId, [q.hpoId, q.diseases[0].ruleId]]))).toMatchObject({
       acroparesthesia: ['HP:0031006', 'ikd_fabry'],
       angiokeratoma: ['HP:0001014', 'ikd_fabry'],
       hypohidrosis: ['HP:0000966', 'ikd_fabry'],
@@ -134,14 +134,14 @@ describe('Atlas content compilation', () => {
     });
   });
 
-  it('rejects a demonstration threshold that differs from the authored condition', () => {
+  it('rejects a weight that differs from the authored condition', () => {
     const root = new URL('../content/', import.meta.url);
     const collection = JSON.parse(readFileSync(new URL('collections/ikd/collection.json', root), 'utf8'));
     const sourceRecords = JSON.parse(readFileSync(new URL('sources.json', root), 'utf8'));
     const rules = collection.rules.map((path: string) => ({
       path, text: readFileSync(new URL(`collections/ikd/${path}`, root), 'utf8'),
     }));
-    rules[0].text = rules[0].text.replace('present_feature_count >= 2', 'present_feature_count >= 3');
-    expect(() => compileCollection(collection, rules, sourceRecords)).toThrow(/illustrative rule/);
+    rules[0].text = rules[0].text.replace('acroparesthesia = 1 => 3.033761', 'acroparesthesia = 1 => 9');
+    expect(() => compileCollection(collection, rules, sourceRecords)).toThrow(/weighted rule/);
   });
 });

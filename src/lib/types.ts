@@ -1,4 +1,4 @@
-export type AnswerState = 'present' | 'absent' | 'unknown' | 'unanswered';
+export type AnswerState = 'present' | 'absent';
 export type Answers = Record<string, AnswerState>;
 
 export interface SourceRecord {
@@ -19,8 +19,22 @@ export interface DiseaseAssociation {
   inputLine: number;
 }
 
+export interface ReferenceImage {
+  path: string;
+  alt: string;
+  caption: string;
+  credit: string;
+  sourceUrl: string;
+  license: string;
+  licenseUrl: string;
+  sha256: string;
+  width: number;
+  height: number;
+}
+
 export interface AtlasQuestion {
   featureId: string;
+  evidenceKind?: 'family_history';
   sourceAttribute: string;
   label: string;
   question: string;
@@ -28,6 +42,13 @@ export interface AtlasQuestion {
   answerType: 'presence';
   hpoId: string;
   help?: string;
+  imageGuidance?: {
+    category: 'radiology' | 'histopathology' | 'dermatology';
+    modality: string;
+    description: string;
+    assetStatus: 'pending_verified_reference' | 'available_reference' | 'not_selected';
+  };
+  referenceImage?: ReferenceImage;
   sourceRefs: string[];
   diseases: DiseaseAssociation[];
 }
@@ -37,6 +58,13 @@ export interface AtlasSection { id: string; label: string }
 export interface ExecutableRule {
   id: string;
   source: string;
+  scoring?: {
+    model: string;
+    status: 'research';
+    absentWeight: 0;
+    sourceRefs: string[];
+    weights: Partial<Record<string, number>>;
+  };
   demo?: {
     threshold: number;
     actionWhenFlagged: string;

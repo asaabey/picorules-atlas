@@ -4,11 +4,15 @@
     "id": "ikd",
     "title": "Inherited kidney disease",
     "description": "Structured history and findings for an inherited kidney disease assessment.",
-    "version": "0.2.0-demo",
-    "limitations": "These ten candidate features do not form a complete inherited kidney disease screening instrument or diagnostic criteria. A finding does not establish a disease, and an absent finding does not exclude it.",
+    "version": "0.6.0-family-history",
+    "limitations": "These 42 questions across eight disease profiles are an incomplete research assessment. Three shared family-history prompts record patterns that may suggest dominant, recessive, or X-linked inheritance; they do not establish a genetic diagnosis. Unticked findings are recorded as absent for this proof of concept. Family-history prompts have zero score weight while the other present findings add candidate weights derived from LIRICAL. Scores are not calibrated disease probabilities or diagnostic criteria. A zero score does not exclude disease. A negative or unclear family history does not exclude disease, and Alport remains a broad profile without inheritance subtypes. Related findings may inflate totals, profiles have different selected features, and UMOD and MUC1 remain hard to distinguish. Timing of gout is not encoded.",
     "associationContext": "This is background context; an answer here does not establish or exclude a diagnosis.",
-    "contentVersion": "bc826888e7405139",
+    "contentVersion": "bda54c22d356132f",
     "sections": [
+      {
+        "id": "family_history",
+        "label": "Family history"
+      },
       {
         "id": "kidney",
         "label": "Kidney"
@@ -24,9 +28,434 @@
       {
         "id": "neurological_history",
         "label": "Neurological history"
+      },
+      {
+        "id": "hearing",
+        "label": "Hearing"
+      },
+      {
+        "id": "endocrine_metabolic",
+        "label": "Endocrine and metabolic"
+      },
+      {
+        "id": "liver_pregnancy",
+        "label": "Liver and prenatal history"
+      },
+      {
+        "id": "cardiovascular",
+        "label": "Cardiovascular"
       }
     ],
     "questions": [
+      {
+        "featureId": "family_history_autosomal_dominant",
+        "evidenceKind": "family_history",
+        "sourceAttribute": "phen_family_history_autosomal_dominant",
+        "label": "Documented family history suggesting autosomal dominant inheritance",
+        "question": "Does the documented family history show a similar condition in successive generations?",
+        "section": "family_history",
+        "answerType": "presence",
+        "hpoId": "HP:0000006",
+        "help": "A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.",
+        "sourceRefs": [
+          "genereviews_tsc",
+          "genereviews_alport",
+          "genereviews_hnf1b",
+          "genereviews_vhl",
+          "genereviews_adtkd_umod",
+          "genereviews_adtkd_muc1"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_tuberous_sclerosis",
+            "label": "Tuberous sclerosis complex",
+            "diseaseId": "ORPHA:805",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "genereviews_tsc",
+              "orphadata_2026_06"
+            ],
+            "inputLine": 182
+          },
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 165
+          },
+          {
+            "ruleId": "ikd_hnf1b",
+            "label": "HNF1B-related disease",
+            "diseaseId": "ORPHA:93111",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 165
+          },
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 179
+          },
+          {
+            "ruleId": "ikd_adtkd_umod",
+            "label": "ADTKD–UMOD",
+            "diseaseId": "OMIM:162000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_umod"
+            ],
+            "inputLine": 177
+          },
+          {
+            "ruleId": "ikd_adtkd_muc1",
+            "label": "ADTKD–MUC1",
+            "diseaseId": "OMIM:174000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_muc1"
+            ],
+            "inputLine": 151
+          }
+        ]
+      },
+      {
+        "featureId": "family_history_autosomal_recessive",
+        "evidenceKind": "family_history",
+        "sourceAttribute": "phen_family_history_autosomal_recessive",
+        "label": "Documented family history suggesting autosomal recessive inheritance",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "section": "family_history",
+        "answerType": "presence",
+        "hpoId": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "sourceRefs": [
+          "genereviews_alport",
+          "genereviews_arpkd"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 181
+          },
+          {
+            "ruleId": "ikd_arpkd",
+            "label": "Autosomal recessive polycystic kidney disease",
+            "diseaseId": "ORPHA:731",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 159
+          }
+        ]
+      },
+      {
+        "featureId": "family_history_x_linked",
+        "evidenceKind": "family_history",
+        "sourceAttribute": "phen_family_history_x_linked",
+        "label": "Documented family history suggesting X-linked inheritance",
+        "question": "Does transmission among affected relatives in the documented family history suggest an X-linked pattern?",
+        "section": "family_history",
+        "answerType": "presence",
+        "hpoId": "HP:0001417",
+        "help": "Affected relatives through the maternal line or affected daughters of an affected father may suggest X-linked inheritance. There is no father-to-son transmission. Females can also be affected, and an unclear pedigree does not exclude it.",
+        "sourceRefs": [
+          "genereviews_fabry",
+          "genereviews_alport"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_fabry",
+            "label": "Fabry disease",
+            "diseaseId": "ORPHA:324",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "genereviews_fabry",
+              "orphadata_2026_06"
+            ],
+            "inputLine": 149
+          },
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 197
+          }
+        ]
+      },
+      {
+        "featureId": "decreased_glomerular_filtration_rate",
+        "sourceAttribute": "phen_decreased_glomerular_filtration_rate",
+        "label": "Decreased glomerular filtration rate",
+        "question": "Has a decreased glomerular filtration rate been documented?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0012213",
+        "help": "Records documented reduced GFR without inferring chronicity, cause or a new laboratory threshold.",
+        "sourceRefs": [
+          "hpoa_2026_09"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_adtkd_umod",
+            "label": "ADTKD–UMOD",
+            "diseaseId": "OMIM:162000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_umod"
+            ],
+            "inputLine": 90
+          },
+          {
+            "ruleId": "ikd_adtkd_muc1",
+            "label": "ADTKD–MUC1",
+            "diseaseId": "OMIM:174000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_muc1"
+            ],
+            "inputLine": 87
+          }
+        ]
+      },
+      {
+        "featureId": "enlarged_kidney",
+        "sourceAttribute": "phen_enlarged_kidney",
+        "label": "Enlarged kidney",
+        "question": "Has kidney enlargement been documented on imaging?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000105",
+        "help": "Records documented kidney enlargement without applying a size threshold.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_arpkd",
+            "label": "Autosomal recessive polycystic kidney disease",
+            "diseaseId": "ORPHA:731",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 57
+          }
+        ]
+      },
+      {
+        "featureId": "glomerular_basement_membrane_lamellation",
+        "sourceAttribute": "phen_glomerular_basement_membrane_lamellation",
+        "label": "Glomerular basement membrane lamellation",
+        "question": "Has glomerular basement membrane lamellation been documented in a kidney biopsy report?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0030034",
+        "help": "Requires the named biopsy finding. an unspecified abnormal biopsy is insufficient.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 148
+          }
+        ]
+      },
+      {
+        "featureId": "horseshoe_kidney",
+        "sourceAttribute": "phen_horseshoe_kidney",
+        "label": "Horseshoe kidney",
+        "question": "Has a horseshoe kidney been documented on imaging?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000085",
+        "help": "Records the named structural kidney finding.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_hnf1b",
+            "label": "HNF1B-related disease",
+            "diseaseId": "ORPHA:93111",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 91
+          }
+        ],
+        "imageGuidance": {
+          "category": "radiology",
+          "modality": "Axial CT",
+          "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+          "assetStatus": "not_selected"
+        }
+      },
+      {
+        "featureId": "hyperechogenic_kidneys",
+        "sourceAttribute": "phen_hyperechogenic_kidneys",
+        "label": "Hyperechogenic kidneys",
+        "question": "Have hyperechogenic kidneys been documented on ultrasound?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0004719",
+        "help": "Records increased renal echogenicity in the ultrasound report. This is nonspecific and does not establish a genetic diagnosis.",
+        "sourceRefs": [
+          "hpoa_2026_09"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_adtkd_umod",
+            "label": "ADTKD–UMOD",
+            "diseaseId": "OMIM:162000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_umod"
+            ],
+            "inputLine": 153
+          }
+        ],
+        "imageGuidance": {
+          "category": "radiology",
+          "modality": "Renal ultrasound",
+          "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+          "assetStatus": "not_selected"
+        }
+      },
+      {
+        "featureId": "microscopic_hematuria",
+        "sourceAttribute": "phen_microscopic_hematuria",
+        "label": "Microscopic haematuria",
+        "question": "Has microscopic haematuria been documented on urine testing?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0002907",
+        "help": "Specifically documented microscopic haematuria.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 63
+          }
+        ]
+      },
+      {
+        "featureId": "multicystic_kidney_dysplasia",
+        "sourceAttribute": "phen_multicystic_kidney_dysplasia",
+        "label": "Multicystic kidney dysplasia",
+        "question": "Has multicystic kidney dysplasia been documented?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000003",
+        "help": "Records explicitly documented dysplasia. renal cysts alone do not establish this finding.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_hnf1b",
+            "label": "HNF1B-related disease",
+            "diseaseId": "ORPHA:93111",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 57
+          }
+        ]
+      },
+      {
+        "featureId": "multiple_renal_cysts",
+        "sourceAttribute": "phen_multiple_renal_cysts",
+        "label": "Multiple renal cysts",
+        "question": "Have multiple renal cysts been documented on imaging?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0005562",
+        "help": "Multiple renal cysts explicitly documented in an imaging report.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 77
+          }
+        ]
+      },
+      {
+        "featureId": "polycystic_kidney_dysplasia",
+        "sourceAttribute": "phen_polycystic_kidney_dysplasia",
+        "label": "Polycystic kidney dysplasia",
+        "question": "Has polycystic kidney dysplasia been documented?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000113",
+        "help": "Requires the named structural finding. multiple renal cysts alone are insufficient.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_arpkd",
+            "label": "Autosomal recessive polycystic kidney disease",
+            "diseaseId": "ORPHA:731",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 74
+          }
+        ]
+      },
       {
         "featureId": "proteinuria",
         "sourceAttribute": "phen_proteinuria",
@@ -45,12 +474,47 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 89
+            "inputLine": 134
+          },
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 80
+          }
+        ]
+      },
+      {
+        "featureId": "renal_agenesis",
+        "sourceAttribute": "phen_renal_agenesis",
+        "label": "Renal agenesis",
+        "question": "Has renal agenesis been documented?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000104",
+        "help": "Records congenital absence of a kidney. an acquired solitary kidney is not equivalent.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_hnf1b",
+            "label": "HNF1B-related disease",
+            "diseaseId": "ORPHA:93111",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 74
           }
         ]
       },
@@ -63,6 +527,18 @@
         "answerType": "presence",
         "hpoId": "HP:0006772",
         "help": "Records a documented kidney lesion, without applying a size or number threshold.",
+        "referenceImage": {
+          "path": "/reference-images/renal-angiomyolipoma-ct.jpg",
+          "alt": "Side-by-side axial kidney CT images before and after contrast, with an arrow pointing to a renal angiomyolipoma.",
+          "caption": "Example renal angiomyolipoma on CT before (left) and after (right) contrast. This image is an example, not a diagnostic template.",
+          "credit": "Greco et al., Journal of Renal and Hepatic Disorders (2018)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:CT_of_angiomyolipoma,_before_and_after_radiocontrast.jpg",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "sha256": "31157f4f281d178b47b1bb06c613bf2054cbc52c62b99d0642dcae82cb6c0cb6",
+          "width": 946,
+          "height": 622
+        },
         "sourceRefs": [
           "genereviews_tsc",
           "orphadata_2026_06"
@@ -72,14 +548,125 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 74
+            "inputLine": 140
           }
         ]
+      },
+      {
+        "featureId": "renal_cell_carcinoma",
+        "sourceAttribute": "phen_renal_cell_carcinoma",
+        "label": "Renal cell carcinoma",
+        "question": "Has renal cell carcinoma been documented?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0005584",
+        "help": "A documented renal cell carcinoma diagnosis.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 60
+          }
+        ]
+      },
+      {
+        "featureId": "renal_corticomedullary_cysts",
+        "sourceAttribute": "phen_renal_corticomedullary_cysts",
+        "label": "Renal corticomedullary cysts",
+        "question": "Have renal corticomedullary cysts been documented on imaging?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000108",
+        "help": "Requires documented corticomedullary location. Simple cysts elsewhere are not equivalent. Cysts may be absent in ADTKD.",
+        "sourceRefs": [
+          "hpoa_2026_09"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_adtkd_umod",
+            "label": "ADTKD–UMOD",
+            "diseaseId": "OMIM:162000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_umod"
+            ],
+            "inputLine": 130
+          },
+          {
+            "ruleId": "ikd_adtkd_muc1",
+            "label": "ADTKD–MUC1",
+            "diseaseId": "OMIM:174000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_muc1"
+            ],
+            "inputLine": 127
+          }
+        ],
+        "imageGuidance": {
+          "category": "radiology",
+          "modality": "CT and T2-weighted MRI",
+          "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+          "assetStatus": "not_selected"
+        }
+      },
+      {
+        "featureId": "renal_tubular_atrophy",
+        "sourceAttribute": "phen_renal_tubular_atrophy",
+        "label": "Renal tubular atrophy",
+        "question": "Has renal tubular atrophy been documented on a previous kidney biopsy?",
+        "section": "kidney",
+        "answerType": "presence",
+        "hpoId": "HP:0000092",
+        "help": "Use an existing histopathology report. This assessment does not recommend obtaining a biopsy.",
+        "sourceRefs": [
+          "hpoa_2026_09"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_adtkd_umod",
+            "label": "ADTKD–UMOD",
+            "diseaseId": "OMIM:162000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_umod"
+            ],
+            "inputLine": 107
+          },
+          {
+            "ruleId": "ikd_adtkd_muc1",
+            "label": "ADTKD–MUC1",
+            "diseaseId": "OMIM:174000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_muc1"
+            ],
+            "inputLine": 104
+          }
+        ],
+        "imageGuidance": {
+          "category": "histopathology",
+          "modality": "Light microscopy",
+          "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+          "assetStatus": "not_selected"
+        }
       },
       {
         "featureId": "angiofibromas",
@@ -90,6 +677,18 @@
         "answerType": "presence",
         "hpoId": "HP:0010615",
         "help": "Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.",
+        "referenceImage": {
+          "path": "/reference-images/facial-angiofibromas.jpg",
+          "alt": "Clinical photograph of multiple raised papules over the nose, cheeks and forehead, with the eyes masked in the source image.",
+          "caption": "Facial angiofibromas in a published tuberous sclerosis example. Appearance varies between individuals.",
+          "credit": "M. Sand, D. Sand, C. Thrandorf, V. Paech, P. Altmeyer and F. G. Bechara (2010). Unmodified source image.",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adenoma_sebaceum_01.jpg",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "sha256": "31bf1152217a464c857f41b098e4f1b1c68717713b6092e86fa706296cae7a72",
+          "width": 1200,
+          "height": 1809
+        },
         "sourceRefs": [
           "genereviews_tsc",
           "orphadata_2026_06"
@@ -99,14 +698,20 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 44
+            "inputLine": 77
           }
-        ]
+        ],
+        "imageGuidance": {
+          "category": "dermatology",
+          "modality": "Clinical photograph",
+          "description": "Facial angiofibromas in a published tuberous sclerosis example. Appearance varies between individuals.",
+          "assetStatus": "available_reference"
+        }
       },
       {
         "featureId": "angiokeratoma",
@@ -117,6 +722,18 @@
         "answerType": "presence",
         "hpoId": "HP:0001014",
         "help": "Records whether these vascular skin lesions have been identified.",
+        "referenceImage": {
+          "path": "/reference-images/fabry-angiokeratomas.jpg",
+          "alt": "Two clinical photographs showing red-purple angiokeratomas near the navel and on the oral mucosa.",
+          "caption": "Examples of Fabry-associated angiokeratomas near the navel and on the oral mucosa.",
+          "credit": "Burlina et al., BMC Neurology (2011)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morbus_Fabry_Angiokeratoma_01.jpg",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "sha256": "93d2a3bd16121c60ae815c992f6cbc795abd33397839c52b45af6e149be61d00",
+          "width": 1200,
+          "height": 419
+        },
         "sourceRefs": [
           "genereviews_fabry",
           "orphadata_2026_06"
@@ -126,12 +743,12 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 44
+            "inputLine": 65
           }
         ]
       },
@@ -143,7 +760,19 @@
         "section": "skin_sweating",
         "answerType": "presence",
         "hpoId": "HP:0009719",
-        "help": "Records identified patches of skin with reduced pigmentation; no lesion count is applied.",
+        "help": "Records identified patches of skin with reduced pigmentation. No lesion count is applied.",
+        "referenceImage": {
+          "path": "/reference-images/tsc-skin-findings.png",
+          "alt": "Three-panel clinical image. the top panel shows pale hypomelanotic macules on the trunk and arms.",
+          "caption": "Top panel (A): hypomelanotic macules. The other panels show different TSC skin findings.",
+          "credit": "Portocarrero et al., Anais Brasileiros de Dermatologia (2018)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypopigmented_macules,_Shagreen_patch_and_periungual_fibroma_of_tuberous_sclerosis.png",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "sha256": "234f5ffc30708ab4b68d549e51884a9c0627ad415cf2207acc02fc69f30582c8",
+          "width": 993,
+          "height": 1935
+        },
         "sourceRefs": [
           "genereviews_tsc",
           "orphadata_2026_06"
@@ -153,12 +782,12 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 29
+            "inputLine": 50
           }
         ]
       },
@@ -180,12 +809,12 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 59
+            "inputLine": 92
           }
         ]
       },
@@ -198,6 +827,18 @@
         "answerType": "presence",
         "hpoId": "HP:0009721",
         "help": "Records whether this skin finding has been identified.",
+        "referenceImage": {
+          "path": "/reference-images/tsc-skin-findings.png",
+          "alt": "Three-panel clinical image. the middle panel shows a textured shagreen patch on the lower back.",
+          "caption": "Middle panel (B): shagreen patch. The other panels show different TSC skin findings.",
+          "credit": "Portocarrero et al., Anais Brasileiros de Dermatologia (2018)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypopigmented_macules,_Shagreen_patch_and_periungual_fibroma_of_tuberous_sclerosis.png",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "sha256": "234f5ffc30708ab4b68d549e51884a9c0627ad415cf2207acc02fc69f30582c8",
+          "width": 993,
+          "height": 1935
+        },
         "sourceRefs": [
           "genereviews_tsc",
           "orphadata_2026_06"
@@ -207,12 +848,37 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 59
+            "inputLine": 113
+          }
+        ]
+      },
+      {
+        "featureId": "anterior_lenticonus",
+        "sourceAttribute": "phen_anterior_lenticonus",
+        "label": "Anterior lenticonus",
+        "question": "Has anterior lenticonus been documented on eye examination?",
+        "section": "eyes",
+        "answerType": "presence",
+        "hpoId": "HP:0011501",
+        "help": "Records a documented lens finding. the patient is not asked to identify it.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 114
           }
         ]
       },
@@ -224,7 +890,19 @@
         "section": "eyes",
         "answerType": "presence",
         "hpoId": "HP:0500008",
-        "help": "Records a documented corneal finding; it does not ask the patient to identify it.",
+        "help": "Records a documented corneal finding. It does not ask the patient to identify it.",
+        "referenceImage": {
+          "path": "/reference-images/fabry-cornea-verticillata.jpg",
+          "alt": "Slit-lamp photograph showing a faint whorl pattern in the cornea of a patient with Fabry disease.",
+          "caption": "Cornea verticillata seen on slit-lamp examination in Fabry disease.",
+          "credit": "Burlina et al., BMC Neurology (2011)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morbus_Fabry_Cornea_verticillata_01.jpg",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "sha256": "845b4fb804ada470192274095556740d18d2f2b79dd6a356176548d25a0a3066",
+          "width": 1200,
+          "height": 719
+        },
         "sourceRefs": [
           "genereviews_fabry",
           "orphadata_2026_06"
@@ -234,12 +912,62 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 74
+            "inputLine": 107
+          }
+        ]
+      },
+      {
+        "featureId": "retinal_capillary_hemangioma",
+        "sourceAttribute": "phen_retinal_capillary_hemangioma",
+        "label": "Retinal capillary haemangioma",
+        "question": "Has a retinal capillary haemangioma been documented?",
+        "section": "eyes",
+        "answerType": "presence",
+        "hpoId": "HP:0009711",
+        "help": "Records the specific documented retinal lesion. other retinal lesions are not equivalent.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 94
+          }
+        ]
+      },
+      {
+        "featureId": "retinal_flecks",
+        "sourceAttribute": "phen_retinal_flecks",
+        "label": "Retinal flecks",
+        "question": "Have retinal flecks been documented on eye examination?",
+        "section": "eyes",
+        "answerType": "presence",
+        "hpoId": "HP:0012045",
+        "help": "Records the named retinal finding without inferring an inherited cause.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 131
           }
         ]
       },
@@ -261,12 +989,37 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 29
+            "inputLine": 50
+          }
+        ]
+      },
+      {
+        "featureId": "cerebellar_hemangioblastoma",
+        "sourceAttribute": "phen_cerebellar_hemangioblastoma",
+        "label": "Cerebellar haemangioblastoma",
+        "question": "Has a cerebellar haemangioblastoma been documented?",
+        "section": "neurological_history",
+        "answerType": "presence",
+        "hpoId": "HP:0006880",
+        "help": "Records the named tumour and location, not an unspecified brain lesion.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 111
           }
         ]
       },
@@ -288,12 +1041,347 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.2.0-demo",
+            "version": "0.6.0-family-history",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 89
+            "inputLine": 167
+          }
+        ]
+      },
+      {
+        "featureId": "bilateral_sensorineural_hearing_impairment",
+        "sourceAttribute": "phen_bilateral_sensorineural_hearing_impairment",
+        "label": "Bilateral sensorineural hearing impairment",
+        "question": "Has sensorineural hearing impairment in both ears been documented?",
+        "section": "hearing",
+        "answerType": "presence",
+        "hpoId": "HP:0008619",
+        "help": "Documented sensorineural impairment affecting both ears.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_alport",
+            "label": "Alport syndrome",
+            "diseaseId": "ORPHA:63",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 97
+          }
+        ]
+      },
+      {
+        "featureId": "endolymphatic_sac_tumor",
+        "sourceAttribute": "phen_endolymphatic_sac_tumor",
+        "label": "Endolymphatic sac tumour",
+        "question": "Has an endolymphatic sac tumour been documented?",
+        "section": "hearing",
+        "answerType": "presence",
+        "hpoId": "HP:0030393",
+        "help": "Records the named tumour. hearing impairment alone is insufficient.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 162
+          }
+        ]
+      },
+      {
+        "featureId": "adrenal_pheochromocytoma",
+        "sourceAttribute": "phen_adrenal_pheochromocytoma",
+        "label": "Adrenal pheochromocytoma",
+        "question": "Has an adrenal pheochromocytoma been documented?",
+        "section": "endocrine_metabolic",
+        "answerType": "presence",
+        "hpoId": "HP:0006748",
+        "help": "Requires the documented tumour diagnosis. hypertension alone does not establish this finding.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 128
+          }
+        ]
+      },
+      {
+        "featureId": "diabetes_mellitus",
+        "sourceAttribute": "phen_diabetes_mellitus",
+        "label": "Diabetes mellitus",
+        "question": "Has diabetes mellitus been documented?",
+        "section": "endocrine_metabolic",
+        "answerType": "presence",
+        "hpoId": "HP:0000819",
+        "help": "Records documented diabetes without inferring its type, genetic cause or age at onset.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_hnf1b",
+            "label": "HNF1B-related disease",
+            "diseaseId": "ORPHA:93111",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 114
+          }
+        ]
+      },
+      {
+        "featureId": "gout",
+        "sourceAttribute": "phen_gout",
+        "label": "Gout",
+        "question": "Has gout been clinically documented?",
+        "section": "endocrine_metabolic",
+        "answerType": "presence",
+        "hpoId": "HP:0001997",
+        "help": "Records diagnosed gout, not hyperuricaemia alone. This question does not encode whether gout preceded kidney impairment.",
+        "sourceRefs": [
+          "hpoa_2026_09"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_adtkd_umod",
+            "label": "ADTKD–UMOD",
+            "diseaseId": "OMIM:162000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_umod"
+            ],
+            "inputLine": 73
+          },
+          {
+            "ruleId": "ikd_adtkd_muc1",
+            "label": "ADTKD–MUC1",
+            "diseaseId": "OMIM:174000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_muc1"
+            ],
+            "inputLine": 70
+          }
+        ]
+      },
+      {
+        "featureId": "hyperuricemia",
+        "sourceAttribute": "phen_hyperuricemia",
+        "label": "Hyperuricaemia",
+        "question": "Has hyperuricaemia been documented?",
+        "section": "endocrine_metabolic",
+        "answerType": "presence",
+        "hpoId": "HP:0002149",
+        "help": "Records a documented elevated urate finding without applying a new laboratory threshold.",
+        "sourceRefs": [
+          "orphadata_2026_06",
+          "hpoa_2026_09"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_hnf1b",
+            "label": "HNF1B-related disease",
+            "diseaseId": "ORPHA:93111",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 148
+          },
+          {
+            "ruleId": "ikd_adtkd_umod",
+            "label": "ADTKD–UMOD",
+            "diseaseId": "OMIM:162000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_umod"
+            ],
+            "inputLine": 56
+          },
+          {
+            "ruleId": "ikd_adtkd_muc1",
+            "label": "ADTKD–MUC1",
+            "diseaseId": "OMIM:174000",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "hpoa_2026_09",
+              "genereviews_adtkd_muc1"
+            ],
+            "inputLine": 53
+          }
+        ]
+      },
+      {
+        "featureId": "pancreatic_aplasia_hypoplasia",
+        "sourceAttribute": "phen_pancreatic_aplasia_hypoplasia",
+        "label": "Pancreatic aplasia or hypoplasia",
+        "question": "Has pancreatic aplasia or hypoplasia been documented?",
+        "section": "endocrine_metabolic",
+        "answerType": "presence",
+        "hpoId": "HP:0100800",
+        "help": "Records documented absent or underdeveloped pancreatic tissue. diabetes alone is insufficient.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_hnf1b",
+            "label": "HNF1B-related disease",
+            "diseaseId": "ORPHA:93111",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 131
+          }
+        ]
+      },
+      {
+        "featureId": "pancreatic_endocrine_tumor",
+        "sourceAttribute": "phen_pancreatic_endocrine_tumor",
+        "label": "Pancreatic endocrine tumour",
+        "question": "Has a pancreatic endocrine tumour been documented?",
+        "section": "endocrine_metabolic",
+        "answerType": "presence",
+        "hpoId": "HP:0030405",
+        "help": "Records the specific tumour diagnosis. an unspecified pancreatic lesion is insufficient.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_vhl",
+            "label": "Von Hippel–Lindau disease",
+            "diseaseId": "ORPHA:892",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 145
+          }
+        ]
+      },
+      {
+        "featureId": "congenital_hepatic_fibrosis",
+        "sourceAttribute": "phen_congenital_hepatic_fibrosis",
+        "label": "Congenital hepatic fibrosis",
+        "question": "Has congenital hepatic fibrosis been documented?",
+        "section": "liver_pregnancy",
+        "answerType": "presence",
+        "hpoId": "HP:0002612",
+        "help": "Records congenital hepatic fibrosis. unspecified liver fibrosis does not establish this subtype.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_arpkd",
+            "label": "Autosomal recessive polycystic kidney disease",
+            "diseaseId": "ORPHA:731",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 91
+          }
+        ]
+      },
+      {
+        "featureId": "oligohydramnios",
+        "sourceAttribute": "phen_oligohydramnios",
+        "label": "Oligohydramnios in the patient’s prenatal history",
+        "question": "Was oligohydramnios documented during the pregnancy in which this patient was carried?",
+        "section": "liver_pregnancy",
+        "answerType": "presence",
+        "hpoId": "HP:0001562",
+        "help": "Refers to the patient’s own prenatal history, not a later pregnancy carried by the patient. Unknown if records are unavailable.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_arpkd",
+            "label": "Autosomal recessive polycystic kidney disease",
+            "diseaseId": "ORPHA:731",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 125
+          }
+        ]
+      },
+      {
+        "featureId": "portal_hypertension",
+        "sourceAttribute": "phen_portal_hypertension",
+        "label": "Portal hypertension",
+        "question": "Has portal hypertension been documented?",
+        "section": "liver_pregnancy",
+        "answerType": "presence",
+        "hpoId": "HP:0001409",
+        "help": "Records documented portal hypertension, separately from systemic arterial hypertension.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_arpkd",
+            "label": "Autosomal recessive polycystic kidney disease",
+            "diseaseId": "ORPHA:731",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 108
+          }
+        ]
+      },
+      {
+        "featureId": "hypertension",
+        "sourceAttribute": "phen_hypertension",
+        "label": "Hypertension",
+        "question": "Has hypertension been documented?",
+        "section": "cardiovascular",
+        "answerType": "presence",
+        "hpoId": "HP:0000822",
+        "help": "Documented hypertension without deriving a diagnosis from a single blood pressure.",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ],
+        "diseases": [
+          {
+            "ruleId": "ikd_arpkd",
+            "label": "Autosomal recessive polycystic kidney disease",
+            "diseaseId": "ORPHA:731",
+            "version": "0.6.0-family-history",
+            "sourceRefs": [
+              "orphadata_2026_06"
+            ],
+            "inputLine": 142
           }
         ]
       }
@@ -301,17 +1389,29 @@
     "rules": [
       {
         "id": "ikd_fabry",
-        "source": "acroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\npresent_feature_count : { . => coalesce(acroparesthesia, 0) + coalesce(angiokeratoma, 0) + coalesce(hypohidrosis, 0) + coalesce(cornea_verticillata, 0) + coalesce(proteinuria, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };",
-        "demo": {
-          "threshold": 2,
-          "actionWhenFlagged": "Review the recorded Fabry-associated findings and cited sources in clinical context.",
-          "actionWhenNotFlagged": "Clarify unknown or unanswered findings if relevant; this demonstration does not exclude Fabry disease."
+        "source": "acroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\nfamily_history_x_linked => eadv.phen_family_history_x_linked.val.last();\npresent_feature_count : { . => coalesce(acroparesthesia, 0) + coalesce(angiokeratoma, 0) + coalesce(hypohidrosis, 0) + coalesce(cornea_verticillata, 0) + coalesce(proteinuria, 0) + coalesce(family_history_x_linked, 0) };\ncontribution_acroparesthesia : { acroparesthesia = 1 => 3.033761 }, { => 0 };\ncontribution_angiokeratoma : { angiokeratoma = 1 => 3.068523 }, { => 0 };\ncontribution_hypohidrosis : { hypohidrosis = 1 => 2.122879 }, { => 0 };\ncontribution_cornea_verticillata : { cornea_verticillata = 1 => 3.778151 }, { => 0 };\ncontribution_proteinuria : { proteinuria = 1 => 1.582841 }, { => 0 };\ncontribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_acroparesthesia + contribution_angiokeratoma + contribution_hypohidrosis + contribution_cornea_verticillata + contribution_proteinuria + contribution_family_history_x_linked };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "ikd_weights_2026_09"
+          ],
+          "weights": {
+            "acroparesthesia": 3.033761,
+            "angiokeratoma": 3.068523,
+            "cornea_verticillata": 3.778151,
+            "hypohidrosis": 2.122879,
+            "proteinuria": 1.582841,
+            "family_history_x_linked": 0
+          }
         },
-        "authoredSource": "/* Atlas IKD collection: five Fabry-associated assessment features. */\n#define_ruleblock(ikd_fabry, {\n    description: \"Fabry disease assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.2.0-demo\",\n        demo_threshold: 2,\n        demo_action_when_flagged: \"Review the recorded Fabry-associated findings and cited sources in clinical context.\",\n        demo_action_when_not_flagged: \"Clarify unknown or unanswered findings if relevant; this demonstration does not exclude Fabry disease.\",\n        disease_label: \"Fabry disease\",\n        disease_id: \"ORPHA:324\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\nacroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\n\n/* Illustrative workflow signal only. Two present inputs is a demonstration\n   threshold, not a Fabry diagnostic criterion or probability. */\npresent_feature_count : { . => coalesce(acroparesthesia, 0) + coalesce(angiokeratoma, 0) + coalesce(hypohidrosis, 0) + coalesce(cornea_verticillata, 0) + coalesce(proteinuria, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };\n\n#define_attribute(acroparesthesia, {\n    label: \"Acroparaesthesia\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"acroparesthesia\",\n        source_attribute: \"phen_acroparesthesia\",\n        section: \"neurological_history\",\n        question: \"Has the patient experienced episodes of burning or tingling pain in the hands or feet?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0031006\",\n        help: \"Episodes of pain or abnormal sensation in the extremities.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiokeratoma, {\n    label: \"Angiokeratomas\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"angiokeratoma\",\n        source_attribute: \"phen_angiokeratoma\",\n        section: \"skin_sweating\",\n        question: \"Have angiokeratomas been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001014\",\n        help: \"Records whether these vascular skin lesions have been identified.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(hypohidrosis, {\n    label: \"Reduced sweating\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypohidrosis\",\n        source_attribute: \"phen_hypohidrosis\",\n        section: \"skin_sweating\",\n        question: \"Does the patient report reduced sweating?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000966\",\n        help: \"Records a history of sweating less than expected.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(cornea_verticillata, {\n    label: \"Cornea verticillata\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"cornea_verticillata\",\n        source_attribute: \"phen_cornea_verticillata\",\n        section: \"eyes\",\n        question: \"Has cornea verticillata been documented on eye examination?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0500008\",\n        help: \"Records a documented corneal finding; it does not ask the patient to identify it.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(proteinuria, {\n    label: \"Proteinuria\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"proteinuria\",\n        source_attribute: \"phen_proteinuria\",\n        section: \"kidney\",\n        question: \"Has proteinuria been documented?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000093\",\n        help: \"Records documented protein in the urine without applying a quantitative threshold.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n",
-        "assetPath": "/generated/ruleblocks/ikd/ikd_fabry-bc826888e7405139.prb",
+        "authoredSource": "/* Atlas IKD collection: five Fabry-associated assessment features. */\n#define_ruleblock(ikd_fabry, {\n    description: \"Fabry disease assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.6.0-family-history\",\n        scoring: {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"ikd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"acroparesthesia\": 3.033761,\n                \"angiokeratoma\": 3.068523,\n                \"cornea_verticillata\": 3.778151,\n                \"hypohidrosis\": 2.122879,\n                \"proteinuria\": 1.582841,\n                \"family_history_x_linked\": 0\n            }\n        },\n        disease_label: \"Fabry disease\",\n        disease_id: \"ORPHA:324\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\nacroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\nfamily_history_x_linked => eadv.phen_family_history_x_linked.val.last();\n\n\n/* Research phenotype matching: absent or unstated inputs contribute zero. */\npresent_feature_count : { . => coalesce(acroparesthesia, 0) + coalesce(angiokeratoma, 0) + coalesce(hypohidrosis, 0) + coalesce(cornea_verticillata, 0) + coalesce(proteinuria, 0) + coalesce(family_history_x_linked, 0) };\ncontribution_acroparesthesia : { acroparesthesia = 1 => 3.033761 }, { => 0 };\ncontribution_angiokeratoma : { angiokeratoma = 1 => 3.068523 }, { => 0 };\ncontribution_hypohidrosis : { hypohidrosis = 1 => 2.122879 }, { => 0 };\ncontribution_cornea_verticillata : { cornea_verticillata = 1 => 3.778151 }, { => 0 };\ncontribution_proteinuria : { proteinuria = 1 => 1.582841 }, { => 0 };\ncontribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_acroparesthesia + contribution_angiokeratoma + contribution_hypohidrosis + contribution_cornea_verticillata + contribution_proteinuria + contribution_family_history_x_linked };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(acroparesthesia, {\n    label: \"Acroparaesthesia\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"acroparesthesia\",\n        source_attribute: \"phen_acroparesthesia\",\n        section: \"neurological_history\",\n        question: \"Has the patient experienced episodes of burning or tingling pain in the hands or feet?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0031006\",\n        help: \"Episodes of pain or abnormal sensation in the extremities.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiokeratoma, {\n    label: \"Angiokeratomas\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"angiokeratoma\",\n        source_attribute: \"phen_angiokeratoma\",\n        section: \"skin_sweating\",\n        question: \"Have angiokeratomas been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001014\",\n        help: \"Records whether these vascular skin lesions have been identified.\",\n        reference_image: {\n            path: \"/reference-images/fabry-angiokeratomas.jpg\",\n            alt: \"Two clinical photographs showing red-purple angiokeratomas near the navel and on the oral mucosa.\",\n            caption: \"Examples of Fabry-associated angiokeratomas near the navel and on the oral mucosa.\",\n            credit: \"Burlina et al., BMC Neurology (2011)\",\n            source_url: \"https://commons.wikimedia.org/wiki/File:Morbus_Fabry_Angiokeratoma_01.jpg\",\n            license: \"CC BY 2.0\",\n            license_url: \"https://creativecommons.org/licenses/by/2.0/\",\n            sha256: \"93d2a3bd16121c60ae815c992f6cbc795abd33397839c52b45af6e149be61d00\",\n            width: 1200,\n            height: 419\n        },\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(hypohidrosis, {\n    label: \"Reduced sweating\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypohidrosis\",\n        source_attribute: \"phen_hypohidrosis\",\n        section: \"skin_sweating\",\n        question: \"Does the patient report reduced sweating?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000966\",\n        help: \"Records a history of sweating less than expected.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(cornea_verticillata, {\n    label: \"Cornea verticillata\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"cornea_verticillata\",\n        source_attribute: \"phen_cornea_verticillata\",\n        section: \"eyes\",\n        question: \"Has cornea verticillata been documented on eye examination?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0500008\",\n        help: \"Records a documented corneal finding. It does not ask the patient to identify it.\",\n        reference_image: {\n            path: \"/reference-images/fabry-cornea-verticillata.jpg\",\n            alt: \"Slit-lamp photograph showing a faint whorl pattern in the cornea of a patient with Fabry disease.\",\n            caption: \"Cornea verticillata seen on slit-lamp examination in Fabry disease.\",\n            credit: \"Burlina et al., BMC Neurology (2011)\",\n            source_url: \"https://commons.wikimedia.org/wiki/File:Morbus_Fabry_Cornea_verticillata_01.jpg\",\n            license: \"CC BY 2.0\",\n            license_url: \"https://creativecommons.org/licenses/by/2.0/\",\n            sha256: \"845b4fb804ada470192274095556740d18d2f2b79dd6a356176548d25a0a3066\",\n            width: 1200,\n            height: 719\n        },\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(proteinuria, {\n    label: \"Proteinuria\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"proteinuria\",\n        source_attribute: \"phen_proteinuria\",\n        section: \"kidney\",\n        question: \"Has proteinuria been documented?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000093\",\n        help: \"Records documented protein in the urine without applying a quantitative threshold.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(family_history_x_linked, {\n    \"label\": \"Documented family history suggesting X-linked inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_x_linked\",\n        \"source_attribute\": \"phen_family_history_x_linked\",\n        \"section\": \"family_history\",\n        \"question\": \"Does transmission among affected relatives in the documented family history suggest an X-linked pattern?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0001417\",\n        \"help\": \"Affected relatives through the maternal line or affected daughters of an affected father may suggest X-linked inheritance. There is no father-to-son transmission. Females can also be affected, and an unclear pedigree does not exclude it.\",\n        \"source_refs\": [\"genereviews_fabry\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_fabry-bda54c22d356132f.prb",
         "label": "Fabry disease",
         "diseaseId": "ORPHA:324",
-        "version": "0.2.0-demo",
+        "version": "0.6.0-family-history",
         "sourceRefs": [
           "genereviews_fabry",
           "orphadata_2026_06"
@@ -319,20 +1419,216 @@
       },
       {
         "id": "ikd_tuberous_sclerosis",
-        "source": "hypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();\npresent_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };",
-        "demo": {
-          "threshold": 2,
-          "actionWhenFlagged": "Review the recorded TSC-associated findings and cited sources in clinical context.",
-          "actionWhenNotFlagged": "Clarify unknown or unanswered findings if relevant; this demonstration does not exclude tuberous sclerosis complex."
+        "source": "hypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\npresent_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_hypomelanotic_macule : { hypomelanotic_macule = 1 => 3.340975 }, { => 0 };\ncontribution_angiofibromas : { angiofibromas = 1 => 2.819881 }, { => 0 };\ncontribution_shagreen_patch : { shagreen_patch = 1 => 3.162605 }, { => 0 };\ncontribution_renal_angiomyolipoma : { renal_angiomyolipoma = 1 => 2.650523 }, { => 0 };\ncontribution_seizure : { seizure = 1 => 0.745661 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_hypomelanotic_macule + contribution_angiofibromas + contribution_shagreen_patch + contribution_renal_angiomyolipoma + contribution_seizure + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "ikd_weights_2026_09"
+          ],
+          "weights": {
+            "angiofibromas": 2.819881,
+            "hypomelanotic_macule": 3.340975,
+            "renal_angiomyolipoma": 2.650523,
+            "seizure": 0.745661,
+            "shagreen_patch": 3.162605,
+            "family_history_autosomal_dominant": 0
+          }
         },
-        "authoredSource": "/* Atlas IKD collection: five tuberous sclerosis complex-associated assessment features. */\n#define_ruleblock(ikd_tuberous_sclerosis, {\n    description: \"Tuberous sclerosis complex assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.2.0-demo\",\n        demo_threshold: 2,\n        demo_action_when_flagged: \"Review the recorded TSC-associated findings and cited sources in clinical context.\",\n        demo_action_when_not_flagged: \"Clarify unknown or unanswered findings if relevant; this demonstration does not exclude tuberous sclerosis complex.\",\n        disease_label: \"Tuberous sclerosis complex\",\n        disease_id: \"ORPHA:805\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\nhypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();\n\n/* Illustrative workflow signal only. Two present inputs is a demonstration\n   threshold, not a TSC diagnostic criterion or probability. */\npresent_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };\n\n#define_attribute(hypomelanotic_macule, {\n    label: \"Hypomelanotic macules\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypomelanotic_macule\",\n        source_attribute: \"phen_hypomelanotic_macule\",\n        section: \"skin_sweating\",\n        question: \"Have hypomelanotic macules been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009719\",\n        help: \"Records identified patches of skin with reduced pigmentation; no lesion count is applied.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiofibromas, {\n    label: \"Angiofibromas\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"angiofibromas\",\n        source_attribute: \"phen_angiofibromas\",\n        section: \"skin_sweating\",\n        question: \"Have angiofibromas been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0010615\",\n        help: \"Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(shagreen_patch, {\n    label: \"Shagreen patch\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"shagreen_patch\",\n        source_attribute: \"phen_shagreen_patch\",\n        section: \"skin_sweating\",\n        question: \"Has a shagreen patch been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009721\",\n        help: \"Records whether this skin finding has been identified.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(renal_angiomyolipoma, {\n    label: \"Renal angiomyolipoma\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"renal_angiomyolipoma\",\n        source_attribute: \"phen_renal_angiomyolipoma\",\n        section: \"kidney\",\n        question: \"Has a renal angiomyolipoma been documented on imaging?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0006772\",\n        help: \"Records a documented kidney lesion, without applying a size or number threshold.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(seizure, {\n    label: \"Seizures\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"seizure\",\n        source_attribute: \"phen_seizure\",\n        section: \"neurological_history\",\n        question: \"Is there a history of seizures?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001250\",\n        help: \"Records a history of seizures without implying when they occurred.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n",
-        "assetPath": "/generated/ruleblocks/ikd/ikd_tuberous_sclerosis-bc826888e7405139.prb",
+        "authoredSource": "/* Atlas IKD collection: five tuberous sclerosis complex-associated assessment features. */\n#define_ruleblock(ikd_tuberous_sclerosis, {\n    description: \"Tuberous sclerosis complex assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.6.0-family-history\",\n        scoring: {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"ikd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"angiofibromas\": 2.819881,\n                \"hypomelanotic_macule\": 3.340975,\n                \"renal_angiomyolipoma\": 2.650523,\n                \"seizure\": 0.745661,\n                \"shagreen_patch\": 3.162605,\n                \"family_history_autosomal_dominant\": 0\n            }\n        },\n        disease_label: \"Tuberous sclerosis complex\",\n        disease_id: \"ORPHA:805\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\nhypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\n\n\n/* Research phenotype matching: absent or unstated inputs contribute zero. */\npresent_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_hypomelanotic_macule : { hypomelanotic_macule = 1 => 3.340975 }, { => 0 };\ncontribution_angiofibromas : { angiofibromas = 1 => 2.819881 }, { => 0 };\ncontribution_shagreen_patch : { shagreen_patch = 1 => 3.162605 }, { => 0 };\ncontribution_renal_angiomyolipoma : { renal_angiomyolipoma = 1 => 2.650523 }, { => 0 };\ncontribution_seizure : { seizure = 1 => 0.745661 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_hypomelanotic_macule + contribution_angiofibromas + contribution_shagreen_patch + contribution_renal_angiomyolipoma + contribution_seizure + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(hypomelanotic_macule, {\n    label: \"Hypomelanotic macules\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypomelanotic_macule\",\n        source_attribute: \"phen_hypomelanotic_macule\",\n        section: \"skin_sweating\",\n        question: \"Have hypomelanotic macules been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009719\",\n        help: \"Records identified patches of skin with reduced pigmentation. No lesion count is applied.\",\n        reference_image: {\n            path: \"/reference-images/tsc-skin-findings.png\",\n            alt: \"Three-panel clinical image. the top panel shows pale hypomelanotic macules on the trunk and arms.\",\n            caption: \"Top panel (A): hypomelanotic macules. The other panels show different TSC skin findings.\",\n            credit: \"Portocarrero et al., Anais Brasileiros de Dermatologia (2018)\",\n            source_url: \"https://commons.wikimedia.org/wiki/File:Hypopigmented_macules,_Shagreen_patch_and_periungual_fibroma_of_tuberous_sclerosis.png\",\n            license: \"CC BY 4.0\",\n            license_url: \"https://creativecommons.org/licenses/by/4.0/\",\n            sha256: \"234f5ffc30708ab4b68d549e51884a9c0627ad415cf2207acc02fc69f30582c8\",\n            width: 993,\n            height: 1935\n        },\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiofibromas, {\n    \"label\": \"Angiofibromas\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"angiofibromas\",\n        \"source_attribute\": \"phen_angiofibromas\",\n        \"section\": \"skin_sweating\",\n        \"question\": \"Have angiofibromas been identified?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0010615\",\n        \"help\": \"Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.\",\n        \"source_refs\": [\n            \"genereviews_tsc\",\n            \"orphadata_2026_06\"\n        ],\n        \"reference_image\": {\n            \"path\": \"/reference-images/facial-angiofibromas.jpg\",\n            \"alt\": \"Clinical photograph of multiple raised papules over the nose, cheeks and forehead, with the eyes masked in the source image.\",\n            \"caption\": \"Facial angiofibromas in a published tuberous sclerosis example. Appearance varies between individuals.\",\n            \"credit\": \"M. Sand, D. Sand, C. Thrandorf, V. Paech, P. Altmeyer and F. G. Bechara (2010). Unmodified source image.\",\n            \"source_url\": \"https://commons.wikimedia.org/wiki/File:Adenoma_sebaceum_01.jpg\",\n            \"license\": \"CC BY 2.0\",\n            \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n            \"sha256\": \"31bf1152217a464c857f41b098e4f1b1c68717713b6092e86fa706296cae7a72\",\n            \"width\": 1200,\n            \"height\": 1809\n        },\n        \"image_guidance\": {\n            \"category\": \"dermatology\",\n            \"modality\": \"Clinical photograph\",\n            \"description\": \"Facial angiofibromas in a published tuberous sclerosis example. Appearance varies between individuals.\",\n            \"asset_status\": \"available_reference\"\n        }\n    }\n});\n\n#define_attribute(shagreen_patch, {\n    label: \"Shagreen patch\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"shagreen_patch\",\n        source_attribute: \"phen_shagreen_patch\",\n        section: \"skin_sweating\",\n        question: \"Has a shagreen patch been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009721\",\n        help: \"Records whether this skin finding has been identified.\",\n        reference_image: {\n            path: \"/reference-images/tsc-skin-findings.png\",\n            alt: \"Three-panel clinical image. the middle panel shows a textured shagreen patch on the lower back.\",\n            caption: \"Middle panel (B): shagreen patch. The other panels show different TSC skin findings.\",\n            credit: \"Portocarrero et al., Anais Brasileiros de Dermatologia (2018)\",\n            source_url: \"https://commons.wikimedia.org/wiki/File:Hypopigmented_macules,_Shagreen_patch_and_periungual_fibroma_of_tuberous_sclerosis.png\",\n            license: \"CC BY 4.0\",\n            license_url: \"https://creativecommons.org/licenses/by/4.0/\",\n            sha256: \"234f5ffc30708ab4b68d549e51884a9c0627ad415cf2207acc02fc69f30582c8\",\n            width: 993,\n            height: 1935\n        },\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(renal_angiomyolipoma, {\n    label: \"Renal angiomyolipoma\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"renal_angiomyolipoma\",\n        source_attribute: \"phen_renal_angiomyolipoma\",\n        section: \"kidney\",\n        question: \"Has a renal angiomyolipoma been documented on imaging?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0006772\",\n        help: \"Records a documented kidney lesion, without applying a size or number threshold.\",\n        reference_image: {\n            path: \"/reference-images/renal-angiomyolipoma-ct.jpg\",\n            alt: \"Side-by-side axial kidney CT images before and after contrast, with an arrow pointing to a renal angiomyolipoma.\",\n            caption: \"Example renal angiomyolipoma on CT before (left) and after (right) contrast. This image is an example, not a diagnostic template.\",\n            credit: \"Greco et al., Journal of Renal and Hepatic Disorders (2018)\",\n            source_url: \"https://commons.wikimedia.org/wiki/File:CT_of_angiomyolipoma,_before_and_after_radiocontrast.jpg\",\n            license: \"CC BY 4.0\",\n            license_url: \"https://creativecommons.org/licenses/by/4.0/\",\n            sha256: \"31157f4f281d178b47b1bb06c613bf2054cbc52c62b99d0642dcae82cb6c0cb6\",\n            width: 946,\n            height: 622\n        },\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(seizure, {\n    label: \"Seizures\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"seizure\",\n        source_attribute: \"phen_seizure\",\n        section: \"neurological_history\",\n        question: \"Is there a history of seizures?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001250\",\n        help: \"Records a history of seizures without implying when they occurred.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(family_history_autosomal_dominant, {\n    \"label\": \"Documented family history suggesting autosomal dominant inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_dominant\",\n        \"source_attribute\": \"phen_family_history_autosomal_dominant\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show a similar condition in successive generations?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000006\",\n        \"help\": \"A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.\",\n        \"source_refs\": [\"genereviews_tsc\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_tuberous_sclerosis-bda54c22d356132f.prb",
         "label": "Tuberous sclerosis complex",
         "diseaseId": "ORPHA:805",
-        "version": "0.2.0-demo",
+        "version": "0.6.0-family-history",
         "sourceRefs": [
           "genereviews_tsc",
           "orphadata_2026_06"
+        ]
+      },
+      {
+        "id": "ikd_alport",
+        "source": "microscopic_hematuria => eadv.phen_microscopic_hematuria.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\nbilateral_sensorineural_hearing_impairment => eadv.phen_bilateral_sensorineural_hearing_impairment.val.last();\nanterior_lenticonus => eadv.phen_anterior_lenticonus.val.last();\nretinal_flecks => eadv.phen_retinal_flecks.val.last();\nglomerular_basement_membrane_lamellation => eadv.phen_glomerular_basement_membrane_lamellation.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\nfamily_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();\nfamily_history_x_linked => eadv.phen_family_history_x_linked.val.last();\npresent_feature_count : { . => coalesce(microscopic_hematuria, 0) + coalesce(proteinuria, 0) + coalesce(bilateral_sensorineural_hearing_impairment, 0) + coalesce(anterior_lenticonus, 0) + coalesce(retinal_flecks, 0) + coalesce(glomerular_basement_membrane_lamellation, 0) + coalesce(family_history_autosomal_dominant, 0) + coalesce(family_history_autosomal_recessive, 0) + coalesce(family_history_x_linked, 0) };\ncontribution_microscopic_hematuria : { microscopic_hematuria = 1 => 1.914155 }, { => 0 };\ncontribution_proteinuria : { proteinuria = 1 => 1.582841 }, { => 0 };\ncontribution_bilateral_sensorineural_hearing_impairment : { bilateral_sensorineural_hearing_impairment = 1 => 2.218909 }, { => 0 };\ncontribution_anterior_lenticonus : { anterior_lenticonus = 1 => 2.787697 }, { => 0 };\ncontribution_retinal_flecks : { retinal_flecks = 1 => 2.816185 }, { => 0 };\ncontribution_glomerular_basement_membrane_lamellation : { glomerular_basement_membrane_lamellation = 1 => 3.220614 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\ncontribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };\ncontribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_microscopic_hematuria + contribution_proteinuria + contribution_bilateral_sensorineural_hearing_impairment + contribution_anterior_lenticonus + contribution_retinal_flecks + contribution_glomerular_basement_membrane_lamellation + contribution_family_history_autosomal_dominant + contribution_family_history_autosomal_recessive + contribution_family_history_x_linked };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "ikd_weights_2026_09"
+          ],
+          "weights": {
+            "anterior_lenticonus": 2.787697,
+            "bilateral_sensorineural_hearing_impairment": 2.218909,
+            "glomerular_basement_membrane_lamellation": 3.220614,
+            "microscopic_hematuria": 1.914155,
+            "proteinuria": 1.582841,
+            "retinal_flecks": 2.816185,
+            "family_history_autosomal_dominant": 0,
+            "family_history_autosomal_recessive": 0,
+            "family_history_x_linked": 0
+          }
+        },
+        "authoredSource": "/* Candidate presence assessment: Alport syndrome. Source: Orphadata June 2026 snapshot.\n   Inputs are Atlas questionnaire findings, not automatic EHR diagnoses.\n   Research weights from the pinned LIRICAL extraction. Clinical calibration is pending. */\n#define_ruleblock(ikd_alport, {\n    \"description\": \"Alport syndrome candidate assessment features\",\n    \"is_active\": 2,\n    \"atlas\": {\n        \"schema_version\": \"1\",\n        \"version\": \"0.6.0-family-history\",\n        \"scoring\": {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"ikd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"anterior_lenticonus\": 2.787697,\n                \"bilateral_sensorineural_hearing_impairment\": 2.218909,\n                \"glomerular_basement_membrane_lamellation\": 3.220614,\n                \"microscopic_hematuria\": 1.914155,\n                \"proteinuria\": 1.582841,\n                \"retinal_flecks\": 2.816185,\n                \"family_history_autosomal_dominant\": 0,\n                \"family_history_autosomal_recessive\": 0,\n                \"family_history_x_linked\": 0\n            }\n        },\n        \"disease_label\": \"Alport syndrome\",\n        \"disease_id\": \"ORPHA:63\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\nmicroscopic_hematuria => eadv.phen_microscopic_hematuria.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\nbilateral_sensorineural_hearing_impairment => eadv.phen_bilateral_sensorineural_hearing_impairment.val.last();\nanterior_lenticonus => eadv.phen_anterior_lenticonus.val.last();\nretinal_flecks => eadv.phen_retinal_flecks.val.last();\nglomerular_basement_membrane_lamellation => eadv.phen_glomerular_basement_membrane_lamellation.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\nfamily_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();\nfamily_history_x_linked => eadv.phen_family_history_x_linked.val.last();\n\n\n/* Research phenotype matching: absent or unstated inputs contribute zero. */\npresent_feature_count : { . => coalesce(microscopic_hematuria, 0) + coalesce(proteinuria, 0) + coalesce(bilateral_sensorineural_hearing_impairment, 0) + coalesce(anterior_lenticonus, 0) + coalesce(retinal_flecks, 0) + coalesce(glomerular_basement_membrane_lamellation, 0) + coalesce(family_history_autosomal_dominant, 0) + coalesce(family_history_autosomal_recessive, 0) + coalesce(family_history_x_linked, 0) };\ncontribution_microscopic_hematuria : { microscopic_hematuria = 1 => 1.914155 }, { => 0 };\ncontribution_proteinuria : { proteinuria = 1 => 1.582841 }, { => 0 };\ncontribution_bilateral_sensorineural_hearing_impairment : { bilateral_sensorineural_hearing_impairment = 1 => 2.218909 }, { => 0 };\ncontribution_anterior_lenticonus : { anterior_lenticonus = 1 => 2.787697 }, { => 0 };\ncontribution_retinal_flecks : { retinal_flecks = 1 => 2.816185 }, { => 0 };\ncontribution_glomerular_basement_membrane_lamellation : { glomerular_basement_membrane_lamellation = 1 => 3.220614 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\ncontribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };\ncontribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_microscopic_hematuria + contribution_proteinuria + contribution_bilateral_sensorineural_hearing_impairment + contribution_anterior_lenticonus + contribution_retinal_flecks + contribution_glomerular_basement_membrane_lamellation + contribution_family_history_autosomal_dominant + contribution_family_history_autosomal_recessive + contribution_family_history_x_linked };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(microscopic_hematuria, {\n    \"label\": \"Microscopic haematuria\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"microscopic_hematuria\",\n        \"source_attribute\": \"phen_microscopic_hematuria\",\n        \"section\": \"kidney\",\n        \"question\": \"Has microscopic haematuria been documented on urine testing?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0002907\",\n        \"help\": \"Specifically documented microscopic haematuria.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(proteinuria, {\n    \"label\": \"Proteinuria\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"proteinuria\",\n        \"source_attribute\": \"phen_proteinuria\",\n        \"section\": \"kidney\",\n        \"question\": \"Has proteinuria been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000093\",\n        \"help\": \"Records documented protein in the urine without applying a quantitative threshold.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(bilateral_sensorineural_hearing_impairment, {\n    \"label\": \"Bilateral sensorineural hearing impairment\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"bilateral_sensorineural_hearing_impairment\",\n        \"source_attribute\": \"phen_bilateral_sensorineural_hearing_impairment\",\n        \"section\": \"hearing\",\n        \"question\": \"Has sensorineural hearing impairment in both ears been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0008619\",\n        \"help\": \"Documented sensorineural impairment affecting both ears.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(anterior_lenticonus, {\n    \"label\": \"Anterior lenticonus\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"anterior_lenticonus\",\n        \"source_attribute\": \"phen_anterior_lenticonus\",\n        \"section\": \"eyes\",\n        \"question\": \"Has anterior lenticonus been documented on eye examination?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0011501\",\n        \"help\": \"Records a documented lens finding. the patient is not asked to identify it.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(retinal_flecks, {\n    \"label\": \"Retinal flecks\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"retinal_flecks\",\n        \"source_attribute\": \"phen_retinal_flecks\",\n        \"section\": \"eyes\",\n        \"question\": \"Have retinal flecks been documented on eye examination?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0012045\",\n        \"help\": \"Records the named retinal finding without inferring an inherited cause.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(glomerular_basement_membrane_lamellation, {\n    \"label\": \"Glomerular basement membrane lamellation\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"glomerular_basement_membrane_lamellation\",\n        \"source_attribute\": \"phen_glomerular_basement_membrane_lamellation\",\n        \"section\": \"kidney\",\n        \"question\": \"Has glomerular basement membrane lamellation been documented in a kidney biopsy report?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0030034\",\n        \"help\": \"Requires the named biopsy finding. an unspecified abnormal biopsy is insufficient.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(family_history_autosomal_dominant, {\n    \"label\": \"Documented family history suggesting autosomal dominant inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_dominant\",\n        \"source_attribute\": \"phen_family_history_autosomal_dominant\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show a similar condition in successive generations?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000006\",\n        \"help\": \"A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.\",\n        \"source_refs\": [\"genereviews_alport\"]\n    }\n});\n\n#define_attribute(family_history_autosomal_recessive, {\n    \"label\": \"Documented family history suggesting autosomal recessive inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_recessive\",\n        \"source_attribute\": \"phen_family_history_autosomal_recessive\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show affected siblings with unaffected parents?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000007\",\n        \"help\": \"Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.\",\n        \"source_refs\": [\"genereviews_alport\"]\n    }\n});\n\n#define_attribute(family_history_x_linked, {\n    \"label\": \"Documented family history suggesting X-linked inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_x_linked\",\n        \"source_attribute\": \"phen_family_history_x_linked\",\n        \"section\": \"family_history\",\n        \"question\": \"Does transmission among affected relatives in the documented family history suggest an X-linked pattern?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0001417\",\n        \"help\": \"Affected relatives through the maternal line or affected daughters of an affected father may suggest X-linked inheritance. There is no father-to-son transmission. Females can also be affected, and an unclear pedigree does not exclude it.\",\n        \"source_refs\": [\"genereviews_alport\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_alport-bda54c22d356132f.prb",
+        "label": "Alport syndrome",
+        "diseaseId": "ORPHA:63",
+        "version": "0.6.0-family-history",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ]
+      },
+      {
+        "id": "ikd_hnf1b",
+        "source": "multicystic_kidney_dysplasia => eadv.phen_multicystic_kidney_dysplasia.val.last();\nrenal_agenesis => eadv.phen_renal_agenesis.val.last();\nhorseshoe_kidney => eadv.phen_horseshoe_kidney.val.last();\ndiabetes_mellitus => eadv.phen_diabetes_mellitus.val.last();\npancreatic_aplasia_hypoplasia => eadv.phen_pancreatic_aplasia_hypoplasia.val.last();\nhyperuricemia => eadv.phen_hyperuricemia.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\npresent_feature_count : { . => coalesce(multicystic_kidney_dysplasia, 0) + coalesce(renal_agenesis, 0) + coalesce(horseshoe_kidney, 0) + coalesce(diabetes_mellitus, 0) + coalesce(pancreatic_aplasia_hypoplasia, 0) + coalesce(hyperuricemia, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_multicystic_kidney_dysplasia : { multicystic_kidney_dysplasia = 1 => 2.41361 }, { => 0 };\ncontribution_renal_agenesis : { renal_agenesis = 1 => 1.401984 }, { => 0 };\ncontribution_horseshoe_kidney : { horseshoe_kidney = 1 => 1.702054 }, { => 0 };\ncontribution_diabetes_mellitus : { diabetes_mellitus = 1 => 1.520433 }, { => 0 };\ncontribution_pancreatic_aplasia_hypoplasia : { pancreatic_aplasia_hypoplasia = 1 => 2.315417 }, { => 0 };\ncontribution_hyperuricemia : { hyperuricemia = 1 => 1.797077 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_multicystic_kidney_dysplasia + contribution_renal_agenesis + contribution_horseshoe_kidney + contribution_diabetes_mellitus + contribution_pancreatic_aplasia_hypoplasia + contribution_hyperuricemia + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "ikd_weights_2026_09"
+          ],
+          "weights": {
+            "diabetes_mellitus": 1.520433,
+            "horseshoe_kidney": 1.702054,
+            "hyperuricemia": 1.797077,
+            "multicystic_kidney_dysplasia": 2.41361,
+            "pancreatic_aplasia_hypoplasia": 2.315417,
+            "renal_agenesis": 1.401984,
+            "family_history_autosomal_dominant": 0
+          }
+        },
+        "authoredSource": "/* Candidate presence assessment: HNF1B-related disease. Source: Orphadata June 2026 snapshot.\n   Inputs are Atlas questionnaire findings, not automatic EHR diagnoses.\n   Research weights from the pinned LIRICAL extraction. Clinical calibration is pending. */\n#define_ruleblock(ikd_hnf1b, {\n    \"description\": \"HNF1B-related disease candidate assessment features\",\n    \"is_active\": 2,\n    \"atlas\": {\n        \"schema_version\": \"1\",\n        \"version\": \"0.6.0-family-history\",\n        \"scoring\": {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"ikd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"diabetes_mellitus\": 1.520433,\n                \"horseshoe_kidney\": 1.702054,\n                \"hyperuricemia\": 1.797077,\n                \"multicystic_kidney_dysplasia\": 2.41361,\n                \"pancreatic_aplasia_hypoplasia\": 2.315417,\n                \"renal_agenesis\": 1.401984,\n                \"family_history_autosomal_dominant\": 0\n            }\n        },\n        \"disease_label\": \"HNF1B-related disease\",\n        \"disease_id\": \"ORPHA:93111\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\nmulticystic_kidney_dysplasia => eadv.phen_multicystic_kidney_dysplasia.val.last();\nrenal_agenesis => eadv.phen_renal_agenesis.val.last();\nhorseshoe_kidney => eadv.phen_horseshoe_kidney.val.last();\ndiabetes_mellitus => eadv.phen_diabetes_mellitus.val.last();\npancreatic_aplasia_hypoplasia => eadv.phen_pancreatic_aplasia_hypoplasia.val.last();\nhyperuricemia => eadv.phen_hyperuricemia.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\n\n\n/* Research phenotype matching: absent or unstated inputs contribute zero. */\npresent_feature_count : { . => coalesce(multicystic_kidney_dysplasia, 0) + coalesce(renal_agenesis, 0) + coalesce(horseshoe_kidney, 0) + coalesce(diabetes_mellitus, 0) + coalesce(pancreatic_aplasia_hypoplasia, 0) + coalesce(hyperuricemia, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_multicystic_kidney_dysplasia : { multicystic_kidney_dysplasia = 1 => 2.41361 }, { => 0 };\ncontribution_renal_agenesis : { renal_agenesis = 1 => 1.401984 }, { => 0 };\ncontribution_horseshoe_kidney : { horseshoe_kidney = 1 => 1.702054 }, { => 0 };\ncontribution_diabetes_mellitus : { diabetes_mellitus = 1 => 1.520433 }, { => 0 };\ncontribution_pancreatic_aplasia_hypoplasia : { pancreatic_aplasia_hypoplasia = 1 => 2.315417 }, { => 0 };\ncontribution_hyperuricemia : { hyperuricemia = 1 => 1.797077 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_multicystic_kidney_dysplasia + contribution_renal_agenesis + contribution_horseshoe_kidney + contribution_diabetes_mellitus + contribution_pancreatic_aplasia_hypoplasia + contribution_hyperuricemia + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(multicystic_kidney_dysplasia, {\n    \"label\": \"Multicystic kidney dysplasia\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"multicystic_kidney_dysplasia\",\n        \"source_attribute\": \"phen_multicystic_kidney_dysplasia\",\n        \"section\": \"kidney\",\n        \"question\": \"Has multicystic kidney dysplasia been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000003\",\n        \"help\": \"Records explicitly documented dysplasia. renal cysts alone do not establish this finding.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(renal_agenesis, {\n    \"label\": \"Renal agenesis\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"renal_agenesis\",\n        \"source_attribute\": \"phen_renal_agenesis\",\n        \"section\": \"kidney\",\n        \"question\": \"Has renal agenesis been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000104\",\n        \"help\": \"Records congenital absence of a kidney. an acquired solitary kidney is not equivalent.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(horseshoe_kidney, {\n    \"label\": \"Horseshoe kidney\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"horseshoe_kidney\",\n        \"source_attribute\": \"phen_horseshoe_kidney\",\n        \"section\": \"kidney\",\n        \"question\": \"Has a horseshoe kidney been documented on imaging?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000085\",\n        \"help\": \"Records the named structural kidney finding.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ],\n        \"image_guidance\": {\n            \"category\": \"radiology\",\n            \"modality\": \"Axial CT\",\n            \"description\": \"No reference image selected: this finding does not need a visual recognition aid in Atlas.\",\n            \"asset_status\": \"not_selected\"\n        }\n    }\n});\n\n#define_attribute(diabetes_mellitus, {\n    \"label\": \"Diabetes mellitus\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"diabetes_mellitus\",\n        \"source_attribute\": \"phen_diabetes_mellitus\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has diabetes mellitus been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000819\",\n        \"help\": \"Records documented diabetes without inferring its type, genetic cause or age at onset.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(pancreatic_aplasia_hypoplasia, {\n    \"label\": \"Pancreatic aplasia or hypoplasia\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"pancreatic_aplasia_hypoplasia\",\n        \"source_attribute\": \"phen_pancreatic_aplasia_hypoplasia\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has pancreatic aplasia or hypoplasia been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0100800\",\n        \"help\": \"Records documented absent or underdeveloped pancreatic tissue. diabetes alone is insufficient.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(hyperuricemia, {\n    \"label\": \"Hyperuricaemia\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"hyperuricemia\",\n        \"source_attribute\": \"phen_hyperuricemia\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has hyperuricaemia been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0002149\",\n        \"help\": \"Records a documented elevated urate finding without applying a new laboratory threshold.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(family_history_autosomal_dominant, {\n    \"label\": \"Documented family history suggesting autosomal dominant inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_dominant\",\n        \"source_attribute\": \"phen_family_history_autosomal_dominant\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show a similar condition in successive generations?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000006\",\n        \"help\": \"A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.\",\n        \"source_refs\": [\"genereviews_hnf1b\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_hnf1b-bda54c22d356132f.prb",
+        "label": "HNF1B-related disease",
+        "diseaseId": "ORPHA:93111",
+        "version": "0.6.0-family-history",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ]
+      },
+      {
+        "id": "ikd_arpkd",
+        "source": "enlarged_kidney => eadv.phen_enlarged_kidney.val.last();\npolycystic_kidney_dysplasia => eadv.phen_polycystic_kidney_dysplasia.val.last();\ncongenital_hepatic_fibrosis => eadv.phen_congenital_hepatic_fibrosis.val.last();\nportal_hypertension => eadv.phen_portal_hypertension.val.last();\noligohydramnios => eadv.phen_oligohydramnios.val.last();\nhypertension => eadv.phen_hypertension.val.last();\nfamily_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();\npresent_feature_count : { . => coalesce(enlarged_kidney, 0) + coalesce(polycystic_kidney_dysplasia, 0) + coalesce(congenital_hepatic_fibrosis, 0) + coalesce(portal_hypertension, 0) + coalesce(oligohydramnios, 0) + coalesce(hypertension, 0) + coalesce(family_history_autosomal_recessive, 0) };\ncontribution_enlarged_kidney : { enlarged_kidney = 1 => 2.497345 }, { => 0 };\ncontribution_polycystic_kidney_dysplasia : { polycystic_kidney_dysplasia = 1 => 2.417793 }, { => 0 };\ncontribution_congenital_hepatic_fibrosis : { congenital_hepatic_fibrosis = 1 => 2.965515 }, { => 0 };\ncontribution_portal_hypertension : { portal_hypertension = 1 => 2.316049 }, { => 0 };\ncontribution_oligohydramnios : { oligohydramnios = 1 => 1.848822 }, { => 0 };\ncontribution_hypertension : { hypertension = 1 => 1.581553 }, { => 0 };\ncontribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_enlarged_kidney + contribution_polycystic_kidney_dysplasia + contribution_congenital_hepatic_fibrosis + contribution_portal_hypertension + contribution_oligohydramnios + contribution_hypertension + contribution_family_history_autosomal_recessive };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "ikd_weights_2026_09"
+          ],
+          "weights": {
+            "congenital_hepatic_fibrosis": 2.965515,
+            "enlarged_kidney": 2.497345,
+            "hypertension": 1.581553,
+            "oligohydramnios": 1.848822,
+            "polycystic_kidney_dysplasia": 2.417793,
+            "portal_hypertension": 2.316049,
+            "family_history_autosomal_recessive": 0
+          }
+        },
+        "authoredSource": "/* Candidate presence assessment: Autosomal recessive polycystic kidney disease. Source: Orphadata June 2026 snapshot.\n   Inputs are Atlas questionnaire findings, not automatic EHR diagnoses.\n   Research weights from the pinned LIRICAL extraction. Clinical calibration is pending. */\n#define_ruleblock(ikd_arpkd, {\n    \"description\": \"Autosomal recessive polycystic kidney disease candidate assessment features\",\n    \"is_active\": 2,\n    \"atlas\": {\n        \"schema_version\": \"1\",\n        \"version\": \"0.6.0-family-history\",\n        \"scoring\": {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"ikd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"congenital_hepatic_fibrosis\": 2.965515,\n                \"enlarged_kidney\": 2.497345,\n                \"hypertension\": 1.581553,\n                \"oligohydramnios\": 1.848822,\n                \"polycystic_kidney_dysplasia\": 2.417793,\n                \"portal_hypertension\": 2.316049,\n                \"family_history_autosomal_recessive\": 0\n            }\n        },\n        \"disease_label\": \"Autosomal recessive polycystic kidney disease\",\n        \"disease_id\": \"ORPHA:731\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\nenlarged_kidney => eadv.phen_enlarged_kidney.val.last();\npolycystic_kidney_dysplasia => eadv.phen_polycystic_kidney_dysplasia.val.last();\ncongenital_hepatic_fibrosis => eadv.phen_congenital_hepatic_fibrosis.val.last();\nportal_hypertension => eadv.phen_portal_hypertension.val.last();\noligohydramnios => eadv.phen_oligohydramnios.val.last();\nhypertension => eadv.phen_hypertension.val.last();\nfamily_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();\n\n\n/* Research phenotype matching: absent or unstated inputs contribute zero. */\npresent_feature_count : { . => coalesce(enlarged_kidney, 0) + coalesce(polycystic_kidney_dysplasia, 0) + coalesce(congenital_hepatic_fibrosis, 0) + coalesce(portal_hypertension, 0) + coalesce(oligohydramnios, 0) + coalesce(hypertension, 0) + coalesce(family_history_autosomal_recessive, 0) };\ncontribution_enlarged_kidney : { enlarged_kidney = 1 => 2.497345 }, { => 0 };\ncontribution_polycystic_kidney_dysplasia : { polycystic_kidney_dysplasia = 1 => 2.417793 }, { => 0 };\ncontribution_congenital_hepatic_fibrosis : { congenital_hepatic_fibrosis = 1 => 2.965515 }, { => 0 };\ncontribution_portal_hypertension : { portal_hypertension = 1 => 2.316049 }, { => 0 };\ncontribution_oligohydramnios : { oligohydramnios = 1 => 1.848822 }, { => 0 };\ncontribution_hypertension : { hypertension = 1 => 1.581553 }, { => 0 };\ncontribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_enlarged_kidney + contribution_polycystic_kidney_dysplasia + contribution_congenital_hepatic_fibrosis + contribution_portal_hypertension + contribution_oligohydramnios + contribution_hypertension + contribution_family_history_autosomal_recessive };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(enlarged_kidney, {\n    \"label\": \"Enlarged kidney\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"enlarged_kidney\",\n        \"source_attribute\": \"phen_enlarged_kidney\",\n        \"section\": \"kidney\",\n        \"question\": \"Has kidney enlargement been documented on imaging?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000105\",\n        \"help\": \"Records documented kidney enlargement without applying a size threshold.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(polycystic_kidney_dysplasia, {\n    \"label\": \"Polycystic kidney dysplasia\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"polycystic_kidney_dysplasia\",\n        \"source_attribute\": \"phen_polycystic_kidney_dysplasia\",\n        \"section\": \"kidney\",\n        \"question\": \"Has polycystic kidney dysplasia been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000113\",\n        \"help\": \"Requires the named structural finding. multiple renal cysts alone are insufficient.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(congenital_hepatic_fibrosis, {\n    \"label\": \"Congenital hepatic fibrosis\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"congenital_hepatic_fibrosis\",\n        \"source_attribute\": \"phen_congenital_hepatic_fibrosis\",\n        \"section\": \"liver_pregnancy\",\n        \"question\": \"Has congenital hepatic fibrosis been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0002612\",\n        \"help\": \"Records congenital hepatic fibrosis. unspecified liver fibrosis does not establish this subtype.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(portal_hypertension, {\n    \"label\": \"Portal hypertension\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"portal_hypertension\",\n        \"source_attribute\": \"phen_portal_hypertension\",\n        \"section\": \"liver_pregnancy\",\n        \"question\": \"Has portal hypertension been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0001409\",\n        \"help\": \"Records documented portal hypertension, separately from systemic arterial hypertension.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(oligohydramnios, {\n    \"label\": \"Oligohydramnios in the patient’s prenatal history\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"oligohydramnios\",\n        \"source_attribute\": \"phen_oligohydramnios\",\n        \"section\": \"liver_pregnancy\",\n        \"question\": \"Was oligohydramnios documented during the pregnancy in which this patient was carried?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0001562\",\n        \"help\": \"Refers to the patient’s own prenatal history, not a later pregnancy carried by the patient. Unknown if records are unavailable.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(hypertension, {\n    \"label\": \"Hypertension\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"hypertension\",\n        \"source_attribute\": \"phen_hypertension\",\n        \"section\": \"cardiovascular\",\n        \"question\": \"Has hypertension been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000822\",\n        \"help\": \"Documented hypertension without deriving a diagnosis from a single blood pressure.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(family_history_autosomal_recessive, {\n    \"label\": \"Documented family history suggesting autosomal recessive inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_recessive\",\n        \"source_attribute\": \"phen_family_history_autosomal_recessive\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show affected siblings with unaffected parents?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000007\",\n        \"help\": \"Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.\",\n        \"source_refs\": [\"genereviews_arpkd\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_arpkd-bda54c22d356132f.prb",
+        "label": "Autosomal recessive polycystic kidney disease",
+        "diseaseId": "ORPHA:731",
+        "version": "0.6.0-family-history",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ]
+      },
+      {
+        "id": "ikd_vhl",
+        "source": "renal_cell_carcinoma => eadv.phen_renal_cell_carcinoma.val.last();\nmultiple_renal_cysts => eadv.phen_multiple_renal_cysts.val.last();\nretinal_capillary_hemangioma => eadv.phen_retinal_capillary_hemangioma.val.last();\ncerebellar_hemangioblastoma => eadv.phen_cerebellar_hemangioblastoma.val.last();\nadrenal_pheochromocytoma => eadv.phen_adrenal_pheochromocytoma.val.last();\npancreatic_endocrine_tumor => eadv.phen_pancreatic_endocrine_tumor.val.last();\nendolymphatic_sac_tumor => eadv.phen_endolymphatic_sac_tumor.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\npresent_feature_count : { . => coalesce(renal_cell_carcinoma, 0) + coalesce(multiple_renal_cysts, 0) + coalesce(retinal_capillary_hemangioma, 0) + coalesce(cerebellar_hemangioblastoma, 0) + coalesce(adrenal_pheochromocytoma, 0) + coalesce(pancreatic_endocrine_tumor, 0) + coalesce(endolymphatic_sac_tumor, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_renal_cell_carcinoma : { renal_cell_carcinoma = 1 => 2.674507 }, { => 0 };\ncontribution_multiple_renal_cysts : { multiple_renal_cysts = 1 => 2.226505 }, { => 0 };\ncontribution_retinal_capillary_hemangioma : { retinal_capillary_hemangioma = 1 => 3.382917 }, { => 0 };\ncontribution_cerebellar_hemangioblastoma : { cerebellar_hemangioblastoma = 1 => 3.507856 }, { => 0 };\ncontribution_adrenal_pheochromocytoma : { adrenal_pheochromocytoma = 1 => 3.288922 }, { => 0 };\ncontribution_pancreatic_endocrine_tumor : { pancreatic_endocrine_tumor = 1 => 2.604766 }, { => 0 };\ncontribution_endolymphatic_sac_tumor : { endolymphatic_sac_tumor = 1 => 3.30103 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_renal_cell_carcinoma + contribution_multiple_renal_cysts + contribution_retinal_capillary_hemangioma + contribution_cerebellar_hemangioblastoma + contribution_adrenal_pheochromocytoma + contribution_pancreatic_endocrine_tumor + contribution_endolymphatic_sac_tumor + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "ikd_weights_2026_09"
+          ],
+          "weights": {
+            "adrenal_pheochromocytoma": 3.288922,
+            "cerebellar_hemangioblastoma": 3.507856,
+            "endolymphatic_sac_tumor": 3.30103,
+            "multiple_renal_cysts": 2.226505,
+            "pancreatic_endocrine_tumor": 2.604766,
+            "renal_cell_carcinoma": 2.674507,
+            "retinal_capillary_hemangioma": 3.382917,
+            "family_history_autosomal_dominant": 0
+          }
+        },
+        "authoredSource": "/* Candidate presence assessment: Von Hippel–Lindau disease. Source: Orphadata June 2026 snapshot.\n   Inputs are Atlas questionnaire findings, not automatic EHR diagnoses.\n   Research weights from the pinned LIRICAL extraction. Clinical calibration is pending. */\n#define_ruleblock(ikd_vhl, {\n    \"description\": \"Von Hippel–Lindau disease candidate assessment features\",\n    \"is_active\": 2,\n    \"atlas\": {\n        \"schema_version\": \"1\",\n        \"version\": \"0.6.0-family-history\",\n        \"scoring\": {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"ikd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"adrenal_pheochromocytoma\": 3.288922,\n                \"cerebellar_hemangioblastoma\": 3.507856,\n                \"endolymphatic_sac_tumor\": 3.30103,\n                \"multiple_renal_cysts\": 2.226505,\n                \"pancreatic_endocrine_tumor\": 2.604766,\n                \"renal_cell_carcinoma\": 2.674507,\n                \"retinal_capillary_hemangioma\": 3.382917,\n                \"family_history_autosomal_dominant\": 0\n            }\n        },\n        \"disease_label\": \"Von Hippel–Lindau disease\",\n        \"disease_id\": \"ORPHA:892\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\nrenal_cell_carcinoma => eadv.phen_renal_cell_carcinoma.val.last();\nmultiple_renal_cysts => eadv.phen_multiple_renal_cysts.val.last();\nretinal_capillary_hemangioma => eadv.phen_retinal_capillary_hemangioma.val.last();\ncerebellar_hemangioblastoma => eadv.phen_cerebellar_hemangioblastoma.val.last();\nadrenal_pheochromocytoma => eadv.phen_adrenal_pheochromocytoma.val.last();\npancreatic_endocrine_tumor => eadv.phen_pancreatic_endocrine_tumor.val.last();\nendolymphatic_sac_tumor => eadv.phen_endolymphatic_sac_tumor.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\n\n\n/* Research phenotype matching: absent or unstated inputs contribute zero. */\npresent_feature_count : { . => coalesce(renal_cell_carcinoma, 0) + coalesce(multiple_renal_cysts, 0) + coalesce(retinal_capillary_hemangioma, 0) + coalesce(cerebellar_hemangioblastoma, 0) + coalesce(adrenal_pheochromocytoma, 0) + coalesce(pancreatic_endocrine_tumor, 0) + coalesce(endolymphatic_sac_tumor, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_renal_cell_carcinoma : { renal_cell_carcinoma = 1 => 2.674507 }, { => 0 };\ncontribution_multiple_renal_cysts : { multiple_renal_cysts = 1 => 2.226505 }, { => 0 };\ncontribution_retinal_capillary_hemangioma : { retinal_capillary_hemangioma = 1 => 3.382917 }, { => 0 };\ncontribution_cerebellar_hemangioblastoma : { cerebellar_hemangioblastoma = 1 => 3.507856 }, { => 0 };\ncontribution_adrenal_pheochromocytoma : { adrenal_pheochromocytoma = 1 => 3.288922 }, { => 0 };\ncontribution_pancreatic_endocrine_tumor : { pancreatic_endocrine_tumor = 1 => 2.604766 }, { => 0 };\ncontribution_endolymphatic_sac_tumor : { endolymphatic_sac_tumor = 1 => 3.30103 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_renal_cell_carcinoma + contribution_multiple_renal_cysts + contribution_retinal_capillary_hemangioma + contribution_cerebellar_hemangioblastoma + contribution_adrenal_pheochromocytoma + contribution_pancreatic_endocrine_tumor + contribution_endolymphatic_sac_tumor + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(renal_cell_carcinoma, {\n    \"label\": \"Renal cell carcinoma\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"renal_cell_carcinoma\",\n        \"source_attribute\": \"phen_renal_cell_carcinoma\",\n        \"section\": \"kidney\",\n        \"question\": \"Has renal cell carcinoma been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0005584\",\n        \"help\": \"A documented renal cell carcinoma diagnosis.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(multiple_renal_cysts, {\n    \"label\": \"Multiple renal cysts\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"multiple_renal_cysts\",\n        \"source_attribute\": \"phen_multiple_renal_cysts\",\n        \"section\": \"kidney\",\n        \"question\": \"Have multiple renal cysts been documented on imaging?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0005562\",\n        \"help\": \"Multiple renal cysts explicitly documented in an imaging report.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(retinal_capillary_hemangioma, {\n    \"label\": \"Retinal capillary haemangioma\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"retinal_capillary_hemangioma\",\n        \"source_attribute\": \"phen_retinal_capillary_hemangioma\",\n        \"section\": \"eyes\",\n        \"question\": \"Has a retinal capillary haemangioma been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0009711\",\n        \"help\": \"Records the specific documented retinal lesion. other retinal lesions are not equivalent.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(cerebellar_hemangioblastoma, {\n    \"label\": \"Cerebellar haemangioblastoma\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"cerebellar_hemangioblastoma\",\n        \"source_attribute\": \"phen_cerebellar_hemangioblastoma\",\n        \"section\": \"neurological_history\",\n        \"question\": \"Has a cerebellar haemangioblastoma been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0006880\",\n        \"help\": \"Records the named tumour and location, not an unspecified brain lesion.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(adrenal_pheochromocytoma, {\n    \"label\": \"Adrenal pheochromocytoma\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"adrenal_pheochromocytoma\",\n        \"source_attribute\": \"phen_adrenal_pheochromocytoma\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has an adrenal pheochromocytoma been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0006748\",\n        \"help\": \"Requires the documented tumour diagnosis. hypertension alone does not establish this finding.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(pancreatic_endocrine_tumor, {\n    \"label\": \"Pancreatic endocrine tumour\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"pancreatic_endocrine_tumor\",\n        \"source_attribute\": \"phen_pancreatic_endocrine_tumor\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has a pancreatic endocrine tumour been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0030405\",\n        \"help\": \"Records the specific tumour diagnosis. an unspecified pancreatic lesion is insufficient.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(endolymphatic_sac_tumor, {\n    \"label\": \"Endolymphatic sac tumour\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"endolymphatic_sac_tumor\",\n        \"source_attribute\": \"phen_endolymphatic_sac_tumor\",\n        \"section\": \"hearing\",\n        \"question\": \"Has an endolymphatic sac tumour been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0030393\",\n        \"help\": \"Records the named tumour. hearing impairment alone is insufficient.\",\n        \"source_refs\": [\n            \"orphadata_2026_06\"\n        ]\n    }\n});\n\n#define_attribute(family_history_autosomal_dominant, {\n    \"label\": \"Documented family history suggesting autosomal dominant inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_dominant\",\n        \"source_attribute\": \"phen_family_history_autosomal_dominant\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show a similar condition in successive generations?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000006\",\n        \"help\": \"A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.\",\n        \"source_refs\": [\"genereviews_vhl\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_vhl-bda54c22d356132f.prb",
+        "label": "Von Hippel–Lindau disease",
+        "diseaseId": "ORPHA:892",
+        "version": "0.6.0-family-history",
+        "sourceRefs": [
+          "orphadata_2026_06"
+        ]
+      },
+      {
+        "id": "ikd_adtkd_umod",
+        "source": "hyperuricemia => eadv.phen_hyperuricemia.val.last();\ngout => eadv.phen_gout.val.last();\ndecreased_glomerular_filtration_rate => eadv.phen_decreased_glomerular_filtration_rate.val.last();\nrenal_tubular_atrophy => eadv.phen_renal_tubular_atrophy.val.last();\nrenal_corticomedullary_cysts => eadv.phen_renal_corticomedullary_cysts.val.last();\nhyperechogenic_kidneys => eadv.phen_hyperechogenic_kidneys.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\npresent_feature_count : { . => coalesce(hyperuricemia, 0) + coalesce(gout, 0) + coalesce(decreased_glomerular_filtration_rate, 0) + coalesce(renal_tubular_atrophy, 0) + coalesce(renal_corticomedullary_cysts, 0) + coalesce(hyperechogenic_kidneys, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_hyperuricemia : { hyperuricemia = 1 => 2.382104 }, { => 0 };\ncontribution_gout : { gout = 1 => 2.538771 }, { => 0 };\ncontribution_decreased_glomerular_filtration_rate : { decreased_glomerular_filtration_rate = 1 => 2.717626 }, { => 0 };\ncontribution_renal_tubular_atrophy : { renal_tubular_atrophy = 1 => 2.708515 }, { => 0 };\ncontribution_renal_corticomedullary_cysts : { renal_corticomedullary_cysts = 1 => 2.93673 }, { => 0 };\ncontribution_hyperechogenic_kidneys : { hyperechogenic_kidneys = 1 => 1.88375 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_hyperuricemia + contribution_gout + contribution_decreased_glomerular_filtration_rate + contribution_renal_tubular_atrophy + contribution_renal_corticomedullary_cysts + contribution_hyperechogenic_kidneys + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "adtkd_weights_2026_09"
+          ],
+          "weights": {
+            "hyperuricemia": 2.382104,
+            "gout": 2.538771,
+            "decreased_glomerular_filtration_rate": 2.717626,
+            "renal_tubular_atrophy": 2.708515,
+            "renal_corticomedullary_cysts": 2.93673,
+            "hyperechogenic_kidneys": 1.88375,
+            "family_history_autosomal_dominant": 0
+          }
+        },
+        "authoredSource": "/* Research phenotype matching. Unstated findings are absent and contribute zero.\n   Shared findings do not reliably distinguish UMOD from MUC1. No diagnostic cutoff. */\n#define_ruleblock(ikd_adtkd_umod, {\n    \"description\": \"ADTKD\\u2013UMOD candidate assessment features\",\n    \"is_active\": 2,\n    \"atlas\": {\n        \"schema_version\": \"1\",\n        \"version\": \"0.6.0-family-history\",\n        \"disease_label\": \"ADTKD\\u2013UMOD\",\n        \"disease_id\": \"OMIM:162000\",\n        \"source_refs\": [\n            \"hpoa_2026_09\",\n            \"genereviews_adtkd_umod\"\n        ],\n        \"scoring\": {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"adtkd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"hyperuricemia\": 2.382104,\n                \"gout\": 2.538771,\n                \"decreased_glomerular_filtration_rate\": 2.717626,\n                \"renal_tubular_atrophy\": 2.708515,\n                \"renal_corticomedullary_cysts\": 2.93673,\n                \"hyperechogenic_kidneys\": 1.88375,\n                \"family_history_autosomal_dominant\": 0\n            }\n        }\n    }\n});\n\nhyperuricemia => eadv.phen_hyperuricemia.val.last();\ngout => eadv.phen_gout.val.last();\ndecreased_glomerular_filtration_rate => eadv.phen_decreased_glomerular_filtration_rate.val.last();\nrenal_tubular_atrophy => eadv.phen_renal_tubular_atrophy.val.last();\nrenal_corticomedullary_cysts => eadv.phen_renal_corticomedullary_cysts.val.last();\nhyperechogenic_kidneys => eadv.phen_hyperechogenic_kidneys.val.last();\n\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\n\npresent_feature_count : { . => coalesce(hyperuricemia, 0) + coalesce(gout, 0) + coalesce(decreased_glomerular_filtration_rate, 0) + coalesce(renal_tubular_atrophy, 0) + coalesce(renal_corticomedullary_cysts, 0) + coalesce(hyperechogenic_kidneys, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_hyperuricemia : { hyperuricemia = 1 => 2.382104 }, { => 0 };\ncontribution_gout : { gout = 1 => 2.538771 }, { => 0 };\ncontribution_decreased_glomerular_filtration_rate : { decreased_glomerular_filtration_rate = 1 => 2.717626 }, { => 0 };\ncontribution_renal_tubular_atrophy : { renal_tubular_atrophy = 1 => 2.708515 }, { => 0 };\ncontribution_renal_corticomedullary_cysts : { renal_corticomedullary_cysts = 1 => 2.93673 }, { => 0 };\ncontribution_hyperechogenic_kidneys : { hyperechogenic_kidneys = 1 => 1.88375 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_hyperuricemia + contribution_gout + contribution_decreased_glomerular_filtration_rate + contribution_renal_tubular_atrophy + contribution_renal_corticomedullary_cysts + contribution_hyperechogenic_kidneys + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(hyperuricemia, {\n    \"label\": \"Hyperuricaemia\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"hyperuricemia\",\n        \"source_attribute\": \"phen_hyperuricemia\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has hyperuricaemia been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0002149\",\n        \"help\": \"Records a documented elevated urate finding without applying a new laboratory threshold.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ]\n    }\n});\n\n#define_attribute(gout, {\n    \"label\": \"Gout\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"gout\",\n        \"source_attribute\": \"phen_gout\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has gout been clinically documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0001997\",\n        \"help\": \"Records diagnosed gout, not hyperuricaemia alone. This question does not encode whether gout preceded kidney impairment.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ]\n    }\n});\n\n#define_attribute(decreased_glomerular_filtration_rate, {\n    \"label\": \"Decreased glomerular filtration rate\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"decreased_glomerular_filtration_rate\",\n        \"source_attribute\": \"phen_decreased_glomerular_filtration_rate\",\n        \"section\": \"kidney\",\n        \"question\": \"Has a decreased glomerular filtration rate been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0012213\",\n        \"help\": \"Records documented reduced GFR without inferring chronicity, cause or a new laboratory threshold.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ]\n    }\n});\n\n#define_attribute(renal_tubular_atrophy, {\n    \"label\": \"Renal tubular atrophy\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"renal_tubular_atrophy\",\n        \"source_attribute\": \"phen_renal_tubular_atrophy\",\n        \"section\": \"kidney\",\n        \"question\": \"Has renal tubular atrophy been documented on a previous kidney biopsy?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000092\",\n        \"help\": \"Use an existing histopathology report. This assessment does not recommend obtaining a biopsy.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ],\n        \"image_guidance\": {\n            \"category\": \"histopathology\",\n            \"modality\": \"Light microscopy\",\n            \"description\": \"No reference image selected: this finding does not need a visual recognition aid in Atlas.\",\n            \"asset_status\": \"not_selected\"\n        }\n    }\n});\n\n#define_attribute(renal_corticomedullary_cysts, {\n    \"label\": \"Renal corticomedullary cysts\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"renal_corticomedullary_cysts\",\n        \"source_attribute\": \"phen_renal_corticomedullary_cysts\",\n        \"section\": \"kidney\",\n        \"question\": \"Have renal corticomedullary cysts been documented on imaging?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000108\",\n        \"help\": \"Requires documented corticomedullary location. Simple cysts elsewhere are not equivalent. Cysts may be absent in ADTKD.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ],\n        \"image_guidance\": {\n            \"category\": \"radiology\",\n            \"modality\": \"CT and T2-weighted MRI\",\n            \"description\": \"No reference image selected: this finding does not need a visual recognition aid in Atlas.\",\n            \"asset_status\": \"not_selected\"\n        }\n    }\n});\n\n#define_attribute(hyperechogenic_kidneys, {\n    \"label\": \"Hyperechogenic kidneys\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"hyperechogenic_kidneys\",\n        \"source_attribute\": \"phen_hyperechogenic_kidneys\",\n        \"section\": \"kidney\",\n        \"question\": \"Have hyperechogenic kidneys been documented on ultrasound?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0004719\",\n        \"help\": \"Records increased renal echogenicity in the ultrasound report. This is nonspecific and does not establish a genetic diagnosis.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ],\n        \"image_guidance\": {\n            \"category\": \"radiology\",\n            \"modality\": \"Renal ultrasound\",\n            \"description\": \"No reference image selected: this finding does not need a visual recognition aid in Atlas.\",\n            \"asset_status\": \"not_selected\"\n        }\n    }\n});\n\n\n#define_attribute(family_history_autosomal_dominant, {\n    \"label\": \"Documented family history suggesting autosomal dominant inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_dominant\",\n        \"source_attribute\": \"phen_family_history_autosomal_dominant\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show a similar condition in successive generations?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000006\",\n        \"help\": \"A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.\",\n        \"source_refs\": [\"genereviews_adtkd_umod\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_adtkd_umod-bda54c22d356132f.prb",
+        "label": "ADTKD–UMOD",
+        "diseaseId": "OMIM:162000",
+        "version": "0.6.0-family-history",
+        "sourceRefs": [
+          "hpoa_2026_09",
+          "genereviews_adtkd_umod"
+        ]
+      },
+      {
+        "id": "ikd_adtkd_muc1",
+        "source": "hyperuricemia => eadv.phen_hyperuricemia.val.last();\ngout => eadv.phen_gout.val.last();\ndecreased_glomerular_filtration_rate => eadv.phen_decreased_glomerular_filtration_rate.val.last();\nrenal_tubular_atrophy => eadv.phen_renal_tubular_atrophy.val.last();\nrenal_corticomedullary_cysts => eadv.phen_renal_corticomedullary_cysts.val.last();\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\npresent_feature_count : { . => coalesce(hyperuricemia, 0) + coalesce(gout, 0) + coalesce(decreased_glomerular_filtration_rate, 0) + coalesce(renal_tubular_atrophy, 0) + coalesce(renal_corticomedullary_cysts, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_hyperuricemia : { hyperuricemia = 1 => 2.496047 }, { => 0 };\ncontribution_gout : { gout = 1 => 2.911887 }, { => 0 };\ncontribution_decreased_glomerular_filtration_rate : { decreased_glomerular_filtration_rate = 1 => 2.775618 }, { => 0 };\ncontribution_renal_tubular_atrophy : { renal_tubular_atrophy = 1 => 2.708515 }, { => 0 };\ncontribution_renal_corticomedullary_cysts : { renal_corticomedullary_cysts = 1 => 3.112821 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_hyperuricemia + contribution_gout + contribution_decreased_glomerular_filtration_rate + contribution_renal_tubular_atrophy + contribution_renal_corticomedullary_cysts + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };",
+        "scoring": {
+          "model": "ikd-positive-log10-v1",
+          "status": "research",
+          "absentWeight": 0,
+          "sourceRefs": [
+            "lirical_2020",
+            "adtkd_weights_2026_09"
+          ],
+          "weights": {
+            "hyperuricemia": 2.496047,
+            "gout": 2.911887,
+            "decreased_glomerular_filtration_rate": 2.775618,
+            "renal_tubular_atrophy": 2.708515,
+            "renal_corticomedullary_cysts": 3.112821,
+            "family_history_autosomal_dominant": 0
+          }
+        },
+        "authoredSource": "/* Research phenotype matching. Unstated findings are absent and contribute zero.\n   Shared findings do not reliably distinguish UMOD from MUC1. No diagnostic cutoff. */\n#define_ruleblock(ikd_adtkd_muc1, {\n    \"description\": \"ADTKD\\u2013MUC1 candidate assessment features\",\n    \"is_active\": 2,\n    \"atlas\": {\n        \"schema_version\": \"1\",\n        \"version\": \"0.6.0-family-history\",\n        \"disease_label\": \"ADTKD\\u2013MUC1\",\n        \"disease_id\": \"OMIM:174000\",\n        \"source_refs\": [\n            \"hpoa_2026_09\",\n            \"genereviews_adtkd_muc1\"\n        ],\n        \"scoring\": {\n            \"model\": \"ikd-positive-log10-v1\",\n            \"status\": \"research\",\n            \"absent_weight\": 0,\n            \"source_refs\": [\n                \"lirical_2020\",\n                \"adtkd_weights_2026_09\"\n            ],\n            \"weights\": {\n                \"hyperuricemia\": 2.496047,\n                \"gout\": 2.911887,\n                \"decreased_glomerular_filtration_rate\": 2.775618,\n                \"renal_tubular_atrophy\": 2.708515,\n                \"renal_corticomedullary_cysts\": 3.112821,\n                \"family_history_autosomal_dominant\": 0\n            }\n        }\n    }\n});\n\nhyperuricemia => eadv.phen_hyperuricemia.val.last();\ngout => eadv.phen_gout.val.last();\ndecreased_glomerular_filtration_rate => eadv.phen_decreased_glomerular_filtration_rate.val.last();\nrenal_tubular_atrophy => eadv.phen_renal_tubular_atrophy.val.last();\nrenal_corticomedullary_cysts => eadv.phen_renal_corticomedullary_cysts.val.last();\n\nfamily_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();\n\npresent_feature_count : { . => coalesce(hyperuricemia, 0) + coalesce(gout, 0) + coalesce(decreased_glomerular_filtration_rate, 0) + coalesce(renal_tubular_atrophy, 0) + coalesce(renal_corticomedullary_cysts, 0) + coalesce(family_history_autosomal_dominant, 0) };\ncontribution_hyperuricemia : { hyperuricemia = 1 => 2.496047 }, { => 0 };\ncontribution_gout : { gout = 1 => 2.911887 }, { => 0 };\ncontribution_decreased_glomerular_filtration_rate : { decreased_glomerular_filtration_rate = 1 => 2.775618 }, { => 0 };\ncontribution_renal_tubular_atrophy : { renal_tubular_atrophy = 1 => 2.708515 }, { => 0 };\ncontribution_renal_corticomedullary_cysts : { renal_corticomedullary_cysts = 1 => 3.112821 }, { => 0 };\ncontribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };\nweighted_score : { . => contribution_hyperuricemia + contribution_gout + contribution_decreased_glomerular_filtration_rate + contribution_renal_tubular_atrophy + contribution_renal_corticomedullary_cysts + contribution_family_history_autosomal_dominant };\n[[rb_id]] : { . => weighted_score };\n\n#define_attribute(hyperuricemia, {\n    \"label\": \"Hyperuricaemia\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"hyperuricemia\",\n        \"source_attribute\": \"phen_hyperuricemia\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has hyperuricaemia been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0002149\",\n        \"help\": \"Records a documented elevated urate finding without applying a new laboratory threshold.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ]\n    }\n});\n\n#define_attribute(gout, {\n    \"label\": \"Gout\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"gout\",\n        \"source_attribute\": \"phen_gout\",\n        \"section\": \"endocrine_metabolic\",\n        \"question\": \"Has gout been clinically documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0001997\",\n        \"help\": \"Records diagnosed gout, not hyperuricaemia alone. This question does not encode whether gout preceded kidney impairment.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ]\n    }\n});\n\n#define_attribute(decreased_glomerular_filtration_rate, {\n    \"label\": \"Decreased glomerular filtration rate\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"decreased_glomerular_filtration_rate\",\n        \"source_attribute\": \"phen_decreased_glomerular_filtration_rate\",\n        \"section\": \"kidney\",\n        \"question\": \"Has a decreased glomerular filtration rate been documented?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0012213\",\n        \"help\": \"Records documented reduced GFR without inferring chronicity, cause or a new laboratory threshold.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ]\n    }\n});\n\n#define_attribute(renal_tubular_atrophy, {\n    \"label\": \"Renal tubular atrophy\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"renal_tubular_atrophy\",\n        \"source_attribute\": \"phen_renal_tubular_atrophy\",\n        \"section\": \"kidney\",\n        \"question\": \"Has renal tubular atrophy been documented on a previous kidney biopsy?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000092\",\n        \"help\": \"Use an existing histopathology report. This assessment does not recommend obtaining a biopsy.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ],\n        \"image_guidance\": {\n            \"category\": \"histopathology\",\n            \"modality\": \"Light microscopy\",\n            \"description\": \"No reference image selected: this finding does not need a visual recognition aid in Atlas.\",\n            \"asset_status\": \"not_selected\"\n        }\n    }\n});\n\n#define_attribute(renal_corticomedullary_cysts, {\n    \"label\": \"Renal corticomedullary cysts\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"feature_id\": \"renal_corticomedullary_cysts\",\n        \"source_attribute\": \"phen_renal_corticomedullary_cysts\",\n        \"section\": \"kidney\",\n        \"question\": \"Have renal corticomedullary cysts been documented on imaging?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000108\",\n        \"help\": \"Requires documented corticomedullary location. Simple cysts elsewhere are not equivalent. Cysts may be absent in ADTKD.\",\n        \"source_refs\": [\n            \"hpoa_2026_09\"\n        ],\n        \"image_guidance\": {\n            \"category\": \"radiology\",\n            \"modality\": \"CT and T2-weighted MRI\",\n            \"description\": \"No reference image selected: this finding does not need a visual recognition aid in Atlas.\",\n            \"asset_status\": \"not_selected\"\n        }\n    }\n});\n\n\n#define_attribute(family_history_autosomal_dominant, {\n    \"label\": \"Documented family history suggesting autosomal dominant inheritance\",\n    \"atlas\": {\n        \"role\": \"input\",\n        \"evidence_kind\": \"family_history\",\n        \"feature_id\": \"family_history_autosomal_dominant\",\n        \"source_attribute\": \"phen_family_history_autosomal_dominant\",\n        \"section\": \"family_history\",\n        \"question\": \"Does the documented family history show a similar condition in successive generations?\",\n        \"answer_type\": \"presence\",\n        \"hpo_id\": \"HP:0000006\",\n        \"help\": \"A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.\",\n        \"source_refs\": [\"genereviews_adtkd_muc1\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_adtkd_muc1-bda54c22d356132f.prb",
+        "label": "ADTKD–MUC1",
+        "diseaseId": "OMIM:174000",
+        "version": "0.6.0-family-history",
+        "sourceRefs": [
+          "hpoa_2026_09",
+          "genereviews_adtkd_muc1"
         ]
       }
     ],
@@ -342,7 +1638,7 @@
         "url": "https://sciences.orphadata.com/phenotypes/",
         "release": "July 2026 knowledge-base release; source XML generated 2026-06-23",
         "accessed": "2026-09-26",
-        "attribution": "Orphadata Science: Free access data from Orphanet. © INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected ten disease–phenotype associations and adapted the question wording. No endorsement implied.",
+        "attribution": "Orphadata Science: Free access data from Orphanet. © INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected 35 disease–phenotype associations across six profiles and adapted the question wording. No endorsement implied.",
         "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
       },
       "genereviews_fabry": {
@@ -352,12 +1648,65 @@
         "accessed": "2026-09-27",
         "attribution": "Mehta A, Hughes DA. Fabry Disease. GeneReviews, University of Washington, Seattle."
       },
+      "genereviews_alport": {
+        "title": "GeneReviews: Alport Syndrome",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1207/",
+        "accessed": "2026-09-27"
+      },
+      "genereviews_hnf1b": {
+        "title": "GeneReviews: ADPKD genetic differential diagnosis (HNF1B)",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1246/table/pkd-ad.T.genetic_disorders_in_the_differ/",
+        "accessed": "2026-09-27",
+        "attribution": "GeneReviews ADPKD differential diagnosis table identifies HNF1B-related kidney disease as autosomal dominant."
+      },
+      "genereviews_arpkd": {
+        "title": "GeneReviews: Autosomal Recessive Polycystic Kidney Disease - PKHD1",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1326/",
+        "accessed": "2026-09-27"
+      },
+      "genereviews_vhl": {
+        "title": "GeneReviews: Von Hippel-Lindau Syndrome",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1463/",
+        "accessed": "2026-09-27"
+      },
       "genereviews_tsc": {
         "title": "GeneReviews: Tuberous Sclerosis Complex",
         "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/",
         "release": "Updated 2024-08-01",
         "accessed": "2026-09-27",
         "attribution": "Northrup H, Koenig MK, Pearson DA, Au KS. Tuberous Sclerosis Complex. GeneReviews, University of Washington, Seattle."
+      },
+      "lirical_2020": {
+        "title": "LIRICAL: Interpretable Clinical Genomics with a Likelihood Ratio Paradigm",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7477017/"
+      },
+      "ikd_weights_2026_09": {
+        "title": "LIRICAL 2.4.1 candidate weights, HPO September 2026 snapshot",
+        "url": "https://github.com/TheJacksonLaboratory/LIRICAL/releases/tag/v2.4.1",
+        "release": "2.4.1; HPO 2026-09-01 / annotations 2026-09-02",
+        "attribution": "Pinned extraction and SHA-256 provenance in benchmarks/ikd/candidate-weights-provenance.json. Atlas uses only the 35 declared associations, rounded to six decimals, with zero contribution for absence."
+      },
+      "hpoa_2026_09": {
+        "title": "HPO disease annotations, September 2026",
+        "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa",
+        "release": "2026-09-02",
+        "attribution": "Human Phenotype Ontology consortium. Selected OMIM phenotype associations with original evidence and frequency fields retained in the review packet."
+      },
+      "genereviews_adtkd_umod": {
+        "title": "GeneReviews: ADTKD–UMOD",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1356/",
+        "accessed": "2026-09-27"
+      },
+      "genereviews_adtkd_muc1": {
+        "title": "GeneReviews: ADTKD–MUC1",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK153723/",
+        "accessed": "2026-09-27"
+      },
+      "adtkd_weights_2026_09": {
+        "title": "ADTKD candidate weights from pinned LIRICAL 2.4.1",
+        "url": "https://github.com/TheJacksonLaboratory/LIRICAL/releases/tag/v2.4.1",
+        "release": "HPO v2026-09-01, annotations 2026-09-02",
+        "attribution": "Extraction and provenance: benchmarks/ikd/adtkd-weights.json. Uncalibrated positive-only research weights."
       }
     }
   }

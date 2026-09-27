@@ -1,0 +1,2984 @@
+{
+  "atlasContentVersion": "81bedfeca7a1c0f0",
+  "hpoRelease": "v2026-09-01",
+  "background": {
+    "method": "Positive P-aspect Orphanet profiles; ancestors propagated; one count per disease",
+    "profileCount": 4355
+  },
+  "coverage": [
+    {
+      "diseaseId": "ORPHA:324",
+      "label": "Fabry disease",
+      "fullProfileTerms": 76,
+      "explicitNegativeTerms": 0,
+      "atlasInputs": 5,
+      "unmatchedAtlasInputs": []
+    },
+    {
+      "diseaseId": "ORPHA:805",
+      "label": "Tuberous sclerosis complex",
+      "fullProfileTerms": 62,
+      "explicitNegativeTerms": 0,
+      "atlasInputs": 5,
+      "unmatchedAtlasInputs": []
+    },
+    {
+      "diseaseId": "ORPHA:63",
+      "label": "Alport syndrome",
+      "fullProfileTerms": 34,
+      "explicitNegativeTerms": 0,
+      "atlasInputs": 6,
+      "unmatchedAtlasInputs": []
+    },
+    {
+      "diseaseId": "ORPHA:93111",
+      "label": "HNF1B-related disease",
+      "fullProfileTerms": 29,
+      "explicitNegativeTerms": 0,
+      "atlasInputs": 6,
+      "unmatchedAtlasInputs": []
+    },
+    {
+      "diseaseId": "ORPHA:731",
+      "label": "Autosomal recessive polycystic kidney disease",
+      "fullProfileTerms": 51,
+      "explicitNegativeTerms": 0,
+      "atlasInputs": 6,
+      "unmatchedAtlasInputs": []
+    },
+    {
+      "diseaseId": "ORPHA:892",
+      "label": "Von Hippel\u2013Lindau disease",
+      "fullProfileTerms": 41,
+      "explicitNegativeTerms": 0,
+      "atlasInputs": 7,
+      "unmatchedAtlasInputs": []
+    }
+  ],
+  "featureInformation": [
+    {
+      "featureId": "proteinuria",
+      "hpoId": "HP:0000093",
+      "label": "Proteinuria",
+      "diseaseId": "ORPHA:324",
+      "backgroundProfileCount": 129,
+      "informationBits": 5.0772297480629724
+    },
+    {
+      "featureId": "angiokeratoma",
+      "hpoId": "HP:0001014",
+      "label": "Angiokeratomas",
+      "diseaseId": "ORPHA:324",
+      "backgroundProfileCount": 3,
+      "informationBits": 10.50349450276507
+    },
+    {
+      "featureId": "hypohidrosis",
+      "hpoId": "HP:0000966",
+      "label": "Reduced sweating",
+      "diseaseId": "ORPHA:324",
+      "backgroundProfileCount": 56,
+      "informationBits": 6.281102081428623
+    },
+    {
+      "featureId": "cornea_verticillata",
+      "hpoId": "HP:0500008",
+      "label": "Cornea verticillata",
+      "diseaseId": "ORPHA:324",
+      "backgroundProfileCount": 2,
+      "informationBits": 11.088457003486226
+    },
+    {
+      "featureId": "acroparesthesia",
+      "hpoId": "HP:0031006",
+      "label": "Acroparaesthesia",
+      "diseaseId": "ORPHA:324",
+      "backgroundProfileCount": 14,
+      "informationBits": 8.281102081428623
+    },
+    {
+      "featureId": "renal_angiomyolipoma",
+      "hpoId": "HP:0006772",
+      "label": "Renal angiomyolipoma",
+      "diseaseId": "ORPHA:805",
+      "backgroundProfileCount": 3,
+      "informationBits": 10.50349450276507
+    },
+    {
+      "featureId": "angiofibromas",
+      "hpoId": "HP:0010615",
+      "label": "Angiofibromas",
+      "diseaseId": "ORPHA:805",
+      "backgroundProfileCount": 12,
+      "informationBits": 8.50349450276507
+    },
+    {
+      "featureId": "hypomelanotic_macule",
+      "hpoId": "HP:0009719",
+      "label": "Hypomelanotic macules",
+      "diseaseId": "ORPHA:805",
+      "backgroundProfileCount": 3,
+      "informationBits": 10.50349450276507
+    },
+    {
+      "featureId": "shagreen_patch",
+      "hpoId": "HP:0009721",
+      "label": "Shagreen patch",
+      "diseaseId": "ORPHA:805",
+      "backgroundProfileCount": 7,
+      "informationBits": 9.281102081428623
+    },
+    {
+      "featureId": "seizure",
+      "hpoId": "HP:0001250",
+      "label": "Seizures",
+      "diseaseId": "ORPHA:805",
+      "backgroundProfileCount": 1212,
+      "informationBits": 1.845283020013276
+    },
+    {
+      "featureId": "glomerular_basement_membrane_lamellation",
+      "hpoId": "HP:0030034",
+      "label": "Glomerular basement membrane lamellation",
+      "diseaseId": "ORPHA:63",
+      "backgroundProfileCount": 3,
+      "informationBits": 10.50349450276507
+    },
+    {
+      "featureId": "microscopic_hematuria",
+      "hpoId": "HP:0002907",
+      "label": "Microscopic haematuria",
+      "diseaseId": "ORPHA:63",
+      "backgroundProfileCount": 23,
+      "informationBits": 7.564895047429214
+    },
+    {
+      "featureId": "proteinuria",
+      "hpoId": "HP:0000093",
+      "label": "Proteinuria",
+      "diseaseId": "ORPHA:63",
+      "backgroundProfileCount": 129,
+      "informationBits": 5.0772297480629724
+    },
+    {
+      "featureId": "anterior_lenticonus",
+      "hpoId": "HP:0011501",
+      "label": "Anterior lenticonus",
+      "diseaseId": "ORPHA:63",
+      "backgroundProfileCount": 4,
+      "informationBits": 10.088457003486226
+    },
+    {
+      "featureId": "retinal_flecks",
+      "hpoId": "HP:0012045",
+      "label": "Retinal flecks",
+      "diseaseId": "ORPHA:63",
+      "backgroundProfileCount": 6,
+      "informationBits": 9.50349450276507
+    },
+    {
+      "featureId": "bilateral_sensorineural_hearing_impairment",
+      "hpoId": "HP:0008619",
+      "label": "Bilateral sensorineural hearing impairment",
+      "diseaseId": "ORPHA:63",
+      "backgroundProfileCount": 32,
+      "informationBits": 7.088457003486227
+    },
+    {
+      "featureId": "horseshoe_kidney",
+      "hpoId": "HP:0000085",
+      "label": "Horseshoe kidney",
+      "diseaseId": "ORPHA:93111",
+      "backgroundProfileCount": 58,
+      "informationBits": 6.230476008358655
+    },
+    {
+      "featureId": "multicystic_kidney_dysplasia",
+      "hpoId": "HP:0000003",
+      "label": "Multicystic kidney dysplasia",
+      "diseaseId": "ORPHA:93111",
+      "backgroundProfileCount": 57,
+      "informationBits": 6.255566989321485
+    },
+    {
+      "featureId": "renal_agenesis",
+      "hpoId": "HP:0000104",
+      "label": "Renal agenesis",
+      "diseaseId": "ORPHA:93111",
+      "backgroundProfileCount": 75,
+      "informationBits": 5.859638312990346
+    },
+    {
+      "featureId": "diabetes_mellitus",
+      "hpoId": "HP:0000819",
+      "label": "Diabetes mellitus",
+      "diseaseId": "ORPHA:93111",
+      "backgroundProfileCount": 220,
+      "informationBits": 4.307097289961567
+    },
+    {
+      "featureId": "hyperuricemia",
+      "hpoId": "HP:0002149",
+      "label": "Hyperuricaemia",
+      "diseaseId": "ORPHA:93111",
+      "backgroundProfileCount": 27,
+      "informationBits": 7.333569501322758
+    },
+    {
+      "featureId": "pancreatic_aplasia_hypoplasia",
+      "hpoId": "HP:0100800",
+      "label": "Pancreatic aplasia or hypoplasia",
+      "diseaseId": "ORPHA:93111",
+      "backgroundProfileCount": 12,
+      "informationBits": 8.50349450276507
+    },
+    {
+      "featureId": "enlarged_kidney",
+      "hpoId": "HP:0000105",
+      "label": "Enlarged kidney",
+      "diseaseId": "ORPHA:731",
+      "backgroundProfileCount": 21,
+      "informationBits": 7.696139580707467
+    },
+    {
+      "featureId": "polycystic_kidney_dysplasia",
+      "hpoId": "HP:0000113",
+      "label": "Polycystic kidney dysplasia",
+      "diseaseId": "ORPHA:731",
+      "backgroundProfileCount": 18,
+      "informationBits": 7.918532002043914
+    },
+    {
+      "featureId": "congenital_hepatic_fibrosis",
+      "hpoId": "HP:0002612",
+      "label": "Congenital hepatic fibrosis",
+      "diseaseId": "ORPHA:731",
+      "backgroundProfileCount": 12,
+      "informationBits": 8.50349450276507
+    },
+    {
+      "featureId": "oligohydramnios",
+      "hpoId": "HP:0001562",
+      "label": "Oligohydramnios in the patient\u2019s prenatal history",
+      "diseaseId": "ORPHA:731",
+      "backgroundProfileCount": 82,
+      "informationBits": 5.7309049988681435
+    },
+    {
+      "featureId": "portal_hypertension",
+      "hpoId": "HP:0001409",
+      "label": "Portal hypertension",
+      "diseaseId": "ORPHA:731",
+      "backgroundProfileCount": 34,
+      "informationBits": 7.000994162235887
+    },
+    {
+      "featureId": "hypertension",
+      "hpoId": "HP:0000822",
+      "label": "Hypertension",
+      "diseaseId": "ORPHA:731",
+      "backgroundProfileCount": 207,
+      "informationBits": 4.394970045986902
+    },
+    {
+      "featureId": "multiple_renal_cysts",
+      "hpoId": "HP:0005562",
+      "label": "Multiple renal cysts",
+      "diseaseId": "ORPHA:892",
+      "backgroundProfileCount": 27,
+      "informationBits": 7.333569501322758
+    },
+    {
+      "featureId": "renal_cell_carcinoma",
+      "hpoId": "HP:0005584",
+      "label": "Renal cell carcinoma",
+      "diseaseId": "ORPHA:892",
+      "backgroundProfileCount": 15,
+      "informationBits": 8.181566407877709
+    },
+    {
+      "featureId": "retinal_capillary_hemangioma",
+      "hpoId": "HP:0009711",
+      "label": "Retinal capillary haemangioma",
+      "diseaseId": "ORPHA:892",
+      "backgroundProfileCount": 4,
+      "informationBits": 10.088457003486226
+    },
+    {
+      "featureId": "cerebellar_hemangioblastoma",
+      "hpoId": "HP:0006880",
+      "label": "Cerebellar haemangioblastoma",
+      "diseaseId": "ORPHA:892",
+      "backgroundProfileCount": 2,
+      "informationBits": 11.088457003486226
+    },
+    {
+      "featureId": "endolymphatic_sac_tumor",
+      "hpoId": "HP:0030393",
+      "label": "Endolymphatic sac tumour",
+      "diseaseId": "ORPHA:892",
+      "backgroundProfileCount": 1,
+      "informationBits": 12.088457003486226
+    },
+    {
+      "featureId": "adrenal_pheochromocytoma",
+      "hpoId": "HP:0006748",
+      "label": "Adrenal pheochromocytoma",
+      "diseaseId": "ORPHA:892",
+      "backgroundProfileCount": 3,
+      "informationBits": 10.50349450276507
+    },
+    {
+      "featureId": "pancreatic_endocrine_tumor",
+      "hpoId": "HP:0030405",
+      "label": "Pancreatic endocrine tumour",
+      "diseaseId": "ORPHA:892",
+      "backgroundProfileCount": 9,
+      "informationBits": 8.918532002043914
+    }
+  ],
+  "cases": [
+    {
+      "id": "fabry_pattern",
+      "intendedProfile": "ORPHA:324",
+      "present": [
+        "HP:0031006",
+        "HP:0000966",
+        "HP:0001014"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern",
+      "normalizedPresent": [
+        "HP:0000966",
+        "HP:0001014",
+        "HP:0031006"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 8.35523288854077,
+        "ORPHA:805": 1.3500361214732248,
+        "ORPHA:63": 0.7256728587379246,
+        "ORPHA:93111": 1.3500361214732248,
+        "ORPHA:731": 1.3500361214732248,
+        "ORPHA:892": 2.2853615478541
+      },
+      "similarityRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 3,
+        "ORPHA:63": 6,
+        "ORPHA:93111": 3,
+        "ORPHA:731": 3,
+        "ORPHA:892": 2
+      },
+      "equalCount": {
+        "ORPHA:324": 3,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:324"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "2cc2acecb8c4a864887c21c1abc93f1761a0fbcb08e11f12eaf514b07772c71d",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 1.0000000000000002e-06,
+            "log10LR": -6.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0000966",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0001014",
+                "match": "HP:0002597",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 167943376.71064344,
+            "log10LR": 8.225162880968757,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0000966",
+                "matchType": "EXACT_MATCH",
+                "lr": 132.70235089403826
+              },
+              {
+                "query": "HP:0001014",
+                "match": "HP:0001014",
+                "matchType": "EXACT_MATCH",
+                "lr": 1170.9091047881063
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0031006",
+                "matchType": "EXACT_MATCH",
+                "lr": 1080.8391848663994
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 3.801493831640713e-06,
+            "log10LR": -5.4200457098692105,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0001014",
+                "match": "HP:0002597",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.03801493831640713
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 1.6757076558274737e-05,
+            "log10LR": -4.775801746168351,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0001014",
+                "match": "HP:0002597",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.16757076558274736
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.0005706655723546168,
+            "log10LR": -3.2436183271836807,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0007550",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.3622079492686188
+              },
+              {
+                "query": "HP:0001014",
+                "match": "HP:0002597",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.04189269139568684
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 2.3722317609638726e-06,
+            "log10LR": -5.624842883777073,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0001014",
+                "match": "HP:0011354",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.023722317609638725
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 6,
+          "ORPHA:324": 1,
+          "ORPHA:731": 4,
+          "ORPHA:805": 3,
+          "ORPHA:892": 2,
+          "ORPHA:93111": 5
+        }
+      }
+    },
+    {
+      "id": "tsc_pattern",
+      "intendedProfile": "ORPHA:805",
+      "present": [
+        "HP:0009719",
+        "HP:0009721",
+        "HP:0006772"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern",
+      "normalizedPresent": [
+        "HP:0006772",
+        "HP:0009719",
+        "HP:0009721"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 2.3792279312437965,
+        "ORPHA:805": 10.096030362319588,
+        "ORPHA:63": 0.909569147721299,
+        "ORPHA:93111": 3.0409109716344056,
+        "ORPHA:731": 2.3835824303576048,
+        "ORPHA:892": 3.1917483732002414
+      },
+      "similarityRanks": {
+        "ORPHA:324": 5,
+        "ORPHA:805": 1,
+        "ORPHA:63": 6,
+        "ORPHA:93111": 3,
+        "ORPHA:731": 4,
+        "ORPHA:892": 2
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 3,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 1,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:805"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "6836d0d2d8ed6380ba1136939f5d63a1461c40c755a980b89ff055cf97cff350",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 8.919471046989014e-06,
+            "log10LR": -5.049660899904743,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006772",
+                "match": "HP:0000077",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.08919471046989014
+              },
+              {
+                "query": "HP:0009719",
+                "match": "HP:0009719",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009721",
+                "match": "HP:0009721",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 8.919471046989014e-06,
+            "log10LR": -5.049660899904743,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006772",
+                "match": "HP:0000077",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.08919471046989014
+              },
+              {
+                "query": "HP:0009719",
+                "match": "HP:0011121",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009721",
+                "match": "HP:0033127",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 8.919471046989014e-06,
+            "log10LR": -5.049660899904743,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006772",
+                "match": "HP:0000077",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.08919471046989014
+              },
+              {
+                "query": "HP:0009719",
+                "match": "HP:0011121",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009721",
+                "match": "HP:0033127",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 1425947833.7940214,
+            "log10LR": 9.154103637781063,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006772",
+                "match": "HP:0006772",
+                "matchType": "EXACT_MATCH",
+                "lr": 447.2222241312179
+              },
+              {
+                "query": "HP:0009719",
+                "match": "HP:0009719",
+                "matchType": "EXACT_MATCH",
+                "lr": 2192.678494992287
+              },
+              {
+                "query": "HP:0009721",
+                "match": "HP:0009721",
+                "matchType": "EXACT_MATCH",
+                "lr": 1454.1369276483485
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.013936901436436016,
+            "log10LR": -1.8558337713340471,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006772",
+                "match": "HP:0009726",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 13.76936974826602
+              },
+              {
+                "query": "HP:0009719",
+                "match": "HP:0011121",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.10121669830379197
+              },
+              {
+                "query": "HP:0009721",
+                "match": "HP:0033127",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.00045897898021000135,
+            "log10LR": -3.3382072033251324,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006772",
+                "match": "HP:0009726",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 4.589789802100013
+              },
+              {
+                "query": "HP:0009719",
+                "match": "HP:0011121",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009721",
+                "match": "HP:0033127",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 4,
+          "ORPHA:324": 4,
+          "ORPHA:731": 4,
+          "ORPHA:805": 1,
+          "ORPHA:892": 2,
+          "ORPHA:93111": 3
+        }
+      }
+    },
+    {
+      "id": "alport_pattern",
+      "intendedProfile": "ORPHA:63",
+      "present": [
+        "HP:0002907",
+        "HP:0011501",
+        "HP:0008619"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern",
+      "normalizedPresent": [
+        "HP:0002907",
+        "HP:0008619",
+        "HP:0011501"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 4.044059198945679,
+        "ORPHA:805": 1.5675036401326012,
+        "ORPHA:63": 8.247269684800555,
+        "ORPHA:93111": 1.923038385583493,
+        "ORPHA:731": 1.6308171161912732,
+        "ORPHA:892": 2.551689174724162
+      },
+      "similarityRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 6,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 4,
+        "ORPHA:731": 5,
+        "ORPHA:892": 3
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 0,
+        "ORPHA:63": 3,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 2,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:63"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "461f56aaaeaf7063eff3f4dd925fed9396883a7cd3f2d0249663ba8f3ca8425e",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 8332208.688320365,
+            "log10LR": 6.92076013874222,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0002907",
+                "matchType": "EXACT_MATCH",
+                "lr": 82.06435238026503
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0008619",
+                "matchType": "EXACT_MATCH",
+                "lr": 165.5423136960218
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "EXACT_MATCH",
+                "lr": 613.3333376854184
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 559.3099737121041,
+            "log10LR": 2.7476525638115494,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0000790",
+                "matchType": "QUERY_TERM_SUBCLASS_OF_DISEASE_TERM",
+                "lr": 109.41913650702003
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0000407",
+                "matchType": "QUERY_TERM_SUBCLASS_OF_DISEASE_TERM",
+                "lr": 3.941483561541289
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0000517",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.2968793079208116
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.0001448406319074394,
+            "log10LR": -3.8391095891207305,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.448406319074394
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0000598",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 4.8280209436761186e-05,
+            "log10LR": -4.3162308546262125,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.48280209436761184
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0008619",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0012372",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 2.1035803556355283e-05,
+            "log10LR": -4.677040893515039,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0000077",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.06689603451379852
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0011389",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.03144551647828432
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0012372",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.003675805794155603,
+            "log10LR": -2.4346474419960984,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.9312083774704474
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0000364",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.19033708827269485
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 1,
+          "ORPHA:324": 2,
+          "ORPHA:731": 4,
+          "ORPHA:805": 5,
+          "ORPHA:892": 6,
+          "ORPHA:93111": 3
+        }
+      }
+    },
+    {
+      "id": "hnf1b_pattern",
+      "intendedProfile": "ORPHA:93111",
+      "present": [
+        "HP:0000003",
+        "HP:0000819",
+        "HP:0100800"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern",
+      "normalizedPresent": [
+        "HP:0000003",
+        "HP:0000819",
+        "HP:0100800"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 2.008049771326586,
+        "ORPHA:805": 3.1999279514761185,
+        "ORPHA:63": 1.9020940239105533,
+        "ORPHA:93111": 6.355386260682708,
+        "ORPHA:731": 4.261414061686163,
+        "ORPHA:892": 4.596822472012489
+      },
+      "similarityRanks": {
+        "ORPHA:324": 5,
+        "ORPHA:805": 4,
+        "ORPHA:63": 6,
+        "ORPHA:93111": 1,
+        "ORPHA:731": 3,
+        "ORPHA:892": 2
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 3,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 1,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:93111"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "1cf32ffbdf1080d564857291ad4e2442bdb0fb02694c40033a6115977f7fb740",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 4.6326262163190965e-06,
+            "log10LR": -5.3341727394555445,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000003",
+                "match": "HP:0012210",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.029352437123228263
+              },
+              {
+                "query": "HP:0000819",
+                "match": "HP:0012337",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01578276514781471
+              },
+              {
+                "query": "HP:0100800",
+                "match": "HP:0025031",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 0.0005219012922919888,
+            "log10LR": -3.2824116277764905,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000003",
+                "match": "HP:0012210",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.08805731355661174
+              },
+              {
+                "query": "HP:0000819",
+                "match": "HP:0000818",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.1981816970523873
+              },
+              {
+                "query": "HP:0100800",
+                "match": "HP:0025031",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.02990607356641542
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.0005586614309932949,
+            "log10LR": -3.252851310535266,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000003",
+                "match": "HP:0000107",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 5.586614309932949
+              },
+              {
+                "query": "HP:0000819",
+                "match": "HP:0001939",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0100800",
+                "match": "HP:0012090",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 0.0017671699284546492,
+            "log10LR": -2.7527216873682456,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000003",
+                "match": "HP:0000107",
+                "matchType": "QUERY_TERM_SUBCLASS_OF_DISEASE_TERM",
+                "lr": 17.67169928454649
+              },
+              {
+                "query": "HP:0000819",
+                "match": "HP:0000818",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0100800",
+                "match": "HP:0002012",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.07035345086894491,
+            "log10LR": -1.1527145953637892,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000003",
+                "match": "HP:0000107",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.3966535774832372
+              },
+              {
+                "query": "HP:0000819",
+                "match": "HP:0000818",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0100800",
+                "match": "HP:0012090",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 5.0372871271143325
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 1776066.5806216176,
+            "log10LR": 6.249459242441779,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000003",
+                "match": "HP:0000003",
+                "matchType": "EXACT_MATCH",
+                "lr": 259.1849164030883
+              },
+              {
+                "query": "HP:0000819",
+                "match": "HP:0000819",
+                "matchType": "EXACT_MATCH",
+                "lr": 33.14612512452258
+              },
+              {
+                "query": "HP:0100800",
+                "match": "HP:0100800",
+                "matchType": "EXACT_MATCH",
+                "lr": 206.73630667236475
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 6,
+          "ORPHA:324": 5,
+          "ORPHA:731": 4,
+          "ORPHA:805": 3,
+          "ORPHA:892": 2,
+          "ORPHA:93111": 1
+        }
+      }
+    },
+    {
+      "id": "arpkd_pattern",
+      "intendedProfile": "ORPHA:731",
+      "present": [
+        "HP:0000105",
+        "HP:0002612",
+        "HP:0001409"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern",
+      "normalizedPresent": [
+        "HP:0000105",
+        "HP:0001409",
+        "HP:0002612"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 2.660880368691829,
+        "ORPHA:805": 3.3620000732686397,
+        "ORPHA:63": 2.660880368691829,
+        "ORPHA:93111": 2.990796453681094,
+        "ORPHA:731": 7.733542748569474,
+        "ORPHA:892": 3.1267277747367928
+      },
+      "similarityRanks": {
+        "ORPHA:324": 5,
+        "ORPHA:805": 2,
+        "ORPHA:63": 5,
+        "ORPHA:93111": 4,
+        "ORPHA:731": 1,
+        "ORPHA:892": 3
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 3,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 1,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:731"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "b9e4f695a403dcbc79792af8efe164e8eac06634beeecad2e978e15dd24b7788",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 0.0007398749205550869,
+            "log10LR": -3.1308416936529526,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000105",
+                "match": "HP:0012210",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.029352437123228263
+              },
+              {
+                "query": "HP:0001409",
+                "match": "HP:0032263",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 2.520659246961069
+              },
+              {
+                "query": "HP:0002612",
+                "match": "HP:0025031",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 0.0022126753804066193,
+            "log10LR": -2.6550822963480143,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000105",
+                "match": "HP:0012210",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.08805731355661174
+              },
+              {
+                "query": "HP:0001409",
+                "match": "HP:0032263",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.8402197281199407
+              },
+              {
+                "query": "HP:0002612",
+                "match": "HP:0025031",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.02990607356641542
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 60104726.3203563,
+            "log10LR": 7.778908623985184,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000105",
+                "match": "HP:0000105",
+                "matchType": "EXACT_MATCH",
+                "lr": 314.30075732549653
+              },
+              {
+                "query": "HP:0001409",
+                "match": "HP:0001409",
+                "matchType": "EXACT_MATCH",
+                "lr": 207.03727324200216
+              },
+              {
+                "query": "HP:0002612",
+                "match": "HP:0002612",
+                "matchType": "EXACT_MATCH",
+                "lr": 923.6653613107179
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 0.024421129921703835,
+            "log10LR": -1.612234245902666,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000105",
+                "match": "HP:0012210",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.8805731355661174
+              },
+              {
+                "query": "HP:0001409",
+                "match": "HP:0032263",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.8402197281199407
+              },
+              {
+                "query": "HP:0002612",
+                "match": "HP:0410042",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.03300710598945836
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.0007398749205550869,
+            "log10LR": -3.1308416936529526,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000105",
+                "match": "HP:0012210",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.029352437123228263
+              },
+              {
+                "query": "HP:0001409",
+                "match": "HP:0032263",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 2.520659246961069
+              },
+              {
+                "query": "HP:0002612",
+                "match": "HP:0002012",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 1.1740974849291305e-05,
+            "log10LR": -4.930295842262918,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000105",
+                "match": "HP:0012210",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.11740974849291305
+              },
+              {
+                "query": "HP:0001409",
+                "match": "HP:0410042",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0002612",
+                "match": "HP:0410042",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 4,
+          "ORPHA:324": 3,
+          "ORPHA:731": 1,
+          "ORPHA:805": 2,
+          "ORPHA:892": 4,
+          "ORPHA:93111": 6
+        }
+      }
+    },
+    {
+      "id": "vhl_pattern",
+      "intendedProfile": "ORPHA:892",
+      "present": [
+        "HP:0009711",
+        "HP:0006880",
+        "HP:0030393"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern",
+      "normalizedPresent": [
+        "HP:0006880",
+        "HP:0009711",
+        "HP:0030393"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 1.774802045772858,
+        "ORPHA:805": 6.081281117454789,
+        "ORPHA:63": 2.8857095469719205,
+        "ORPHA:93111": 2.728707443163897,
+        "ORPHA:731": 3.2911488492808423,
+        "ORPHA:892": 11.088457003486226
+      },
+      "similarityRanks": {
+        "ORPHA:324": 6,
+        "ORPHA:805": 2,
+        "ORPHA:63": 4,
+        "ORPHA:93111": 5,
+        "ORPHA:731": 3,
+        "ORPHA:892": 1
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 3
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 1
+      },
+      "equalCountPrompts": [
+        "ORPHA:892"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "05c17b0d4034b23b8cd9b25b51adab8b9b50041810c659f59360b38b9b9573b2",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 8.887356361685129e-06,
+            "log10LR": -5.051227405314964,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006880",
+                "match": "HP:0011793",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009711",
+                "match": "HP:0000479",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.08887356361685128
+              },
+              {
+                "query": "HP:0030393",
+                "match": "HP:0011793",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 5.068658316306128e-06,
+            "log10LR": -5.295106984046731,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006880",
+                "match": "HP:0012443",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009711",
+                "match": "HP:0002597",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.05068658316306128
+              },
+              {
+                "query": "HP:0030393",
+                "match": "HP:0000598",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 3.801493831640713e-06,
+            "log10LR": -5.4200457098692105,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006880",
+                "match": "HP:0011793",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009711",
+                "match": "HP:0002597",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.03801493831640713
+              },
+              {
+                "query": "HP:0030393",
+                "match": "HP:0031703",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 124.4096447766224,
+            "log10LR": 2.0948540500565684,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006880",
+                "match": "HP:0100835",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 2.2113807185718177
+              },
+              {
+                "query": "HP:0009711",
+                "match": "HP:0009594",
+                "matchType": "QUERY_TERM_SUBCLASS_OF_DISEASE_TERM",
+                "lr": 603.7500121828632
+              },
+              {
+                "query": "HP:0030393",
+                "match": "HP:0011793",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.09318228993810578
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 15552600931.835367,
+            "log10LR": 10.191803028468133,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006880",
+                "match": "HP:0006880",
+                "matchType": "EXACT_MATCH",
+                "lr": 3220.000079969564
+              },
+              {
+                "query": "HP:0009711",
+                "match": "HP:0009711",
+                "matchType": "EXACT_MATCH",
+                "lr": 2415.000048731453
+              },
+              {
+                "query": "HP:0030393",
+                "match": "HP:0030393",
+                "matchType": "EXACT_MATCH",
+                "lr": 2000.0000298023224
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 1.0000000000000002e-06,
+            "log10LR": -6.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0006880",
+                "match": "HP:0011793",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0009711",
+                "match": "HP:0011793",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0030393",
+                "match": "HP:0011793",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 3,
+          "ORPHA:324": 4,
+          "ORPHA:731": 5,
+          "ORPHA:805": 2,
+          "ORPHA:892": 1,
+          "ORPHA:93111": 6
+        }
+      }
+    },
+    {
+      "id": "common_kidney_findings",
+      "intendedProfile": null,
+      "present": [
+        "HP:0000083",
+        "HP:0000790",
+        "HP:0000093"
+      ],
+      "absent": [],
+      "kind": "behaviour_control",
+      "normalizedPresent": [
+        "HP:0000083",
+        "HP:0000093",
+        "HP:0000790"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 4.806656339106294,
+        "ORPHA:805": 3.38472727979087,
+        "ORPHA:63": 4.806656339106294,
+        "ORPHA:93111": 3.38472727979087,
+        "ORPHA:731": 3.38472727979087,
+        "ORPHA:892": 3.1756395453072543
+      },
+      "similarityRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 3,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 3,
+        "ORPHA:731": 3,
+        "ORPHA:892": 6
+      },
+      "equalCount": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 0,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 3,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 3,
+        "ORPHA:731": 3,
+        "ORPHA:892": 3
+      },
+      "equalCountPrompts": [],
+      "notCollectedByAtlas": [
+        "HP:0000083",
+        "HP:0000790"
+      ],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "f7ad5a5d5505d437dab34295ce4efaede3562b6d445fa357f0446ced2d7833cd",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 84777.06001856603,
+            "log10LR": 4.928278351606433,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000083",
+                "match": "HP:0000083",
+                "matchType": "EXACT_MATCH",
+                "lr": 24.549367144131313
+              },
+              {
+                "query": "HP:0000093",
+                "match": "HP:0000093",
+                "matchType": "EXACT_MATCH",
+                "lr": 38.26845524927354
+              },
+              {
+                "query": "HP:0000790",
+                "match": "HP:0000790",
+                "matchType": "EXACT_MATCH",
+                "lr": 90.23959112625454
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 113036.07721747342,
+            "log10LR": 5.053217077428912,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000083",
+                "match": "HP:0000083",
+                "matchType": "EXACT_MATCH",
+                "lr": 32.73248871258828
+              },
+              {
+                "query": "HP:0000093",
+                "match": "HP:0000093",
+                "matchType": "EXACT_MATCH",
+                "lr": 38.26845524927354
+              },
+              {
+                "query": "HP:0000790",
+                "match": "HP:0000790",
+                "matchType": "EXACT_MATCH",
+                "lr": 90.23959112625454
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.3555745850083711,
+            "log10LR": -0.44906928815478564,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000083",
+                "match": "HP:0000083",
+                "matchType": "EXACT_MATCH",
+                "lr": 24.549367144131313
+              },
+              {
+                "query": "HP:0000093",
+                "match": "HP:0001939",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0000790",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.448406319074394
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 0.09139995415186526,
+            "log10LR": -1.0390540221173383,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000083",
+                "match": "HP:0000083",
+                "matchType": "EXACT_MATCH",
+                "lr": 8.18312217814707
+              },
+              {
+                "query": "HP:0000093",
+                "match": "HP:0011277",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.023134376384250994
+              },
+              {
+                "query": "HP:0000790",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.48280209436761184
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.0005166587857896004,
+            "log10LR": -3.2867961810284534,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000083",
+                "match": "HP:0000077",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.06689603451379852
+              },
+              {
+                "query": "HP:0000093",
+                "match": "HP:0033354",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.1154524279283546
+              },
+              {
+                "query": "HP:0000790",
+                "match": "HP:0000077",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.06689603451379852
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.6321325641720735,
+            "log10LR": -0.19919183650982533,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000083",
+                "match": "HP:0000083",
+                "matchType": "EXACT_MATCH",
+                "lr": 32.73248871258828
+              },
+              {
+                "query": "HP:0000093",
+                "match": "HP:0001939",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0000790",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.9312083774704474
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 2,
+          "ORPHA:324": 1,
+          "ORPHA:731": 4,
+          "ORPHA:805": 5,
+          "ORPHA:892": 6,
+          "ORPHA:93111": 3
+        }
+      }
+    },
+    {
+      "id": "acroparaesthesia_only",
+      "intendedProfile": null,
+      "present": [
+        "HP:0031006"
+      ],
+      "absent": [],
+      "kind": "behaviour_control",
+      "normalizedPresent": [
+        "HP:0031006"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 8.281102081428623,
+        "ORPHA:805": 0.5377102181029836,
+        "ORPHA:63": 0.5377102181029836,
+        "ORPHA:93111": 0.5377102181029836,
+        "ORPHA:731": 0.5377102181029836,
+        "ORPHA:892": 0.5377102181029836
+      },
+      "similarityRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCount": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "48a68fae2868e86f902928003e24c35f9400b9dbeab1f2cb4cfd5f893327399f",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 0.01,
+            "log10LR": -2.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 1080.8391848663994,
+            "log10LR": 3.0337610812607965,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0031006",
+                "match": "HP:0031006",
+                "matchType": "EXACT_MATCH",
+                "lr": 1080.8391848663994
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.01,
+            "log10LR": -2.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 0.16757076558274736,
+            "log10LR": -0.7758017461683506,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.16757076558274736
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.04189269139568684,
+            "log10LR": -1.3778617374963131,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.04189269139568684
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.01,
+            "log10LR": -2.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 4,
+          "ORPHA:324": 1,
+          "ORPHA:731": 4,
+          "ORPHA:805": 2,
+          "ORPHA:892": 3,
+          "ORPHA:93111": 4
+        }
+      }
+    },
+    {
+      "id": "anterior_lenticonus_only",
+      "intendedProfile": null,
+      "present": [
+        "HP:0011501"
+      ],
+      "absent": [],
+      "kind": "behaviour_control",
+      "normalizedPresent": [
+        "HP:0011501"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 3.448212067263881,
+        "ORPHA:805": 1.314493635052669,
+        "ORPHA:63": 10.088457003486226,
+        "ORPHA:93111": 0.0,
+        "ORPHA:731": 0.0,
+        "ORPHA:892": 1.314493635052669
+      },
+      "similarityRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 3,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 5,
+        "ORPHA:731": 5,
+        "ORPHA:892": 3
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 0,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 2,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "9a07c113e2e60364f9a95455a0e32fb3325d7bcac6f992cbaf348b537ffc3fc4",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 613.3333376854184,
+            "log10LR": 2.7876965713715367,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "EXACT_MATCH",
+                "lr": 613.3333376854184
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 1.2968793079208116,
+            "log10LR": 0.11289956101628666,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0011501",
+                "match": "HP:0000517",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.2968793079208116
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.01,
+            "log10LR": -2.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 0.01,
+            "log10LR": -2.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0011501",
+                "match": "HP:0012372",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.01,
+            "log10LR": -2.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0011501",
+                "match": "HP:0012372",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.01,
+            "log10LR": -2.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 1,
+          "ORPHA:324": 2,
+          "ORPHA:731": 3,
+          "ORPHA:805": 3,
+          "ORPHA:892": 3,
+          "ORPHA:93111": 3
+        }
+      }
+    },
+    {
+      "id": "fabry_missing_detail",
+      "intendedProfile": null,
+      "present": [
+        "HP:0031006",
+        "HP:0000966"
+      ],
+      "absent": [],
+      "kind": "behaviour_control",
+      "normalizedPresent": [
+        "HP:0000966",
+        "HP:0031006"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 7.281102081428623,
+        "ORPHA:805": 0.7552366346960995,
+        "ORPHA:63": 0.2688551090514918,
+        "ORPHA:93111": 0.7552366346960995,
+        "ORPHA:731": 0.7552366346960995,
+        "ORPHA:892": 2.6083881427257545
+      },
+      "similarityRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 3,
+        "ORPHA:63": 6,
+        "ORPHA:93111": 3,
+        "ORPHA:731": 3,
+        "ORPHA:892": 2
+      },
+      "equalCount": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:324"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "367764471383957178aec241d05bd4b0c663d6e0665e538d1d158d2c486a062d",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 0.0001,
+            "log10LR": -4.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0000966",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 143429.9007701672,
+            "log10LR": 5.15663969795541,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0000966",
+                "matchType": "EXACT_MATCH",
+                "lr": 132.70235089403826
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0031006",
+                "matchType": "EXACT_MATCH",
+                "lr": 1080.8391848663994
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.0001,
+            "log10LR": -4.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 0.0016757076558274737,
+            "log10LR": -2.7758017461683506,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.16757076558274736
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.05706655723546168,
+            "log10LR": -1.2436183271836805,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0007550",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.3622079492686188
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.04189269139568684
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.0001,
+            "log10LR": -4.0,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 4,
+          "ORPHA:324": 1,
+          "ORPHA:731": 4,
+          "ORPHA:805": 3,
+          "ORPHA:892": 2,
+          "ORPHA:93111": 4
+        }
+      }
+    },
+    {
+      "id": "fabry_explicit_absence",
+      "intendedProfile": null,
+      "present": [
+        "HP:0031006",
+        "HP:0000966"
+      ],
+      "absent": [
+        "HP:0001014"
+      ],
+      "kind": "behaviour_control",
+      "normalizedPresent": [
+        "HP:0000966",
+        "HP:0031006"
+      ],
+      "normalizedAbsent": [
+        "HP:0001014"
+      ],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": 7.281102081428623,
+        "ORPHA:805": 0.7552366346960995,
+        "ORPHA:63": 0.2688551090514918,
+        "ORPHA:93111": 0.7552366346960995,
+        "ORPHA:731": 0.7552366346960995,
+        "ORPHA:892": 2.6083881427257545
+      },
+      "similarityRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 3,
+        "ORPHA:63": 6,
+        "ORPHA:93111": 3,
+        "ORPHA:731": 3,
+        "ORPHA:892": 2
+      },
+      "equalCount": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 1,
+        "ORPHA:805": 2,
+        "ORPHA:63": 2,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:324"
+      ],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "ad4b74a14b428d89edeb12a538e711c26ac6fed7022a845d21a80cd9d1b60718",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 0.00010006836969378801,
+            "log10LR": -3.9997031756499757,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0000966",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": [
+              {
+                "query": "HP:0001014",
+                "match": "HP:0001014",
+                "matchType": "EXCLUDED_QUERY_TERM_NOT_PRESENT_IN_DISEASE",
+                "lr": 1.00068369693788
+              }
+            ]
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 28705.590959838184,
+            "log10LR": 4.457966492083447,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0000966",
+                "matchType": "EXACT_MATCH",
+                "lr": 132.70235089403826
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0031006",
+                "matchType": "EXACT_MATCH",
+                "lr": 1080.8391848663994
+              }
+            ],
+            "excluded": [
+              {
+                "query": "HP:0001014",
+                "match": "HP:0001014",
+                "matchType": "EXCLUDED_QUERY_TERM_PRESENT_IN_DISEASE",
+                "lr": 0.20013672745849673
+              }
+            ]
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.00010006836969378801,
+            "log10LR": -3.9997031756499757,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": [
+              {
+                "query": "HP:0001014",
+                "match": "HP:0001014",
+                "matchType": "EXCLUDED_QUERY_TERM_NOT_PRESENT_IN_DISEASE",
+                "lr": 1.00068369693788
+              }
+            ]
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 0.0016768533320205452,
+            "log10LR": -2.7755049218183263,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.16757076558274736
+              }
+            ],
+            "excluded": [
+              {
+                "query": "HP:0001014",
+                "match": "HP:0001014",
+                "matchType": "EXCLUDED_QUERY_TERM_NOT_PRESENT_IN_DISEASE",
+                "lr": 1.00068369693788
+              }
+            ]
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 0.05710557346589892,
+            "log10LR": -1.2433215028336564,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0007550",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.3622079492686188
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.04189269139568684
+              }
+            ],
+            "excluded": [
+              {
+                "query": "HP:0001014",
+                "match": "HP:0001014",
+                "matchType": "EXCLUDED_QUERY_TERM_NOT_PRESENT_IN_DISEASE",
+                "lr": 1.00068369693788
+              }
+            ]
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.00010006836969378801,
+            "log10LR": -3.9997031756499757,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0000966",
+                "match": "HP:0001574",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0031006",
+                "match": "HP:0012638",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": [
+              {
+                "query": "HP:0001014",
+                "match": "HP:0001014",
+                "matchType": "EXCLUDED_QUERY_TERM_NOT_PRESENT_IN_DISEASE",
+                "lr": 1.00068369693788
+              }
+            ]
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 4,
+          "ORPHA:324": 1,
+          "ORPHA:731": 4,
+          "ORPHA:805": 3,
+          "ORPHA:892": 2,
+          "ORPHA:93111": 4
+        }
+      }
+    },
+    {
+      "id": "alport_redundant_parent",
+      "intendedProfile": null,
+      "present": [
+        "HP:0002907",
+        "HP:0000790",
+        "HP:0011501",
+        "HP:0008619",
+        "HP:0000365"
+      ],
+      "absent": [],
+      "kind": "behaviour_control",
+      "normalizedPresent": [
+        "HP:0002907",
+        "HP:0008619",
+        "HP:0011501"
+      ],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [
+        "HP:0000365",
+        "HP:0000790"
+      ],
+      "informationSimilarity": {
+        "ORPHA:324": 4.044059198945679,
+        "ORPHA:805": 1.5675036401326012,
+        "ORPHA:63": 8.247269684800555,
+        "ORPHA:93111": 1.923038385583493,
+        "ORPHA:731": 1.6308171161912732,
+        "ORPHA:892": 2.551689174724162
+      },
+      "similarityRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 6,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 4,
+        "ORPHA:731": 5,
+        "ORPHA:892": 3
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 0,
+        "ORPHA:63": 3,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": 2,
+        "ORPHA:805": 2,
+        "ORPHA:63": 1,
+        "ORPHA:93111": 2,
+        "ORPHA:731": 2,
+        "ORPHA:892": 2
+      },
+      "equalCountPrompts": [
+        "ORPHA:63"
+      ],
+      "notCollectedByAtlas": [
+        "HP:0000365",
+        "HP:0000790"
+      ],
+      "lirical": {
+        "status": "completed",
+        "outputSha256": "fb593bc23e7b9db5fc5adbaf29c82cee21f7b1cd0a7fa24ca5480a009cb3404f",
+        "result": [
+          {
+            "diseaseId": "ORPHA:63",
+            "compositeLR": 8332208.688320365,
+            "log10LR": 6.92076013874222,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0002907",
+                "matchType": "EXACT_MATCH",
+                "lr": 82.06435238026503
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0008619",
+                "matchType": "EXACT_MATCH",
+                "lr": 165.5423136960218
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "EXACT_MATCH",
+                "lr": 613.3333376854184
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:324",
+            "compositeLR": 559.3099737121041,
+            "log10LR": 2.7476525638115494,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0000790",
+                "matchType": "QUERY_TERM_SUBCLASS_OF_DISEASE_TERM",
+                "lr": 109.41913650702003
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0000407",
+                "matchType": "QUERY_TERM_SUBCLASS_OF_DISEASE_TERM",
+                "lr": 3.941483561541289
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0000517",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.2968793079208116
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:731",
+            "compositeLR": 0.0001448406319074394,
+            "log10LR": -3.8391095891207305,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.448406319074394
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0000598",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:805",
+            "compositeLR": 4.8280209436761186e-05,
+            "log10LR": -4.3162308546262125,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.48280209436761184
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0008619",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0012372",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:892",
+            "compositeLR": 2.1035803556355283e-05,
+            "log10LR": -4.677040893515039,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0000077",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.06689603451379852
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0011389",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.03144551647828432
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0012372",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          },
+          {
+            "diseaseId": "ORPHA:93111",
+            "compositeLR": 0.003675805794155603,
+            "log10LR": -2.4346474419960984,
+            "modelPretestProbability": 7.763975155279503e-05,
+            "observed": [
+              {
+                "query": "HP:0002907",
+                "match": "HP:0012211",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 1.9312083774704474
+              },
+              {
+                "query": "HP:0008619",
+                "match": "HP:0000364",
+                "matchType": "NON_ROOT_COMMON_ANCESTOR",
+                "lr": 0.19033708827269485
+              },
+              {
+                "query": "HP:0011501",
+                "match": "HP:0011501",
+                "matchType": "NO_MATCH_BELOW_ROOT",
+                "lr": 0.01
+              }
+            ],
+            "excluded": []
+          }
+        ],
+        "ranks": {
+          "ORPHA:63": 1,
+          "ORPHA:324": 2,
+          "ORPHA:731": 4,
+          "ORPHA:805": 5,
+          "ORPHA:892": 6,
+          "ORPHA:93111": 3
+        }
+      }
+    },
+    {
+      "id": "no_observations",
+      "intendedProfile": null,
+      "present": [],
+      "absent": [],
+      "kind": "behaviour_control",
+      "normalizedPresent": [],
+      "normalizedAbsent": [],
+      "removedRedundantPresent": [],
+      "informationSimilarity": {
+        "ORPHA:324": null,
+        "ORPHA:805": null,
+        "ORPHA:63": null,
+        "ORPHA:93111": null,
+        "ORPHA:731": null,
+        "ORPHA:892": null
+      },
+      "similarityRanks": {
+        "ORPHA:324": null,
+        "ORPHA:805": null,
+        "ORPHA:63": null,
+        "ORPHA:93111": null,
+        "ORPHA:731": null,
+        "ORPHA:892": null
+      },
+      "equalCount": {
+        "ORPHA:324": 0,
+        "ORPHA:805": 0,
+        "ORPHA:63": 0,
+        "ORPHA:93111": 0,
+        "ORPHA:731": 0,
+        "ORPHA:892": 0
+      },
+      "equalCountRanks": {
+        "ORPHA:324": null,
+        "ORPHA:805": null,
+        "ORPHA:63": null,
+        "ORPHA:93111": null,
+        "ORPHA:731": null,
+        "ORPHA:892": null
+      },
+      "equalCountPrompts": [],
+      "notCollectedByAtlas": [],
+      "lirical": {
+        "status": "not_run_no_evidence"
+      }
+    }
+  ],
+  "liricalVersion": "2.4.1",
+  "liricalJarSha256": "3cad929d98b6d56c4dd4046d999f5688c952a6abf3ee92093f7dd3f61481fe55",
+  "provenance": {
+    "hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+    "phenotype.hpoa": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72"
+  },
+  "benchmarkInputHashes": {
+    "cases.json": "73d95dec2f6c0995ef7e6969f0b5ed7bf0f0961fca818d3c332bdfb95ad9e76f",
+    "atlas-baseline.json": "a985918684e32ba8493d3404c77fbfc174b1cd3eac90192d165eee890b7177c0",
+    "benchmark.py": "4bf199692993cc826325fc9d58e30b39fb20a7851972c502f158f6fa0ce89318",
+    "resources.json": "f1e06953e0b988987015575405d724e4d05e8a6bce0faa4e2fd976bb430b1ac1"
+  }
+}

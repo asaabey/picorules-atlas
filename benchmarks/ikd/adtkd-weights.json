@@ -1,0 +1,118 @@
+{
+  "engine": "LIRICAL 2.4.1",
+  "engineOutputSha256": "f9b40b94258a6c013209f3d203e85d3bd042f9b1380f140182b4016e76c1cf27",
+  "resourceManifestSha256": "f1e06953e0b988987015575405d724e4d05e8a6bce0faa4e2fd976bb430b1ac1",
+  "interpretation": "Positive-only selected-feature log10 LR, rounded to six decimals. Not diagnostic probabilities. Missing annotation frequencies use engine defaults, so MUC1 gout can score higher than UMOD gout. No temporal or familial context is encoded.",
+  "weights": [
+    {
+      "ruleId": "ikd_adtkd_umod",
+      "diseaseId": "OMIM:162000",
+      "featureId": "hyperuricemia",
+      "hpoId": "HP:0002149",
+      "likelihoodRatio": 241.04803674635482,
+      "weight": 2.382104,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0002149"
+    },
+    {
+      "ruleId": "ikd_adtkd_umod",
+      "diseaseId": "OMIM:162000",
+      "featureId": "gout",
+      "hpoId": "HP:0001997",
+      "likelihoodRatio": 345.7568670929971,
+      "weight": 2.538771,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0001997"
+    },
+    {
+      "ruleId": "ikd_adtkd_umod",
+      "diseaseId": "OMIM:162000",
+      "featureId": "decreased_glomerular_filtration_rate",
+      "hpoId": "HP:0012213",
+      "likelihoodRatio": 521.9467341147036,
+      "weight": 2.717626,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0012213"
+    },
+    {
+      "ruleId": "ikd_adtkd_umod",
+      "diseaseId": "OMIM:162000",
+      "featureId": "renal_tubular_atrophy",
+      "hpoId": "HP:0000092",
+      "likelihoodRatio": 511.111109841753,
+      "weight": 2.708515,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0000092"
+    },
+    {
+      "ruleId": "ikd_adtkd_umod",
+      "diseaseId": "OMIM:162000",
+      "featureId": "renal_corticomedullary_cysts",
+      "hpoId": "HP:0000108",
+      "likelihoodRatio": 864.4295504305695,
+      "weight": 2.93673,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0000108"
+    },
+    {
+      "ruleId": "ikd_adtkd_umod",
+      "diseaseId": "OMIM:162000",
+      "featureId": "hyperechogenic_kidneys",
+      "hpoId": "HP:0004719",
+      "likelihoodRatio": 76.51552899686503,
+      "weight": 1.88375,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0004719"
+    },
+    {
+      "ruleId": "ikd_adtkd_muc1",
+      "diseaseId": "OMIM:174000",
+      "featureId": "hyperuricemia",
+      "hpoId": "HP:0002149",
+      "likelihoodRatio": 313.36244216690415,
+      "weight": 2.496047,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0002149"
+    },
+    {
+      "ruleId": "ikd_adtkd_muc1",
+      "diseaseId": "OMIM:174000",
+      "featureId": "gout",
+      "hpoId": "HP:0001997",
+      "likelihoodRatio": 816.3703718505061,
+      "weight": 2.911887,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0001997"
+    },
+    {
+      "ruleId": "ikd_adtkd_muc1",
+      "diseaseId": "OMIM:174000",
+      "featureId": "decreased_glomerular_filtration_rate",
+      "hpoId": "HP:0012213",
+      "likelihoodRatio": 596.5105532739469,
+      "weight": 2.775618,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0012213"
+    },
+    {
+      "ruleId": "ikd_adtkd_muc1",
+      "diseaseId": "OMIM:174000",
+      "featureId": "renal_tubular_atrophy",
+      "hpoId": "HP:0000092",
+      "likelihoodRatio": 511.111109841753,
+      "weight": 2.708515,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0000092"
+    },
+    {
+      "ruleId": "ikd_adtkd_muc1",
+      "diseaseId": "OMIM:174000",
+      "featureId": "renal_corticomedullary_cysts",
+      "hpoId": "HP:0000108",
+      "likelihoodRatio": 1296.6442870028432,
+      "weight": 3.112821,
+      "matchType": "EXACT_MATCH",
+      "matchedHpoId": "HP:0000108"
+    }
+  ]
+}

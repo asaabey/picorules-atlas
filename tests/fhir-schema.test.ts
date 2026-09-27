@@ -12,7 +12,6 @@ describe('official FHIR R4 JSON Schema', () => {
     let answers = createAnswers(manifest);
     answers = setAnswer(manifest, answers, 'proteinuria', 'present');
     answers = setAnswer(manifest, answers, 'seizure', 'absent');
-    answers = setAnswer(manifest, answers, 'angiokeratoma', 'unknown');
     const bundle = buildAssessmentBundle(
       manifest, answers, 'a58060f9-b7b7-4fbb-9b83-9a28b85be19c',
       new Date('2026-09-27T12:30:00.000Z'),

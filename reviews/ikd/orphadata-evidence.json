@@ -6,6 +6,76 @@
   "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)",
   "associations": [
     {
+      "featureId": "enlarged_kidney",
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "hpoId": "HP:0000105",
+      "hpoLabel": "Enlarged kidney",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Very frequent (99-80%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "glomerular_basement_membrane_lamellation",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0030034",
+      "hpoLabel": "Glomerular basement membrane lamellation",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Very frequent (99-80%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "horseshoe_kidney",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0000085",
+      "hpoLabel": "Horseshoe kidney",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "microscopic_hematuria",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0002907",
+      "hpoLabel": "Microscopic hematuria",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "multicystic_kidney_dysplasia",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0000003",
+      "hpoLabel": "Multicystic kidney dysplasia",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Very frequent (99-80%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "multiple_renal_cysts",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0005562",
+      "hpoLabel": "Multiple renal cysts",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "polycystic_kidney_dysplasia",
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "hpoId": "HP:0000113",
+      "hpoLabel": "Polycystic kidney dysplasia",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Very frequent (99-80%)",
+      "diagnosticCriterion": ""
+    },
+    {
       "featureId": "proteinuria",
       "ruleId": "ikd_fabry",
       "diseaseId": "ORPHA:324",
@@ -16,6 +86,26 @@
       "diagnosticCriterion": ""
     },
     {
+      "featureId": "proteinuria",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0000093",
+      "hpoLabel": "Proteinuria",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "renal_agenesis",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0000104",
+      "hpoLabel": "Renal agenesis",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
       "featureId": "renal_angiomyolipoma",
       "ruleId": "ikd_tuberous_sclerosis",
       "diseaseId": "ORPHA:805",
@@ -23,6 +113,16 @@
       "hpoLabel": "Renal angiomyolipoma",
       "sourceDate": "2026-06-23 07:57:18",
       "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "renal_cell_carcinoma",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0005584",
+      "hpoLabel": "Renal cell carcinoma",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
       "diagnosticCriterion": ""
     },
     {
@@ -76,11 +176,41 @@
       "diagnosticCriterion": ""
     },
     {
+      "featureId": "anterior_lenticonus",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0011501",
+      "hpoLabel": "Anterior lenticonus",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
       "featureId": "cornea_verticillata",
       "ruleId": "ikd_fabry",
       "diseaseId": "ORPHA:324",
       "hpoId": "HP:0500008",
       "hpoLabel": "Cornea verticillata",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "retinal_capillary_hemangioma",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0009711",
+      "hpoLabel": "Retinal capillary hemangioma",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "retinal_flecks",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0012045",
+      "hpoLabel": "Retinal flecks",
       "sourceDate": "2026-06-23 07:57:18",
       "frequency": "Frequent (79-30%)",
       "diagnosticCriterion": ""
@@ -96,11 +226,131 @@
       "diagnosticCriterion": ""
     },
     {
+      "featureId": "cerebellar_hemangioblastoma",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0006880",
+      "hpoLabel": "Cerebellar hemangioblastoma",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
       "featureId": "seizure",
       "ruleId": "ikd_tuberous_sclerosis",
       "diseaseId": "ORPHA:805",
       "hpoId": "HP:0001250",
       "hpoLabel": "Seizure",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Very frequent (99-80%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "bilateral_sensorineural_hearing_impairment",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0008619",
+      "hpoLabel": "Bilateral sensorineural hearing impairment",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "endolymphatic_sac_tumor",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0030393",
+      "hpoLabel": "Endolymphatic sac tumor",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "adrenal_pheochromocytoma",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0006748",
+      "hpoLabel": "Adrenal pheochromocytoma",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "diabetes_mellitus",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0000819",
+      "hpoLabel": "Diabetes mellitus",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "hyperuricemia",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0002149",
+      "hpoLabel": "Hyperuricemia",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "pancreatic_aplasia_hypoplasia",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0100800",
+      "hpoLabel": "Aplasia/Hypoplasia of the pancreas",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "pancreatic_endocrine_tumor",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0030405",
+      "hpoLabel": "Pancreatic endocrine tumor",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Occasional (29-5%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "congenital_hepatic_fibrosis",
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "hpoId": "HP:0002612",
+      "hpoLabel": "Congenital hepatic fibrosis",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "oligohydramnios",
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "hpoId": "HP:0001562",
+      "hpoLabel": "Oligohydramnios",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "portal_hypertension",
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "hpoId": "HP:0001409",
+      "hpoLabel": "Portal hypertension",
+      "sourceDate": "2026-06-23 07:57:18",
+      "frequency": "Frequent (79-30%)",
+      "diagnosticCriterion": ""
+    },
+    {
+      "featureId": "hypertension",
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "hpoId": "HP:0000822",
+      "hpoLabel": "Hypertension",
       "sourceDate": "2026-06-23 07:57:18",
       "frequency": "Very frequent (99-80%)",
       "diagnosticCriterion": ""

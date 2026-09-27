@@ -1,28 +1,18 @@
 # IKD clinical content review (M3)
 
-**Status: accepted for proof of concept; detailed accuracy review pending.** The
-clinical reviewer accepted the current questions and workflow for application
+**Status: original prototype accepted; four new profiles and detailed accuracy review pending.** The
+clinical reviewer accepted the original ten questions and workflow for application
 development in [prototype sign-off](PROTOTYPE-SIGNOFF.md). The decision record
 below remains pending for any later clinical release claim.
 
 ## Current calculation boundary
 
-The two `.prb` files declare feature fetches and a simple count of present findings.
-Each emits an illustrative review prompt when at least two of its five inputs are
-present. The browser runs these authored rules against the transient FHIR bundle
-and shows the count and contributing findings. The threshold is an invented
-demonstration rule, not a disease criterion, calibrated score, or probability.
-The next action is authored workflow text for reviewing findings or clarifying
-missing answers; it does not advise tests or treatment. Atlas displays the count
-as a per-rule demonstration score and hands over raised diseases as possible
-diagnoses for review in a FHIR ClinicalImpression. The
-[later clinical validation](../../MILESTONES.md#later-clinical-validation-and-release-decision)
-covers accuracy and clinical use of this output.
+The eight rules now calculate weighted phenotype matching scores. Present findings add declared weights; absent and unticked findings add zero. Results and the FHIR handoff show research scores without a diagnostic cutoff. See [implementation details and limitations](WEIGHTING-IMPLEMENTATION.md). Clinical approval remains pending.
 
 ## What to review
 
 Open the static Atlas assessment and [candidate content packet](CANDIDATE-CONTENT.md)
-for the content version named in the packet. Check each of the ten features against the
+for the content version named in the packet. Check each of the 42 questions against the
 authored ruleblock and its sources. For every feature, decide whether the short
 label, HPO code and meaning, question, help text, section, answer control, and
 disease association are suitable. Check the shared answer semantics, disease
@@ -30,7 +20,7 @@ context, FHIR mapping, source provenance, and limitations separately. The packet
 contains the exact candidate wording and input declaration line for each item.
 
 The source pairings in [orphadata-evidence.json](orphadata-evidence.json) reproduce
-the ten relevant rows from the locally audited Orphadata phenotype export. Its
+the 35 relevant rows from the locally audited Orphadata phenotype export. Its
 provenance records the source XML URL, SHA-256, release, and CC BY 4.0 license.
 The local audit at `../working-docs/docs/ikd-phenotype-data/README.md` is
 untracked working material, so this committed subset is the stable evidence
@@ -42,7 +32,7 @@ Orphadata Science: Free access data from Orphanet. © INSERM 1999. Available at
 https://sciences.orphadata.com/. July 2026 knowledge-base release; source XML
 generated 2026-06-23. Accessed 2026-09-26. Licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes: selected
-the ten Atlas disease–phenotype rows from the kidney disease export and recorded
+the 35 Atlas disease–phenotype rows from the kidney disease export and recorded
 them in JSON. No endorsement is implied.
 
 ## Review decisions
@@ -69,7 +59,7 @@ completed review record still match the manifest. It does not signify approval.
 
 ## Points needing explicit clinical judgment
 
-- The ten features are a compact demonstration, not a complete inherited kidney
+- The 42 questions are a compact demonstration, not a complete inherited kidney
   disease screen, diagnostic criteria, or a sensitivity claim. Recorded absence
   does not exclude either disease.
 - The TSC questions record single findings. They do not capture lesion counts,
@@ -87,3 +77,17 @@ completed review record still match the manifest. It does not signify approval.
 - No patient answers are persisted or sent to a service. The FHIR bundle is
   transient and has no confirmed disease Condition. Its in-progress
   ClinicalImpression holds possible diagnoses for review only.
+
+## Added profiles in collection 0.3.0-demo
+
+Alport (6 inputs), HNF1B (6), ARPKD (6) and VHL (7) extend the original Fabry/TSC demonstration. Proteinuria is shared by Fabry and Alport, giving 34 unique questions and 35 associations. The new profiles use the audited Orphadata snapshot; they do not claim complete screening coverage. Alport is broad, with no inheritance subtype inference. HNF1B hypomagnesaemia is deferred because it is absent from this source profile. Prenatal oligohydramnios refers to the pregnancy in which the assessed patient was carried.
+
+The original two-finding prompts have been replaced by versioned LIRICAL-derived candidate weights. The previous prototype sign-off is historical and does not approve the new profiles; the current review record is pending against the regenerated content version.
+
+## ADTKD extension
+
+UMOD (6 inputs) and MUC1 (5 inputs) add five unique questions, giving 39 questions and 46 associations. `adtkd-evidence.json` separately preserves HPOA evidence and frequency fields for 11 associations. These are not Orphadata rows. Image modality and reference status are declared in rule metadata. See [ADTKD review](ADTKD-IMPLEMENTATION.md).
+
+## Family-history extension
+
+Three shared prompts record documented pedigree patterns suggesting autosomal dominant, autosomal recessive, or X-linked inheritance. Alport links to all three because its inheritance varies by genetic subtype. These prompts are context, not proof of a molecular diagnosis, and add zero to the LIRICAL-derived score. The ten rule associations and GeneReviews sources are recorded in [inheritance-evidence.json](inheritance-evidence.json). Negative or unclear family history does not exclude any profile.

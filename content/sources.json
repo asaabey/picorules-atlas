@@ -4,7 +4,7 @@
     "url": "https://sciences.orphadata.com/phenotypes/",
     "release": "July 2026 knowledge-base release; source XML generated 2026-06-23",
     "accessed": "2026-09-26",
-    "attribution": "Orphadata Science: Free access data from Orphanet. © INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected ten disease–phenotype associations and adapted the question wording. No endorsement implied.",
+    "attribution": "Orphadata Science: Free access data from Orphanet. \u00a9 INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected 35 disease\u2013phenotype associations across six profiles and adapted the question wording. No endorsement implied.",
     "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
   },
   "genereviews_fabry": {
@@ -14,11 +14,64 @@
     "accessed": "2026-09-27",
     "attribution": "Mehta A, Hughes DA. Fabry Disease. GeneReviews, University of Washington, Seattle."
   },
+  "genereviews_alport": {
+    "title": "GeneReviews: Alport Syndrome",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1207/",
+    "accessed": "2026-09-27"
+  },
+  "genereviews_hnf1b": {
+    "title": "GeneReviews: ADPKD genetic differential diagnosis (HNF1B)",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1246/table/pkd-ad.T.genetic_disorders_in_the_differ/",
+    "accessed": "2026-09-27",
+    "attribution": "GeneReviews ADPKD differential diagnosis table identifies HNF1B-related kidney disease as autosomal dominant."
+  },
+  "genereviews_arpkd": {
+    "title": "GeneReviews: Autosomal Recessive Polycystic Kidney Disease - PKHD1",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1326/",
+    "accessed": "2026-09-27"
+  },
+  "genereviews_vhl": {
+    "title": "GeneReviews: Von Hippel-Lindau Syndrome",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1463/",
+    "accessed": "2026-09-27"
+  },
   "genereviews_tsc": {
     "title": "GeneReviews: Tuberous Sclerosis Complex",
     "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/",
     "release": "Updated 2024-08-01",
     "accessed": "2026-09-27",
     "attribution": "Northrup H, Koenig MK, Pearson DA, Au KS. Tuberous Sclerosis Complex. GeneReviews, University of Washington, Seattle."
+  },
+  "lirical_2020": {
+    "title": "LIRICAL: Interpretable Clinical Genomics with a Likelihood Ratio Paradigm",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7477017/"
+  },
+  "ikd_weights_2026_09": {
+    "title": "LIRICAL 2.4.1 candidate weights, HPO September 2026 snapshot",
+    "url": "https://github.com/TheJacksonLaboratory/LIRICAL/releases/tag/v2.4.1",
+    "release": "2.4.1; HPO 2026-09-01 / annotations 2026-09-02",
+    "attribution": "Pinned extraction and SHA-256 provenance in benchmarks/ikd/candidate-weights-provenance.json. Atlas uses only the 35 declared associations, rounded to six decimals, with zero contribution for absence."
+  },
+  "hpoa_2026_09": {
+    "title": "HPO disease annotations, September 2026",
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa",
+    "release": "2026-09-02",
+    "attribution": "Human Phenotype Ontology consortium. Selected OMIM phenotype associations with original evidence and frequency fields retained in the review packet."
+  },
+  "genereviews_adtkd_umod": {
+    "title": "GeneReviews: ADTKD\u2013UMOD",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1356/",
+    "accessed": "2026-09-27"
+  },
+  "genereviews_adtkd_muc1": {
+    "title": "GeneReviews: ADTKD\u2013MUC1",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK153723/",
+    "accessed": "2026-09-27"
+  },
+  "adtkd_weights_2026_09": {
+    "title": "ADTKD candidate weights from pinned LIRICAL 2.4.1",
+    "url": "https://github.com/TheJacksonLaboratory/LIRICAL/releases/tag/v2.4.1",
+    "release": "HPO v2026-09-01, annotations 2026-09-02",
+    "attribution": "Extraction and provenance: benchmarks/ikd/adtkd-weights.json. Uncalibrated positive-only research weights."
   }
 }

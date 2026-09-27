@@ -1,0 +1,90 @@
+{
+  "retrieved": "2026-09-27",
+  "liricalVersion": "2.4.1",
+  "hpoRelease": "v2026-09-01",
+  "platform": "linux-x86_64",
+  "javaRelativePath": "jdk-17.0.20.1+1-jre/bin/java",
+  "jarRelativePath": "lirical-cli-2.4.1/lirical-cli-2.4.1.jar",
+  "note": "External downloads only, not repackaged. Mutable upstream resources will require an explicit new manifest when hashes change. HGNC is the unmodified 2025-01-06 archive because current layout/duplicate IDs break the bundled positional reader. Transcript caches are required by LIRICAL file validation even for phenotype-only runs.",
+  "resources": [
+    {
+      "name": "lirical.zip",
+      "url": "https://github.com/TheJacksonLaboratory/LIRICAL/releases/download/v2.4.1/lirical-cli-2.4.1-distribution.zip",
+      "bytes": 32866100,
+      "sha256": "445cd4975e46e6656b5ae2c04785548bbb4c434664c0423332d09bdffeb32248"
+    },
+    {
+      "name": "jre.tar.gz",
+      "url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jre_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+      "bytes": 46640574,
+      "sha256": "0b2b640e3046b64c8ec504de0ab9d91bb5610182bda21fad454681ce54d45a62"
+    },
+    {
+      "name": "hp.json",
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp.json",
+      "bytes": 21915519,
+      "sha256": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501"
+    },
+    {
+      "name": "phenotype.hpoa",
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa",
+      "bytes": 35816037,
+      "sha256": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72"
+    },
+    {
+      "name": "hgnc_complete_set.txt",
+      "url": "https://storage.googleapis.com/public-download-files/hgnc/archive/archive/quarterly/tsv/hgnc_complete_set_2025-01-06.txt",
+      "bytes": 16509425,
+      "sha256": "ce0d9df2ca9f5d345de1102a8f94c115902645f62ca5ec6ade84a57bc7ab3c51"
+    },
+    {
+      "name": "mim2gene_medgen",
+      "url": "https://ftp.ncbi.nlm.nih.gov/gene/DATA/mim2gene_medgen",
+      "bytes": 882611,
+      "sha256": "87d3019675b7f2457fe765b3283ea1dcf448e3e3860b71a63348f9612ca5cb1f"
+    },
+    {
+      "name": "en_product6.xml",
+      "url": "https://www.orphadata.com/data/xml/en_product6.xml",
+      "bytes": 22612034,
+      "sha256": "f1c039f78683beea7ca5b34d1c01c4ec98f80e8ca488eee69770074db1020e39"
+    },
+    {
+      "name": "hg19_ensembl.ser",
+      "url": "https://zenodo.org/records/5410367/files/ensembl_87_hg19.ser",
+      "bytes": 55315810,
+      "sha256": "5e149f4e1fff0dd670fba0dd94f7ecc56ee681a0b9c8506f3cc8cf1c7e15d8d8"
+    },
+    {
+      "name": "hg19_refseq.ser",
+      "url": "https://zenodo.org/records/5410367/files/refseq_105_hg19.ser",
+      "bytes": 40211498,
+      "sha256": "ce3635d85b9465e1bcf0e6290cdeedeadb5f7a5ea365d5055c1968714f4c6308"
+    },
+    {
+      "name": "hg19_refseq_curated.ser",
+      "url": "https://zenodo.org/records/5410367/files/refseq_curated_105_hg19.ser",
+      "bytes": 30944202,
+      "sha256": "624a87d093ccb682890a0e2b593ddb260ca869350b5fe5927fc8b5b17fd3e58b"
+    },
+    {
+      "name": "hg38_ensembl.ser",
+      "url": "https://zenodo.org/records/5410367/files/ensembl_91_hg38.ser",
+      "bytes": 52612834,
+      "sha256": "c1f6f3bb670b234e5d6bd5da00312f72c2108f22d6b390b65e70cfeb46609c92"
+    },
+    {
+      "name": "hg38_refseq.ser",
+      "url": "https://zenodo.org/records/5410367/files/refseq_109_hg38.ser",
+      "bytes": 51705089,
+      "sha256": "b2a2fdb8eb9e52abfc748f55c61db3dbfc77ed1d76d81913c70d6b4db821c9b8"
+    },
+    {
+      "name": "hg38_refseq_curated.ser",
+      "url": "https://zenodo.org/records/5410367/files/refseq_curated_109_hg38.ser",
+      "bytes": 33181463,
+      "sha256": "2066e7fedf2f3218fd3b5f425efdfef38262cfcda32d9d5497d492db367947e0"
+    }
+  ],
+  "jarSha256": "3cad929d98b6d56c4dd4046d999f5688c952a6abf3ee92093f7dd3f61481fe55"
+}

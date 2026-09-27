@@ -1,0 +1,142 @@
+{
+  "note": "Synthetic engineering fixtures, selected using the same source profiles. No patient data; intendedProfile is not a clinical truth label or accuracy test. Unlisted terms are unknown.",
+  "cases": [
+    {
+      "id": "fabry_pattern",
+      "intendedProfile": "ORPHA:324",
+      "present": [
+        "HP:0031006",
+        "HP:0000966",
+        "HP:0001014"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern"
+    },
+    {
+      "id": "tsc_pattern",
+      "intendedProfile": "ORPHA:805",
+      "present": [
+        "HP:0009719",
+        "HP:0009721",
+        "HP:0006772"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern"
+    },
+    {
+      "id": "alport_pattern",
+      "intendedProfile": "ORPHA:63",
+      "present": [
+        "HP:0002907",
+        "HP:0011501",
+        "HP:0008619"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern"
+    },
+    {
+      "id": "hnf1b_pattern",
+      "intendedProfile": "ORPHA:93111",
+      "present": [
+        "HP:0000003",
+        "HP:0000819",
+        "HP:0100800"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern"
+    },
+    {
+      "id": "arpkd_pattern",
+      "intendedProfile": "ORPHA:731",
+      "present": [
+        "HP:0000105",
+        "HP:0002612",
+        "HP:0001409"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern"
+    },
+    {
+      "id": "vhl_pattern",
+      "intendedProfile": "ORPHA:892",
+      "present": [
+        "HP:0009711",
+        "HP:0006880",
+        "HP:0030393"
+      ],
+      "absent": [],
+      "kind": "constructed_pattern"
+    },
+    {
+      "id": "common_kidney_findings",
+      "intendedProfile": null,
+      "present": [
+        "HP:0000083",
+        "HP:0000790",
+        "HP:0000093"
+      ],
+      "absent": [],
+      "kind": "behaviour_control"
+    },
+    {
+      "id": "acroparaesthesia_only",
+      "intendedProfile": null,
+      "present": [
+        "HP:0031006"
+      ],
+      "absent": [],
+      "kind": "behaviour_control"
+    },
+    {
+      "id": "anterior_lenticonus_only",
+      "intendedProfile": null,
+      "present": [
+        "HP:0011501"
+      ],
+      "absent": [],
+      "kind": "behaviour_control"
+    },
+    {
+      "id": "fabry_missing_detail",
+      "intendedProfile": null,
+      "present": [
+        "HP:0031006",
+        "HP:0000966"
+      ],
+      "absent": [],
+      "kind": "behaviour_control"
+    },
+    {
+      "id": "fabry_explicit_absence",
+      "intendedProfile": null,
+      "present": [
+        "HP:0031006",
+        "HP:0000966"
+      ],
+      "absent": [
+        "HP:0001014"
+      ],
+      "kind": "behaviour_control"
+    },
+    {
+      "id": "alport_redundant_parent",
+      "intendedProfile": null,
+      "present": [
+        "HP:0002907",
+        "HP:0000790",
+        "HP:0011501",
+        "HP:0008619",
+        "HP:0000365"
+      ],
+      "absent": [],
+      "kind": "behaviour_control"
+    },
+    {
+      "id": "no_observations",
+      "intendedProfile": null,
+      "present": [],
+      "absent": [],
+      "kind": "behaviour_control"
+    }
+  ]
+}

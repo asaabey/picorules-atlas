@@ -1,0 +1,10 @@
+{
+  "engine": "LIRICAL 2.4.1",
+  "hpo": "v2026-09-01",
+  "rows": 204,
+  "engineOutputSha256": "075f6948011b201e7ef075a4c47fa748fcbabfd7b81363f689f3b949cdd0af61",
+  "weightsSha256": "705e8b041e8e7dab17f3071d0bf017ceac5d1aec6971d764efd6961885cc82eb",
+  "scriptSha256": "7dc572540c945c589dcb84addb1e0477b0b126bdd270c2357110b8c3aa1f623c",
+  "resourceManifestSha256": "f1e06953e0b988987015575405d724e4d05e8a6bce0faa4e2fd976bb430b1ac1",
+  "interpretation": "Per-present-finding log10 LR from the published engine. No composite score or probability from the batch query is retained. Nonmatches can have negative weights due to engine heuristics; do not deploy as clinical exclusion criteria."
+}

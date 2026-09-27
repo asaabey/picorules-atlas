@@ -1,9 +1,9 @@
 import type { AnswerState, Answers, CollectionManifest } from '../types';
 
-const STATES: readonly AnswerState[] = ['present', 'absent', 'unknown', 'unanswered'];
+const STATES: readonly AnswerState[] = ['present', 'absent'];
 
 export function createAnswers(manifest: CollectionManifest): Answers {
-  return Object.fromEntries(manifest.questions.map(({ featureId }) => [featureId, 'unanswered']));
+  return Object.fromEntries(manifest.questions.map(({ featureId }) => [featureId, 'absent']));
 }
 
 export function resetAnswers(manifest: CollectionManifest): Answers {
@@ -25,13 +25,13 @@ export function setAnswer(
   return { ...answers, [featureId]: state };
 }
 
-export function countAnswered(manifest: CollectionManifest, answers: Answers): number {
+export function countPresent(manifest: CollectionManifest, answers: Answers): number {
   return manifest.questions.filter(({ featureId }) => {
-    const state = answers[featureId] ?? 'unanswered';
+    const state = answers[featureId] ?? 'absent';
     if (!STATES.includes(state)) {
       throw new Error(`Unsupported answer state for ${featureId}: ${String(state)}`);
     }
-    return state !== 'unanswered';
+    return state === 'present';
   }).length;
 }
 

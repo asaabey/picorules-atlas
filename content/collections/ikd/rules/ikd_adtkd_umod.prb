@@ -1,0 +1,191 @@
+/* Research phenotype matching. Unstated findings are absent and contribute zero.
+   Shared findings do not reliably distinguish UMOD from MUC1. No diagnostic cutoff. */
+#define_ruleblock(ikd_adtkd_umod, {
+    "description": "ADTKD\u2013UMOD candidate assessment features",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.6.0-family-history",
+        "disease_label": "ADTKD\u2013UMOD",
+        "disease_id": "OMIM:162000",
+        "source_refs": [
+            "hpoa_2026_09",
+            "genereviews_adtkd_umod"
+        ],
+        "scoring": {
+            "model": "ikd-positive-log10-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "lirical_2020",
+                "adtkd_weights_2026_09"
+            ],
+            "weights": {
+                "hyperuricemia": 2.382104,
+                "gout": 2.538771,
+                "decreased_glomerular_filtration_rate": 2.717626,
+                "renal_tubular_atrophy": 2.708515,
+                "renal_corticomedullary_cysts": 2.93673,
+                "hyperechogenic_kidneys": 1.88375,
+                "family_history_autosomal_dominant": 0
+            }
+        }
+    }
+});
+
+hyperuricemia => eadv.phen_hyperuricemia.val.last();
+gout => eadv.phen_gout.val.last();
+decreased_glomerular_filtration_rate => eadv.phen_decreased_glomerular_filtration_rate.val.last();
+renal_tubular_atrophy => eadv.phen_renal_tubular_atrophy.val.last();
+renal_corticomedullary_cysts => eadv.phen_renal_corticomedullary_cysts.val.last();
+hyperechogenic_kidneys => eadv.phen_hyperechogenic_kidneys.val.last();
+
+family_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();
+
+present_feature_count : { . => coalesce(hyperuricemia, 0) + coalesce(gout, 0) + coalesce(decreased_glomerular_filtration_rate, 0) + coalesce(renal_tubular_atrophy, 0) + coalesce(renal_corticomedullary_cysts, 0) + coalesce(hyperechogenic_kidneys, 0) + coalesce(family_history_autosomal_dominant, 0) };
+contribution_hyperuricemia : { hyperuricemia = 1 => 2.382104 }, { => 0 };
+contribution_gout : { gout = 1 => 2.538771 }, { => 0 };
+contribution_decreased_glomerular_filtration_rate : { decreased_glomerular_filtration_rate = 1 => 2.717626 }, { => 0 };
+contribution_renal_tubular_atrophy : { renal_tubular_atrophy = 1 => 2.708515 }, { => 0 };
+contribution_renal_corticomedullary_cysts : { renal_corticomedullary_cysts = 1 => 2.93673 }, { => 0 };
+contribution_hyperechogenic_kidneys : { hyperechogenic_kidneys = 1 => 1.88375 }, { => 0 };
+contribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_hyperuricemia + contribution_gout + contribution_decreased_glomerular_filtration_rate + contribution_renal_tubular_atrophy + contribution_renal_corticomedullary_cysts + contribution_hyperechogenic_kidneys + contribution_family_history_autosomal_dominant };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(hyperuricemia, {
+    "label": "Hyperuricaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hyperuricemia",
+        "source_attribute": "phen_hyperuricemia",
+        "section": "endocrine_metabolic",
+        "question": "Has hyperuricaemia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002149",
+        "help": "Records a documented elevated urate finding without applying a new laboratory threshold.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(gout, {
+    "label": "Gout",
+    "atlas": {
+        "role": "input",
+        "feature_id": "gout",
+        "source_attribute": "phen_gout",
+        "section": "endocrine_metabolic",
+        "question": "Has gout been clinically documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001997",
+        "help": "Records diagnosed gout, not hyperuricaemia alone. This question does not encode whether gout preceded kidney impairment.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(decreased_glomerular_filtration_rate, {
+    "label": "Decreased glomerular filtration rate",
+    "atlas": {
+        "role": "input",
+        "feature_id": "decreased_glomerular_filtration_rate",
+        "source_attribute": "phen_decreased_glomerular_filtration_rate",
+        "section": "kidney",
+        "question": "Has a decreased glomerular filtration rate been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0012213",
+        "help": "Records documented reduced GFR without inferring chronicity, cause or a new laboratory threshold.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_tubular_atrophy, {
+    "label": "Renal tubular atrophy",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_tubular_atrophy",
+        "source_attribute": "phen_renal_tubular_atrophy",
+        "section": "kidney",
+        "question": "Has renal tubular atrophy been documented on a previous kidney biopsy?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000092",
+        "help": "Use an existing histopathology report. This assessment does not recommend obtaining a biopsy.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ],
+        "image_guidance": {
+            "category": "histopathology",
+            "modality": "Light microscopy",
+            "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+            "asset_status": "not_selected"
+        }
+    }
+});
+
+#define_attribute(renal_corticomedullary_cysts, {
+    "label": "Renal corticomedullary cysts",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_corticomedullary_cysts",
+        "source_attribute": "phen_renal_corticomedullary_cysts",
+        "section": "kidney",
+        "question": "Have renal corticomedullary cysts been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000108",
+        "help": "Requires documented corticomedullary location. Simple cysts elsewhere are not equivalent. Cysts may be absent in ADTKD.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ],
+        "image_guidance": {
+            "category": "radiology",
+            "modality": "CT and T2-weighted MRI",
+            "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+            "asset_status": "not_selected"
+        }
+    }
+});
+
+#define_attribute(hyperechogenic_kidneys, {
+    "label": "Hyperechogenic kidneys",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hyperechogenic_kidneys",
+        "source_attribute": "phen_hyperechogenic_kidneys",
+        "section": "kidney",
+        "question": "Have hyperechogenic kidneys been documented on ultrasound?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0004719",
+        "help": "Records increased renal echogenicity in the ultrasound report. This is nonspecific and does not establish a genetic diagnosis.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ],
+        "image_guidance": {
+            "category": "radiology",
+            "modality": "Renal ultrasound",
+            "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+            "asset_status": "not_selected"
+        }
+    }
+});
+
+
+#define_attribute(family_history_autosomal_dominant, {
+    "label": "Documented family history suggesting autosomal dominant inheritance",
+    "atlas": {
+        "role": "input",
+        "evidence_kind": "family_history",
+        "feature_id": "family_history_autosomal_dominant",
+        "source_attribute": "phen_family_history_autosomal_dominant",
+        "section": "family_history",
+        "question": "Does the documented family history show a similar condition in successive generations?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000006",
+        "help": "A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.",
+        "source_refs": ["genereviews_adtkd_umod"]
+    }
+});

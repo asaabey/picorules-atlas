@@ -1,0 +1,205 @@
+rule_id,disease_id,feature_id,hpo_id,label,match_type,matched_hpo_id,likelihood_ratio,log10_weight,declared_in_atlas_rule,status
+ikd_alport,ORPHA:63,acroparesthesia,HP:0031006,Acroparaesthesia,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,adrenal_pheochromocytoma,HP:0006748,Adrenal pheochromocytoma,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,angiofibromas,HP:0010615,Angiofibromas,NON_ROOT_COMMON_ANCESTOR,HP:0002664,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,angiokeratoma,HP:0001014,Angiokeratomas,NON_ROOT_COMMON_ANCESTOR,HP:0002597,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,anterior_lenticonus,HP:0011501,Anterior lenticonus,EXACT_MATCH,HP:0011501,613.3333376854184,2.7876965713715367,True,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,bilateral_sensorineural_hearing_impairment,HP:0008619,Bilateral sensorineural hearing impairment,EXACT_MATCH,HP:0008619,165.5423136960218,2.2189090208060036,True,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,cerebellar_hemangioblastoma,HP:0006880,Cerebellar haemangioblastoma,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,congenital_hepatic_fibrosis,HP:0002612,Congenital hepatic fibrosis,NON_ROOT_COMMON_ANCESTOR,HP:0025031,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,cornea_verticillata,HP:0500008,Cornea verticillata,NON_ROOT_COMMON_ANCESTOR,HP:0000481,0.4744134932373157,-0.32384296729309187,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,diabetes_mellitus,HP:0000819,Diabetes mellitus,NON_ROOT_COMMON_ANCESTOR,HP:0012337,0.01578276514781471,-1.8018169058646643,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,endolymphatic_sac_tumor,HP:0030393,Endolymphatic sac tumour,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,enlarged_kidney,HP:0000105,Enlarged kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,glomerular_basement_membrane_lamellation,HP:0030034,Glomerular basement membrane lamellation,EXACT_MATCH,HP:0030034,1661.9354958539202,3.2206141636488503,True,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,horseshoe_kidney,HP:0000085,Horseshoe kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,hypertension,HP:0000822,Hypertension,EXACT_MATCH,HP:0000822,28.616320579326217,1.4566137924279041,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,hyperuricemia,HP:0002149,Hyperuricaemia,NON_ROOT_COMMON_ANCESTOR,HP:0001939,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,hypohidrosis,HP:0000966,Reduced sweating,NO_MATCH_BELOW_ROOT,HP:0000966,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,hypomelanotic_macule,HP:0009719,Hypomelanotic macules,NO_MATCH_BELOW_ROOT,HP:0009719,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,microscopic_hematuria,HP:0002907,Microscopic haematuria,EXACT_MATCH,HP:0002907,82.06435238026503,1.9141545465646796,True,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,multicystic_kidney_dysplasia,HP:0000003,Multicystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,multiple_renal_cysts,HP:0005562,Multiple renal cysts,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,oligohydramnios,HP:0001562,Oligohydramnios in the patient’s prenatal history,NO_MATCH_BELOW_ROOT,HP:0001562,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,pancreatic_aplasia_hypoplasia,HP:0100800,Pancreatic aplasia or hypoplasia,NON_ROOT_COMMON_ANCESTOR,HP:0025031,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,pancreatic_endocrine_tumor,HP:0030405,Pancreatic endocrine tumour,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,polycystic_kidney_dysplasia,HP:0000113,Polycystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,portal_hypertension,HP:0001409,Portal hypertension,NON_ROOT_COMMON_ANCESTOR,HP:0032263,2.520659246961069,0.4015141399379278,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,proteinuria,HP:0000093,Proteinuria,EXACT_MATCH,HP:0000093,38.26845524927354,1.5828409317761953,True,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,renal_agenesis,HP:0000104,Renal agenesis,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,renal_angiomyolipoma,HP:0006772,Renal angiomyolipoma,NON_ROOT_COMMON_ANCESTOR,HP:0000077,0.08919471046989014,-1.0496608999047432,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,renal_cell_carcinoma,HP:0005584,Renal cell carcinoma,NON_ROOT_COMMON_ANCESTOR,HP:0000077,0.08919471046989014,-1.0496608999047432,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,retinal_capillary_hemangioma,HP:0009711,Retinal capillary haemangioma,NON_ROOT_COMMON_ANCESTOR,HP:0000479,0.08887356361685128,-1.0512274053149642,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,retinal_flecks,HP:0012045,Retinal flecks,EXACT_MATCH,HP:0012045,654.9152746374527,2.816185119629289,True,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,seizure,HP:0001250,Seizures,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_alport,ORPHA:63,shagreen_patch,HP:0009721,Shagreen patch,NO_MATCH_BELOW_ROOT,HP:0009721,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,acroparesthesia,HP:0031006,Acroparaesthesia,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,adrenal_pheochromocytoma,HP:0006748,Adrenal pheochromocytoma,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,angiofibromas,HP:0010615,Angiofibromas,NON_ROOT_COMMON_ANCESTOR,HP:0011792,0.10475314870448196,-0.9798329139995706,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,angiokeratoma,HP:0001014,Angiokeratomas,NON_ROOT_COMMON_ANCESTOR,HP:0002597,0.03801493831640713,-1.420045709869211,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,anterior_lenticonus,HP:0011501,Anterior lenticonus,NO_MATCH_BELOW_ROOT,HP:0011501,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,bilateral_sensorineural_hearing_impairment,HP:0008619,Bilateral sensorineural hearing impairment,NON_ROOT_COMMON_ANCESTOR,HP:0000598,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,cerebellar_hemangioblastoma,HP:0006880,Cerebellar haemangioblastoma,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,congenital_hepatic_fibrosis,HP:0002612,Congenital hepatic fibrosis,EXACT_MATCH,HP:0002612,923.6653613107179,2.965514657302967,True,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,cornea_verticillata,HP:0500008,Cornea verticillata,NO_MATCH_BELOW_ROOT,HP:0500008,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,diabetes_mellitus,HP:0000819,Diabetes mellitus,NON_ROOT_COMMON_ANCESTOR,HP:0001939,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,endolymphatic_sac_tumor,HP:0030393,Endolymphatic sac tumour,NON_ROOT_COMMON_ANCESTOR,HP:0031703,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,enlarged_kidney,HP:0000105,Enlarged kidney,EXACT_MATCH,HP:0000105,314.30075732549653,2.4973454274760205,True,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,glomerular_basement_membrane_lamellation,HP:0030034,Glomerular basement membrane lamellation,NON_ROOT_COMMON_ANCESTOR,HP:0011035,0.43178180751315154,-0.36473565997097357,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,horseshoe_kidney,HP:0000085,Horseshoe kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,1.1740974849291306,0.069704157737082,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,hypertension,HP:0000822,Hypertension,EXACT_MATCH,HP:0000822,38.155093158176314,1.5815525182503842,True,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,hyperuricemia,HP:0002149,Hyperuricaemia,NON_ROOT_COMMON_ANCESTOR,HP:0430071,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,hypohidrosis,HP:0000966,Reduced sweating,NON_ROOT_COMMON_ANCESTOR,HP:0001574,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,hypomelanotic_macule,HP:0009719,Hypomelanotic macules,NON_ROOT_COMMON_ANCESTOR,HP:0011121,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,microscopic_hematuria,HP:0002907,Microscopic haematuria,NON_ROOT_COMMON_ANCESTOR,HP:0012211,1.448406319074394,0.16089041087926953,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,multicystic_kidney_dysplasia,HP:0000003,Multicystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0000107,5.586614309932949,0.7471486894647337,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,multiple_renal_cysts,HP:0005562,Multiple renal cysts,NON_ROOT_COMMON_ANCESTOR,HP:0000107,5.586614309932949,0.7471486894647337,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,oligohydramnios,HP:0001562,Oligohydramnios in the patient’s prenatal history,EXACT_MATCH,HP:0001562,70.60279340305658,1.8488218842746582,True,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,pancreatic_aplasia_hypoplasia,HP:0100800,Pancreatic aplasia or hypoplasia,NON_ROOT_COMMON_ANCESTOR,HP:0012090,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,pancreatic_endocrine_tumor,HP:0030405,Pancreatic endocrine tumour,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,polycystic_kidney_dysplasia,HP:0000113,Polycystic kidney dysplasia,EXACT_MATCH,HP:0000113,261.69332726466024,2.4177926490094523,True,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,portal_hypertension,HP:0001409,Portal hypertension,EXACT_MATCH,HP:0001409,207.03727324200216,2.316048539206196,True,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,proteinuria,HP:0000093,Proteinuria,NON_ROOT_COMMON_ANCESTOR,HP:0001939,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,renal_agenesis,HP:0000104,Renal agenesis,NON_ROOT_COMMON_ANCESTOR,HP:0012210,1.1740974849291306,0.069704157737082,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,renal_angiomyolipoma,HP:0006772,Renal angiomyolipoma,NON_ROOT_COMMON_ANCESTOR,HP:0000077,0.08919471046989014,-1.0496608999047432,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,renal_cell_carcinoma,HP:0005584,Renal cell carcinoma,NON_ROOT_COMMON_ANCESTOR,HP:0000077,0.08919471046989014,-1.0496608999047432,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,retinal_capillary_hemangioma,HP:0009711,Retinal capillary haemangioma,NON_ROOT_COMMON_ANCESTOR,HP:0002597,0.03801493831640713,-1.420045709869211,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,retinal_flecks,HP:0012045,Retinal flecks,NO_MATCH_BELOW_ROOT,HP:0012045,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,seizure,HP:0001250,Seizures,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_arpkd,ORPHA:731,shagreen_patch,HP:0009721,Shagreen patch,NON_ROOT_COMMON_ANCESTOR,HP:0033127,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,acroparesthesia,HP:0031006,Acroparaesthesia,EXACT_MATCH,HP:0031006,1080.8391848663994,3.0337610812607965,True,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,adrenal_pheochromocytoma,HP:0006748,Adrenal pheochromocytoma,NON_ROOT_COMMON_ANCESTOR,HP:0000818,0.1981816970523873,-0.7029364569960306,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,angiofibromas,HP:0010615,Angiofibromas,NO_MATCH_BELOW_ROOT,HP:0010615,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,angiokeratoma,HP:0001014,Angiokeratomas,EXACT_MATCH,HP:0001014,1170.9091047881063,3.068523183013346,True,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,anterior_lenticonus,HP:0011501,Anterior lenticonus,NON_ROOT_COMMON_ANCESTOR,HP:0000517,1.2968793079208116,0.11289956101628666,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,bilateral_sensorineural_hearing_impairment,HP:0008619,Bilateral sensorineural hearing impairment,QUERY_TERM_SUBCLASS_OF_DISEASE_TERM,HP:0000407,3.941483561541289,0.5956597196222833,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,cerebellar_hemangioblastoma,HP:0006880,Cerebellar haemangioblastoma,NON_ROOT_COMMON_ANCESTOR,HP:0012443,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,congenital_hepatic_fibrosis,HP:0002612,Congenital hepatic fibrosis,NON_ROOT_COMMON_ANCESTOR,HP:0025031,0.02990607356641542,-1.5242406026950617,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,cornea_verticillata,HP:0500008,Cornea verticillata,EXACT_MATCH,HP:0500008,6000.000238418579,3.7781512676409554,True,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,diabetes_mellitus,HP:0000819,Diabetes mellitus,NON_ROOT_COMMON_ANCESTOR,HP:0000818,0.1981816970523873,-0.7029364569960306,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,endolymphatic_sac_tumor,HP:0030393,Endolymphatic sac tumour,NON_ROOT_COMMON_ANCESTOR,HP:0000598,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,enlarged_kidney,HP:0000105,Enlarged kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.08805731355661174,-1.055234568085398,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,glomerular_basement_membrane_lamellation,HP:0030034,Glomerular basement membrane lamellation,NON_ROOT_COMMON_ANCESTOR,HP:0000095,1.7513504481872273,0.2433730578398025,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,horseshoe_kidney,HP:0000085,Horseshoe kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.08805731355661174,-1.055234568085398,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,hypertension,HP:0000822,Hypertension,EXACT_MATCH,HP:0000822,9.538773289544078,0.9794925269224218,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,hyperuricemia,HP:0002149,Hyperuricaemia,NON_ROOT_COMMON_ANCESTOR,HP:0430071,0.5224055466991706,-0.28199222053839185,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,hypohidrosis,HP:0000966,Reduced sweating,EXACT_MATCH,HP:0000966,132.70235089403826,2.122878616694614,True,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,hypomelanotic_macule,HP:0009719,Hypomelanotic macules,NON_ROOT_COMMON_ANCESTOR,HP:0011121,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,microscopic_hematuria,HP:0002907,Microscopic haematuria,QUERY_TERM_SUBCLASS_OF_DISEASE_TERM,HP:0000790,109.41913650702003,2.0390932831729796,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,multicystic_kidney_dysplasia,HP:0000003,Multicystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.08805731355661174,-1.055234568085398,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,multiple_renal_cysts,HP:0005562,Multiple renal cysts,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.08805731355661174,-1.055234568085398,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,oligohydramnios,HP:0001562,Oligohydramnios in the patient’s prenatal history,NO_MATCH_BELOW_ROOT,HP:0001562,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,pancreatic_aplasia_hypoplasia,HP:0100800,Pancreatic aplasia or hypoplasia,NON_ROOT_COMMON_ANCESTOR,HP:0025031,0.02990607356641542,-1.5242406026950617,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,pancreatic_endocrine_tumor,HP:0030405,Pancreatic endocrine tumour,NON_ROOT_COMMON_ANCESTOR,HP:0000818,0.1981816970523873,-0.7029364569960306,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,polycystic_kidney_dysplasia,HP:0000113,Polycystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.08805731355661174,-1.055234568085398,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,portal_hypertension,HP:0001409,Portal hypertension,NON_ROOT_COMMON_ANCESTOR,HP:0032263,0.8402197281199407,-0.07560712556755446,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,proteinuria,HP:0000093,Proteinuria,EXACT_MATCH,HP:0000093,38.26845524927354,1.5828409317761953,True,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,renal_agenesis,HP:0000104,Renal agenesis,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.08805731355661174,-1.055234568085398,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,renal_angiomyolipoma,HP:0006772,Renal angiomyolipoma,NON_ROOT_COMMON_ANCESTOR,HP:0000077,0.08919471046989014,-1.0496608999047432,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,renal_cell_carcinoma,HP:0005584,Renal cell carcinoma,NON_ROOT_COMMON_ANCESTOR,HP:0000077,0.08919471046989014,-1.0496608999047432,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,retinal_capillary_hemangioma,HP:0009711,Retinal capillary haemangioma,NON_ROOT_COMMON_ANCESTOR,HP:0002597,0.05068658316306128,-1.2951069840467309,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,retinal_flecks,HP:0012045,Retinal flecks,NON_ROOT_COMMON_ANCESTOR,HP:0001098,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,seizure,HP:0001250,Seizures,EXACT_MATCH,HP:0001250,1.3918765398132311,0.14360071483219122,False,research_candidate_not_clinically_calibrated
+ikd_fabry,ORPHA:324,shagreen_patch,HP:0009721,Shagreen patch,NON_ROOT_COMMON_ANCESTOR,HP:0033127,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,acroparesthesia,HP:0031006,Acroparaesthesia,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,adrenal_pheochromocytoma,HP:0006748,Adrenal pheochromocytoma,NON_ROOT_COMMON_ANCESTOR,HP:0000818,0.5945451059228487,-0.2258151914905483,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,angiofibromas,HP:0010615,Angiofibromas,NON_ROOT_COMMON_ANCESTOR,HP:0002664,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,angiokeratoma,HP:0001014,Angiokeratomas,NON_ROOT_COMMON_ANCESTOR,HP:0011354,0.023722317609638725,-1.6248428837770734,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,anterior_lenticonus,HP:0011501,Anterior lenticonus,NO_MATCH_BELOW_ROOT,HP:0011501,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,bilateral_sensorineural_hearing_impairment,HP:0008619,Bilateral sensorineural hearing impairment,NON_ROOT_COMMON_ANCESTOR,HP:0000364,0.19033708827269485,-0.7204765786978482,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,cerebellar_hemangioblastoma,HP:0006880,Cerebellar haemangioblastoma,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,congenital_hepatic_fibrosis,HP:0002612,Congenital hepatic fibrosis,NON_ROOT_COMMON_ANCESTOR,HP:0410042,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,cornea_verticillata,HP:0500008,Cornea verticillata,NO_MATCH_BELOW_ROOT,HP:0500008,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,diabetes_mellitus,HP:0000819,Diabetes mellitus,EXACT_MATCH,HP:0000819,33.14612512452258,1.5204327654587928,True,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,endolymphatic_sac_tumor,HP:0030393,Endolymphatic sac tumour,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,enlarged_kidney,HP:0000105,Enlarged kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.11740974849291305,-0.9302958422629181,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,glomerular_basement_membrane_lamellation,HP:0030034,Glomerular basement membrane lamellation,NON_ROOT_COMMON_ANCESTOR,HP:0000095,1.7513504481872273,0.2433730578398025,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,horseshoe_kidney,HP:0000085,Horseshoe kidney,EXACT_MATCH,HP:0000085,50.35634192778965,1.7020541738131523,True,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,hypertension,HP:0000822,Hypertension,NO_MATCH_BELOW_ROOT,HP:0000822,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,hyperuricemia,HP:0002149,Hyperuricaemia,EXACT_MATCH,HP:0002149,62.672489367273684,1.79707694533024,True,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,hypohidrosis,HP:0000966,Reduced sweating,NON_ROOT_COMMON_ANCESTOR,HP:0001574,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,hypomelanotic_macule,HP:0009719,Hypomelanotic macules,NON_ROOT_COMMON_ANCESTOR,HP:0011121,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,microscopic_hematuria,HP:0002907,Microscopic haematuria,NON_ROOT_COMMON_ANCESTOR,HP:0012211,1.9312083774704474,0.2858291367017497,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,multicystic_kidney_dysplasia,HP:0000003,Multicystic kidney dysplasia,EXACT_MATCH,HP:0000003,259.1849164030883,2.4136097236124594,True,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,multiple_renal_cysts,HP:0005562,Multiple renal cysts,NON_ROOT_COMMON_ANCESTOR,HP:0000107,5.586614309932949,0.7471486894647337,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,oligohydramnios,HP:0001562,Oligohydramnios in the patient’s prenatal history,NO_MATCH_BELOW_ROOT,HP:0001562,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,pancreatic_aplasia_hypoplasia,HP:0100800,Pancreatic aplasia or hypoplasia,EXACT_MATCH,HP:0100800,206.73630667236475,2.3154167533705268,True,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,pancreatic_endocrine_tumor,HP:0030405,Pancreatic endocrine tumour,NON_ROOT_COMMON_ANCESTOR,HP:0000818,0.5945451059228487,-0.2258151914905483,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,polycystic_kidney_dysplasia,HP:0000113,Polycystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0000107,5.586614309932949,0.7471486894647337,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,portal_hypertension,HP:0001409,Portal hypertension,NON_ROOT_COMMON_ANCESTOR,HP:0410042,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,proteinuria,HP:0000093,Proteinuria,NON_ROOT_COMMON_ANCESTOR,HP:0001939,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,renal_agenesis,HP:0000104,Renal agenesis,EXACT_MATCH,HP:0000104,25.233894752697893,1.4019842873412967,True,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,renal_angiomyolipoma,HP:0006772,Renal angiomyolipoma,NON_ROOT_COMMON_ANCESTOR,HP:0009726,4.589789802100013,0.6617927966748677,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,renal_cell_carcinoma,HP:0005584,Renal cell carcinoma,EXACT_MATCH,HP:0005584,157.53820432154149,2.1973858909130977,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,retinal_capillary_hemangioma,HP:0009711,Retinal capillary haemangioma,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,retinal_flecks,HP:0012045,Retinal flecks,NO_MATCH_BELOW_ROOT,HP:0012045,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,seizure,HP:0001250,Seizures,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_hnf1b,ORPHA:93111,shagreen_patch,HP:0009721,Shagreen patch,NON_ROOT_COMMON_ANCESTOR,HP:0033127,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,acroparesthesia,HP:0031006,Acroparaesthesia,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.16757076558274736,-0.7758017461683506,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,adrenal_pheochromocytoma,HP:0006748,Adrenal pheochromocytoma,QUERY_TERM_PRESENT_BUT_EXCLUDED_IN_DISEASE,HP:0006748,0.001,-3.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,angiofibromas,HP:0010615,Angiofibromas,EXACT_MATCH,HP:0010615,660.5128381786808,2.8198812632767734,True,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,angiokeratoma,HP:0001014,Angiokeratomas,NON_ROOT_COMMON_ANCESTOR,HP:0002597,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,anterior_lenticonus,HP:0011501,Anterior lenticonus,NON_ROOT_COMMON_ANCESTOR,HP:0012372,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,bilateral_sensorineural_hearing_impairment,HP:0008619,Bilateral sensorineural hearing impairment,NO_MATCH_BELOW_ROOT,HP:0008619,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,cerebellar_hemangioblastoma,HP:0006880,Cerebellar haemangioblastoma,NON_ROOT_COMMON_ANCESTOR,HP:0100835,2.2113807185718177,0.3446635185809756,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,congenital_hepatic_fibrosis,HP:0002612,Congenital hepatic fibrosis,NON_ROOT_COMMON_ANCESTOR,HP:0410042,0.03300710598945836,-1.4813925522497133,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,cornea_verticillata,HP:0500008,Cornea verticillata,NON_ROOT_COMMON_ANCESTOR,HP:0012372,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,diabetes_mellitus,HP:0000819,Diabetes mellitus,NON_ROOT_COMMON_ANCESTOR,HP:0000818,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,endolymphatic_sac_tumor,HP:0030393,Endolymphatic sac tumour,NON_ROOT_COMMON_ANCESTOR,HP:0011793,0.09318228993810578,-1.0306666210474542,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,enlarged_kidney,HP:0000105,Enlarged kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.8805731355661174,-0.055234568085398145,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,glomerular_basement_membrane_lamellation,HP:0030034,Glomerular basement membrane lamellation,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.8805731355661174,-0.055234568085398145,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,horseshoe_kidney,HP:0000085,Horseshoe kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.8805731355661174,-0.055234568085398145,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,hypertension,HP:0000822,Hypertension,EXACT_MATCH,HP:0000822,9.538773289544078,0.9794925269224218,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,hyperuricemia,HP:0002149,Hyperuricaemia,NO_MATCH_BELOW_ROOT,HP:0002149,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,hypohidrosis,HP:0000966,Reduced sweating,NON_ROOT_COMMON_ANCESTOR,HP:0001574,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,hypomelanotic_macule,HP:0009719,Hypomelanotic macules,EXACT_MATCH,HP:0009719,2192.678494992287,3.340974957219323,True,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,microscopic_hematuria,HP:0002907,Microscopic haematuria,NON_ROOT_COMMON_ANCESTOR,HP:0012211,0.48280209436761184,-0.3162308546262127,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,multicystic_kidney_dysplasia,HP:0000003,Multicystic kidney dysplasia,QUERY_TERM_SUBCLASS_OF_DISEASE_TERM,HP:0000107,17.67169928454649,1.2472783126317544,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,multiple_renal_cysts,HP:0005562,Multiple renal cysts,QUERY_TERM_SUBCLASS_OF_DISEASE_TERM,HP:0000107,45.94450093308065,1.6622335384134272,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,oligohydramnios,HP:0001562,Oligohydramnios in the patient’s prenatal history,NO_MATCH_BELOW_ROOT,HP:0001562,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,pancreatic_aplasia_hypoplasia,HP:0100800,Pancreatic aplasia or hypoplasia,NON_ROOT_COMMON_ANCESTOR,HP:0002012,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,pancreatic_endocrine_tumor,HP:0030405,Pancreatic endocrine tumour,QUERY_TERM_PRESENT_BUT_EXCLUDED_IN_DISEASE,HP:0030405,0.001,-3.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,polycystic_kidney_dysplasia,HP:0000113,Polycystic kidney dysplasia,QUERY_TERM_PRESENT_BUT_EXCLUDED_IN_DISEASE,HP:0000113,0.001,-3.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,portal_hypertension,HP:0001409,Portal hypertension,NON_ROOT_COMMON_ANCESTOR,HP:0032263,0.8402197281199407,-0.07560712556755446,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,proteinuria,HP:0000093,Proteinuria,NON_ROOT_COMMON_ANCESTOR,HP:0011277,0.023134376384250994,-1.6357422029515882,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,renal_agenesis,HP:0000104,Renal agenesis,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.8805731355661174,-0.055234568085398145,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,renal_angiomyolipoma,HP:0006772,Renal angiomyolipoma,EXACT_MATCH,HP:0006772,447.2222241312179,2.6505233771183754,True,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,renal_cell_carcinoma,HP:0005584,Renal cell carcinoma,QUERY_TERM_PRESENT_BUT_EXCLUDED_IN_DISEASE,HP:0005584,0.001,-3.0,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,retinal_capillary_hemangioma,HP:0009711,Retinal capillary haemangioma,QUERY_TERM_SUBCLASS_OF_DISEASE_TERM,HP:0009594,603.7500121828632,2.780857152523047,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,retinal_flecks,HP:0012045,Retinal flecks,NON_ROOT_COMMON_ANCESTOR,HP:0000479,0.8887356361685128,-0.051227405314964065,False,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,seizure,HP:0001250,Seizures,EXACT_MATCH,HP:0001250,5.5675061592529245,0.7456607061601537,True,research_candidate_not_clinically_calibrated
+ikd_tuberous_sclerosis,ORPHA:805,shagreen_patch,HP:0009721,Shagreen patch,EXACT_MATCH,HP:0009721,1454.1369276483485,3.1626053034433643,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,acroparesthesia,HP:0031006,Acroparaesthesia,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.04189269139568684,-1.3778617374963131,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,adrenal_pheochromocytoma,HP:0006748,Adrenal pheochromocytoma,EXACT_MATCH,HP:0006748,1945.0109085552458,3.2889220414005766,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,angiofibromas,HP:0010615,Angiofibromas,NON_ROOT_COMMON_ANCESTOR,HP:0011792,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,angiokeratoma,HP:0001014,Angiokeratomas,NON_ROOT_COMMON_ANCESTOR,HP:0002597,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,anterior_lenticonus,HP:0011501,Anterior lenticonus,NON_ROOT_COMMON_ANCESTOR,HP:0012372,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,bilateral_sensorineural_hearing_impairment,HP:0008619,Bilateral sensorineural hearing impairment,NON_ROOT_COMMON_ANCESTOR,HP:0011389,0.03144551647828432,-1.5024412677878154,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,cerebellar_hemangioblastoma,HP:0006880,Cerebellar haemangioblastoma,EXACT_MATCH,HP:0006880,3220.000079969564,3.5078558824816506,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,congenital_hepatic_fibrosis,HP:0002612,Congenital hepatic fibrosis,NON_ROOT_COMMON_ANCESTOR,HP:0002012,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,cornea_verticillata,HP:0500008,Cornea verticillata,NON_ROOT_COMMON_ANCESTOR,HP:0012372,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,diabetes_mellitus,HP:0000819,Diabetes mellitus,NON_ROOT_COMMON_ANCESTOR,HP:0000818,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,endolymphatic_sac_tumor,HP:0030393,Endolymphatic sac tumour,EXACT_MATCH,HP:0030393,2000.0000298023224,3.301030002135473,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,enlarged_kidney,HP:0000105,Enlarged kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,glomerular_basement_membrane_lamellation,HP:0030034,Glomerular basement membrane lamellation,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,horseshoe_kidney,HP:0000085,Horseshoe kidney,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,hypertension,HP:0000822,Hypertension,EXACT_MATCH,HP:0000822,28.616320579326217,1.4566137924279041,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,hyperuricemia,HP:0002149,Hyperuricaemia,NON_ROOT_COMMON_ANCESTOR,HP:0001939,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,hypohidrosis,HP:0000966,Reduced sweating,NON_ROOT_COMMON_ANCESTOR,HP:0007550,1.3622079492686188,0.13424341031263246,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,hypomelanotic_macule,HP:0009719,Hypomelanotic macules,NON_ROOT_COMMON_ANCESTOR,HP:0011121,0.10121669830379197,-0.9947478335143969,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,microscopic_hematuria,HP:0002907,Microscopic haematuria,NON_ROOT_COMMON_ANCESTOR,HP:0000077,0.06689603451379852,-1.1745996257272233,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,multicystic_kidney_dysplasia,HP:0000003,Multicystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0000107,1.3966535774832372,0.14508869813677133,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,multiple_renal_cysts,HP:0005562,Multiple renal cysts,EXACT_MATCH,HP:0005562,168.46316590413446,2.22650495806617,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,oligohydramnios,HP:0001562,Oligohydramnios in the patient’s prenatal history,NO_MATCH_BELOW_ROOT,HP:0001562,0.01,-2.0,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,pancreatic_aplasia_hypoplasia,HP:0100800,Pancreatic aplasia or hypoplasia,NON_ROOT_COMMON_ANCESTOR,HP:0012090,5.0372871271143325,0.7021967064994394,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,pancreatic_endocrine_tumor,HP:0030405,Pancreatic endocrine tumour,EXACT_MATCH,HP:0030405,402.5000018742867,2.6047658867262284,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,polycystic_kidney_dysplasia,HP:0000113,Polycystic kidney dysplasia,NON_ROOT_COMMON_ANCESTOR,HP:0000107,1.3966535774832372,0.14508869813677133,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,portal_hypertension,HP:0001409,Portal hypertension,NON_ROOT_COMMON_ANCESTOR,HP:0032263,2.520659246961069,0.4015141399379278,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,proteinuria,HP:0000093,Proteinuria,NON_ROOT_COMMON_ANCESTOR,HP:0033354,0.1154524279283546,-0.9375969295740066,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,renal_agenesis,HP:0000104,Renal agenesis,NON_ROOT_COMMON_ANCESTOR,HP:0012210,0.029352437123228263,-1.5323558335908805,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,renal_angiomyolipoma,HP:0006772,Renal angiomyolipoma,NON_ROOT_COMMON_ANCESTOR,HP:0009726,13.76936974826602,1.13891406218035,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,renal_cell_carcinoma,HP:0005584,Renal cell carcinoma,EXACT_MATCH,HP:0005584,472.61462470213513,2.6745071564185796,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,retinal_capillary_hemangioma,HP:0009711,Retinal capillary haemangioma,EXACT_MATCH,HP:0009711,2415.000048731453,3.3829171438510097,True,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,retinal_flecks,HP:0012045,Retinal flecks,NON_ROOT_COMMON_ANCESTOR,HP:0000479,0.08887356361685128,-1.0512274053149642,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,seizure,HP:0001250,Seizures,NON_ROOT_COMMON_ANCESTOR,HP:0012638,0.04189269139568684,-1.3778617374963131,False,research_candidate_not_clinically_calibrated
+ikd_vhl,ORPHA:892,shagreen_patch,HP:0009721,Shagreen patch,NON_ROOT_COMMON_ANCESTOR,HP:0033127,0.01,-2.0,False,research_candidate_not_clinically_calibrated

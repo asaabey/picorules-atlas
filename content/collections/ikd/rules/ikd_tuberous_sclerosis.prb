@@ -4,10 +4,24 @@
     is_active: 2,
     atlas: {
         schema_version: "1",
-        version: "0.2.0-demo",
-        demo_threshold: 2,
-        demo_action_when_flagged: "Review the recorded TSC-associated findings and cited sources in clinical context.",
-        demo_action_when_not_flagged: "Clarify unknown or unanswered findings if relevant; this demonstration does not exclude tuberous sclerosis complex.",
+        version: "0.6.0-family-history",
+        scoring: {
+            "model": "ikd-positive-log10-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "lirical_2020",
+                "ikd_weights_2026_09"
+            ],
+            "weights": {
+                "angiofibromas": 2.819881,
+                "hypomelanotic_macule": 3.340975,
+                "renal_angiomyolipoma": 2.650523,
+                "seizure": 0.745661,
+                "shagreen_patch": 3.162605,
+                "family_history_autosomal_dominant": 0
+            }
+        },
         disease_label: "Tuberous sclerosis complex",
         disease_id: "ORPHA:805",
         source_refs: ["genereviews_tsc", "orphadata_2026_06"]
@@ -19,12 +33,19 @@ angiofibromas => eadv.phen_angiofibromas.val.last();
 shagreen_patch => eadv.phen_shagreen_patch.val.last();
 renal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();
 seizure => eadv.phen_seizure.val.last();
+family_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();
 
-/* Illustrative workflow signal only. Two present inputs is a demonstration
-   threshold, not a TSC diagnostic criterion or probability. */
-present_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) };
-demo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };
-[[rb_id]] : { . => demo_review_prompt };
+
+/* Research phenotype matching: absent or unstated inputs contribute zero. */
+present_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) + coalesce(family_history_autosomal_dominant, 0) };
+contribution_hypomelanotic_macule : { hypomelanotic_macule = 1 => 3.340975 }, { => 0 };
+contribution_angiofibromas : { angiofibromas = 1 => 2.819881 }, { => 0 };
+contribution_shagreen_patch : { shagreen_patch = 1 => 3.162605 }, { => 0 };
+contribution_renal_angiomyolipoma : { renal_angiomyolipoma = 1 => 2.650523 }, { => 0 };
+contribution_seizure : { seizure = 1 => 0.745661 }, { => 0 };
+contribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_hypomelanotic_macule + contribution_angiofibromas + contribution_shagreen_patch + contribution_renal_angiomyolipoma + contribution_seizure + contribution_family_history_autosomal_dominant };
+[[rb_id]] : { . => weighted_score };
 
 #define_attribute(hypomelanotic_macule, {
     label: "Hypomelanotic macules",
@@ -36,23 +57,56 @@ demo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };
         question: "Have hypomelanotic macules been identified?",
         answer_type: "presence",
         hpo_id: "HP:0009719",
-        help: "Records identified patches of skin with reduced pigmentation; no lesion count is applied.",
+        help: "Records identified patches of skin with reduced pigmentation. No lesion count is applied.",
+        reference_image: {
+            path: "/reference-images/tsc-skin-findings.png",
+            alt: "Three-panel clinical image. the top panel shows pale hypomelanotic macules on the trunk and arms.",
+            caption: "Top panel (A): hypomelanotic macules. The other panels show different TSC skin findings.",
+            credit: "Portocarrero et al., Anais Brasileiros de Dermatologia (2018)",
+            source_url: "https://commons.wikimedia.org/wiki/File:Hypopigmented_macules,_Shagreen_patch_and_periungual_fibroma_of_tuberous_sclerosis.png",
+            license: "CC BY 4.0",
+            license_url: "https://creativecommons.org/licenses/by/4.0/",
+            sha256: "234f5ffc30708ab4b68d549e51884a9c0627ad415cf2207acc02fc69f30582c8",
+            width: 993,
+            height: 1935
+        },
         source_refs: ["genereviews_tsc", "orphadata_2026_06"]
     }
 });
 
 #define_attribute(angiofibromas, {
-    label: "Angiofibromas",
-    atlas: {
-        role: "input",
-        feature_id: "angiofibromas",
-        source_attribute: "phen_angiofibromas",
-        section: "skin_sweating",
-        question: "Have angiofibromas been identified?",
-        answer_type: "presence",
-        hpo_id: "HP:0010615",
-        help: "Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.",
-        source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    "label": "Angiofibromas",
+    "atlas": {
+        "role": "input",
+        "feature_id": "angiofibromas",
+        "source_attribute": "phen_angiofibromas",
+        "section": "skin_sweating",
+        "question": "Have angiofibromas been identified?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0010615",
+        "help": "Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.",
+        "source_refs": [
+            "genereviews_tsc",
+            "orphadata_2026_06"
+        ],
+        "reference_image": {
+            "path": "/reference-images/facial-angiofibromas.jpg",
+            "alt": "Clinical photograph of multiple raised papules over the nose, cheeks and forehead, with the eyes masked in the source image.",
+            "caption": "Facial angiofibromas in a published tuberous sclerosis example. Appearance varies between individuals.",
+            "credit": "M. Sand, D. Sand, C. Thrandorf, V. Paech, P. Altmeyer and F. G. Bechara (2010). Unmodified source image.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Adenoma_sebaceum_01.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "sha256": "31bf1152217a464c857f41b098e4f1b1c68717713b6092e86fa706296cae7a72",
+            "width": 1200,
+            "height": 1809
+        },
+        "image_guidance": {
+            "category": "dermatology",
+            "modality": "Clinical photograph",
+            "description": "Facial angiofibromas in a published tuberous sclerosis example. Appearance varies between individuals.",
+            "asset_status": "available_reference"
+        }
     }
 });
 
@@ -67,6 +121,18 @@ demo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };
         answer_type: "presence",
         hpo_id: "HP:0009721",
         help: "Records whether this skin finding has been identified.",
+        reference_image: {
+            path: "/reference-images/tsc-skin-findings.png",
+            alt: "Three-panel clinical image. the middle panel shows a textured shagreen patch on the lower back.",
+            caption: "Middle panel (B): shagreen patch. The other panels show different TSC skin findings.",
+            credit: "Portocarrero et al., Anais Brasileiros de Dermatologia (2018)",
+            source_url: "https://commons.wikimedia.org/wiki/File:Hypopigmented_macules,_Shagreen_patch_and_periungual_fibroma_of_tuberous_sclerosis.png",
+            license: "CC BY 4.0",
+            license_url: "https://creativecommons.org/licenses/by/4.0/",
+            sha256: "234f5ffc30708ab4b68d549e51884a9c0627ad415cf2207acc02fc69f30582c8",
+            width: 993,
+            height: 1935
+        },
         source_refs: ["genereviews_tsc", "orphadata_2026_06"]
     }
 });
@@ -82,6 +148,18 @@ demo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };
         answer_type: "presence",
         hpo_id: "HP:0006772",
         help: "Records a documented kidney lesion, without applying a size or number threshold.",
+        reference_image: {
+            path: "/reference-images/renal-angiomyolipoma-ct.jpg",
+            alt: "Side-by-side axial kidney CT images before and after contrast, with an arrow pointing to a renal angiomyolipoma.",
+            caption: "Example renal angiomyolipoma on CT before (left) and after (right) contrast. This image is an example, not a diagnostic template.",
+            credit: "Greco et al., Journal of Renal and Hepatic Disorders (2018)",
+            source_url: "https://commons.wikimedia.org/wiki/File:CT_of_angiomyolipoma,_before_and_after_radiocontrast.jpg",
+            license: "CC BY 4.0",
+            license_url: "https://creativecommons.org/licenses/by/4.0/",
+            sha256: "31157f4f281d178b47b1bb06c613bf2054cbc52c62b99d0642dcae82cb6c0cb6",
+            width: 946,
+            height: 622
+        },
         source_refs: ["genereviews_tsc", "orphadata_2026_06"]
     }
 });
@@ -98,5 +176,21 @@ demo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };
         hpo_id: "HP:0001250",
         help: "Records a history of seizures without implying when they occurred.",
         source_refs: ["genereviews_tsc", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(family_history_autosomal_dominant, {
+    "label": "Documented family history suggesting autosomal dominant inheritance",
+    "atlas": {
+        "role": "input",
+        "evidence_kind": "family_history",
+        "feature_id": "family_history_autosomal_dominant",
+        "source_attribute": "phen_family_history_autosomal_dominant",
+        "section": "family_history",
+        "question": "Does the documented family history show a similar condition in successive generations?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000006",
+        "help": "A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.",
+        "source_refs": ["genereviews_tsc"]
     }
 });

@@ -2,14 +2,14 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { expect, test } from '@playwright/test';
 
-test('static viewer preserves both authored IKD sources and question declaration links', async ({ page, request }) => {
+test('static viewer preserves all eight authored IKD sources and question declaration links', async ({ page, request }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Open assessment' }).click();
   await expect(page.getByRole('heading', { name: 'Ruleblocks in this collection' })).toBeVisible();
-  await expect(page.locator('article.ruleblock-card')).toHaveCount(2);
+  await expect(page.locator('article.ruleblock-card')).toHaveCount(8);
   await expect(page.getByText('They do not contain diagnostic logic')).toBeVisible();
 
-  for (const ruleId of ['ikd_fabry', 'ikd_tuberous_sclerosis']) {
+  for (const ruleId of ['ikd_fabry', 'ikd_tuberous_sclerosis', 'ikd_alport', 'ikd_hnf1b', 'ikd_arpkd', 'ikd_vhl', 'ikd_adtkd_umod', 'ikd_adtkd_muc1']) {
     const card = page.locator('article.ruleblock-card').filter({ has: page.locator(`#rule-title-${ruleId}`) });
     const committedBytes = readFileSync(resolve(process.cwd(), `content/collections/ikd/rules/${ruleId}.prb`));
     const committed = committedBytes.toString('utf8');
@@ -22,13 +22,14 @@ test('static viewer preserves both authored IKD sources and question declaration
   }
 
   for (const question of await page.locator('article.question-card').all()) {
-    const featureId = await question.locator('input[type="radio"]').first().getAttribute('name');
-    const context = question.locator('details.disease-context');
-    await context.locator('summary').click();
-    const link = context.getByRole('link', { name: /input declaration/ });
-    const target = await link.getAttribute('href');
-    expect(target).toMatch(/^#rule-ikd_[a-z_]+-line-\d+$/);
-    await expect(page.locator(target!)).toContainText(`#define_attribute(${featureId!.replace('answer-', '')},`);
+    const featureId = await question.locator('input[type="checkbox"]').first().getAttribute('name');
+    for (const context of await question.locator('details.disease-context').all()) {
+      await context.locator('summary').click();
+      const link = context.getByRole('link', { name: /input declaration/ });
+      const target = await link.getAttribute('href');
+      expect(target).toMatch(/^#rule-ikd_[a-z0-9_]+-line-\d+$/);
+      await expect(page.locator(target!)).toContainText(`#define_attribute(${featureId!.replace('answer-', '')},`);
+    }
   }
 });
 
@@ -39,10 +40,10 @@ test('keyboard and mobile users can reach the input declaration', async ({ page 
   const proteinuria = page.locator('article.question-card').filter({
     has: page.getByRole('heading', { name: 'Proteinuria' }),
   });
-  const summary = proteinuria.locator('summary');
+  const summary = proteinuria.locator('summary').first();
   await summary.focus();
   await page.keyboard.press('Enter');
-  const link = proteinuria.getByRole('link', { name: /proteinuria input declaration/ });
+  const link = proteinuria.getByRole('link', { name: /proteinuria input declaration/ }).first();
   await link.focus();
   await page.keyboard.press('Enter');
   const target = await link.getAttribute('href');
@@ -56,8 +57,8 @@ test('keyboard and mobile users can reach the input declaration', async ({ page 
 test('candidate limitations and source provenance are visible to reviewers', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Open assessment' }).click();
-  await expect(page.getByText(/do not form a complete inherited kidney disease screening instrument or diagnostic criteria/)).toBeVisible();
-  await expect(page.getByText(/an absent finding does not exclude it/)).toBeVisible();
+  await expect(page.getByText(/are an incomplete research assessment/)).toBeVisible();
+  await expect(page.getByText(/A zero score does not exclude disease/)).toBeVisible();
   const provenance = page.locator('details.source-provenance');
   await provenance.locator('summary').focus();
   await page.keyboard.press('Enter');

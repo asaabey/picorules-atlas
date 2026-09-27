@@ -1,0 +1,115 @@
+{
+  "description": "Authored family-history pattern prompts and disease inheritance modes. These are contextual pedigree signals, not patient phenotypes, molecular diagnoses, or LIRICAL weights.",
+  "associations": [
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_tuberous_sclerosis",
+      "diseaseId": "ORPHA:805",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_tsc"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_alport"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_hnf1b"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_vhl"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_adtkd_umod",
+      "diseaseId": "OMIM:162000",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_adtkd_umod"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_adtkd_muc1",
+      "diseaseId": "OMIM:174000",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_adtkd_muc1"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_alport"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_arpkd"
+    },
+    {
+      "featureId": "family_history_x_linked",
+      "ruleId": "ikd_fabry",
+      "diseaseId": "ORPHA:324",
+      "hpoId": "HP:0001417",
+      "hpoLabel": "Documented family history suggesting X-linked inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_fabry"
+    },
+    {
+      "featureId": "family_history_x_linked",
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "hpoId": "HP:0001417",
+      "hpoLabel": "Documented family history suggesting X-linked inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_alport"
+    }
+  ]
+}

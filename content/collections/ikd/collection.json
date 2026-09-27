@@ -3,17 +3,55 @@
   "id": "ikd",
   "title": "Inherited kidney disease",
   "description": "Structured history and findings for an inherited kidney disease assessment.",
-  "version": "0.2.0-demo",
-  "limitations": "These ten candidate features do not form a complete inherited kidney disease screening instrument or diagnostic criteria. A finding does not establish a disease, and an absent finding does not exclude it.",
+  "version": "0.6.0-family-history",
+  "limitations": "These 42 questions across eight disease profiles are an incomplete research assessment. Three shared family-history prompts record patterns that may suggest dominant, recessive, or X-linked inheritance; they do not establish a genetic diagnosis. Unticked findings are recorded as absent for this proof of concept. Family-history prompts have zero score weight while the other present findings add candidate weights derived from LIRICAL. Scores are not calibrated disease probabilities or diagnostic criteria. A zero score does not exclude disease. A negative or unclear family history does not exclude disease, and Alport remains a broad profile without inheritance subtypes. Related findings may inflate totals, profiles have different selected features, and UMOD and MUC1 remain hard to distinguish. Timing of gout is not encoded.",
   "associationContext": "This is background context; an answer here does not establish or exclude a diagnosis.",
   "sections": [
-    { "id": "kidney", "label": "Kidney" },
-    { "id": "skin_sweating", "label": "Skin and sweating" },
-    { "id": "eyes", "label": "Eyes" },
-    { "id": "neurological_history", "label": "Neurological history" }
+    {
+      "id": "family_history",
+      "label": "Family history"
+    },
+    {
+      "id": "kidney",
+      "label": "Kidney"
+    },
+    {
+      "id": "skin_sweating",
+      "label": "Skin and sweating"
+    },
+    {
+      "id": "eyes",
+      "label": "Eyes"
+    },
+    {
+      "id": "neurological_history",
+      "label": "Neurological history"
+    },
+    {
+      "id": "hearing",
+      "label": "Hearing"
+    },
+    {
+      "id": "endocrine_metabolic",
+      "label": "Endocrine and metabolic"
+    },
+    {
+      "id": "liver_pregnancy",
+      "label": "Liver and prenatal history"
+    },
+    {
+      "id": "cardiovascular",
+      "label": "Cardiovascular"
+    }
   ],
   "rules": [
     "rules/ikd_fabry.prb",
-    "rules/ikd_tuberous_sclerosis.prb"
+    "rules/ikd_tuberous_sclerosis.prb",
+    "rules/ikd_alport.prb",
+    "rules/ikd_hnf1b.prb",
+    "rules/ikd_arpkd.prb",
+    "rules/ikd_vhl.prb",
+    "rules/ikd_adtkd_umod.prb",
+    "rules/ikd_adtkd_muc1.prb"
   ]
 }

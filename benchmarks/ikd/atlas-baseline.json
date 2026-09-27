@@ -1,0 +1,228 @@
+{
+  "contentVersion": "81bedfeca7a1c0f0",
+  "rules": [
+    {
+      "ruleId": "ikd_fabry",
+      "diseaseId": "ORPHA:324",
+      "label": "Fabry disease",
+      "threshold": 2,
+      "inputs": [
+        {
+          "featureId": "proteinuria",
+          "hpoId": "HP:0000093",
+          "label": "Proteinuria"
+        },
+        {
+          "featureId": "angiokeratoma",
+          "hpoId": "HP:0001014",
+          "label": "Angiokeratomas"
+        },
+        {
+          "featureId": "hypohidrosis",
+          "hpoId": "HP:0000966",
+          "label": "Reduced sweating"
+        },
+        {
+          "featureId": "cornea_verticillata",
+          "hpoId": "HP:0500008",
+          "label": "Cornea verticillata"
+        },
+        {
+          "featureId": "acroparesthesia",
+          "hpoId": "HP:0031006",
+          "label": "Acroparaesthesia"
+        }
+      ]
+    },
+    {
+      "ruleId": "ikd_tuberous_sclerosis",
+      "diseaseId": "ORPHA:805",
+      "label": "Tuberous sclerosis complex",
+      "threshold": 2,
+      "inputs": [
+        {
+          "featureId": "renal_angiomyolipoma",
+          "hpoId": "HP:0006772",
+          "label": "Renal angiomyolipoma"
+        },
+        {
+          "featureId": "angiofibromas",
+          "hpoId": "HP:0010615",
+          "label": "Angiofibromas"
+        },
+        {
+          "featureId": "hypomelanotic_macule",
+          "hpoId": "HP:0009719",
+          "label": "Hypomelanotic macules"
+        },
+        {
+          "featureId": "shagreen_patch",
+          "hpoId": "HP:0009721",
+          "label": "Shagreen patch"
+        },
+        {
+          "featureId": "seizure",
+          "hpoId": "HP:0001250",
+          "label": "Seizures"
+        }
+      ]
+    },
+    {
+      "ruleId": "ikd_alport",
+      "diseaseId": "ORPHA:63",
+      "label": "Alport syndrome",
+      "threshold": 2,
+      "inputs": [
+        {
+          "featureId": "glomerular_basement_membrane_lamellation",
+          "hpoId": "HP:0030034",
+          "label": "Glomerular basement membrane lamellation"
+        },
+        {
+          "featureId": "microscopic_hematuria",
+          "hpoId": "HP:0002907",
+          "label": "Microscopic haematuria"
+        },
+        {
+          "featureId": "proteinuria",
+          "hpoId": "HP:0000093",
+          "label": "Proteinuria"
+        },
+        {
+          "featureId": "anterior_lenticonus",
+          "hpoId": "HP:0011501",
+          "label": "Anterior lenticonus"
+        },
+        {
+          "featureId": "retinal_flecks",
+          "hpoId": "HP:0012045",
+          "label": "Retinal flecks"
+        },
+        {
+          "featureId": "bilateral_sensorineural_hearing_impairment",
+          "hpoId": "HP:0008619",
+          "label": "Bilateral sensorineural hearing impairment"
+        }
+      ]
+    },
+    {
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "label": "HNF1B-related disease",
+      "threshold": 2,
+      "inputs": [
+        {
+          "featureId": "horseshoe_kidney",
+          "hpoId": "HP:0000085",
+          "label": "Horseshoe kidney"
+        },
+        {
+          "featureId": "multicystic_kidney_dysplasia",
+          "hpoId": "HP:0000003",
+          "label": "Multicystic kidney dysplasia"
+        },
+        {
+          "featureId": "renal_agenesis",
+          "hpoId": "HP:0000104",
+          "label": "Renal agenesis"
+        },
+        {
+          "featureId": "diabetes_mellitus",
+          "hpoId": "HP:0000819",
+          "label": "Diabetes mellitus"
+        },
+        {
+          "featureId": "hyperuricemia",
+          "hpoId": "HP:0002149",
+          "label": "Hyperuricaemia"
+        },
+        {
+          "featureId": "pancreatic_aplasia_hypoplasia",
+          "hpoId": "HP:0100800",
+          "label": "Pancreatic aplasia or hypoplasia"
+        }
+      ]
+    },
+    {
+      "ruleId": "ikd_arpkd",
+      "diseaseId": "ORPHA:731",
+      "label": "Autosomal recessive polycystic kidney disease",
+      "threshold": 2,
+      "inputs": [
+        {
+          "featureId": "enlarged_kidney",
+          "hpoId": "HP:0000105",
+          "label": "Enlarged kidney"
+        },
+        {
+          "featureId": "polycystic_kidney_dysplasia",
+          "hpoId": "HP:0000113",
+          "label": "Polycystic kidney dysplasia"
+        },
+        {
+          "featureId": "congenital_hepatic_fibrosis",
+          "hpoId": "HP:0002612",
+          "label": "Congenital hepatic fibrosis"
+        },
+        {
+          "featureId": "oligohydramnios",
+          "hpoId": "HP:0001562",
+          "label": "Oligohydramnios in the patient\u2019s prenatal history"
+        },
+        {
+          "featureId": "portal_hypertension",
+          "hpoId": "HP:0001409",
+          "label": "Portal hypertension"
+        },
+        {
+          "featureId": "hypertension",
+          "hpoId": "HP:0000822",
+          "label": "Hypertension"
+        }
+      ]
+    },
+    {
+      "ruleId": "ikd_vhl",
+      "diseaseId": "ORPHA:892",
+      "label": "Von Hippel\u2013Lindau disease",
+      "threshold": 2,
+      "inputs": [
+        {
+          "featureId": "multiple_renal_cysts",
+          "hpoId": "HP:0005562",
+          "label": "Multiple renal cysts"
+        },
+        {
+          "featureId": "renal_cell_carcinoma",
+          "hpoId": "HP:0005584",
+          "label": "Renal cell carcinoma"
+        },
+        {
+          "featureId": "retinal_capillary_hemangioma",
+          "hpoId": "HP:0009711",
+          "label": "Retinal capillary haemangioma"
+        },
+        {
+          "featureId": "cerebellar_hemangioblastoma",
+          "hpoId": "HP:0006880",
+          "label": "Cerebellar haemangioblastoma"
+        },
+        {
+          "featureId": "endolymphatic_sac_tumor",
+          "hpoId": "HP:0030393",
+          "label": "Endolymphatic sac tumour"
+        },
+        {
+          "featureId": "adrenal_pheochromocytoma",
+          "hpoId": "HP:0006748",
+          "label": "Adrenal pheochromocytoma"
+        },
+        {
+          "featureId": "pancreatic_endocrine_tumor",
+          "hpoId": "HP:0030405",
+          "label": "Pancreatic endocrine tumour"
+        }
+      ]
+    }
+  ]
+}

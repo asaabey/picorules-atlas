@@ -1,16 +1,16 @@
 {
   "schemaVersion": "1",
   "collectionId": "ikd",
-  "contentVersion": "bc826888e7405139",
+  "contentVersion": "bda54c22d356132f",
   "featureReviews": {
-    "proteinuria": {
+    "acroparesthesia": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
       "decisionNotes": "",
       "wordingChanges": []
     },
-    "renal_angiomyolipoma": {
+    "adrenal_pheochromocytoma": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -31,21 +31,28 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
-    "hypomelanotic_macule": {
+    "anterior_lenticonus": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
       "decisionNotes": "",
       "wordingChanges": []
     },
-    "hypohidrosis": {
+    "bilateral_sensorineural_hearing_impairment": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
       "decisionNotes": "",
       "wordingChanges": []
     },
-    "shagreen_patch": {
+    "cerebellar_hemangioblastoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "congenital_hepatic_fibrosis": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -59,7 +66,217 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
-    "acroparesthesia": {
+    "decreased_glomerular_filtration_rate": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "diabetes_mellitus": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "endolymphatic_sac_tumor": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "enlarged_kidney": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "family_history_autosomal_dominant": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "family_history_autosomal_recessive": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "family_history_x_linked": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "glomerular_basement_membrane_lamellation": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "gout": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "horseshoe_kidney": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hyperechogenic_kidneys": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypertension": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hyperuricemia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypohidrosis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypomelanotic_macule": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "microscopic_hematuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "multicystic_kidney_dysplasia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "multiple_renal_cysts": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "oligohydramnios": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "pancreatic_aplasia_hypoplasia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "pancreatic_endocrine_tumor": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "polycystic_kidney_dysplasia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "portal_hypertension": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "proteinuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_agenesis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_angiomyolipoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_cell_carcinoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_corticomedullary_cysts": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_tubular_atrophy": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "retinal_capillary_hemangioma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "retinal_flecks": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -72,6 +289,13 @@
       "reviewedAt": null,
       "decisionNotes": "",
       "wordingChanges": []
+    },
+    "shagreen_patch": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
     }
   },
   "globalReviews": {
@@ -79,31 +303,36 @@
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
-      "decisionNotes": ""
+      "decisionNotes": "",
+      "wordingChanges": []
     },
     "diseaseContext": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
-      "decisionNotes": ""
+      "decisionNotes": "",
+      "wordingChanges": []
     },
     "limitations": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
-      "decisionNotes": ""
+      "decisionNotes": "",
+      "wordingChanges": []
     },
     "sourceProvenance": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
-      "decisionNotes": ""
+      "decisionNotes": "",
+      "wordingChanges": []
     },
     "fhirMapping": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
-      "decisionNotes": ""
+      "decisionNotes": "",
+      "wordingChanges": []
     }
   },
   "signOffs": []

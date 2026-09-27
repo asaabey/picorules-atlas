@@ -32,19 +32,15 @@ describe('FHIR rule-result handoff', () => {
   it('exports every rule score and only triggered possible diagnoses with source trace', () => {
     const { bundle, assessment, results } = handoff(['proteinuria', 'angiokeratoma', 'seizure']);
     const { scores, impression } = output(bundle);
-    expect(scores.map(score => [score.identifier[0].value, score.valueInteger])).toEqual([
-      ['ikd_fabry', 2], ['ikd_tuberous_sclerosis', 1],
-    ]);
-    expect(scores[0].component.map(component =>
-      component.valueInteger ?? component.valueBoolean)).toEqual([5, 2, true]);
-    expect(scores[1].component.map(component =>
-      component.valueInteger ?? component.valueBoolean)).toEqual([5, 2, false]);
-    expect(impression.finding).toHaveLength(1);
-    expect(impression.finding[0].itemCodeableConcept.coding[0].code).toBe('ORPHA:324');
-    expect(impression.finding[0].basis).toContain('Rule ikd_fabry v0.2.0-demo: 2/5');
-    expect(impression.finding[0].basis).toContain('Proteinuria, Angiokeratomas');
+    expect(scores.map(score => score.valueQuantity?.value)).toEqual(results.map(result => result.weightedScore));
+    expect(scores.every(score => score.valueInteger === undefined)).toBe(true);
+    expect(scores[0].code.coding[0].code).toBe('phenotype-match-ikd-positive-log10-v1');
+    expect(scores[0].component.map(component => component.valueInteger)).toEqual([6, 2]);
+    expect(scores[0].note[0].text).toContain('ikd-positive-log10-v1');
+    expect(scores[0].note[0].text).toContain('Angiokeratomas: present');
+    expect(impression.finding).toEqual([]);
     expect(impression.summary).toContain('No diagnosis is confirmed');
-    expect(results.map(result => result.presentCount)).toEqual([2, 1]);
+    expect(results.map(result => result.presentCount)).toEqual([2, 1, 1, 0, 0, 0, 0, 0]);
     expect(JSON.stringify(assessment)).not.toContain('ClinicalImpression');
     const patient = bundle.entry.find(entry => entry.resource.resourceType === 'Patient');
     expect(patient?.resource).toEqual({ resourceType: 'Patient', id: patient?.fullUrl.replace('urn:uuid:', '') });
@@ -55,7 +51,7 @@ describe('FHIR rule-result handoff', () => {
   it('exports zero scores and no possible diagnoses without falsely excluding disease', () => {
     const { bundle } = handoff([]);
     const { scores, impression } = output(bundle);
-    expect(scores.map(score => score.valueInteger)).toEqual([0, 0]);
+    expect(scores.map(score => score.valueQuantity?.value)).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
     expect(impression.finding).toEqual([]);
     expect(impression.summary).toContain('does not exclude');
   });
@@ -74,7 +70,7 @@ describe('FHIR rule-result handoff', () => {
     const { scores, impression } = output(bundle);
     expect(results.map(result => result.ruleId)).toEqual(['ikd_fabry']);
     expect(scores.map(score => score.identifier[0].value)).toEqual(['ikd_fabry']);
-    expect(impression.finding.map(finding => finding.itemCodeableConcept.text)).toEqual(['Fabry disease']);
+    expect(impression.finding.map(finding => finding.itemCodeableConcept.text)).toEqual([]);
     expect(JSON.stringify(bundle)).not.toContain('ikd_tuberous_sclerosis');
   });
 

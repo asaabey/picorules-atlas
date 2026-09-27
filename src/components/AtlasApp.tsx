@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { countAnswered, createAnswers, resetAnswers, setAnswer } from '../lib/assessment/answers';
+import { countPresent, createAnswers, resetAnswers, setAnswer } from '../lib/assessment/answers';
 import { buildAssessmentBundle } from '../lib/fhir';
 import { buildHandoffBundle, type HandoffBundle } from '../lib/fhir/handoff';
 import { parseCollectionRules, type DemoResult } from '../lib/runtime/ruleEngine';
@@ -17,12 +17,6 @@ import type {
 } from '../lib/types';
 
 type AppProps = { collections: Record<string, CollectionManifest> };
-
-const ANSWER_OPTIONS: { value: Exclude<AnswerState, 'unanswered'>; label: string }[] = [
-  { value: 'present', label: 'Present' },
-  { value: 'absent', label: 'Absent' },
-  { value: 'unknown', label: 'Unknown / not assessed' },
-];
 
 function Brand({ small = false }: { small?: boolean }) {
   return (
@@ -83,7 +77,7 @@ function CollectionSelector({
               with the source and disease context close at hand.
             </p>
             <div className="hero-principles" aria-label="Assessment characteristics">
-              <span><span className="principle-dot" /> One question per finding</span>
+              <span><span className="principle-dot" /> One checkbox per finding</span>
               <span><span className="principle-dot" /> Source linked context</span>
             </div>
           </div>
@@ -200,33 +194,62 @@ function QuestionCard({
   onAnswer: (featureId: string, answer: AnswerState) => void;
 }) {
   const titleId = `question-title-${question.featureId}`;
-  const promptId = `question-prompt-${question.featureId}`;
+  const checkboxId = `finding-${question.featureId}`;
 
   return (
     <article className="question-card" aria-labelledby={titleId}>
       <div className="question-index">{String(number).padStart(2, '0')}</div>
       <div className="question-content">
         <div className="question-heading">
-          <h4 id={titleId}>{question.label}</h4>
+          <div className="finding-control">
+            <input
+              id={checkboxId}
+              type="checkbox"
+              name={`answer-${question.featureId}`}
+              checked={answer === 'present'}
+              onChange={event => onAnswer(question.featureId, event.target.checked ? 'present' : 'absent')}
+              aria-label={`Mark ${question.label} as present`}
+            />
+            <h4 id={titleId}><label htmlFor={checkboxId}>{question.label}</label></h4>
+          </div>
           <span className="question-code">{question.hpoId}</span>
         </div>
-        <p id={promptId} className="question-prompt">{question.question}</p>
-        <fieldset className="answer-group" aria-describedby={promptId}>
-          <legend className="sr-only">Answer for {question.label}</legend>
-          {ANSWER_OPTIONS.map(option => (
-            <label className={`answer-option${answer === option.value ? ' answer-option--selected' : ''}`} key={option.value}>
-              <input
-                type="radio"
-                name={`answer-${question.featureId}`}
-                value={option.value}
-                checked={answer === option.value}
-                onChange={() => onAnswer(question.featureId, option.value)}
+        {question.imageGuidance && question.imageGuidance.assetStatus !== 'not_selected' && (
+          <details className="image-guidance">
+            <summary>Image context: {question.imageGuidance.category}</summary>
+            <p>{question.imageGuidance.modality}: {question.imageGuidance.description}</p>
+            {question.imageGuidance.assetStatus === 'pending_verified_reference' && (
+              <p>A verified reference image has not yet been attached.</p>
+            )}
+          </details>
+        )}
+        {question.referenceImage && (
+          <details className="reference-image">
+            <summary>View reference image for {question.label}</summary>
+            <figure>
+              <img
+                src={question.referenceImage.path}
+                alt={question.referenceImage.alt}
+                width={question.referenceImage.width}
+                height={question.referenceImage.height}
+                loading="lazy"
+                decoding="async"
               />
-              <span className="answer-radio" aria-hidden="true" />
-              <span>{option.label}</span>
-            </label>
-          ))}
-        </fieldset>
+              <figcaption>
+                <span>{question.referenceImage.caption} Reference example only; appearance may vary.</span>
+                <span>Image: {question.referenceImage.credit} ·{' '}
+                  <a href={question.referenceImage.sourceUrl} target="_blank" rel="noopener noreferrer">Source</a> ·{' '}
+                  <a href={question.referenceImage.licenseUrl} target="_blank" rel="noopener noreferrer">
+                    {question.referenceImage.license}
+                  </a>
+                </span>
+                <a href={question.referenceImage.path} target="_blank" rel="noopener noreferrer">
+                  Open full-size image <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </figcaption>
+            </figure>
+          </details>
+        )}
         {question.diseases.length > 0 && (
           <div className="association-list">
             <span className="association-caption">Associated with</span>
@@ -271,7 +294,7 @@ function Section({
             key={question.featureId}
             question={question}
             number={questionNumbers.get(question.featureId) ?? 0}
-            answer={answers[question.featureId] ?? 'unanswered'}
+            answer={answers[question.featureId] ?? 'absent'}
             collection={collection}
             onAnswer={onAnswer}
           />
@@ -343,9 +366,13 @@ function Assessment({
   result: { bundle: HandoffBundle; items: DemoResult[] } | null;
   error: string | null;
 }) {
-  const diseases = uniqueDiseaseNames(collection);
-  const answered = countAnswered(collection, answers);
-  const questionNumbers = new Map(collection.questions.map((question, index) => [question.featureId, index + 1]));
+  const [selectedRuleId, setSelectedRuleId] = useState<string | null>(null);
+  const selectedDisease = collection.rules.find(rule => rule.id === selectedRuleId);
+  const visibleQuestions = selectedDisease
+    ? collection.questions.filter(question => question.diseases.some(disease => disease.ruleId === selectedDisease.id))
+    : collection.questions;
+  const present = countPresent(collection, answers);
+  const questionNumbers = new Map(visibleQuestions.map((question, index) => [question.featureId, index + 1]));
 
   return (
     <div className="site-shell assessment-page">
@@ -374,14 +401,14 @@ function Assessment({
           <aside className="assessment-sidebar" aria-label="Assessment navigation">
             <div className="sidebar-sticky">
               <p className="overline">YOUR ASSESSMENT</p>
-              <div className="progress-number"><strong>{answered}</strong><span> / {collection.questions.length} answered</span></div>
-              <div className="progress-track" role="progressbar" aria-valuenow={answered} aria-valuemin={0} aria-valuemax={collection.questions.length} aria-label="Questions answered">
-                <span style={{ width: `${collection.questions.length ? (answered / collection.questions.length) * 100 : 0}%` }} />
+              <div className="progress-number"><strong>{present}</strong><span> / {collection.questions.length} present</span></div>
+              <div className="progress-track" role="progressbar" aria-valuenow={present} aria-valuemin={0} aria-valuemax={collection.questions.length} aria-label="Findings marked present">
+                <span style={{ width: `${collection.questions.length ? (present / collection.questions.length) * 100 : 0}%` }} />
               </div>
               <nav className="section-nav" aria-label="Assessment sections">
                 <p>SECTIONS</p>
                 {collection.sections.map((section, index) => {
-                  const count = collection.questions.filter(question => question.section === section.id).length;
+                  const count = visibleQuestions.filter(question => question.section === section.id).length;
                   return count > 0 ? (
                     <a key={section.id} href={`#${section.id}`}>
                       <span className="nav-index">{String(index + 1).padStart(2, '0')}</span>
@@ -402,7 +429,7 @@ function Assessment({
                 <p className="overline">STRUCTURED FINDINGS</p>
                 <h2>Clinical features</h2>
               </div>
-              <p>Record what is known for each finding. You can leave any question unanswered.</p>
+              <p>Tick documented findings and family-history patterns. Unticked items are treated as absent when you show results.</p>
             </div>
             <div className="context-banner">
               <span className="banner-icon" aria-hidden="true">i</span>
@@ -411,21 +438,36 @@ function Assessment({
                 <p>{collection.limitations}</p>
               </div>
             </div>
-            <div className="included-diseases" aria-label="Included diseases">
-              <span>Included diseases</span>
-              {diseases.map(name => <span className="disease-pill" key={name}>{name}</span>)}
+            <div className="included-diseases" role="group" aria-label="Filter questions by disease">
+              <span>Filter by disease</span>
+              <button type="button" className="disease-pill" aria-pressed={selectedRuleId === null}
+                aria-controls="assessment-questions" onClick={() => setSelectedRuleId(null)}>
+                All diseases
+              </button>
+              {collection.rules.map(rule => (
+                <button type="button" className="disease-pill" key={rule.id}
+                  aria-pressed={selectedRuleId === rule.id} aria-controls="assessment-questions"
+                  onClick={() => setSelectedRuleId(rule.id)}>{rule.label}</button>
+              ))}
             </div>
-            {collection.sections.map(section => (
-              <Section
-                key={section.id}
-                section={section}
-                questions={collection.questions.filter(question => question.section === section.id)}
-                collection={collection}
-                answers={answers}
-                questionNumbers={questionNumbers}
-                onAnswer={onAnswer}
-              />
-            ))}
+            <p className="filter-status" role="status">
+              Showing {visibleQuestions.length} of {collection.questions.length} features
+              {selectedDisease ? ` linked to ${selectedDisease.label}` : ' across all diseases'}.
+              {' '}Answers stay in the collection when you switch views. Show results evaluates all {collection.rules.length} rules.
+            </p>
+            <div id="assessment-questions">
+              {collection.sections.map(section => (
+                <Section
+                  key={section.id}
+                  section={section}
+                  questions={visibleQuestions.filter(question => question.section === section.id)}
+                  collection={collection}
+                  answers={answers}
+                  questionNumbers={questionNumbers}
+                  onAnswer={onAnswer}
+                />
+              ))}
+            </div>
             <div className="assessment-end">
               <div><span aria-hidden="true">✳</span><strong>End of questions</strong><p>Run the rules here. Answers stay in this browser.</p></div>
               <div className="flow-actions">
@@ -456,25 +498,39 @@ function ResultsPanel({ collection, results, onDownload }: {
       <p className="flow-version">Collection {collection.version} · Content {collection.contentVersion}</p>
       <div className="context-banner flow-warning"><span className="banner-icon" aria-hidden="true">i</span><div>
         <strong>Proof of concept only</strong>
-        <p>These ruleblocks count present features and trigger a review prompt at an illustrative threshold of two.
-          This is a simple count, not a diagnostic criterion, disease probability, validated clinical score,
-          or advice about tests or treatment. A low count does not exclude disease.</p>
+        <p>Present clinical findings add disease-specific weights. Family-history patterns are recorded but currently add no score weight. Unticked items are absent and add zero.
+          These research scores are not disease probabilities or diagnostic cutoffs. Related findings may
+          inflate totals, and the profiles contain different selected features. A zero score does not exclude disease.</p>
       </div></div>
       <div className="result-list">
         {results.map(result => {
           const rule = collection.rules.find(item => item.id === result.ruleId)!;
+          const scored = result.presentFeatures.filter(feature => rule.scoring?.weights[feature.featureId] !== 0);
+          const familyHistory = result.presentFeatures.filter(feature => rule.scoring?.weights[feature.featureId] === 0);
+          const hasFamilyHistory = collection.questions.some(question => question.evidenceKind === 'family_history' &&
+            question.diseases.some(disease => disease.ruleId === rule.id));
           return <section className="result-card" key={result.ruleId} aria-labelledby={`result-${result.ruleId}`}>
             <p className="overline">AUTHORED RULE / {result.ruleId} / v{result.ruleVersion}</p>
             <h3 id={`result-${result.ruleId}`}>{result.label}</h3>
-            <p className="result-status">{result.flagged
-              ? `Possible diagnosis for review: ${result.label}`
-              : 'No possible diagnosis raised by this rule'}</p>
-            <p><strong>Rule score:</strong> {result.presentCount} / {result.totalFeatures} linked findings marked present.
-              The authored Picorules rule counts those inputs and raises a candidate when the count is at least {result.threshold}.</p>
-            <p><strong>Contributing findings:</strong> {result.presentFeatures.length
-              ? result.presentFeatures.map(feature => feature.label).join(', ') : 'None marked present'}.</p>
-            <p><strong>Next action from the ruleblock:</strong> {result.action}
-              {' '}The rule output selects this authored text.</p>
+            <p className="result-status">Phenotype matching score: {(result.weightedScore ?? 0).toFixed(3)}</p>
+            <p>{result.presentCount} / {result.totalFeatures} linked findings marked present.</p>
+            <p><strong>Contributing findings:</strong> {scored.length
+              ? scored.map(feature => feature.label).join(', ') : 'None marked present'}.</p>
+            {hasFamilyHistory && <p><strong>Family history recorded for context (unweighted):</strong>{' '}
+              {familyHistory.length ? familyHistory.map(feature => feature.label).join(', ') : 'No pattern marked present'}.</p>}
+            <details className="weight-breakdown">
+              <summary>View weights and score breakdown</summary>
+              <ul>
+                {result.contributions?.map(item => <li key={item.featureId}>
+                  <strong>{item.label}</strong>: {item.present ? 'Present' : 'Absent'} ·{' '}
+                  {item.weight === 0 ? 'unweighted family-history context' :
+                    `weight ${item.weight.toFixed(3)} · contribution ${item.value.toFixed(3)}`}
+                </li>)}
+              </ul>
+              <p>Model: {result.scoringModel}. Weights are derived from LIRICAL and rounded to six
+                decimals in the rule. Absent findings contribute zero. This selected-feature sum has
+                not been calibrated in a kidney clinic population.</p>
+            </details>
             <a href={rule.assetPath} target="_blank" rel="noopener noreferrer">
               Read exact authored ruleblock <span className="sr-only">(opens in a new tab)</span>
             </a>
@@ -484,7 +540,7 @@ function ResultsPanel({ collection, results, onDownload }: {
       <div className="flow-handoff">
         <h3>Assessment handoff</h3>
         <p>Download the FHIR R4 bundle containing the questionnaire, answers, one score Observation per rule,
-          and a ClinicalImpression with possible diagnoses for review. It contains an anonymous Patient reference
+          and a ClinicalImpression summarising the research assessment. It contains an anonymous Patient reference
           and no confirmed Condition. The file is created in this browser when you choose to download it.</p>
         <div className="flow-actions">
           <button type="button" className="button-primary" onClick={onDownload}>Download FHIR bundle</button>
@@ -569,7 +625,7 @@ export default function AtlasApp({ collections }: AppProps) {
   };
 
   const leave = () => {
-    if (Object.values(answers).some(answer => answer !== 'unanswered')) {
+    if (Object.values(answers).some(answer => answer === 'present')) {
       setLeaveOpen(true);
     } else {
       clearAssessment();

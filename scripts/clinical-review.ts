@@ -18,9 +18,17 @@ const evidence = JSON.parse(readFileSync(resolve(reviewRoot, 'orphadata-evidence
   license: string;
   associations: {
     featureId: string; ruleId: string; diseaseId: string; hpoId: string; hpoLabel: string;
-    sourceDate: string; frequency: string; diagnosticCriterion: string;
+    sourceDate: string; frequency: string; diagnosticCriterion: string; sourceId?: string;
   }[];
 };
+const adtkdEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'adtkd-evidence.json'), 'utf8')) as {
+  sourceId: string; sourceSha256: string; sourceRelease: string; associations: typeof evidence.associations;
+};
+const inheritanceEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'inheritance-evidence.json'), 'utf8')) as {
+  description: string; associations: typeof evidence.associations;
+};
+const allEvidence = [...evidence.associations, ...adtkdEvidence.associations,
+  ...inheritanceEvidence.associations];
 const record = JSON.parse(readFileSync(resolve(reviewRoot, 'review-record.json'), 'utf8')) as ClinicalReviewRecord;
 
 function assert(condition: unknown, message: string): asserts condition {
@@ -39,16 +47,21 @@ assert(record.schemaVersion === '1' && record.collectionId === manifest.id,
 assert(record.contentVersion === manifest.contentVersion,
   'review record is for an older content version; review the changed content again');
 
+assert(adtkdEvidence.sourceId === 'hpoa_2026_09' && /^[a-f0-9]{64}$/.test(adtkdEvidence.sourceSha256), 'invalid HPOA provenance');
+assert(adtkdEvidence.sourceRelease === manifest.sources[adtkdEvidence.sourceId]?.release, 'HPOA release differs');
+assert(inheritanceEvidence.associations.length === 10, 'expected ten inheritance-pattern associations');
+assert(inheritanceEvidence.associations.every(row => row.sourceId && manifest.sources[row.sourceId]),
+  'inheritance-pattern source reference is missing');
 const associations = manifest.questions.flatMap(question => question.diseases.map(disease => ({ question, disease })));
-assert(evidence.associations.length === associations.length, 'source crosswalk has the wrong row count');
-const evidenceByKey = new Map(evidence.associations.map(row => [`${row.ruleId}/${row.featureId}`, row]));
-assert(evidenceByKey.size === evidence.associations.length, 'source crosswalk has duplicate rows');
+assert(allEvidence.length === associations.length, 'source crosswalk has the wrong row count');
+const evidenceByKey = new Map(allEvidence.map(row => [`${row.ruleId}/${row.featureId}`, row]));
+assert(evidenceByKey.size === allEvidence.length, 'source crosswalk has duplicate rows');
 for (const { question, disease } of associations) {
   const row = evidenceByKey.get(`${disease.ruleId}/${question.featureId}`);
   assert(row, `missing source row for ${disease.ruleId}/${question.featureId}`);
   assert(row.diseaseId === disease.diseaseId && row.hpoId === question.hpoId,
     `source association differs for ${disease.ruleId}/${question.featureId}`);
-  assert(row.hpoLabel && row.sourceDate && disease.sourceRefs.includes(evidence.sourceId),
+  assert(row.hpoLabel && row.sourceDate && question.sourceRefs.includes(row.sourceId ?? evidence.sourceId),
     `incomplete source provenance for ${disease.ruleId}/${question.featureId}`);
 }
 
@@ -73,7 +86,7 @@ const lines = [
   '# IKD candidate content for clinical review',
   '',
   '> Review packet only. No clinical approval or diagnostic performance is implied.',
-  '> These ruleblocks fetch feature inputs and emit an illustrative two-present-feature review prompt. This is not a diagnostic criterion, probability, or clinical recommendation.',
+  '> These ruleblocks calculate research phenotype matching scores using declared positive-finding weights. This is not a diagnostic criterion, probability, or clinical recommendation.',
   '',
   `Collection: ${manifest.title} (${manifest.id}), version ${manifest.version}.`,
   `Content version: \`${manifest.contentVersion}\`.`,
@@ -87,8 +100,10 @@ const lines = [
   ...Object.entries(manifest.sources).flatMap(([id, source]) => [
     `- **${id}:** [${source.title}](${source.url}). ${source.release ?? 'Release unspecified'}. Accessed ${source.accessed ?? 'date unspecified'}.`,
   ]),
-  `- Orphadata source XML: [download](${evidence.sourceUrl}); SHA-256 \`${evidence.sourceSha256}\`; ${evidence.license}. The ten rows in \`orphadata-evidence.json\` were copied from the local source audit.`,
+  `- Orphadata source XML: [download](${evidence.sourceUrl}); SHA-256 \`${evidence.sourceSha256}\`; ${evidence.license}. The ${evidence.associations.length} rows in \`orphadata-evidence.json\` were copied from the local source audit.`,
   '',
+  `- HPOA ADTKD evidence: release ${adtkdEvidence.sourceRelease}, SHA-256 ${adtkdEvidence.sourceSha256}. See adtkd-evidence.json for original annotation references and evidence codes.`,
+  '- Family-history patterns: GeneReviews inheritance and pedigree descriptions are mapped in inheritance-evidence.json. These are contextual observations, not HPO phenotype annotations or LIRICAL-weighted findings.',
   '## Candidate features',
   '',
 ];
@@ -99,11 +114,18 @@ for (const [index, question] of manifest.questions.entries()) {
   lines.push(`- HPO: ${question.hpoId}; EADV input: \`${question.sourceAttribute}\`.`);
   lines.push(`- Question: ${question.question}`);
   lines.push(`- Help: ${question.help ?? '(none)'}`);
+  if (question.imageGuidance) lines.push(`- Image metadata: ${question.imageGuidance.category}, ${question.imageGuidance.modality}. ${question.imageGuidance.description} Reference asset status: ${question.imageGuidance.assetStatus}.`);
+  if (question.referenceImage) {
+    const image = question.referenceImage;
+    lines.push(`- Reference image: [${image.caption}](${image.path}); ${image.credit}; [source](${image.sourceUrl}); [${image.license}](${image.licenseUrl}); SHA-256 \`${image.sha256}\`.`);
+  }
   lines.push(`- Feature source IDs: ${question.sourceRefs.join(', ')}.`);
   for (const disease of question.diseases) {
     const row = evidenceByKey.get(`${disease.ruleId}/${question.featureId}`)!;
     lines.push(`- Association: ${disease.label} (${disease.diseaseId}); rule \`${disease.ruleId}\` v${disease.version}, input declaration line ${disease.inputLine}.`);
-    lines.push(`- Orphadata row: ${row.hpoId} “${row.hpoLabel}”, source date ${row.sourceDate}; frequency category “${row.frequency}” is provenance context only, never a score or patient probability.`);
+    lines.push(question.evidenceKind === 'family_history'
+      ? `- Source row (${row.sourceId}): ${row.hpoId} inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked ${row.sourceDate}.`
+      : `- Source row (${row.sourceId ?? evidence.sourceId}): ${row.hpoId} “${row.hpoLabel}”, source date ${row.sourceDate}; frequency category “${row.frequency}” is provenance context only, never a score or patient probability.`);
     lines.push(`- Disease source IDs: ${disease.sourceRefs.join(', ')}.`);
   }
   lines.push('');
@@ -113,11 +135,11 @@ lines.push(
   '## Shared review decisions', '',
   `- Assessment limitations shown in Atlas: ${manifest.limitations}`,
   `- Disease association context shown in Atlas: ${manifest.associationContext}`,
-  '- Answer semantics: present and absent are explicit findings; unknown / not assessed is explicit; unanswered remains distinct and optional.',
-  '- FHIR mapping: present/absent become boolean Observations; unknown has dataAbsentReason; unanswered produces no Observation. Check displayed wording against these states.',
+  '- Answer semantics: tick a finding to record present; every unticked finding is assumed absent for this demonstration.',
+  '- FHIR mapping: all selected features produce boolean Observations, including false for unticked findings. Check displayed wording against this assumption.',
   '- Disease context: an association is background information and cannot establish or exclude disease.',
-  '- Demonstration output: each rule counts its own present features; two or more triggers a review prompt. Absent, unknown, and unanswered contribute zero to this illustrative count. Review the wording and threshold separately before any clinical use.',
-  '- Scope: ten candidate features across two disease ruleblocks. This is not a complete inherited kidney disease screen or diagnostic criteria. It does not rank diseases or use Orphadata frequency categories as weights.',
+  '- Research output: each rule sums its declared weights for present features. Unticked features are absent and contribute zero. No diagnostic cutoff is applied. Review weights, correlated findings, feature selection and population calibration before clinical use.',
+  `- Scope: ${manifest.questions.length} candidate features across ${manifest.rules.length} disease ruleblocks. This is not a complete inherited kidney disease screen or diagnostic criteria. It does not rank diseases or use Orphadata frequency categories as weights.`,
   '- Reviewer checks: confirm source attribution, release/version, terminology meaning, wording, limitations, and whether any feature needs added clinical context.',
   '',
 );

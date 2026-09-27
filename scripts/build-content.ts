@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { resolve, relative, dirname } from 'node:path';
 import { compileCollection, type CollectionDefinition, type RuleSource } from '../src/lib/content/compiler';
+import { assertReferenceImageAsset } from '../src/lib/content/referenceImageAsset';
 import type { CollectionManifest, SourceRecord } from '../src/lib/types';
 
 const projectRoot = resolve(import.meta.dirname, '..');
@@ -33,6 +34,16 @@ for (const folder of readdirSync(collectionsRoot, { withFileTypes: true }).filte
     .update(ruleSources.map(rule => rule.path + rule.text).join('\n'))
     .digest('hex').slice(0, 16);
   manifests[definition.id] = compileCollection(definition, ruleSources, sources, contentVersion);
+}
+
+for (const manifest of Object.values(manifests)) {
+  for (const question of manifest.questions) {
+    const image = question.referenceImage;
+    if (!image) continue;
+    const path = resolve(projectRoot, 'public', image.path.slice(1));
+    if (!existsSync(path)) throw new Error(`Missing reference image ${image.path} for ${question.featureId}`);
+    assertReferenceImageAsset(image, readFileSync(path));
+  }
 }
 
 if (!Object.keys(manifests).length) throw new Error('No collections found');

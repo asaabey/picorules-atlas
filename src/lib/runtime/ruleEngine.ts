@@ -19,6 +19,9 @@ export interface DemoResult {
   presentFeatures: { featureId: string; label: string }[];
   flagged: boolean;
   action: string;
+  weightedScore?: number;
+  scoringModel?: string;
+  contributions?: { featureId: string; label: string; present: boolean; weight: number; value: number }[];
 }
 
 /** Execute the selected authored ruleblocks against the assessment's FHIR observations. */
@@ -31,7 +34,7 @@ export function evaluateCollectionDemo(
     eid: bundle.id, att, dt: null, val,
   })));
   const parsed = new Map(parseCollectionRules(manifest).map(rule => [rule.name, rule]));
-  return manifest.rules.filter(rule => rule.demo).map(rule => {
+  return manifest.rules.filter(rule => rule.demo || rule.scoring).map(rule => {
     const demo = rule.demo!;
     const source = parsed.get(rule.id);
     if (!source) throw new Error(`Missing parsed rule ${rule.id}`);
@@ -41,6 +44,31 @@ export function evaluateCollectionDemo(
     const presentFeatures = linked.filter(question => values[question.sourceAttribute] === 1)
       .map(question => ({ featureId: question.featureId, label: question.label }));
     const presentCount = presentFeatures.length;
+    if (rule.scoring) {
+      const contributions = linked.map(question => {
+        const weight = rule.scoring!.weights[question.featureId];
+        if (weight === undefined) throw new Error(`Missing weight for ${question.featureId}`);
+        const present = values[question.sourceAttribute] === 1;
+        const value = output[`contribution_${question.featureId}`];
+        if (typeof value !== 'number' || value !== (present ? weight : 0)) {
+          throw new Error(`Weighted contribution does not match ${rule.id}/${question.featureId}`);
+        }
+        return { featureId: question.featureId, label: question.label, present, weight, value };
+      });
+      const score = output.weighted_score;
+      const expected = contributions.reduce((sum, item) => sum + item.value, 0);
+      if (typeof score !== 'number' || !Number.isFinite(score) ||
+        Math.abs(score - expected) > 1e-9 || output[rule.id] !== score ||
+        output.present_feature_count !== presentCount) {
+        throw new Error(`Weighted rule output does not match declared inputs for ${rule.id}`);
+      }
+      return {
+        ruleId: rule.id, label: rule.label, ruleVersion: rule.version,
+        threshold: 0, presentCount, totalFeatures: linked.length, presentFeatures,
+        flagged: false, action: 'Review the phenotype match and contributing findings in clinical context.',
+        weightedScore: score, scoringModel: rule.scoring.model, contributions,
+      };
+    }
     const flagged = presentCount >= demo.threshold;
     if (output.present_feature_count !== presentCount ||
       output.demo_review_prompt !== Number(flagged) || output[rule.id] !== Number(flagged)) {

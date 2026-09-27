@@ -1,10 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { countAnswered, createAnswers, resetAnswers, setAnswer } from '../src/lib/assessment/answers';
+import { countPresent, createAnswers, resetAnswers, setAnswer } from '../src/lib/assessment/answers';
 import {
   buildAssessmentBundle,
   buildQuestionnaire,
   buildQuestionnaireResponse,
-  DATA_ABSENT_REASON_SYSTEM,
   HPO_SYSTEM,
   PRESENCE_SYSTEM,
 } from '../src/lib/fhir';
@@ -21,7 +20,7 @@ const manifest: CollectionManifest = {
   associationContext: 'Background context only.',
   contentVersion: 'sha256-fixture',
   sections: [{ id: 'kidney', label: 'Kidney' }],
-  questions: ['present', 'absent', 'unknown', 'unanswered'].map((featureId, index) => ({
+  questions: ['present', 'absent', 'untouched'].map((featureId, index) => ({
     featureId,
     sourceAttribute: `phen_${featureId}`,
     label: `Feature ${featureId}`,
@@ -40,12 +39,13 @@ const sessionId = 'a58060f9-b7b7-4fbb-9b83-9a28b85be19c';
 const authoredAt = new Date('2026-09-27T12:30:00.000Z');
 
 describe('assessment answer states', () => {
-  it('starts and resets with every feature unanswered, counting explicit unknown', () => {
+  it('starts and resets with every feature absent, counting only checked findings', () => {
     const initial = createAnswers(manifest);
-    expect(Object.values(initial)).toEqual(Array(4).fill('unanswered'));
-    const changed = setAnswer(manifest, initial, 'unknown', 'unknown');
-    expect(initial.unknown).toBe('unanswered');
-    expect(countAnswered(manifest, changed)).toBe(1);
+    expect(Object.values(initial)).toEqual(Array(3).fill('absent'));
+    const changed = setAnswer(manifest, initial, 'present', 'present');
+    expect(initial.present).toBe('absent');
+    expect(countPresent(manifest, changed)).toBe(1);
+    expect(countPresent(manifest, setAnswer(manifest, changed, 'present', 'absent'))).toBe(0);
     expect(resetAnswers(manifest)).toEqual(initial);
   });
 
@@ -59,11 +59,9 @@ describe('FHIR R4 representation', () => {
   const answers = {
     present: 'present',
     absent: 'absent',
-    unknown: 'unknown',
-    unanswered: 'unanswered',
   } as const;
 
-  it('builds versioned section and feature links with three coded choices', () => {
+  it('builds versioned section and feature links with two coded choices', () => {
     const questionnaire = buildQuestionnaire(manifest);
     expect(questionnaire.resourceType).toBe('Questionnaire');
     expect(questionnaire.version).toBe(manifest.contentVersion);
@@ -72,25 +70,25 @@ describe('FHIR R4 representation', () => {
     expect(features.map((item) => item.linkId)).toEqual(manifest.questions.map((q) => q.featureId));
     expect(features[0].code).toEqual([{ system: HPO_SYSTEM, code: 'HP:0000001', display: 'Feature present' }]);
     expect(features[0].answerOption?.map((option) => option.valueCoding.code)).toEqual([
-      'present', 'absent', 'unknown',
+      'present', 'absent',
     ]);
     expect(features[0].answerOption?.every(
       (option) => option.valueCoding.system === PRESENCE_SYSTEM,
     )).toBe(true);
   });
 
-  it('keeps explicit unknown in the response and leaves unanswered without an answer', () => {
+  it('records every untouched finding as absent in the response', () => {
     const response = buildQuestionnaireResponse(manifest, answers, sessionId, authoredAt);
     expect(response.questionnaire).toContain(`|${manifest.contentVersion}`);
     expect(response.authored).toBe('2026-09-27T12:30:00.000Z');
     const items = response.item[0].item ?? [];
     expect(items[0].answer?.[0].valueCoding.code).toBe('present');
     expect(items[1].answer?.[0].valueCoding.code).toBe('absent');
-    expect(items[2].answer?.[0].valueCoding.code).toBe('unknown');
-    expect(items[3]).not.toHaveProperty('answer');
+    expect(items[2].answer?.[0].valueCoding.code).toBe('absent');
+    expect(response.status).toBe('completed');
   });
 
-  it('packages derived observations and maps false to zero, unknown to null', () => {
+  it('packages derived observations and maps every unticked finding to zero', () => {
     const bundle = buildAssessmentBundle(manifest, answers, sessionId, authoredAt);
     expect(bundle.type).toBe('collection');
     expect(bundle.entry.map((entry) => entry.resource.resourceType)).toEqual([
@@ -99,10 +97,7 @@ describe('FHIR R4 representation', () => {
     const observations = bundle.entry.slice(2).map((entry) => entry.resource);
     expect(observations[0]).toHaveProperty('valueBoolean', true);
     expect(observations[1]).toHaveProperty('valueBoolean', false);
-    expect(observations[2]).not.toHaveProperty('valueBoolean');
-    expect(observations[2]).toHaveProperty('dataAbsentReason.coding.0', {
-      system: DATA_ABSENT_REASON_SYSTEM, code: 'unknown', display: 'Unknown',
-    });
+    expect(observations[2]).toHaveProperty('valueBoolean', false);
     for (const observation of observations) {
       expect(observation).not.toHaveProperty('effectiveDateTime');
       expect(observation).toHaveProperty('derivedFrom.0.reference', bundle.entry[1].fullUrl);
@@ -110,9 +105,14 @@ describe('FHIR R4 representation', () => {
     expect(observationsToEadv(manifest, bundle)).toEqual({
       phen_present: 1,
       phen_absent: 0,
-      phen_unknown: null,
-      phen_unanswered: null,
+      phen_untouched: 0,
     });
+  });
+
+  it('rejects a missing feature Observation in a binary handoff', () => {
+    const bundle = buildAssessmentBundle(manifest, answers, sessionId, authoredAt);
+    bundle.entry.pop();
+    expect(() => observationsToEadv(manifest, bundle)).toThrow(/every selected feature/);
   });
 
   it('refuses an observation whose HPO coding does not match its declared feature', () => {

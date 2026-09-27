@@ -6,6 +6,7 @@ import type {
   AtlasSection,
   CollectionManifest,
   DiseaseAssociation,
+  ReferenceImage,
   SourceRecord,
 } from '../types';
 
@@ -117,6 +118,34 @@ function refs(value: unknown, sources: Record<string, SourceRecord>, path: strin
   return value as string[];
 }
 
+function referenceImage(value: unknown, path: string, line: number): ReferenceImage {
+  const image = object(value, path, line, 'reference_image');
+  const result: ReferenceImage = {
+    path: string(image.path, path, line, 'reference_image.path'),
+    alt: string(image.alt, path, line, 'reference_image.alt'),
+    caption: string(image.caption, path, line, 'reference_image.caption'),
+    credit: string(image.credit, path, line, 'reference_image.credit'),
+    sourceUrl: string(image.source_url, path, line, 'reference_image.source_url'),
+    license: string(image.license, path, line, 'reference_image.license'),
+    licenseUrl: string(image.license_url, path, line, 'reference_image.license_url'),
+    sha256: string(image.sha256, path, line, 'reference_image.sha256'),
+    width: image.width as number,
+    height: image.height as number,
+  };
+  if (!/^\/reference-images\/[a-z0-9-]+\.(jpg|png)$/.test(result.path)) {
+    fail(path, line, 'reference_image.path must be a local reference-images asset');
+  }
+  if (!/^https:\/\//.test(result.sourceUrl) || !/^https:\/\//.test(result.licenseUrl)) {
+    fail(path, line, 'reference_image source and license URLs must use HTTPS');
+  }
+  if (!/^[a-f0-9]{64}$/.test(result.sha256)) fail(path, line, 'reference_image.sha256 must be SHA-256');
+  if (!Number.isInteger(result.width) || result.width < 1 ||
+    !Number.isInteger(result.height) || result.height < 1) {
+    fail(path, line, 'reference_image dimensions must be positive integers');
+  }
+  return result;
+}
+
 function validateSources(sources: Record<string, SourceRecord>): void {
   for (const [id, source] of Object.entries(sources)) {
     if (!source.title || !/^https:\/\//.test(source.url)) {
@@ -189,6 +218,20 @@ export function compileCollection(
         'demo_action_when_not_flagged'),
     };
     const metadata = new Map<string, { statement: Statement; data: Record<string, unknown> }>();
+    let scoring: CollectionManifest['rules'][number]['scoring'];
+    if (headerAtlas.scoring !== undefined) {
+      const model = object(headerAtlas.scoring, path, 1, 'scoring');
+      if (demo || model.model !== 'ikd-positive-log10-v1' || model.status !== 'research' ||
+        model.absent_weight !== 0) fail(path, 1, 'unsupported weighted scoring contract');
+      const weights = object(model.weights, path, 1, 'scoring.weights');
+      if (Object.values(weights).some(weight => typeof weight !== 'number' ||
+        !Number.isFinite(weight) || weight < 0)) fail(path, 1, 'weights must be finite nonnegative numbers');
+      scoring = {
+        model: model.model, status: 'research', absentWeight: 0,
+        sourceRefs: refs(model.source_refs, sources, path, 1),
+        weights: weights as Record<string, number>,
+      };
+    }
     const body: Statement[] = [];
     let sawAttribute = false;
     for (const statement of statements.slice(1)) {
@@ -212,6 +255,7 @@ export function compileCollection(
       id: header.name,
       source: executableSource,
       ...(demo ? { demo } : {}),
+      ...(scoring ? { scoring } : {}),
       authoredSource: source.text,
       assetPath: `/generated/ruleblocks/${definition.id}/${header.name}-${contentVersion}.prb`,
       label: disease.label,
@@ -249,6 +293,7 @@ export function compileCollection(
       if (!/^HP:\d{7}$/.test(hpoId)) fail(path, meta.statement.line, 'invalid HPO identifier');
       const question: AtlasQuestion = {
         featureId,
+        ...(atlas.evidence_kind === 'family_history' ? { evidenceKind: 'family_history' as const } : {}),
         sourceAttribute,
         label: string(meta.data.label, path, meta.statement.line, 'label'),
         question: string(atlas.question, path, meta.statement.line, 'question'),
@@ -256,9 +301,41 @@ export function compileCollection(
         answerType: 'presence',
         hpoId,
         ...(atlas.help === undefined ? {} : { help: string(atlas.help, path, meta.statement.line, 'help') }),
+        ...(atlas.reference_image === undefined ? {} : {
+          referenceImage: referenceImage(atlas.reference_image, path, meta.statement.line),
+        }),
         sourceRefs: refs(atlas.source_refs ?? disease.sourceRefs, sources, path, meta.statement.line),
         diseases: [{ ...disease, inputLine: meta.statement.line }],
       };
+      if (atlas.evidence_kind !== undefined && atlas.evidence_kind !== 'family_history') {
+        fail(path, meta.statement.line, 'unsupported evidence_kind');
+      }
+      if ((atlas.evidence_kind === 'family_history') !== (section === 'family_history')) {
+        fail(path, meta.statement.line, 'family-history inputs must use the family_history section');
+      }
+      if (scoring && (scoring.weights[featureId] === 0) !== (atlas.evidence_kind === 'family_history')) {
+        fail(path, meta.statement.line, 'only family-history inputs may have zero score weight');
+      }
+      if (atlas.image_guidance !== undefined) {
+        const guidance = object(atlas.image_guidance, path, meta.statement.line, 'image_guidance');
+        if (guidance.category !== 'radiology' && guidance.category !== 'histopathology' &&
+          guidance.category !== 'dermatology') {
+          fail(path, meta.statement.line, 'unsupported image guidance category');
+        }
+        if (guidance.asset_status !== 'pending_verified_reference' &&
+          guidance.asset_status !== 'available_reference' && guidance.asset_status !== 'not_selected') {
+          fail(path, meta.statement.line, 'unsupported image guidance asset status');
+        }
+        if ((guidance.asset_status === 'available_reference') !== Boolean(question.referenceImage)) {
+          fail(path, meta.statement.line, 'image guidance status must agree with reference_image');
+        }
+        question.imageGuidance = {
+          category: guidance.category,
+          modality: string(guidance.modality, path, meta.statement.line, 'image_guidance.modality'),
+          description: string(guidance.description, path, meta.statement.line, 'image_guidance.description'),
+          assetStatus: guidance.asset_status,
+        };
+      }
       const existing = questions.get(featureId);
       if (existing) {
         const { diseases: _old, sourceRefs: _oldRefs, ...oldDefinition } = existing;
@@ -276,6 +353,23 @@ export function compileCollection(
     }
     for (const [variable, meta] of metadata) {
       if (!inputVariables.has(variable)) fail(path, meta.statement.line, `metadata ${variable} has no fetched input`);
+    }
+    if (scoring) {
+      const variables = [...inputVariables];
+      if (Object.keys(scoring.weights).length !== variables.length ||
+        variables.some(variable => scoring.weights[variable] === undefined)) {
+        fail(path, 1, 'weighted rule must declare exactly one weight per input');
+      }
+      const expected = [
+        ...variables.map(variable => `${variable} => eadv.phen_${variable}.val.last();`),
+        `present_feature_count : { . => ${variables.map(variable => `coalesce(${variable}, 0)`).join(' + ')} };`,
+        ...variables.map(variable => `contribution_${variable} : { ${variable} = 1 => ${scoring!.weights[variable]} }, { => 0 };`),
+        `weighted_score : { . => ${variables.map(variable => `contribution_${variable}`).join(' + ')} };`,
+        '[[rb_id]] : { . => weighted_score };',
+      ].join('\n');
+      if (executableSource.replace(/\s/g, '') !== expected.replace(/\s/g, '')) {
+        fail(path, 1, 'weighted rule executable must match declared contributions and score');
+      }
     }
     if (demoThreshold !== undefined) {
       if ((demoThreshold as number) > inputVariables.size) {

@@ -21,7 +21,8 @@ export interface RuleScoreObservation {
   identifier: { system: string; value: string }[];
   code: { coding: Coding[]; text: string };
   subject: Reference;
-  valueInteger: number;
+  valueInteger?: number;
+  valueQuantity?: { value: number; unit: string; system: string; code: string };
   component: {
     code: { coding: Coding[] };
     valueInteger?: number;
@@ -91,22 +92,27 @@ export function buildHandoffBundle(
       resource: {
         resourceType: 'Observation', id, status: 'preliminary',
         identifier: [{ system: RULE_ID_SYSTEM, value: result.ruleId }],
-        code: { coding: [{ system: RULE_SCORE_SYSTEM, code: 'present-feature-count',
-          display: 'Present feature count' }], text: `${result.label} demonstration score` },
+        code: { coding: [{ system: RULE_SCORE_SYSTEM,
+          code: result.scoringModel ? 'phenotype-match-ikd-positive-log10-v1' : 'present-feature-count',
+          display: result.scoringModel ? 'Research phenotype matching score' : 'Present feature count',
+        }], text: `${result.label} research score` },
         subject: { reference: patientReference },
-        valueInteger: result.presentCount,
+        ...(result.weightedScore === undefined ? { valueInteger: result.presentCount } : {
+          valueQuantity: { value: result.weightedScore, unit: 'score', system: 'http://unitsofmeasure.org', code: '1' },
+        }),
         component: [
           scoreComponent('total-features', 'Total declared features', result.totalFeatures),
-          scoreComponent('review-threshold', 'Illustrative review threshold', result.threshold),
-          scoreComponent('review-prompt', 'Illustrative review prompt', result.flagged),
+          scoreComponent('present-features', 'Present features', result.presentCount),
         ],
         derivedFrom: [{ reference: response.fullUrl }],
-        note: [{ text: `Rule ${result.ruleId} v${result.ruleVersion}; unvalidated demonstration count, not a diagnostic score or probability.` }],
+        note: [{ text: `Rule ${result.ruleId} v${result.ruleVersion}; model ${result.scoringModel ?? 'count'}. ` +
+          'Research score, not a diagnostic probability. Unstated findings are absent and contribute zero. ' +
+          (result.contributions ?? []).map(item => `${item.label}: ${item.present ? 'present' : 'absent'}, weight ${item.weight}, contribution ${item.value}`).join('; ') }],
       },
     });
   }
 
-  const findings: PrototypeClinicalImpression['finding'] = results.filter(result => result.flagged)
+  const findings: PrototypeClinicalImpression['finding'] = results.filter(result => !result.scoringModel && result.flagged)
     .map(result => {
       const rule = manifest.rules.find(item => item.id === result.ruleId);
       if (!rule) throw new Error(`Missing source rule ${result.ruleId}`);
@@ -127,9 +133,8 @@ export function buildHandoffBundle(
       resourceType: 'ClinicalImpression', id: impressionId, status: 'in-progress',
       subject: { reference: patientReference }, date: assessment.timestamp,
       description: `${manifest.title} Atlas rule demonstration`,
-      summary: findings.length
-        ? 'Possible diagnoses for review from an unvalidated feature-count demonstration. No diagnosis is confirmed.'
-        : 'No possible diagnosis reached the illustrative threshold. This does not exclude any disease.',
+      summary: 'Research phenotype matching scores are provided in the supporting Observations. ' +
+        'No diagnosis is confirmed. A zero score does not exclude disease.',
       finding: findings,
       supportingInfo: [{ reference: response.fullUrl }, ...scoreReferences],
       note: results.map(result => ({ text: `${result.label}: ${result.action}` })),

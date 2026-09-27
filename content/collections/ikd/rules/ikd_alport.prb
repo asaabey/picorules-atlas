@@ -1,0 +1,211 @@
+/* Candidate presence assessment: Alport syndrome. Source: Orphadata June 2026 snapshot.
+   Inputs are Atlas questionnaire findings, not automatic EHR diagnoses.
+   Research weights from the pinned LIRICAL extraction. Clinical calibration is pending. */
+#define_ruleblock(ikd_alport, {
+    "description": "Alport syndrome candidate assessment features",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.6.0-family-history",
+        "scoring": {
+            "model": "ikd-positive-log10-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "lirical_2020",
+                "ikd_weights_2026_09"
+            ],
+            "weights": {
+                "anterior_lenticonus": 2.787697,
+                "bilateral_sensorineural_hearing_impairment": 2.218909,
+                "glomerular_basement_membrane_lamellation": 3.220614,
+                "microscopic_hematuria": 1.914155,
+                "proteinuria": 1.582841,
+                "retinal_flecks": 2.816185,
+                "family_history_autosomal_dominant": 0,
+                "family_history_autosomal_recessive": 0,
+                "family_history_x_linked": 0
+            }
+        },
+        "disease_label": "Alport syndrome",
+        "disease_id": "ORPHA:63",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+microscopic_hematuria => eadv.phen_microscopic_hematuria.val.last();
+proteinuria => eadv.phen_proteinuria.val.last();
+bilateral_sensorineural_hearing_impairment => eadv.phen_bilateral_sensorineural_hearing_impairment.val.last();
+anterior_lenticonus => eadv.phen_anterior_lenticonus.val.last();
+retinal_flecks => eadv.phen_retinal_flecks.val.last();
+glomerular_basement_membrane_lamellation => eadv.phen_glomerular_basement_membrane_lamellation.val.last();
+family_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+family_history_x_linked => eadv.phen_family_history_x_linked.val.last();
+
+
+/* Research phenotype matching: absent or unstated inputs contribute zero. */
+present_feature_count : { . => coalesce(microscopic_hematuria, 0) + coalesce(proteinuria, 0) + coalesce(bilateral_sensorineural_hearing_impairment, 0) + coalesce(anterior_lenticonus, 0) + coalesce(retinal_flecks, 0) + coalesce(glomerular_basement_membrane_lamellation, 0) + coalesce(family_history_autosomal_dominant, 0) + coalesce(family_history_autosomal_recessive, 0) + coalesce(family_history_x_linked, 0) };
+contribution_microscopic_hematuria : { microscopic_hematuria = 1 => 1.914155 }, { => 0 };
+contribution_proteinuria : { proteinuria = 1 => 1.582841 }, { => 0 };
+contribution_bilateral_sensorineural_hearing_impairment : { bilateral_sensorineural_hearing_impairment = 1 => 2.218909 }, { => 0 };
+contribution_anterior_lenticonus : { anterior_lenticonus = 1 => 2.787697 }, { => 0 };
+contribution_retinal_flecks : { retinal_flecks = 1 => 2.816185 }, { => 0 };
+contribution_glomerular_basement_membrane_lamellation : { glomerular_basement_membrane_lamellation = 1 => 3.220614 }, { => 0 };
+contribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+contribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_microscopic_hematuria + contribution_proteinuria + contribution_bilateral_sensorineural_hearing_impairment + contribution_anterior_lenticonus + contribution_retinal_flecks + contribution_glomerular_basement_membrane_lamellation + contribution_family_history_autosomal_dominant + contribution_family_history_autosomal_recessive + contribution_family_history_x_linked };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(microscopic_hematuria, {
+    "label": "Microscopic haematuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "microscopic_hematuria",
+        "source_attribute": "phen_microscopic_hematuria",
+        "section": "kidney",
+        "question": "Has microscopic haematuria been documented on urine testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002907",
+        "help": "Specifically documented microscopic haematuria.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(proteinuria, {
+    "label": "Proteinuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "proteinuria",
+        "source_attribute": "phen_proteinuria",
+        "section": "kidney",
+        "question": "Has proteinuria been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000093",
+        "help": "Records documented protein in the urine without applying a quantitative threshold.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(bilateral_sensorineural_hearing_impairment, {
+    "label": "Bilateral sensorineural hearing impairment",
+    "atlas": {
+        "role": "input",
+        "feature_id": "bilateral_sensorineural_hearing_impairment",
+        "source_attribute": "phen_bilateral_sensorineural_hearing_impairment",
+        "section": "hearing",
+        "question": "Has sensorineural hearing impairment in both ears been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0008619",
+        "help": "Documented sensorineural impairment affecting both ears.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(anterior_lenticonus, {
+    "label": "Anterior lenticonus",
+    "atlas": {
+        "role": "input",
+        "feature_id": "anterior_lenticonus",
+        "source_attribute": "phen_anterior_lenticonus",
+        "section": "eyes",
+        "question": "Has anterior lenticonus been documented on eye examination?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0011501",
+        "help": "Records a documented lens finding. the patient is not asked to identify it.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(retinal_flecks, {
+    "label": "Retinal flecks",
+    "atlas": {
+        "role": "input",
+        "feature_id": "retinal_flecks",
+        "source_attribute": "phen_retinal_flecks",
+        "section": "eyes",
+        "question": "Have retinal flecks been documented on eye examination?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0012045",
+        "help": "Records the named retinal finding without inferring an inherited cause.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(glomerular_basement_membrane_lamellation, {
+    "label": "Glomerular basement membrane lamellation",
+    "atlas": {
+        "role": "input",
+        "feature_id": "glomerular_basement_membrane_lamellation",
+        "source_attribute": "phen_glomerular_basement_membrane_lamellation",
+        "section": "kidney",
+        "question": "Has glomerular basement membrane lamellation been documented in a kidney biopsy report?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0030034",
+        "help": "Requires the named biopsy finding. an unspecified abnormal biopsy is insufficient.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_dominant, {
+    "label": "Documented family history suggesting autosomal dominant inheritance",
+    "atlas": {
+        "role": "input",
+        "evidence_kind": "family_history",
+        "feature_id": "family_history_autosomal_dominant",
+        "source_attribute": "phen_family_history_autosomal_dominant",
+        "section": "family_history",
+        "question": "Does the documented family history show a similar condition in successive generations?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000006",
+        "help": "A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.",
+        "source_refs": ["genereviews_alport"]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "evidence_kind": "family_history",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "source_refs": ["genereviews_alport"]
+    }
+});
+
+#define_attribute(family_history_x_linked, {
+    "label": "Documented family history suggesting X-linked inheritance",
+    "atlas": {
+        "role": "input",
+        "evidence_kind": "family_history",
+        "feature_id": "family_history_x_linked",
+        "source_attribute": "phen_family_history_x_linked",
+        "section": "family_history",
+        "question": "Does transmission among affected relatives in the documented family history suggest an X-linked pattern?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001417",
+        "help": "Affected relatives through the maternal line or affected daughters of an affected father may suggest X-linked inheritance. There is no father-to-son transmission. Females can also be affected, and an unclear pedigree does not exclude it.",
+        "source_refs": ["genereviews_alport"]
+    }
+});

@@ -6,8 +6,6 @@ import { createUuid } from '../uuid';
 export const HPO_SYSTEM = 'http://human-phenotype-ontology.org';
 export const PRESENCE_SYSTEM = 'https://atlas.picorules.com/fhir/CodeSystem/presence-answer';
 export const FEATURE_ID_SYSTEM = 'https://atlas.picorules.com/fhir/NamingSystem/feature-id';
-export const DATA_ABSENT_REASON_SYSTEM =
-  'http://terminology.hl7.org/CodeSystem/data-absent-reason';
 export const COLLECTION_VERSION_EXTENSION =
   'https://atlas.picorules.com/fhir/StructureDefinition/collection-version';
 export const CONTENT_VERSION_EXTENSION =
@@ -52,7 +50,7 @@ export interface QuestionnaireResponse {
   resourceType: 'QuestionnaireResponse';
   id: string;
   questionnaire: string;
-  status: 'in-progress';
+  status: 'completed';
   authored: string;
   extension: { url: string; valueString: string }[];
   item: QuestionnaireResponseItem[];
@@ -65,7 +63,7 @@ export interface FeatureObservation {
   identifier: { system: string; value: string }[];
   code: { coding: Coding[]; text: string };
   valueBoolean?: boolean;
-  dataAbsentReason?: { coding: Coding[] };
+  note?: { text: string }[];
   derivedFrom: { reference: string }[];
 }
 
@@ -79,10 +77,9 @@ export interface AssessmentBundle {
   entry: { fullUrl: string; resource: AssessmentResource }[];
 }
 
-const presenceOptions: { state: Exclude<AnswerState, 'unanswered'>; display: string }[] = [
+const presenceOptions: { state: AnswerState; display: string }[] = [
   { state: 'present', display: 'Present' },
   { state: 'absent', display: 'Absent' },
-  { state: 'unknown', display: 'Unknown / not assessed' },
 ];
 
 function contextExtensions(manifest: CollectionManifest) {
@@ -123,7 +120,7 @@ export function buildQuestionnaire(manifest: CollectionManifest): Questionnaire 
     version: manifest.contentVersion,
     status: 'draft',
     title: manifest.title,
-    description: manifest.description,
+    description: `${manifest.description} For this demonstration, unchecked findings are recorded as absent.`,
     extension: contextExtensions(manifest),
     item,
   };
@@ -158,18 +155,16 @@ export function buildQuestionnaireResponse(
     item: manifest.questions
       .filter((question) => question.section === section.id)
       .map((question): QuestionnaireResponseItem => {
-        const state = answers[question.featureId] ?? 'unanswered';
+        const state = answers[question.featureId] ?? 'absent';
         const option = presenceOptions.find(({ state: code }) => code === state);
         return {
           linkId: question.featureId,
           text: question.question,
-          ...(option
-            ? { answer: [{ valueCoding: {
-                system: PRESENCE_SYSTEM,
-                code: option.state,
-                display: option.display,
-              } }] }
-            : {}),
+          answer: [{ valueCoding: {
+            system: PRESENCE_SYSTEM,
+            code: option!.state,
+            display: option!.display,
+          } }],
         };
       }),
   }));
@@ -177,7 +172,7 @@ export function buildQuestionnaireResponse(
     resourceType: 'QuestionnaireResponse',
     id: sessionId,
     questionnaire: `${questionnaireUrl(manifest)}|${manifest.contentVersion}`,
-    status: 'in-progress',
+    status: 'completed',
     authored: assertAuthoredAt(authoredAt),
     extension: contextExtensions(manifest),
     item,
@@ -199,11 +194,10 @@ function observationFor(
       coding: [{ system: HPO_SYSTEM, code: question.hpoId, display: question.label }],
       text: question.label,
     },
-    ...(state === 'unknown'
-      ? { dataAbsentReason: {
-          coding: [{ system: DATA_ABSENT_REASON_SYSTEM, code: 'unknown', display: 'Unknown' }],
-        } }
-      : { valueBoolean: state === 'present' }),
+    valueBoolean: state === 'present',
+    ...(question.evidenceKind === 'family_history' ? {
+      note: [{ text: 'Documented pedigree pattern for context only; this does not establish a molecular inheritance mode.' }],
+    } : {}),
     derivedFrom: [{ reference: responseReference }],
   };
 }
@@ -222,8 +216,7 @@ export function buildAssessmentBundle(
     { fullUrl: responseReference, resource: response },
   ];
   for (const question of manifest.questions) {
-    const state = answers[question.featureId] ?? 'unanswered';
-    if (state === 'unanswered') continue;
+    const state = answers[question.featureId] ?? 'absent';
     const id = createUuid();
     entry.push({
       fullUrl: `urn:uuid:${id}`,

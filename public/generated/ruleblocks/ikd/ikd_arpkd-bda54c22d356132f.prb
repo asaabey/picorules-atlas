@@ -1,0 +1,173 @@
+/* Candidate presence assessment: Autosomal recessive polycystic kidney disease. Source: Orphadata June 2026 snapshot.
+   Inputs are Atlas questionnaire findings, not automatic EHR diagnoses.
+   Research weights from the pinned LIRICAL extraction. Clinical calibration is pending. */
+#define_ruleblock(ikd_arpkd, {
+    "description": "Autosomal recessive polycystic kidney disease candidate assessment features",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.6.0-family-history",
+        "scoring": {
+            "model": "ikd-positive-log10-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "lirical_2020",
+                "ikd_weights_2026_09"
+            ],
+            "weights": {
+                "congenital_hepatic_fibrosis": 2.965515,
+                "enlarged_kidney": 2.497345,
+                "hypertension": 1.581553,
+                "oligohydramnios": 1.848822,
+                "polycystic_kidney_dysplasia": 2.417793,
+                "portal_hypertension": 2.316049,
+                "family_history_autosomal_recessive": 0
+            }
+        },
+        "disease_label": "Autosomal recessive polycystic kidney disease",
+        "disease_id": "ORPHA:731",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+enlarged_kidney => eadv.phen_enlarged_kidney.val.last();
+polycystic_kidney_dysplasia => eadv.phen_polycystic_kidney_dysplasia.val.last();
+congenital_hepatic_fibrosis => eadv.phen_congenital_hepatic_fibrosis.val.last();
+portal_hypertension => eadv.phen_portal_hypertension.val.last();
+oligohydramnios => eadv.phen_oligohydramnios.val.last();
+hypertension => eadv.phen_hypertension.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+
+/* Research phenotype matching: absent or unstated inputs contribute zero. */
+present_feature_count : { . => coalesce(enlarged_kidney, 0) + coalesce(polycystic_kidney_dysplasia, 0) + coalesce(congenital_hepatic_fibrosis, 0) + coalesce(portal_hypertension, 0) + coalesce(oligohydramnios, 0) + coalesce(hypertension, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_enlarged_kidney : { enlarged_kidney = 1 => 2.497345 }, { => 0 };
+contribution_polycystic_kidney_dysplasia : { polycystic_kidney_dysplasia = 1 => 2.417793 }, { => 0 };
+contribution_congenital_hepatic_fibrosis : { congenital_hepatic_fibrosis = 1 => 2.965515 }, { => 0 };
+contribution_portal_hypertension : { portal_hypertension = 1 => 2.316049 }, { => 0 };
+contribution_oligohydramnios : { oligohydramnios = 1 => 1.848822 }, { => 0 };
+contribution_hypertension : { hypertension = 1 => 1.581553 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_enlarged_kidney + contribution_polycystic_kidney_dysplasia + contribution_congenital_hepatic_fibrosis + contribution_portal_hypertension + contribution_oligohydramnios + contribution_hypertension + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(enlarged_kidney, {
+    "label": "Enlarged kidney",
+    "atlas": {
+        "role": "input",
+        "feature_id": "enlarged_kidney",
+        "source_attribute": "phen_enlarged_kidney",
+        "section": "kidney",
+        "question": "Has kidney enlargement been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000105",
+        "help": "Records documented kidney enlargement without applying a size threshold.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(polycystic_kidney_dysplasia, {
+    "label": "Polycystic kidney dysplasia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polycystic_kidney_dysplasia",
+        "source_attribute": "phen_polycystic_kidney_dysplasia",
+        "section": "kidney",
+        "question": "Has polycystic kidney dysplasia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000113",
+        "help": "Requires the named structural finding. multiple renal cysts alone are insufficient.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(congenital_hepatic_fibrosis, {
+    "label": "Congenital hepatic fibrosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "congenital_hepatic_fibrosis",
+        "source_attribute": "phen_congenital_hepatic_fibrosis",
+        "section": "liver_pregnancy",
+        "question": "Has congenital hepatic fibrosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002612",
+        "help": "Records congenital hepatic fibrosis. unspecified liver fibrosis does not establish this subtype.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(portal_hypertension, {
+    "label": "Portal hypertension",
+    "atlas": {
+        "role": "input",
+        "feature_id": "portal_hypertension",
+        "source_attribute": "phen_portal_hypertension",
+        "section": "liver_pregnancy",
+        "question": "Has portal hypertension been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001409",
+        "help": "Records documented portal hypertension, separately from systemic arterial hypertension.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(oligohydramnios, {
+    "label": "Oligohydramnios in the patient’s prenatal history",
+    "atlas": {
+        "role": "input",
+        "feature_id": "oligohydramnios",
+        "source_attribute": "phen_oligohydramnios",
+        "section": "liver_pregnancy",
+        "question": "Was oligohydramnios documented during the pregnancy in which this patient was carried?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001562",
+        "help": "Refers to the patient’s own prenatal history, not a later pregnancy carried by the patient. Unknown if records are unavailable.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(hypertension, {
+    "label": "Hypertension",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypertension",
+        "source_attribute": "phen_hypertension",
+        "section": "cardiovascular",
+        "question": "Has hypertension been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000822",
+        "help": "Documented hypertension without deriving a diagnosis from a single blood pressure.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "evidence_kind": "family_history",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "source_refs": ["genereviews_arpkd"]
+    }
+});
