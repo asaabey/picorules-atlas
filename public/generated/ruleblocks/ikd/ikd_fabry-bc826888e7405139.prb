@@ -4,7 +4,10 @@
     is_active: 2,
     atlas: {
         schema_version: "1",
-        version: "0.1.0",
+        version: "0.2.0-demo",
+        demo_threshold: 2,
+        demo_action_when_flagged: "Review the recorded Fabry-associated findings and cited sources in clinical context.",
+        demo_action_when_not_flagged: "Clarify unknown or unanswered findings if relevant; this demonstration does not exclude Fabry disease.",
         disease_label: "Fabry disease",
         disease_id: "ORPHA:324",
         source_refs: ["genereviews_fabry", "orphadata_2026_06"]
@@ -16,6 +19,12 @@ angiokeratoma => eadv.phen_angiokeratoma.val.last();
 hypohidrosis => eadv.phen_hypohidrosis.val.last();
 cornea_verticillata => eadv.phen_cornea_verticillata.val.last();
 proteinuria => eadv.phen_proteinuria.val.last();
+
+/* Illustrative workflow signal only. Two present inputs is a demonstration
+   threshold, not a Fabry diagnostic criterion or probability. */
+present_feature_count : { . => coalesce(acroparesthesia, 0) + coalesce(angiokeratoma, 0) + coalesce(hypohidrosis, 0) + coalesce(cornea_verticillata, 0) + coalesce(proteinuria, 0) };
+demo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };
+[[rb_id]] : { . => demo_review_prompt };
 
 #define_attribute(acroparesthesia, {
     label: "Acroparaesthesia",

@@ -4,10 +4,10 @@
     "id": "ikd",
     "title": "Inherited kidney disease",
     "description": "Structured history and findings for an inherited kidney disease assessment.",
-    "version": "0.1.0",
+    "version": "0.2.0-demo",
     "limitations": "These ten candidate features do not form a complete inherited kidney disease screening instrument or diagnostic criteria. A finding does not establish a disease, and an absent finding does not exclude it.",
     "associationContext": "This is background context; an answer here does not establish or exclude a diagnosis.",
-    "contentVersion": "442bae27603451e8",
+    "contentVersion": "bc826888e7405139",
     "sections": [
       {
         "id": "kidney",
@@ -45,12 +45,12 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 80
+            "inputLine": 89
           }
         ]
       },
@@ -72,12 +72,12 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 65
+            "inputLine": 74
           }
         ]
       },
@@ -99,12 +99,12 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 35
+            "inputLine": 44
           }
         ]
       },
@@ -126,12 +126,12 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 35
+            "inputLine": 44
           }
         ]
       },
@@ -153,12 +153,12 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 20
+            "inputLine": 29
           }
         ]
       },
@@ -180,12 +180,12 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 50
+            "inputLine": 59
           }
         ]
       },
@@ -207,12 +207,12 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 50
+            "inputLine": 59
           }
         ]
       },
@@ -234,12 +234,12 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 65
+            "inputLine": 74
           }
         ]
       },
@@ -261,12 +261,12 @@
             "ruleId": "ikd_fabry",
             "label": "Fabry disease",
             "diseaseId": "ORPHA:324",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_fabry",
               "orphadata_2026_06"
             ],
-            "inputLine": 20
+            "inputLine": 29
           }
         ]
       },
@@ -288,12 +288,12 @@
             "ruleId": "ikd_tuberous_sclerosis",
             "label": "Tuberous sclerosis complex",
             "diseaseId": "ORPHA:805",
-            "version": "0.1.0",
+            "version": "0.2.0-demo",
             "sourceRefs": [
               "genereviews_tsc",
               "orphadata_2026_06"
             ],
-            "inputLine": 80
+            "inputLine": 89
           }
         ]
       }
@@ -301,12 +301,17 @@
     "rules": [
       {
         "id": "ikd_fabry",
-        "source": "acroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();",
-        "authoredSource": "/* Atlas IKD collection: five Fabry-associated assessment features. */\n#define_ruleblock(ikd_fabry, {\n    description: \"Fabry disease assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.1.0\",\n        disease_label: \"Fabry disease\",\n        disease_id: \"ORPHA:324\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\nacroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\n\n#define_attribute(acroparesthesia, {\n    label: \"Acroparaesthesia\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"acroparesthesia\",\n        source_attribute: \"phen_acroparesthesia\",\n        section: \"neurological_history\",\n        question: \"Has the patient experienced episodes of burning or tingling pain in the hands or feet?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0031006\",\n        help: \"Episodes of pain or abnormal sensation in the extremities.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiokeratoma, {\n    label: \"Angiokeratomas\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"angiokeratoma\",\n        source_attribute: \"phen_angiokeratoma\",\n        section: \"skin_sweating\",\n        question: \"Have angiokeratomas been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001014\",\n        help: \"Records whether these vascular skin lesions have been identified.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(hypohidrosis, {\n    label: \"Reduced sweating\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypohidrosis\",\n        source_attribute: \"phen_hypohidrosis\",\n        section: \"skin_sweating\",\n        question: \"Does the patient report reduced sweating?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000966\",\n        help: \"Records a history of sweating less than expected.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(cornea_verticillata, {\n    label: \"Cornea verticillata\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"cornea_verticillata\",\n        source_attribute: \"phen_cornea_verticillata\",\n        section: \"eyes\",\n        question: \"Has cornea verticillata been documented on eye examination?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0500008\",\n        help: \"Records a documented corneal finding; it does not ask the patient to identify it.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(proteinuria, {\n    label: \"Proteinuria\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"proteinuria\",\n        source_attribute: \"phen_proteinuria\",\n        section: \"kidney\",\n        question: \"Has proteinuria been documented?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000093\",\n        help: \"Records documented protein in the urine without applying a quantitative threshold.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n",
-        "assetPath": "/generated/ruleblocks/ikd/ikd_fabry-442bae27603451e8.prb",
+        "source": "acroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\npresent_feature_count : { . => coalesce(acroparesthesia, 0) + coalesce(angiokeratoma, 0) + coalesce(hypohidrosis, 0) + coalesce(cornea_verticillata, 0) + coalesce(proteinuria, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };",
+        "demo": {
+          "threshold": 2,
+          "actionWhenFlagged": "Review the recorded Fabry-associated findings and cited sources in clinical context.",
+          "actionWhenNotFlagged": "Clarify unknown or unanswered findings if relevant; this demonstration does not exclude Fabry disease."
+        },
+        "authoredSource": "/* Atlas IKD collection: five Fabry-associated assessment features. */\n#define_ruleblock(ikd_fabry, {\n    description: \"Fabry disease assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.2.0-demo\",\n        demo_threshold: 2,\n        demo_action_when_flagged: \"Review the recorded Fabry-associated findings and cited sources in clinical context.\",\n        demo_action_when_not_flagged: \"Clarify unknown or unanswered findings if relevant; this demonstration does not exclude Fabry disease.\",\n        disease_label: \"Fabry disease\",\n        disease_id: \"ORPHA:324\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\nacroparesthesia => eadv.phen_acroparesthesia.val.last();\nangiokeratoma => eadv.phen_angiokeratoma.val.last();\nhypohidrosis => eadv.phen_hypohidrosis.val.last();\ncornea_verticillata => eadv.phen_cornea_verticillata.val.last();\nproteinuria => eadv.phen_proteinuria.val.last();\n\n/* Illustrative workflow signal only. Two present inputs is a demonstration\n   threshold, not a Fabry diagnostic criterion or probability. */\npresent_feature_count : { . => coalesce(acroparesthesia, 0) + coalesce(angiokeratoma, 0) + coalesce(hypohidrosis, 0) + coalesce(cornea_verticillata, 0) + coalesce(proteinuria, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };\n\n#define_attribute(acroparesthesia, {\n    label: \"Acroparaesthesia\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"acroparesthesia\",\n        source_attribute: \"phen_acroparesthesia\",\n        section: \"neurological_history\",\n        question: \"Has the patient experienced episodes of burning or tingling pain in the hands or feet?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0031006\",\n        help: \"Episodes of pain or abnormal sensation in the extremities.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiokeratoma, {\n    label: \"Angiokeratomas\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"angiokeratoma\",\n        source_attribute: \"phen_angiokeratoma\",\n        section: \"skin_sweating\",\n        question: \"Have angiokeratomas been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001014\",\n        help: \"Records whether these vascular skin lesions have been identified.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(hypohidrosis, {\n    label: \"Reduced sweating\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypohidrosis\",\n        source_attribute: \"phen_hypohidrosis\",\n        section: \"skin_sweating\",\n        question: \"Does the patient report reduced sweating?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000966\",\n        help: \"Records a history of sweating less than expected.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(cornea_verticillata, {\n    label: \"Cornea verticillata\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"cornea_verticillata\",\n        source_attribute: \"phen_cornea_verticillata\",\n        section: \"eyes\",\n        question: \"Has cornea verticillata been documented on eye examination?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0500008\",\n        help: \"Records a documented corneal finding; it does not ask the patient to identify it.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(proteinuria, {\n    label: \"Proteinuria\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"proteinuria\",\n        source_attribute: \"phen_proteinuria\",\n        section: \"kidney\",\n        question: \"Has proteinuria been documented?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0000093\",\n        help: \"Records documented protein in the urine without applying a quantitative threshold.\",\n        source_refs: [\"genereviews_fabry\", \"orphadata_2026_06\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_fabry-bc826888e7405139.prb",
         "label": "Fabry disease",
         "diseaseId": "ORPHA:324",
-        "version": "0.1.0",
+        "version": "0.2.0-demo",
         "sourceRefs": [
           "genereviews_fabry",
           "orphadata_2026_06"
@@ -314,12 +319,17 @@
       },
       {
         "id": "ikd_tuberous_sclerosis",
-        "source": "hypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();",
-        "authoredSource": "/* Atlas IKD collection: five tuberous sclerosis complex-associated assessment features. */\n#define_ruleblock(ikd_tuberous_sclerosis, {\n    description: \"Tuberous sclerosis complex assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.1.0\",\n        disease_label: \"Tuberous sclerosis complex\",\n        disease_id: \"ORPHA:805\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\nhypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();\n\n#define_attribute(hypomelanotic_macule, {\n    label: \"Hypomelanotic macules\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypomelanotic_macule\",\n        source_attribute: \"phen_hypomelanotic_macule\",\n        section: \"skin_sweating\",\n        question: \"Have hypomelanotic macules been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009719\",\n        help: \"Records identified patches of skin with reduced pigmentation; no lesion count is applied.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiofibromas, {\n    label: \"Angiofibromas\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"angiofibromas\",\n        source_attribute: \"phen_angiofibromas\",\n        section: \"skin_sweating\",\n        question: \"Have angiofibromas been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0010615\",\n        help: \"Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(shagreen_patch, {\n    label: \"Shagreen patch\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"shagreen_patch\",\n        source_attribute: \"phen_shagreen_patch\",\n        section: \"skin_sweating\",\n        question: \"Has a shagreen patch been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009721\",\n        help: \"Records whether this skin finding has been identified.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(renal_angiomyolipoma, {\n    label: \"Renal angiomyolipoma\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"renal_angiomyolipoma\",\n        source_attribute: \"phen_renal_angiomyolipoma\",\n        section: \"kidney\",\n        question: \"Has a renal angiomyolipoma been documented on imaging?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0006772\",\n        help: \"Records a documented kidney lesion, without applying a size or number threshold.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(seizure, {\n    label: \"Seizures\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"seizure\",\n        source_attribute: \"phen_seizure\",\n        section: \"neurological_history\",\n        question: \"Is there a history of seizures?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001250\",\n        help: \"Records a history of seizures without implying when they occurred.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n",
-        "assetPath": "/generated/ruleblocks/ikd/ikd_tuberous_sclerosis-442bae27603451e8.prb",
+        "source": "hypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();\npresent_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };",
+        "demo": {
+          "threshold": 2,
+          "actionWhenFlagged": "Review the recorded TSC-associated findings and cited sources in clinical context.",
+          "actionWhenNotFlagged": "Clarify unknown or unanswered findings if relevant; this demonstration does not exclude tuberous sclerosis complex."
+        },
+        "authoredSource": "/* Atlas IKD collection: five tuberous sclerosis complex-associated assessment features. */\n#define_ruleblock(ikd_tuberous_sclerosis, {\n    description: \"Tuberous sclerosis complex assessment features\",\n    is_active: 2,\n    atlas: {\n        schema_version: \"1\",\n        version: \"0.2.0-demo\",\n        demo_threshold: 2,\n        demo_action_when_flagged: \"Review the recorded TSC-associated findings and cited sources in clinical context.\",\n        demo_action_when_not_flagged: \"Clarify unknown or unanswered findings if relevant; this demonstration does not exclude tuberous sclerosis complex.\",\n        disease_label: \"Tuberous sclerosis complex\",\n        disease_id: \"ORPHA:805\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\nhypomelanotic_macule => eadv.phen_hypomelanotic_macule.val.last();\nangiofibromas => eadv.phen_angiofibromas.val.last();\nshagreen_patch => eadv.phen_shagreen_patch.val.last();\nrenal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();\nseizure => eadv.phen_seizure.val.last();\n\n/* Illustrative workflow signal only. Two present inputs is a demonstration\n   threshold, not a TSC diagnostic criterion or probability. */\npresent_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) };\ndemo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };\n[[rb_id]] : { . => demo_review_prompt };\n\n#define_attribute(hypomelanotic_macule, {\n    label: \"Hypomelanotic macules\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"hypomelanotic_macule\",\n        source_attribute: \"phen_hypomelanotic_macule\",\n        section: \"skin_sweating\",\n        question: \"Have hypomelanotic macules been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009719\",\n        help: \"Records identified patches of skin with reduced pigmentation; no lesion count is applied.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(angiofibromas, {\n    label: \"Angiofibromas\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"angiofibromas\",\n        source_attribute: \"phen_angiofibromas\",\n        section: \"skin_sweating\",\n        question: \"Have angiofibromas been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0010615\",\n        help: \"Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(shagreen_patch, {\n    label: \"Shagreen patch\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"shagreen_patch\",\n        source_attribute: \"phen_shagreen_patch\",\n        section: \"skin_sweating\",\n        question: \"Has a shagreen patch been identified?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0009721\",\n        help: \"Records whether this skin finding has been identified.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(renal_angiomyolipoma, {\n    label: \"Renal angiomyolipoma\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"renal_angiomyolipoma\",\n        source_attribute: \"phen_renal_angiomyolipoma\",\n        section: \"kidney\",\n        question: \"Has a renal angiomyolipoma been documented on imaging?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0006772\",\n        help: \"Records a documented kidney lesion, without applying a size or number threshold.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n\n#define_attribute(seizure, {\n    label: \"Seizures\",\n    atlas: {\n        role: \"input\",\n        feature_id: \"seizure\",\n        source_attribute: \"phen_seizure\",\n        section: \"neurological_history\",\n        question: \"Is there a history of seizures?\",\n        answer_type: \"presence\",\n        hpo_id: \"HP:0001250\",\n        help: \"Records a history of seizures without implying when they occurred.\",\n        source_refs: [\"genereviews_tsc\", \"orphadata_2026_06\"]\n    }\n});\n",
+        "assetPath": "/generated/ruleblocks/ikd/ikd_tuberous_sclerosis-bc826888e7405139.prb",
         "label": "Tuberous sclerosis complex",
         "diseaseId": "ORPHA:805",
-        "version": "0.1.0",
+        "version": "0.2.0-demo",
         "sourceRefs": [
           "genereviews_tsc",
           "orphadata_2026_06"

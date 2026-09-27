@@ -28,7 +28,7 @@ deployment remain separate decisions.
 
 | Step | Status | Evidence |
 | --- | --- | --- |
-| Author and validate executable demonstration outputs | In progress | Pending rule and runtime tests |
+| Author and validate executable demonstration outputs | Done locally | Two versioned ruleblocks emit review prompts; content checks, FHIR bridge evaluation tests, and 26 unit tests passed |
 | Complete review, result, and FHIR download UI | Planned | Pending static browser checks |
 | Validate full flow and record evidence | Planned | Pending content, typecheck, unit, build, browser checks |
 

@@ -116,6 +116,8 @@ describe('Atlas content compilation', () => {
       }
     }
     expect(manifest.questions).toHaveLength(10);
+    expect(manifest.rules.map(rule => rule.demo?.threshold)).toEqual([2, 2]);
+    expect(manifest.rules.every(rule => rule.source.includes('present_feature_count :'))).toBe(true);
     expect(manifest.questions.filter(q => q.diseases[0].ruleId === 'ikd_fabry')).toHaveLength(5);
     expect(manifest.questions.filter(q => q.diseases[0].ruleId === 'ikd_tuberous_sclerosis')).toHaveLength(5);
     expect(Object.fromEntries(manifest.questions.map(q => [q.featureId, [q.hpoId, q.diseases[0].ruleId]]))).toEqual({
@@ -130,5 +132,16 @@ describe('Atlas content compilation', () => {
       renal_angiomyolipoma: ['HP:0006772', 'ikd_tuberous_sclerosis'],
       seizure: ['HP:0001250', 'ikd_tuberous_sclerosis'],
     });
+  });
+
+  it('rejects a demonstration threshold that differs from the authored condition', () => {
+    const root = new URL('../content/', import.meta.url);
+    const collection = JSON.parse(readFileSync(new URL('collections/ikd/collection.json', root), 'utf8'));
+    const sourceRecords = JSON.parse(readFileSync(new URL('sources.json', root), 'utf8'));
+    const rules = collection.rules.map((path: string) => ({
+      path, text: readFileSync(new URL(`collections/ikd/${path}`, root), 'utf8'),
+    }));
+    rules[0].text = rules[0].text.replace('present_feature_count >= 2', 'present_feature_count >= 3');
+    expect(() => compileCollection(collection, rules, sourceRecords)).toThrow(/illustrative rule/);
   });
 });

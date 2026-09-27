@@ -4,7 +4,10 @@
     is_active: 2,
     atlas: {
         schema_version: "1",
-        version: "0.1.0",
+        version: "0.2.0-demo",
+        demo_threshold: 2,
+        demo_action_when_flagged: "Review the recorded TSC-associated findings and cited sources in clinical context.",
+        demo_action_when_not_flagged: "Clarify unknown or unanswered findings if relevant; this demonstration does not exclude tuberous sclerosis complex.",
         disease_label: "Tuberous sclerosis complex",
         disease_id: "ORPHA:805",
         source_refs: ["genereviews_tsc", "orphadata_2026_06"]
@@ -16,6 +19,12 @@ angiofibromas => eadv.phen_angiofibromas.val.last();
 shagreen_patch => eadv.phen_shagreen_patch.val.last();
 renal_angiomyolipoma => eadv.phen_renal_angiomyolipoma.val.last();
 seizure => eadv.phen_seizure.val.last();
+
+/* Illustrative workflow signal only. Two present inputs is a demonstration
+   threshold, not a TSC diagnostic criterion or probability. */
+present_feature_count : { . => coalesce(hypomelanotic_macule, 0) + coalesce(angiofibromas, 0) + coalesce(shagreen_patch, 0) + coalesce(renal_angiomyolipoma, 0) + coalesce(seizure, 0) };
+demo_review_prompt : { present_feature_count >= 2 => 1 }, { => 0 };
+[[rb_id]] : { . => demo_review_prompt };
 
 #define_attribute(hypomelanotic_macule, {
     label: "Hypomelanotic macules",

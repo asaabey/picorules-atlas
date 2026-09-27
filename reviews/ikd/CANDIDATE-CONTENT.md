@@ -1,10 +1,10 @@
 # IKD candidate content for clinical review
 
 > Review packet only. No clinical approval or diagnostic performance is implied.
-> These ruleblocks fetch feature inputs. Atlas does not compute disease conclusions or recommendations.
+> These ruleblocks fetch feature inputs and emit an illustrative two-present-feature review prompt. This is not a diagnostic criterion, probability, or clinical recommendation.
 
-Collection: Inherited kidney disease (ikd), version 0.1.0.
-Content version: `442bae27603451e8`.
+Collection: Inherited kidney disease (ikd), version 0.2.0-demo.
+Content version: `bc826888e7405139`.
 
 Review every feature label, HPO mapping, question, help text, disease association, and source link.
 Record decisions and wording changes in `review-record.json` against this content version.
@@ -26,7 +26,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Has proteinuria been documented?
 - Help: Records documented protein in the urine without applying a quantitative threshold.
 - Feature source IDs: genereviews_fabry, orphadata_2026_06.
-- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.1.0, input declaration line 80.
+- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.2.0-demo, input declaration line 89.
 - Orphadata row: HP:0000093 “Proteinuria”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
@@ -37,7 +37,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Has a renal angiomyolipoma been documented on imaging?
 - Help: Records a documented kidney lesion, without applying a size or number threshold.
 - Feature source IDs: genereviews_tsc, orphadata_2026_06.
-- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.1.0, input declaration line 65.
+- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.2.0-demo, input declaration line 74.
 - Orphadata row: HP:0006772 “Renal angiomyolipoma”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
@@ -48,7 +48,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Have angiofibromas been identified?
 - Help: Records the broad angiofibroma finding, without restricting it to facial lesions or applying a count.
 - Feature source IDs: genereviews_tsc, orphadata_2026_06.
-- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.1.0, input declaration line 35.
+- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.2.0-demo, input declaration line 44.
 - Orphadata row: HP:0010615 “Angiofibromas”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
@@ -59,7 +59,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Have angiokeratomas been identified?
 - Help: Records whether these vascular skin lesions have been identified.
 - Feature source IDs: genereviews_fabry, orphadata_2026_06.
-- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.1.0, input declaration line 35.
+- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.2.0-demo, input declaration line 44.
 - Orphadata row: HP:0001014 “Angiokeratoma”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
@@ -70,7 +70,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Have hypomelanotic macules been identified?
 - Help: Records identified patches of skin with reduced pigmentation; no lesion count is applied.
 - Feature source IDs: genereviews_tsc, orphadata_2026_06.
-- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.1.0, input declaration line 20.
+- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.2.0-demo, input declaration line 29.
 - Orphadata row: HP:0009719 “Hypomelanotic macule”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
@@ -81,7 +81,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Does the patient report reduced sweating?
 - Help: Records a history of sweating less than expected.
 - Feature source IDs: genereviews_fabry, orphadata_2026_06.
-- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.1.0, input declaration line 50.
+- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.2.0-demo, input declaration line 59.
 - Orphadata row: HP:0000966 “Hypohidrosis”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
@@ -92,7 +92,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Has a shagreen patch been identified?
 - Help: Records whether this skin finding has been identified.
 - Feature source IDs: genereviews_tsc, orphadata_2026_06.
-- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.1.0, input declaration line 50.
+- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.2.0-demo, input declaration line 59.
 - Orphadata row: HP:0009721 “Shagreen patch”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
@@ -103,7 +103,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Has cornea verticillata been documented on eye examination?
 - Help: Records a documented corneal finding; it does not ask the patient to identify it.
 - Feature source IDs: genereviews_fabry, orphadata_2026_06.
-- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.1.0, input declaration line 65.
+- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.2.0-demo, input declaration line 74.
 - Orphadata row: HP:0500008 “Cornea verticillata”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
@@ -114,7 +114,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Has the patient experienced episodes of burning or tingling pain in the hands or feet?
 - Help: Episodes of pain or abnormal sensation in the extremities.
 - Feature source IDs: genereviews_fabry, orphadata_2026_06.
-- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.1.0, input declaration line 20.
+- Association: Fabry disease (ORPHA:324); rule `ikd_fabry` v0.2.0-demo, input declaration line 29.
 - Orphadata row: HP:0031006 “Acroparesthesia”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
@@ -125,7 +125,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Question: Is there a history of seizures?
 - Help: Records a history of seizures without implying when they occurred.
 - Feature source IDs: genereviews_tsc, orphadata_2026_06.
-- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.1.0, input declaration line 80.
+- Association: Tuberous sclerosis complex (ORPHA:805); rule `ikd_tuberous_sclerosis` v0.2.0-demo, input declaration line 89.
 - Orphadata row: HP:0001250 “Seizure”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
@@ -136,6 +136,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Answer semantics: present and absent are explicit findings; unknown / not assessed is explicit; unanswered remains distinct and optional.
 - FHIR mapping: present/absent become boolean Observations; unknown has dataAbsentReason; unanswered produces no Observation. Check displayed wording against these states.
 - Disease context: an association is background information and cannot establish or exclude disease.
+- Demonstration output: each rule counts its own present features; two or more triggers a review prompt. Absent, unknown, and unanswered contribute zero to this illustrative count. Review the wording and threshold separately before any clinical use.
 - Scope: ten candidate features across two disease ruleblocks. This is not a complete inherited kidney disease screen or diagnostic criteria. It does not rank diseases or use Orphadata frequency categories as weights.
 - Reviewer checks: confirm source attribution, release/version, terminology meaning, wording, limitations, and whether any feature needs added clinical context.
 

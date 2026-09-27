@@ -37,6 +37,11 @@ export interface AtlasSection { id: string; label: string }
 export interface ExecutableRule {
   id: string;
   source: string;
+  demo?: {
+    threshold: number;
+    actionWhenFlagged: string;
+    actionWhenNotFlagged: string;
+  };
   authoredSource: string;
   assetPath: string;
   label: string;

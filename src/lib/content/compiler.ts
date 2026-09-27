@@ -1,6 +1,6 @@
 import JSON5 from 'json5';
 import { parse, RuleType } from 'picorules-compiler-js-core';
-import type { ParsedFetchStatement } from 'picorules-compiler-js-core';
+import type { ParsedComputeStatement, ParsedFetchStatement } from 'picorules-compiler-js-core';
 import type {
   AtlasQuestion,
   AtlasSection,
@@ -177,6 +177,17 @@ export function compileCollection(
       version: string(headerAtlas.version, path, headers[0].line, 'version'),
       sourceRefs: refs(headerAtlas.source_refs, sources, path, headers[0].line),
     };
+    const demoThreshold = headerAtlas.demo_threshold;
+    if (demoThreshold !== undefined && (!Number.isInteger(demoThreshold) || (demoThreshold as number) < 1)) {
+      fail(path, headers[0].line, 'demo_threshold must be a positive integer');
+    }
+    const demo = demoThreshold === undefined ? undefined : {
+      threshold: demoThreshold as number,
+      actionWhenFlagged: string(headerAtlas.demo_action_when_flagged, path, headers[0].line,
+        'demo_action_when_flagged'),
+      actionWhenNotFlagged: string(headerAtlas.demo_action_when_not_flagged, path, headers[0].line,
+        'demo_action_when_not_flagged'),
+    };
     const metadata = new Map<string, { statement: Statement; data: Record<string, unknown> }>();
     const body: Statement[] = [];
     let sawAttribute = false;
@@ -200,6 +211,7 @@ export function compileCollection(
     executable.push({
       id: header.name,
       source: executableSource,
+      ...(demo ? { demo } : {}),
       authoredSource: source.text,
       assetPath: `/generated/ruleblocks/${definition.id}/${header.name}-${contentVersion}.prb`,
       label: disease.label,
@@ -264,6 +276,26 @@ export function compileCollection(
     }
     for (const [variable, meta] of metadata) {
       if (!inputVariables.has(variable)) fail(path, meta.statement.line, `metadata ${variable} has no fetched input`);
+    }
+    if (demoThreshold !== undefined) {
+      if ((demoThreshold as number) > inputVariables.size) {
+        fail(path, headers[0].line, 'demo_threshold exceeds the number of input features');
+      }
+      const computes = parsed.rules.filter(rule => rule.ruleType === RuleType.COMPUTE_STATEMENT) as ParsedComputeStatement[];
+      const byVariable = new Map(computes.map(rule => [rule.assignedVariable, rule]));
+      const count = byVariable.get('present_feature_count');
+      const prompt = byVariable.get('demo_review_prompt');
+      const output = byVariable.get(header.name);
+      const expectedCount = [...inputVariables].map(variable => `coalesce(${variable}, 0)`).join(' + ');
+      if (computes.length !== 3 || count?.conditions.length !== 1 ||
+        count.conditions[0].predicate !== '.' || count.conditions[0].returnValue !== expectedCount ||
+        prompt?.conditions.length !== 2 ||
+        prompt.conditions[0].predicate !== `present_feature_count >= ${demoThreshold}` ||
+        prompt.conditions[0].returnValue !== '1' || prompt.conditions[1].predicate !== undefined ||
+        prompt.conditions[1].returnValue !== '0' || output?.conditions.length !== 1 ||
+        output.conditions[0].predicate !== '.' || output.conditions[0].returnValue !== 'demo_review_prompt') {
+        fail(path, 1, 'illustrative rule must count inputs and emit only the declared review prompt');
+      }
     }
   }
   return {

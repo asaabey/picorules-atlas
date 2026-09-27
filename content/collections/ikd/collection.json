@@ -3,7 +3,7 @@
   "id": "ikd",
   "title": "Inherited kidney disease",
   "description": "Structured history and findings for an inherited kidney disease assessment.",
-  "version": "0.1.0",
+  "version": "0.2.0-demo",
   "limitations": "These ten candidate features do not form a complete inherited kidney disease screening instrument or diagnostic criteria. A finding does not establish a disease, and an absent finding does not exclude it.",
   "associationContext": "This is background context; an answer here does not establish or exclude a diagnosis.",
   "sections": [
