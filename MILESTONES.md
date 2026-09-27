@@ -9,8 +9,8 @@ not features of the current app. No target dates are assigned.
 | Milestone | Outcome | Status |
 | --- | --- | --- |
 | M0 | Ten-question IKD scaffold | Verified locally |
-| M1 | Reproducible project baseline | In progress |
-| M2 | Read-only Picorules ruleblock viewer | Planned |
+| M1 | Reproducible project baseline | Complete |
+| M2 | Read-only Picorules ruleblock viewer | Next |
 | M3 | Clinically reviewed IKD content | Planned |
 | M4 | Assessment review and FHIR handoff | Planned |
 | M5 | Questionnaire pilot on HTTPS | Planned |
@@ -35,7 +35,7 @@ compatibility fix. Reference screenshots are in `screenshots/`.
 **Limit:** This is a demonstration scaffold, not a clinically reviewed instrument.
 Atlas was added to the workspace Git repository in commit `cc2ce19`.
 
-## M1 — Reproducible project baseline (in progress)
+## M1 — Reproducible project baseline (complete)
 
 **Progress record**
 
@@ -43,11 +43,12 @@ Atlas was added to the workspace Git repository in commit `cc2ce19`.
 | --- | --- | --- |
 | Track Atlas in Git | Done | Commit `cc2ce19` |
 | Pin compiler and document clean setup | Done locally | Clean temporary checkout passed install, validation, 16 tests, and build on 27 September 2026 |
-| Add automated validation | Implemented; first GitHub run pending | `.github/workflows/atlas.yml` |
+| Add automated validation | Done | [Atlas CI run 36293714044](https://github.com/asaabey/picorules-top-node/actions/runs/36293714044) passed all steps |
 | Check static LAN preview and answer privacy | Done locally | 3 static browser tests passed; HTTP LAN opened 10 questions, answered without new requests or browser storage |
 
-The remaining M1 exit check is the first GitHub Actions run. The workflow is
-committed locally but has not run on GitHub while these commits remain unpushed.
+All M1 exit checks passed on 27 September 2026. The GitHub Actions run built the
+pinned compiler and Atlas from checkout, validated content, typechecked, ran unit
+tests, built the static site, and passed browser tests against that export.
 
 **Work**
 
