@@ -20,6 +20,15 @@ dates are assigned.
 | M8 | Binary checkboxes and focused feature views | Complete locally |
 | M9 | Hosted demonstration | Deferred at user request |
 | M10 | Family-history inheritance-pattern prompts | Complete locally |
+| M11 | Six missing nephronophthisis and ciliopathy entities | In progress |
+
+## M11 — Complete the six missing entity profiles (in progress)
+
+Add broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome, and
+Mainzer–Saldino as authored ruleblocks. Reuse shared findings, retain source and
+mapping caveats, and show a separate unweighted present-feature count for these
+new profiles. This is application coverage of the original entity list, not
+clinical validation or proof that closely related subtypes can be distinguished.
 
 ## End-to-end proof of concept (complete locally)
 
