@@ -16,6 +16,22 @@ not features of the current app. No target dates are assigned.
 | M5 | Questionnaire pilot on HTTPS | Planned |
 | M6 | Validated clinical evaluation, if pursued | Decision gate |
 
+## End-to-end proof of concept (in progress)
+
+The clinical reviewer accepted the ten questions in principle for a proof of
+concept and asked to see how rules lead to conclusions and next actions. Complete
+the local questionnaire → answer review → Picorules evaluation → explanatory
+result → user-initiated FHIR download flow. The example rule output will use an
+explicit demonstration threshold and show the contributing findings. It will not
+claim diagnostic accuracy or recommend tests or treatment. Clinical release and
+deployment remain separate decisions.
+
+| Step | Status | Evidence |
+| --- | --- | --- |
+| Author and validate executable demonstration outputs | In progress | Pending rule and runtime tests |
+| Complete review, result, and FHIR download UI | Planned | Pending static browser checks |
+| Validate full flow and record evidence | Planned | Pending content, typecheck, unit, build, browser checks |
+
 Mark a milestone complete only when its exit checks and review evidence are recorded
 here or linked from here. Keep candidate clinical content and unvalidated evaluation
 out of clinical release claims.
