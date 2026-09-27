@@ -10,11 +10,11 @@
     "review:gate": "tsx scripts/clinical-review.ts --gate",
     "dev": "npm run content:build && next dev",
     "build": "npm run content:build && next build",
-    "start:static": "serve out",
-    "preview:lan": "serve out -l tcp://0.0.0.0:3000",
+    "preview:lan": "next start --hostname 0.0.0.0 --port 3000",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "start": "next start"
   },
   "dependencies": {
     "json5": "^2.2.3",

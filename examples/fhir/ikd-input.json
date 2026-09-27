@@ -1,0 +1,30 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "example"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://human-phenotype-ontology.org",
+              "code": "HP:0001014"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example"
+        },
+        "valueBoolean": true
+      }
+    }
+  ]
+}

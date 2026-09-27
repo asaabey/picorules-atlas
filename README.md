@@ -1,6 +1,6 @@
 # Picorules Atlas
 
-Picorules Atlas is a static Next.js proof of concept. The inherited kidney disease (IKD) collection has 60 shared questions across fourteen profiles. The original eight are Fabry disease, tuberous sclerosis complex, broad Alport syndrome, HNF1B-related disease, ARPKD, Von Hippel–Lindau disease, ADTKD–UMOD and ADTKD–MUC1. Six more cover broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome and Mainzer–Saldino syndrome. Questions and disease associations are generated from Picorules rule references and `#define_attribute` metadata. One action below the questions runs every authored rule and shows its research score or present-feature count, contribution breakdown, and a FHIR download on the same page. These outputs are demonstrations, not validated clinical scores, diagnoses, probabilities, or advice about tests or treatment. Atlas does not submit or save assessments.
+Picorules Atlas is a Next.js proof of concept. The inherited kidney disease (IKD) collection has 60 shared questions across fourteen profiles. The original eight are Fabry disease, tuberous sclerosis complex, broad Alport syndrome, HNF1B-related disease, ARPKD, Von Hippel–Lindau disease, ADTKD–UMOD and ADTKD–MUC1. Six more cover broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome and Mainzer–Saldino syndrome. Questions and disease associations are generated from Picorules rule references and `#define_attribute` metadata. One action below the questions runs every authored rule and shows its research score or present-feature count, contribution breakdown, and a FHIR download on the same page. These outputs are demonstrations, not validated clinical scores, diagnoses, probabilities, or advice about tests or treatment. The browser assessment stays local; the FHIR API processes submitted bundles without saving them.
 
 Development status and next steps are tracked in [MILESTONES.md](MILESTONES.md).
 
@@ -37,22 +37,18 @@ npm run content:build   # validate content and write src/generated/collections.j
 npm run content:check   # validate content and check generated output is current
 npm run typecheck
 npm test
-npm run build           # regenerate content and export static files to out/
-npm run preview:lan     # serve out/ on 0.0.0.0:3000 for LAN checks
+npm run build           # regenerate content and build Next.js
+npm run preview:lan     # serve Next.js on 0.0.0.0:3000 for LAN checks
 npx playwright install chromium
 npm run test:browser    # Playwright desktop and mobile interaction checks
-ATLAS_TEST_STATIC=1 npm run test:browser # browser checks against the static export
+ATLAS_TEST_STATIC=1 npm run test:browser # browser checks against the production server
 ```
 
-`npm run build` uses Next.js static export. The resulting `out/` directory can be
-served by any static file host. For a localhost preview, run `npm run start:static`;
-for access from another device on the same network, run `npm run preview:lan` and
-open `http://<this-machine's-LAN-IP>:3000`. The preview command binds to all IPv4
-interfaces; access from another device also depends on the host firewall and network.
-There is no application API, database, account service, or runtime compilation endpoint.
-The repository's Atlas CI workflow builds the pinned compiler and runs these checks
-against the static export. Browser checks include an HTTP compatibility case where
-`crypto.randomUUID()` is unavailable.
+`npm run build` builds the Next.js page and server API. Use `npm start` locally or
+`npm run preview:lan` for access from another device. The legacy `ATLAS_TEST_STATIC=1`
+test flag now selects the production Next.js server. There is no database or payload logging.
+
+See [FHIR API and Netlify setup](FHIR-API.md) for requests, authentication and hosting.
 
 The FHIR schema test uses the official [FHIR R4 JSON Schema](https://hl7.org/fhir/R4/fhir.schema.json), copied to `tests/fixtures/fhir-r4.schema.json` for reproducible offline tests (retrieved 2026-09-27). Browser screenshots are written under `test-results/`; reviewed reference captures are in `screenshots/`.
 
