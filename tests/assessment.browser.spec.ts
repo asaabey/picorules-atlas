@@ -112,7 +112,7 @@ test('assessment opens when randomUUID is unavailable on an HTTP LAN origin', as
   await expect(page.getByText('1 / 10 answered')).toBeVisible();
 });
 
-test('review, authored rule output, and FHIR download follow recorded answers', async ({ page }) => {
+test('one action shows rule results and FHIR download beside editable questions', async ({ page }) => {
   const writes: string[] = [];
   page.on('request', request => {
     if (!['GET', 'HEAD'].includes(request.method())) writes.push(`${request.method()} ${request.url()}`);
@@ -126,14 +126,14 @@ test('review, authored rule output, and FHIR download follow recorded answers', 
   await card('Angiokeratomas').getByRole('radio', { name: 'Present' }).check();
   await card('Reduced sweating').getByRole('radio', { name: 'Unknown / not assessed' }).check();
   await card('Seizures').getByRole('radio', { name: 'Absent' }).check();
-  await page.getByRole('button', { name: 'Review findings' }).click();
-  await expect(page.getByRole('heading', { name: 'Review findings' })).toBeFocused();
-  await expect(page.locator('.review-answer--present')).toHaveCount(2);
-  await expect(page.locator('.review-answer--absent')).toHaveCount(1);
-  await expect(page.locator('.review-answer--unknown')).toHaveCount(1);
-  await expect(page.locator('.review-answer--unanswered')).toHaveCount(6);
-  await page.getByRole('button', { name: 'Run demonstration' }).click();
-  await expect(page.getByRole('heading', { name: 'Illustrative rule output' })).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Show results' })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: 'Run demonstration' })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Show results' }).click();
+  await expect(page.getByRole('heading', { name: 'Rule results' })).toBeFocused();
+  await expect(page.locator('article.question-card')).toHaveCount(10);
+  await expect(card('Reduced sweating').getByRole('radio', { name: 'Unknown / not assessed' })).toBeChecked();
+  await expect(card('Seizures').getByRole('radio', { name: 'Absent' })).toBeChecked();
+  await expect(page.getByRole('button', { name: 'Show results' })).toHaveCount(0);
   const fabry = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Fabry disease' }) });
   const tsc = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Tuberous sclerosis complex' }) });
   await expect(fabry).toContainText('Possible diagnosis for review: Fabry disease');
@@ -168,25 +168,26 @@ test('review, authored rule output, and FHIR download follow recorded answers', 
   expect(writes).toEqual([]);
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
 
-  await page.getByRole('button', { name: 'Edit answers' }).click();
   await card('Angiokeratomas').getByRole('radio', { name: 'Absent' }).check();
-  await page.getByRole('button', { name: 'Review findings' }).click();
-  await page.getByRole('button', { name: 'Run demonstration' }).click();
+  await expect(page.getByRole('heading', { name: 'Rule results' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Download FHIR bundle' })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Show results' }).click();
   await expect(fabry).toContainText('No possible diagnosis raised by this rule');
+  await page.getByRole('button', { name: 'Reset answers' }).click();
+  await expect(page.getByRole('heading', { name: 'Rule results' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Download FHIR bundle' })).toHaveCount(0);
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
 });
 
-test('mobile keyboard journey reaches review and results without overflow', async ({ page }) => {
+test('mobile keyboard journey shows inline results without overflow', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Open assessment' }).click();
-  await page.getByRole('button', { name: 'Review findings' }).focus();
+  await page.getByRole('button', { name: 'Show results' }).focus();
   await page.keyboard.press('Enter');
-  await expect(page.getByRole('heading', { name: 'Review findings' })).toBeFocused();
-  await page.getByRole('button', { name: 'Run demonstration' }).focus();
-  await page.keyboard.press('Enter');
-  await expect(page.getByRole('heading', { name: 'Illustrative rule output' })).toBeFocused();
+  await expect(page.getByRole('heading', { name: 'Rule results' })).toBeFocused();
+  await expect(page.locator('article.question-card')).toHaveCount(10);
   const dimensions = await page.evaluate(() => ({ document: document.documentElement.scrollWidth, viewport: innerWidth }));
   expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
 });

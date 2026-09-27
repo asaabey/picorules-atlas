@@ -15,7 +15,7 @@ dates are assigned.
 | M3 | IKD content accepted for prototype | Complete for proof of concept; accuracy review deferred |
 | M4 | Assessment review and FHIR handoff | Complete for local proof of concept |
 | M5 | Rule results and possible-diagnosis handoff | Complete locally |
-| M6 | Single-action results on the assessment page | In progress |
+| M6 | Single-action results on the assessment page | Complete locally |
 | M7 | Hosted demonstration | Deferred at user request |
 
 ## End-to-end proof of concept (complete locally)
@@ -175,11 +175,11 @@ content, FHIR, and browser checks pass. Detailed accuracy review remains open.
 
 ## M4 — Assessment review and FHIR handoff
 
-**Local proof of concept complete:** The assessment has a review screen that
-distinguishes present, absent, unknown, and unanswered; a user-initiated FHIR
-download follows the illustrative rule output. The clinical reviewer tested the
-running app on 27 September 2026 and reported that it works as expected. This
-confirms the flow, not clinical validity of the questions or rule threshold.
+**At M4:** The assessment had a review screen distinguishing present, absent,
+unknown, and unanswered; a user-initiated FHIR download followed the
+illustrative rule output. The clinical reviewer tested the running app on
+27 September 2026 and reported that it worked as expected. M6 later removed
+the separate review screen to shorten the journey.
 
 **Work**
 
@@ -220,11 +220,13 @@ collection isolation holds, and browser tests cover both candidate branches.
 ## M6 — Single-action results on the assessment page
 
 The reviewer found the separate review and result pages added unnecessary
-clicks. Replace them with one action at the end of the questionnaire that runs
-the selected rules and displays scores, possible diagnoses, and FHIR download
-on the same page. Keep answer editing available in place and never show a stale
-result after an answer changes. Verify keyboard focus, mobile layout, and the
-downloaded handoff against the displayed results.
+clicks. One **Show results** action now runs the selected rules and displays
+scores, possible diagnoses, and the FHIR download below the questions on the
+same page. Answers remain editable; a changed answer clears the prior result
+and download until the rules are run again. Keyboard focus moves to the new
+results heading. Eight static browser tests cover this flow, the downloaded
+handoff, a 390px viewport, and the absence of answer-bearing requests. The
+static build, typecheck, and 30 unit tests passed on 27 September 2026.
 
 ## M7 — Hosted demonstration
 

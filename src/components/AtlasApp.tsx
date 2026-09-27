@@ -328,14 +328,20 @@ function Assessment({
   onAnswer,
   onReset,
   onLeave,
-  onReview,
+  onSubmit,
+  onDownload,
+  result,
+  error,
 }: {
   collection: CollectionManifest;
   answers: Answers;
   onAnswer: (featureId: string, answer: AnswerState) => void;
   onReset: () => void;
   onLeave: () => void;
-  onReview: () => void;
+  onSubmit: () => void;
+  onDownload: () => void;
+  result: { bundle: HandoffBundle; items: DemoResult[] } | null;
+  error: string | null;
 }) {
   const diseases = uniqueDiseaseNames(collection);
   const answered = countAnswered(collection, answers);
@@ -421,12 +427,14 @@ function Assessment({
               />
             ))}
             <div className="assessment-end">
-              <div><span aria-hidden="true">✳</span><strong>End of questions</strong><p>Review all answers before running the demonstration.</p></div>
+              <div><span aria-hidden="true">✳</span><strong>End of questions</strong><p>Run the rules here. Answers stay in this browser.</p></div>
               <div className="flow-actions">
                 <button type="button" className="reset-button" onClick={onReset}>Reset answers</button>
-                <button type="button" className="button-primary" onClick={onReview}>Review findings</button>
+                {!result && <button type="button" className="button-primary" onClick={onSubmit}>Show results</button>}
               </div>
             </div>
+            {error && <p className="inline-error" role="alert">{error}</p>}
+            {result && <ResultsPanel collection={collection} results={result.items} onDownload={onDownload} />}
             <RuleblockViewer collection={collection} />
           </div>
         </div>
@@ -436,75 +444,16 @@ function Assessment({
   );
 }
 
-const answerLabels: Record<AnswerState, string> = {
-  present: 'Present', absent: 'Absent', unknown: 'Unknown / not assessed', unanswered: 'Unanswered',
-};
-
-function FlowPage({ collection, step, onLeave, children }: {
-  collection: CollectionManifest;
-  step: 'review' | 'results';
-  onLeave: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="site-shell assessment-page">
-      <header className="site-header assessment-header">
-        <Brand small />
-        <button className="header-back" type="button" onClick={onLeave}>
-          <span aria-hidden="true">←</span> All collections
-        </button>
-      </header>
-      <main id="main-content" className="flow-main">
-        <p className="overline">ASSESSMENT / {collection.id.toUpperCase()} / {step.toUpperCase()}</p>
-        <h1 id="flow-title" tabIndex={-1}>{step === 'review' ? 'Review findings' : 'Illustrative rule output'}</h1>
-        <p className="flow-version">{collection.title} · Collection {collection.version} · Content {collection.contentVersion}</p>
-        {children}
-      </main>
-      <footer className="site-footer"><span>Picorules Atlas</span><span>Local demonstration</span></footer>
-    </div>
-  );
-}
-
-function ReviewPage({ collection, answers, onEdit, onRun, onLeave, error }: {
-  collection: CollectionManifest;
-  answers: Answers;
-  onEdit: () => void;
-  onRun: () => void;
-  onLeave: () => void;
-  error: string | null;
-}) {
-  return (
-    <FlowPage collection={collection} step="review" onLeave={onLeave}>
-      <p className="flow-intro">Check the recorded findings. Unknown and unanswered remain distinct.
-        The demonstration counts only findings marked present; it is not a clinical assessment.</p>
-      <div className="review-list">
-        {collection.questions.map(question => (
-          <div className="review-row" key={question.featureId}>
-            <div><strong>{question.label}</strong><span>{question.diseases.map(d => d.label).join(', ')}</span></div>
-            <span className={`review-answer review-answer--${answers[question.featureId] ?? 'unanswered'}`}>
-              {answerLabels[answers[question.featureId] ?? 'unanswered']}
-            </span>
-          </div>
-        ))}
-      </div>
-      {error && <p className="inline-error" role="alert">{error}</p>}
-      <div className="flow-actions">
-        <button type="button" className="button-secondary" onClick={onEdit}>Edit answers</button>
-        <button type="button" className="button-primary" onClick={onRun}>Run demonstration</button>
-      </div>
-    </FlowPage>
-  );
-}
-
-function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
+function ResultsPanel({ collection, results, onDownload }: {
   collection: CollectionManifest;
   results: DemoResult[];
-  onEdit: () => void;
   onDownload: () => void;
-  onLeave: () => void;
 }) {
   return (
-    <FlowPage collection={collection} step="results" onLeave={onLeave}>
+    <section id="assessment-results" className="inline-results" aria-labelledby="assessment-results-title">
+      <p className="overline">ASSESSMENT / {collection.id.toUpperCase()} / RESULTS</p>
+      <h2 id="assessment-results-title" tabIndex={-1}>Rule results</h2>
+      <p className="flow-version">Collection {collection.version} · Content {collection.contentVersion}</p>
       <div className="context-banner flow-warning"><span className="banner-icon" aria-hidden="true">i</span><div>
         <strong>Proof of concept only</strong>
         <p>These ruleblocks count present features and trigger a review prompt at an illustrative threshold of two.
@@ -516,7 +465,7 @@ function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
           const rule = collection.rules.find(item => item.id === result.ruleId)!;
           return <section className="result-card" key={result.ruleId} aria-labelledby={`result-${result.ruleId}`}>
             <p className="overline">AUTHORED RULE / {result.ruleId} / v{result.ruleVersion}</p>
-            <h2 id={`result-${result.ruleId}`}>{result.label}</h2>
+            <h3 id={`result-${result.ruleId}`}>{result.label}</h3>
             <p className="result-status">{result.flagged
               ? `Possible diagnosis for review: ${result.label}`
               : 'No possible diagnosis raised by this rule'}</p>
@@ -533,16 +482,15 @@ function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
         })}
       </div>
       <div className="flow-handoff">
-        <h2>Assessment handoff</h2>
+        <h3>Assessment handoff</h3>
         <p>Download the FHIR R4 bundle containing the questionnaire, answers, one score Observation per rule,
           and a ClinicalImpression with possible diagnoses for review. It contains an anonymous Patient reference
           and no confirmed Condition. The file is created in this browser when you choose to download it.</p>
         <div className="flow-actions">
-          <button type="button" className="button-secondary" onClick={onEdit}>Edit answers</button>
           <button type="button" className="button-primary" onClick={onDownload}>Download FHIR bundle</button>
         </div>
       </div>
-    </FlowPage>
+    </section>
   );
 }
 
@@ -552,17 +500,13 @@ export default function AtlasApp({ collections }: AppProps) {
   const [leaveOpen, setLeaveOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [view, setView] = useState<'questions' | 'review' | 'results'>('questions');
   const [result, setResult] = useState<{ bundle: HandoffBundle; items: DemoResult[] } | null>(null);
   const availableCollections = Object.values(collections);
   const selected = collectionId ? collections[collectionId] : null;
 
   useEffect(() => {
-    if (view !== 'questions' && selected) {
-      window.scrollTo(0, 0);
-      document.getElementById('flow-title')?.focus();
-    }
-  }, [view, selected]);
+    if (result) document.getElementById('assessment-results-title')?.focus();
+  }, [result]);
 
   const selectCollection = (id: string) => {
     const collection = collections[id];
@@ -574,7 +518,6 @@ export default function AtlasApp({ collections }: AppProps) {
       setError(null);
       setSessionId(createUuid());
       setCollectionId(id);
-      setView('questions');
       setResult(null);
       window.scrollTo(0, 0);
     } catch (cause) {
@@ -587,13 +530,13 @@ export default function AtlasApp({ collections }: AppProps) {
     if (!selected) return;
     setAnswers(previous => setAnswer(selected, previous, featureId, answer));
     setResult(null);
+    setError(null);
   };
 
   const clearAssessment = () => {
     setAnswers({});
     setCollectionId(null);
     setSessionId(null);
-    setView('questions');
     setResult(null);
     setError(null);
     window.scrollTo(0, 0);
@@ -606,7 +549,6 @@ export default function AtlasApp({ collections }: AppProps) {
       const handoff = buildHandoffBundle(selected, bundle);
       setResult({ bundle: handoff.bundle, items: handoff.results });
       setError(null);
-      setView('results');
     } catch (cause) {
       console.error('Could not evaluate the selected Atlas collection', cause);
       setError('The demonstration could not run. Please review the authored rules.');
@@ -641,12 +583,8 @@ export default function AtlasApp({ collections }: AppProps) {
 
   return (
     <>
-      {selected && view === 'results' && result ? (
-        <ResultsPage collection={selected} results={result.items} onEdit={() => { setResult(null); setView('questions'); }} onDownload={downloadBundle} onLeave={leave} />
-      ) : selected && view === 'review' ? (
-        <ReviewPage collection={selected} answers={answers} onEdit={() => setView('questions')} onRun={runDemonstration} onLeave={leave} error={error} />
-      ) : selected ? (
-        <Assessment collection={selected} answers={answers} onAnswer={updateAnswer} onReset={() => { setAnswers(resetAnswers(selected)); setResult(null); }} onLeave={leave} onReview={() => { setError(null); setView('review'); }} />
+      {selected ? (
+        <Assessment collection={selected} answers={answers} onAnswer={updateAnswer} onReset={() => { setAnswers(resetAnswers(selected)); setResult(null); setError(null); }} onLeave={leave} onSubmit={runDemonstration} onDownload={downloadBundle} result={result} error={error} />
       ) : (
         <CollectionSelector collections={availableCollections} onSelect={selectCollection} error={error} />
       )}
