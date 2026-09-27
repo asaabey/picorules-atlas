@@ -29,7 +29,7 @@ deployment remain separate decisions.
 | Step | Status | Evidence |
 | --- | --- | --- |
 | Author and validate executable demonstration outputs | Done locally | Two versioned ruleblocks emit review prompts; content checks, FHIR bridge evaluation tests, and 26 unit tests passed |
-| Complete review, result, and FHIR download UI | Planned | Pending static browser checks |
+| Complete review, result, and FHIR download UI | Done locally | Eight static browser tests passed, including changed-answer output, FHIR download, keyboard, mobile, and privacy checks |
 | Validate full flow and record evidence | Planned | Pending content, typecheck, unit, build, browser checks |
 
 Mark a milestone complete only when its exit checks and review evidence are recorded

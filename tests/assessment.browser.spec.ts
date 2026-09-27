@@ -111,3 +111,73 @@ test('assessment opens when randomUUID is unavailable on an HTTP LAN origin', as
   await page.locator('article.question-card').first().getByRole('radio', { name: 'Present' }).check();
   await expect(page.getByText('1 / 10 answered')).toBeVisible();
 });
+
+test('review, authored rule output, and FHIR download follow recorded answers', async ({ page }) => {
+  const writes: string[] = [];
+  page.on('request', request => {
+    if (!['GET', 'HEAD'].includes(request.method())) writes.push(`${request.method()} ${request.url()}`);
+  });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open assessment' }).click();
+  const card = (name: string) => page.locator('article.question-card').filter({
+    has: page.getByRole('heading', { name, exact: true }),
+  });
+  await card('Proteinuria').getByRole('radio', { name: 'Present' }).check();
+  await card('Angiokeratomas').getByRole('radio', { name: 'Present' }).check();
+  await card('Reduced sweating').getByRole('radio', { name: 'Unknown / not assessed' }).check();
+  await card('Seizures').getByRole('radio', { name: 'Absent' }).check();
+  await page.getByRole('button', { name: 'Review findings' }).click();
+  await expect(page.getByRole('heading', { name: 'Review findings' })).toBeFocused();
+  await expect(page.locator('.review-answer--present')).toHaveCount(2);
+  await expect(page.locator('.review-answer--absent')).toHaveCount(1);
+  await expect(page.locator('.review-answer--unknown')).toHaveCount(1);
+  await expect(page.locator('.review-answer--unanswered')).toHaveCount(6);
+  await page.getByRole('button', { name: 'Run demonstration' }).click();
+  await expect(page.getByRole('heading', { name: 'Illustrative rule output' })).toBeFocused();
+  const fabry = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Fabry disease' }) });
+  const tsc = page.locator('.result-card').filter({ has: page.getByRole('heading', { name: 'Tuberous sclerosis complex' }) });
+  await expect(fabry).toContainText('Illustrative review prompt triggered');
+  await expect(fabry).toContainText('2 of 5 linked findings marked present');
+  await expect(fabry).toContainText('Proteinuria, Angiokeratomas');
+  await expect(tsc).toContainText('Illustrative review prompt not triggered');
+  await expect(tsc).toContainText('0 of 5 linked findings marked present');
+  await expect(fabry.getByRole('link', { name: /Read exact authored ruleblock/ }))
+    .toHaveAttribute('href', /ikd_fabry-.*\.prb$/);
+
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Download FHIR bundle' }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/^atlas-ikd-.*-assessment\.fhir\.json$/);
+  const fs = await import('node:fs/promises');
+  const bundle = JSON.parse(await fs.readFile(await download.path(), 'utf8'));
+  expect(bundle.resourceType).toBe('Bundle');
+  expect(bundle.entry.filter((entry: { resource: { resourceType: string } }) =>
+    entry.resource.resourceType === 'Observation')).toHaveLength(4);
+  expect(bundle.entry.some((entry: { resource: { identifier?: { value: string }[]; valueBoolean?: boolean } }) =>
+    entry.resource.identifier?.[0]?.value === 'proteinuria' && entry.resource.valueBoolean === true)).toBe(true);
+  expect(JSON.stringify(bundle)).not.toContain('present_feature_count');
+  expect(writes).toEqual([]);
+  expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
+
+  await page.getByRole('button', { name: 'Edit answers' }).click();
+  await card('Angiokeratomas').getByRole('radio', { name: 'Absent' }).check();
+  await page.getByRole('button', { name: 'Review findings' }).click();
+  await page.getByRole('button', { name: 'Run demonstration' }).click();
+  await expect(fabry).toContainText('Illustrative review prompt not triggered');
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
+});
+
+test('mobile keyboard journey reaches review and results without overflow', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open assessment' }).click();
+  await page.getByRole('button', { name: 'Review findings' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('heading', { name: 'Review findings' })).toBeFocused();
+  await page.getByRole('button', { name: 'Run demonstration' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('heading', { name: 'Illustrative rule output' })).toBeFocused();
+  const dimensions = await page.evaluate(() => ({ document: document.documentElement.scrollWidth, viewport: innerWidth }));
+  expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
+});

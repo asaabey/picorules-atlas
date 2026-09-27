@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { countAnswered, createAnswers, resetAnswers, setAnswer } from '../lib/assessment/answers';
 import { buildAssessmentBundle, type AssessmentBundle } from '../lib/fhir';
-import { parseCollectionRules } from '../lib/runtime/ruleEngine';
+import { evaluateCollectionDemo, parseCollectionRules, type DemoResult } from '../lib/runtime/ruleEngine';
 import { createUuid } from '../lib/uuid';
 import RuleblockViewer, { sourceLineId } from './RuleblockViewer';
 import type {
@@ -327,12 +327,14 @@ function Assessment({
   onAnswer,
   onReset,
   onLeave,
+  onReview,
 }: {
   collection: CollectionManifest;
   answers: Answers;
   onAnswer: (featureId: string, answer: AnswerState) => void;
   onReset: () => void;
   onLeave: () => void;
+  onReview: () => void;
 }) {
   const diseases = uniqueDiseaseNames(collection);
   const answered = countAnswered(collection, answers);
@@ -418,8 +420,11 @@ function Assessment({
               />
             ))}
             <div className="assessment-end">
-              <div><span aria-hidden="true">✳</span><strong>End of assessment</strong><p>You can review or change any answer above.</p></div>
-              <button type="button" className="reset-button" onClick={onReset}>Reset answers</button>
+              <div><span aria-hidden="true">✳</span><strong>End of questions</strong><p>Review all answers before running the demonstration.</p></div>
+              <div className="flow-actions">
+                <button type="button" className="reset-button" onClick={onReset}>Reset answers</button>
+                <button type="button" className="button-primary" onClick={onReview}>Review findings</button>
+              </div>
             </div>
             <RuleblockViewer collection={collection} />
           </div>
@@ -430,23 +435,129 @@ function Assessment({
   );
 }
 
+const answerLabels: Record<AnswerState, string> = {
+  present: 'Present', absent: 'Absent', unknown: 'Unknown / not assessed', unanswered: 'Unanswered',
+};
+
+function FlowPage({ collection, step, onLeave, children }: {
+  collection: CollectionManifest;
+  step: 'review' | 'results';
+  onLeave: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="site-shell assessment-page">
+      <header className="site-header assessment-header">
+        <Brand small />
+        <button className="header-back" type="button" onClick={onLeave}>
+          <span aria-hidden="true">←</span> All collections
+        </button>
+      </header>
+      <main id="main-content" className="flow-main">
+        <p className="overline">ASSESSMENT / {collection.id.toUpperCase()} / {step.toUpperCase()}</p>
+        <h1 id="flow-title" tabIndex={-1}>{step === 'review' ? 'Review findings' : 'Illustrative rule output'}</h1>
+        <p className="flow-version">{collection.title} · Collection {collection.version} · Content {collection.contentVersion}</p>
+        {children}
+      </main>
+      <footer className="site-footer"><span>Picorules Atlas</span><span>Local demonstration</span></footer>
+    </div>
+  );
+}
+
+function ReviewPage({ collection, answers, onEdit, onRun, onLeave, error }: {
+  collection: CollectionManifest;
+  answers: Answers;
+  onEdit: () => void;
+  onRun: () => void;
+  onLeave: () => void;
+  error: string | null;
+}) {
+  return (
+    <FlowPage collection={collection} step="review" onLeave={onLeave}>
+      <p className="flow-intro">Check the recorded findings. Unknown and unanswered remain distinct.
+        The demonstration counts only findings marked present; it is not a clinical assessment.</p>
+      <div className="review-list">
+        {collection.questions.map(question => (
+          <div className="review-row" key={question.featureId}>
+            <div><strong>{question.label}</strong><span>{question.diseases.map(d => d.label).join(', ')}</span></div>
+            <span className={`review-answer review-answer--${answers[question.featureId] ?? 'unanswered'}`}>
+              {answerLabels[answers[question.featureId] ?? 'unanswered']}
+            </span>
+          </div>
+        ))}
+      </div>
+      {error && <p className="inline-error" role="alert">{error}</p>}
+      <div className="flow-actions">
+        <button type="button" className="button-secondary" onClick={onEdit}>Edit answers</button>
+        <button type="button" className="button-primary" onClick={onRun}>Run demonstration</button>
+      </div>
+    </FlowPage>
+  );
+}
+
+function ResultsPage({ collection, results, onEdit, onDownload, onLeave }: {
+  collection: CollectionManifest;
+  results: DemoResult[];
+  onEdit: () => void;
+  onDownload: () => void;
+  onLeave: () => void;
+}) {
+  return (
+    <FlowPage collection={collection} step="results" onLeave={onLeave}>
+      <div className="context-banner flow-warning"><span className="banner-icon" aria-hidden="true">i</span><div>
+        <strong>Proof of concept only</strong>
+        <p>These ruleblocks count present features and trigger a review prompt at an illustrative threshold of two.
+          This threshold is not a diagnostic criterion, disease probability, validated score, or advice about tests or treatment.
+          No prompt does not exclude disease. Use clinical judgment and the cited sources.</p>
+      </div></div>
+      <div className="result-list">
+        {results.map(result => {
+          const rule = collection.rules.find(item => item.id === result.ruleId)!;
+          return <section className="result-card" key={result.ruleId} aria-labelledby={`result-${result.ruleId}`}>
+            <p className="overline">AUTHORED RULE / {result.ruleId} / v{result.ruleVersion}</p>
+            <h2 id={`result-${result.ruleId}`}>{result.label}</h2>
+            <p className="result-status">{result.flagged ? 'Illustrative review prompt triggered' : 'Illustrative review prompt not triggered'}</p>
+            <p><strong>How computed:</strong> {result.presentCount} of {result.totalFeatures} linked findings marked present.
+              The authored Picorules rule counts those inputs and emits a prompt when the count is at least {result.threshold}.</p>
+            <p><strong>Contributing findings:</strong> {result.presentFeatures.length
+              ? result.presentFeatures.map(feature => feature.label).join(', ') : 'None marked present'}.</p>
+            <p><strong>Next action:</strong> {result.action}</p>
+            <a href={rule.assetPath} target="_blank" rel="noopener noreferrer">
+              Read exact authored ruleblock <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          </section>;
+        })}
+      </div>
+      <div className="flow-handoff">
+        <h2>Assessment handoff</h2>
+        <p>Download the FHIR R4 bundle containing the questionnaire, your answers, and the recorded feature observations.
+          It does not contain these illustrative rule outputs. The file is created in this browser when you choose to download it.</p>
+        <div className="flow-actions">
+          <button type="button" className="button-secondary" onClick={onEdit}>Edit answers</button>
+          <button type="button" className="button-primary" onClick={onDownload}>Download FHIR bundle</button>
+        </div>
+      </div>
+    </FlowPage>
+  );
+}
+
 export default function AtlasApp({ collections }: AppProps) {
   const [collectionId, setCollectionId] = useState<string | null>(null);
   const [answers, setAnswers] = useState<Answers>({});
   const [leaveOpen, setLeaveOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const bundleRef = useRef<AssessmentBundle | null>(null);
+  const [view, setView] = useState<'questions' | 'review' | 'results'>('questions');
+  const [result, setResult] = useState<{ bundle: AssessmentBundle; items: DemoResult[] } | null>(null);
   const availableCollections = Object.values(collections);
   const selected = collectionId ? collections[collectionId] : null;
 
-  // This representation stays in React memory for a future adapter; it is never sent or stored.
   useEffect(() => {
-    bundleRef.current = selected && sessionId
-      ? buildAssessmentBundle(selected, answers, sessionId)
-      : null;
-    return () => { bundleRef.current = null; };
-  }, [selected, answers, sessionId]);
+    if (view !== 'questions' && selected) {
+      window.scrollTo(0, 0);
+      document.getElementById('flow-title')?.focus();
+    }
+  }, [view, selected]);
 
   const selectCollection = (id: string) => {
     const collection = collections[id];
@@ -458,6 +569,8 @@ export default function AtlasApp({ collections }: AppProps) {
       setError(null);
       setSessionId(createUuid());
       setCollectionId(id);
+      setView('questions');
+      setResult(null);
       window.scrollTo(0, 0);
     } catch (cause) {
       console.error('Could not initialise the selected Atlas collection', cause);
@@ -468,31 +581,68 @@ export default function AtlasApp({ collections }: AppProps) {
   const updateAnswer = (featureId: string, answer: AnswerState) => {
     if (!selected) return;
     setAnswers(previous => setAnswer(selected, previous, featureId, answer));
+    setResult(null);
+  };
+
+  const clearAssessment = () => {
+    setAnswers({});
+    setCollectionId(null);
+    setSessionId(null);
+    setView('questions');
+    setResult(null);
+    setError(null);
+    window.scrollTo(0, 0);
+  };
+
+  const runDemonstration = () => {
+    if (!selected || !sessionId) return;
+    try {
+      const bundle = buildAssessmentBundle(selected, answers, sessionId);
+      const items = evaluateCollectionDemo(selected, bundle);
+      if (!items.length) throw new Error('No demonstration rules in this collection');
+      setResult({ bundle, items });
+      setError(null);
+      setView('results');
+    } catch (cause) {
+      console.error('Could not evaluate the selected Atlas collection', cause);
+      setError('The demonstration could not run. Please review the authored rules.');
+    }
+  };
+
+  const downloadBundle = () => {
+    if (!selected || !result) return;
+    const blob = new Blob([`${JSON.stringify(result.bundle, null, 2)}\n`], { type: 'application/fhir+json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `atlas-${selected.id}-${selected.contentVersion}-assessment.fhir.json`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
   };
 
   const leave = () => {
     if (Object.values(answers).some(answer => answer !== 'unanswered')) {
       setLeaveOpen(true);
     } else {
-      setAnswers({});
-      setCollectionId(null);
-      setSessionId(null);
-      window.scrollTo(0, 0);
+      clearAssessment();
     }
   };
 
   const confirmLeave = () => {
-    setAnswers({});
-    setCollectionId(null);
-    setSessionId(null);
+    clearAssessment();
     setLeaveOpen(false);
-    window.scrollTo(0, 0);
   };
 
   return (
     <>
-      {selected ? (
-        <Assessment collection={selected} answers={answers} onAnswer={updateAnswer} onReset={() => setAnswers(resetAnswers(selected))} onLeave={leave} />
+      {selected && view === 'results' && result ? (
+        <ResultsPage collection={selected} results={result.items} onEdit={() => { setResult(null); setView('questions'); }} onDownload={downloadBundle} onLeave={leave} />
+      ) : selected && view === 'review' ? (
+        <ReviewPage collection={selected} answers={answers} onEdit={() => setView('questions')} onRun={runDemonstration} onLeave={leave} error={error} />
+      ) : selected ? (
+        <Assessment collection={selected} answers={answers} onAnswer={updateAnswer} onReset={() => { setAnswers(resetAnswers(selected)); setResult(null); }} onLeave={leave} onReview={() => { setError(null); setView('review'); }} />
       ) : (
         <CollectionSelector collections={availableCollections} onSelect={selectCollection} error={error} />
       )}

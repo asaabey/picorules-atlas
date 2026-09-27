@@ -23,8 +23,8 @@ export default function RuleblockViewer({ collection }: { collection: Collection
       <p className="overline">AUTHORED CONTENT / {collection.id.toUpperCase()}</p>
       <h2 id="ruleblocks-title">Ruleblocks in this collection</h2>
       <p className="ruleblock-intro">
-        These ruleblocks declare features used by the questions. They do not contain diagnostic
-        logic or determine whether a patient has a disease.
+        These ruleblocks declare features used by the questions and count present findings for an
+        illustrative review prompt. They do not contain diagnostic logic or determine whether a patient has a disease.
       </p>
       <p className="ruleblock-version">Collection version {collection.version} · Content version <code>{collection.contentVersion}</code></p>
       <nav className="ruleblock-nav" aria-label="Ruleblocks in this collection">
