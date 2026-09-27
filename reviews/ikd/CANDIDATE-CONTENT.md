@@ -1,6 +1,7 @@
 # IKD candidate content for clinical review
 
 > Review packet only. No clinical approval or diagnostic performance is implied.
+> These ruleblocks fetch feature inputs. Atlas does not compute disease conclusions or recommendations.
 
 Collection: Inherited kidney disease (ikd), version 0.1.0.
 Content version: `442bae27603451e8`.

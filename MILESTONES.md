@@ -116,6 +116,7 @@ diagnostic algorithm.
 | Show candidate limits and source provenance in Atlas | Done locally | Static build and six browser tests passed; assessment explains incomplete coverage and the viewer exposes release, attribution, and license details |
 | Version clinical context wording with collection content | Done locally | Limitations and disease-context text now enter the content hash; version `442bae27603451e8`; 20 unit tests and six static browser tests passed |
 | Set clinical review sign-off count | Done locally | User confirmed one clinical reviewer is sufficient; gate accepts one sign-off and still requires all decisions and matching content version; 23 unit tests passed |
+| Clarify conclusion and recommendation scope | Reviewer question recorded | Reviewer asked how conclusions and recommendations are computed; the current ruleblocks and runtime compute neither. Whether to specify clinical evaluation is an open M6 decision. |
 | Review all ten features and global wording | Awaiting clinical reviewer decisions | User identified themself as the clinical reviewer; recorded decisions and sign-off pending |
 | Apply decisions, rebuild, inspect FHIR, and validate | Partly done | Real IKD FHIR mapping tests pass; final content and sign-off require reviewer decisions |
 

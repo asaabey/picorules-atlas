@@ -3,6 +3,17 @@
 **Status: awaiting clinical review decisions.** This folder prepares the current
 candidate content for review. Its presence does not approve the questionnaire.
 
+## Current calculation boundary
+
+The two `.prb` files contain feature fetches and metadata only. They have no
+conditional disease criteria, conclusion outputs, or recommendation statements.
+Atlas parses the selected inputs and records answers in a transient FHIR bundle;
+it does not call the rule evaluator or compute a patient-specific result. This M3
+packet asks for review of the questionnaire content and its limitations. The
+[M6 decision gate](../../MILESTONES.md#m6--validated-clinical-evaluation-decision-gate)
+covers any future conclusions or recommendations, including a clinician-authored
+logic specification, missing-data behavior, test cases, and validation before use.
+
 ## What to review
 
 Open the static Atlas assessment and [candidate content packet](CANDIDATE-CONTENT.md)
@@ -38,7 +49,7 @@ them in JSON. No endorsement is implied.
 2. Resolve requested changes in the authored `.prb` files or UI. Increment the
    relevant version when changing clinical content; run `npm run content:build`.
    Update the review record's content version, run `npm run review:build`, and have
-   the clinical reviewer inspects the resulting questionnaire and FHIR mapping again. A prior
+   the clinical reviewer inspect the resulting questionnaire and FHIR mapping again. A prior
    approval does not carry over automatically to changed content.
 3. Record the qualified clinical reviewer's name, qualification, date,
    and final content version in `signOffs` only after approving the questionnaire
