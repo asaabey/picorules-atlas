@@ -64,21 +64,23 @@ function CollectionSelector({
     <div className="site-shell landing-page">
       <header className="site-header">
         <Brand />
-        <span className="header-note">Clinical assessment scaffold</span>
+        <span className="header-note">Composable clinical phenotypes</span>
       </header>
 
       <main id="main-content">
         <section className="landing-hero" aria-labelledby="landing-title">
           <div className="hero-copy">
-            <div className="eyebrow"><span className="eyebrow-line" /> A more considered way to assess</div>
-            <h1 id="landing-title">Every finding<br /><em>in context.</em></h1>
+            <div className="eyebrow"><span className="eyebrow-line" /> The Picorules idea</div>
+            <h1 id="landing-title">From findings to<br /><em>composable phenotypes.</em></h1>
             <p className="hero-intro">
-              Picorules Atlas brings related clinical features into one structured assessment,
-              with the source and disease context close at hand.
+              Picorules expresses clinical concepts as reusable definitions. Atlas brings
+              authored ruleblocks into one assessment: record a finding once, see the disease
+              profiles it informs, and trace each result back to its source.
             </p>
-            <div className="hero-principles" aria-label="Assessment characteristics">
-              <span><span className="principle-dot" /> One checkbox per finding</span>
-              <span><span className="principle-dot" /> Source linked context</span>
+            <div className="hero-principles" aria-label="How Atlas demonstrates composition">
+              <span><span className="principle-dot" /> Shared findings</span>
+              <span><span className="principle-dot" /> Authored ruleblocks</span>
+              <span><span className="principle-dot" /> Reviewable results</span>
             </div>
           </div>
           <div className="hero-art" aria-hidden="true">
@@ -86,9 +88,9 @@ function CollectionSelector({
             <div className="orbit orbit-two" />
             <div className="orbit orbit-three" />
             <div className="art-center"><span className="art-cross">✳</span><span>ATLAS</span></div>
-            <div className="art-label art-label-one">Kidney</div>
-            <div className="art-label art-label-two">Skin &amp; sweating</div>
-            <div className="art-label art-label-three">Neurological history</div>
+            <div className="art-label art-label-one">Shared findings</div>
+            <div className="art-label art-label-two">Ruleblocks</div>
+            <div className="art-label art-label-three">Phenotype profiles</div>
           </div>
         </section>
 
@@ -96,9 +98,9 @@ function CollectionSelector({
           <div className="section-heading">
             <div>
               <p className="overline">01 / COLLECTIONS</p>
-              <h2 id="collections-title">Choose an assessment</h2>
+              <h2 id="collections-title">Start with a collection</h2>
             </div>
-            <p>Each collection brings its own questions and clinical context.</p>
+            <p>Each collection combines authored ruleblocks and shared findings for one clinical area.</p>
           </div>
           {error && <p className="inline-error" role="alert">{error}</p>}
           <div className="collection-grid">
@@ -133,7 +135,7 @@ function CollectionSelector({
       </main>
       <footer className="site-footer">
         <span>Picorules Atlas</span>
-        <span>Structured findings, with context.</span>
+        <span>Reusable definitions. Reviewable results.</span>
       </footer>
     </div>
   );

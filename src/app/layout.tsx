@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Picorules Atlas',
-  description: 'A structured clinical assessment scaffold generated from Picorules collections.',
+  description: 'Explore composable clinical phenotypes through shared findings and authored Picorules ruleblocks.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

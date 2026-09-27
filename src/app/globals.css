@@ -35,19 +35,19 @@ a { color: inherit; }
 .brand--small .brand-wordmark strong { font-size: 16px; }
 .brand--small .brand-wordmark > span { font-size: 8px; }
 .header-note { border: 1px solid #c6d8ce; border-radius: 100px; padding: 10px 15px; color: var(--pine); font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
-.landing-hero { max-width: 1440px; min-height: 540px; margin: 0 auto; padding: 50px 5.6% 75px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr); align-items: center; gap: 6%; }
+.landing-hero { max-width: 1440px; min-height: 460px; margin: 0 auto; padding: 36px 5.6% 55px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr); align-items: center; gap: 6%; }
 .hero-copy { position: relative; z-index: 1; }
 .eyebrow, .overline { color: #377269; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 .eyebrow { display: flex; align-items: center; gap: 12px; }
 .eyebrow-line { display: inline-block; width: 30px; height: 1px; background: #6eaa9d; }
 .landing-hero h1, .assessment-hero h1 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -.055em; }
-.landing-hero h1 { font-size: clamp(56px, 5.5vw, 88px); line-height: 1.04; margin: 25px 0 25px; }
+.landing-hero h1 { font-size: clamp(49px, 5vw, 76px); line-height: 1.04; margin: 20px 0 22px; }
 .landing-hero h1 em { color: #4c877a; font-weight: 400; }
 .hero-intro { max-width: 530px; color: var(--ink-soft); font-size: 18px; line-height: 1.65; margin: 0; }
-.hero-principles { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 37px; color: #2b5c57; font-size: 13px; font-weight: 600; }
+.hero-principles { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 28px; color: #2b5c57; font-size: 13px; font-weight: 600; }
 .hero-principles > span { display: inline-flex; align-items: center; gap: 10px; }
 .principle-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #d58e72; }
-.hero-art { height: 440px; position: relative; overflow: hidden; background: #e5efe9; border-radius: 220px 220px 20px 20px; isolation: isolate; }
+.hero-art { height: 375px; position: relative; overflow: hidden; background: #e5efe9; border-radius: 220px 220px 20px 20px; isolation: isolate; }
 .hero-art::before, .hero-art::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
 .hero-art::before { background: radial-gradient(circle at 50% 58%, #f9fbf5 0 3%, transparent 53%), repeating-linear-gradient(0deg, transparent 0 34px, rgba(22,78,74,.055) 35px 36px), repeating-linear-gradient(90deg, transparent 0 34px, rgba(22,78,74,.055) 35px 36px); }
 .hero-art::after { background: linear-gradient(135deg, transparent 30%, rgba(86,145,125,.13)); }
@@ -62,7 +62,7 @@ a { color: inherit; }
 .art-label-one { top: 21%; left: 15%; }
 .art-label-two { right: 9%; top: 36%; }
 .art-label-three { left: 8%; bottom: 15%; }
-.collection-area { background: #edf2ec; padding: 76px max(5.6%, calc((100% - 1280px) / 2)) 105px; }
+.collection-area { background: #edf2ec; padding: 58px max(5.6%, calc((100% - 1280px) / 2)) 105px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 34px; }
 .section-heading .overline { margin: 0 0 13px; }
 .section-heading h2, .assessment-intro h2 { font: 400 clamp(36px, 3.3vw, 50px)/1.1 Georgia, 'Times New Roman', serif; letter-spacing: -.045em; margin: 0; }
@@ -234,21 +234,21 @@ a { color: inherit; }
   .question-list { grid-template-columns: 1fr; }
 }
 @media (max-width: 900px) {
-  .landing-hero { grid-template-columns: 1fr 310px; gap: 20px; min-height: 480px; }
-  .landing-hero h1 { font-size: 60px; }
-  .hero-art { height: 350px; }
+  .landing-hero { grid-template-columns: minmax(0, 1fr) 310px; gap: 20px; min-height: 420px; }
+  .landing-hero h1 { font-size: 54px; }
+  .hero-art { height: 330px; }
   .art-label-three { left: 2%; }
   .assessment-layout { grid-template-columns: 180px minmax(0,1fr); gap: 35px; }
 }
 @media (max-width: 680px) {
   .site-header { height: 76px; padding-left: 6%; padding-right: 6%; }
   .header-note { display: none; }
-  .landing-hero { display: block; min-height: 0; padding: 44px 6% 58px; }
-  .landing-hero h1 { font-size: clamp(54px, 13vw, 72px); margin: 23px 0; }
+  .landing-hero { display: block; min-height: 0; padding: 34px 6% 45px; }
+  .landing-hero h1 { font-size: clamp(42px, 10vw, 60px); margin: 18px 0; }
   .hero-intro { font-size: 16px; }
-  .hero-principles { gap: 12px 20px; margin-top: 25px; }
+  .hero-principles { gap: 12px 20px; margin-top: 22px; }
   .hero-art { display: none; }
-  .collection-area { padding: 55px 6% 70px; }
+  .collection-area { padding: 42px 6% 70px; }
   .section-heading { display: block; }
   .section-heading > p { margin-top: 13px; }
   .collection-card { min-height: 360px; }

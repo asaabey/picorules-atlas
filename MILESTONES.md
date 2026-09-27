@@ -22,6 +22,16 @@ dates are assigned.
 | M10 | Family-history inheritance-pattern prompts | Complete locally |
 | M11 | Six missing nephronophthisis and ciliopathy entities | Complete locally |
 
+## Landing-page positioning (complete locally)
+
+The opening page now follows the Picorules white paper’s theme of composing
+clinical phenotypes from reusable definitions. It explains the Atlas example in
+terms of shared findings, authored ruleblocks, and source-traceable results while
+keeping the orbit illustration. The collection entry point appears higher on the
+page. On 27 September 2026, `content:check`, `typecheck`, 61 unit tests, the
+production build, and 16 browser tests passed; the browser suite includes a
+mobile keyboard path from the landing page into the assessment.
+
 ## M11 — Complete the six missing entity profiles (complete locally)
 
 Broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome, and

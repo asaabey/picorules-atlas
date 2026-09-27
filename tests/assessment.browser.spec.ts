@@ -136,7 +136,7 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   });
 
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Start with a collection' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Open assessment' })).toHaveCount(1);
   await page.screenshot({ path: testInfo.outputPath('selector.png'), fullPage: true });
 
@@ -191,12 +191,12 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   await expect(page.getByRole('heading', { name: 'Inherited kidney disease' })).toBeVisible();
   await page.getByRole('button', { name: 'All collections' }).click();
   await page.getByRole('button', { name: 'Discard answers' }).click();
-  await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Start with a collection' })).toBeVisible();
   await page.getByRole('button', { name: 'Open assessment' }).click();
   await expect(page.locator('article.question-card input:checked')).toHaveCount(0);
   await proteinuriaCheckbox.check();
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Start with a collection' })).toBeVisible();
   expect(answerWrites).toEqual([]);
 });
 
@@ -311,7 +311,7 @@ test('one action shows rule results and FHIR download beside editable questions'
   await expect(page.getByRole('heading', { name: 'Rule results' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Download FHIR bundle' })).toHaveCount(0);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Choose an assessment' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Start with a collection' })).toBeVisible();
 });
 
 test('mobile keyboard journey shows inline results without overflow', async ({ page }) => {
