@@ -16,7 +16,10 @@ dates are assigned.
 | M4 | Assessment review and FHIR handoff | Complete for local proof of concept |
 | M5 | Rule results and possible-diagnosis handoff | Complete locally |
 | M6 | Single-action results on the assessment page | Complete locally |
-| M7 | Hosted demonstration | Deferred at user request |
+| M7 | Authored reference images in the questionnaire | Complete locally |
+| M8 | Binary checkboxes and focused feature views | Complete locally |
+| M9 | Hosted demonstration | Deferred at user request |
+| M10 | Family-history inheritance-pattern prompts | Complete locally |
 
 ## End-to-end proof of concept (complete locally)
 
@@ -228,7 +231,49 @@ results heading. Eight static browser tests cover this flow, the downloaded
 handoff, a 390px viewport, and the absence of answer-bearing requests. The
 static build, typecheck, and 30 unit tests passed on 27 September 2026.
 
-## M7 — Hosted demonstration
+## M7 — Authored reference images in the questionnaire
+
+Five questions have optional, source-credited images through ruleblock input
+metadata, covering skin, eye, and radiology findings. Four local static assets
+are verified by format and SHA-256 at build time. Keyboard and 390px mobile
+browser checks passed. See [image provenance](REFERENCE-IMAGES.md).
+
+## M8 — Binary checkboxes and focused feature views
+
+The clinical reviewer requested one checkbox per finding. Checked means present;
+unticked is assumed absent for this proof of concept. The assessment states that
+assumption, counts checked findings, and runs the rules once with **Show results**.
+The FHIR handoff records every unticked feature as a false Observation. Editing a
+checkbox clears the prior result until the rules run again.
+
+On 27 September 2026, the combined 34-question, six-rule local build passed
+`content:check`, `review:check`, `typecheck`, 38 unit tests, static build, and
+nine static browser tests. Browser checks include Space activation, false values
+in the FHIR download, result invalidation, and mobile layout. The content version
+is `cdee64332e18ee9b`. M8 is complete locally.
+
+The reviewer then asked to show feature names without the redundant question
+sentence and place multiple findings in each desktop row. The UI now uses the
+feature name as the checkbox label, with HPO code, disease context, and optional
+reference image still available. The authored question text remains in the
+content manifest and FHIR Questionnaire and Response. The checklist has two
+columns on wide screens and one on narrower screens, including mobile. On
+27 September 2026, the combined 34-question build passed `content:check`,
+`review:check`, `typecheck`, 38 unit tests, the static build, and ten browser
+tests. The new browser check verifies layout, label activation, Space activation,
+and no mobile horizontal overflow.
+
+The disease names above the checklist are now buttons that filter visible
+questions by their authored rule association. **All diseases** restores the
+full list. Shared findings appear under each linked disease; switching views
+keeps all answers, and the sidebar shows only sections in the current view.
+The screen states that **Show results** still evaluates every rule in the
+collection. On 27 September 2026, the six-rule build passed `content:check`,
+`review:check`, `typecheck`, 40 unit tests, the static build, and 12 browser
+tests. Browser coverage checks exact rule inputs, retained answers, keyboard
+selection, and mobile width.
+
+## M9 — Hosted demonstration
 
 Deployment is on hold while the application interface is improved.
 
@@ -246,6 +291,26 @@ Deployment is on hold while the application interface is improved.
 smoke checks; the prototype limitations are visible; and a feedback and issue
 triage process exists. The score and possible diagnosis remain demonstration
 outputs until a separate clinical validation effort is completed.
+
+## M10 — Family-history inheritance-pattern prompts
+
+The clinical reviewer noted that the eight inherited kidney disease profiles did
+not ask about family inheritance patterns. Three shared, authored prompts now
+record family history suggesting autosomal dominant, autosomal recessive, or
+X-linked inheritance. Alport is linked to all three because it has multiple
+inheritance forms. The prompts are contextual evidence with zero weight in the
+research phenotype score, and the result screen identifies them separately.
+The FHIR handoff preserves their checkbox responses. GeneReviews links and the
+ten rule associations are recorded in `reviews/ikd/inheritance-evidence.json`.
+An absent or unclear family pattern does not exclude a disease.
+
+**Evidence:** On 27 September 2026, `content:check`, `review:check`, `typecheck`,
+45 unit tests, the static build, and 14 static browser tests passed for content
+version `bda54c22d356132f`. Unit tests check all ten authored source links,
+FHIR preservation, and unchanged scores. Browser coverage checks shared
+patterns, keyboard input, disease filtering, the result explanation, and mobile
+width. M10 is complete for the local proof of concept; clinical accuracy review
+remains a separate activity.
 
 ## Later clinical validation and release decision
 
@@ -268,5 +333,5 @@ documented limitations, and approval of the exact user-facing result language.
 | Ruleblock source display and navigation | M2 | Delivered read-only for selected collection, with versioned static source and input links |
 | Prototype content and workflow | M3 | User is the clinical reviewer and signed off for proof of concept; detailed accuracy decisions remain pending for clinical release |
 | Completion summary and FHIR download behavior | M4 | Implemented and accepted by the clinical reviewer in the local proof of concept |
-| Hosting, DNS, and pilot access | M7 | On hold at the user's request while the application is improved |
+| Hosting, DNS, and pilot access | M9 | On hold at the user's request while the application is improved |
 | Clinical accuracy claim | Later clinical validation | No clinical claim; current score and possible diagnosis are demonstration outputs |
