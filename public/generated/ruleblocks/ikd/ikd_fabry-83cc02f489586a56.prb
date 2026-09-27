@@ -1,0 +1,93 @@
+/* Atlas IKD collection: five Fabry-associated assessment features. */
+#define_ruleblock(ikd_fabry, {
+    description: "Fabry disease assessment features",
+    is_active: 2,
+    atlas: {
+        schema_version: "1",
+        version: "0.1.0",
+        disease_label: "Fabry disease",
+        disease_id: "ORPHA:324",
+        source_refs: ["genereviews_fabry", "orphadata_2026_06"]
+    }
+});
+
+acroparesthesia => eadv.phen_acroparesthesia.val.last();
+angiokeratoma => eadv.phen_angiokeratoma.val.last();
+hypohidrosis => eadv.phen_hypohidrosis.val.last();
+cornea_verticillata => eadv.phen_cornea_verticillata.val.last();
+proteinuria => eadv.phen_proteinuria.val.last();
+
+#define_attribute(acroparesthesia, {
+    label: "Acroparaesthesia",
+    atlas: {
+        role: "input",
+        feature_id: "acroparesthesia",
+        source_attribute: "phen_acroparesthesia",
+        section: "neurological_history",
+        question: "Has the patient experienced episodes of burning or tingling pain in the hands or feet?",
+        answer_type: "presence",
+        hpo_id: "HP:0031006",
+        help: "Episodes of pain or abnormal sensation in the extremities.",
+        source_refs: ["genereviews_fabry", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(angiokeratoma, {
+    label: "Angiokeratomas",
+    atlas: {
+        role: "input",
+        feature_id: "angiokeratoma",
+        source_attribute: "phen_angiokeratoma",
+        section: "skin_sweating",
+        question: "Have angiokeratomas been identified?",
+        answer_type: "presence",
+        hpo_id: "HP:0001014",
+        help: "Records whether these vascular skin lesions have been identified.",
+        source_refs: ["genereviews_fabry", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(hypohidrosis, {
+    label: "Reduced sweating",
+    atlas: {
+        role: "input",
+        feature_id: "hypohidrosis",
+        source_attribute: "phen_hypohidrosis",
+        section: "skin_sweating",
+        question: "Does the patient report reduced sweating?",
+        answer_type: "presence",
+        hpo_id: "HP:0000966",
+        help: "Records a history of sweating less than expected.",
+        source_refs: ["genereviews_fabry", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(cornea_verticillata, {
+    label: "Cornea verticillata",
+    atlas: {
+        role: "input",
+        feature_id: "cornea_verticillata",
+        source_attribute: "phen_cornea_verticillata",
+        section: "eyes",
+        question: "Has cornea verticillata been documented on eye examination?",
+        answer_type: "presence",
+        hpo_id: "HP:0500008",
+        help: "Records a documented corneal finding; it does not ask the patient to identify it.",
+        source_refs: ["genereviews_fabry", "orphadata_2026_06"]
+    }
+});
+
+#define_attribute(proteinuria, {
+    label: "Proteinuria",
+    atlas: {
+        role: "input",
+        feature_id: "proteinuria",
+        source_attribute: "phen_proteinuria",
+        section: "kidney",
+        question: "Has proteinuria been documented?",
+        answer_type: "presence",
+        hpo_id: "HP:0000093",
+        help: "Records documented protein in the urine without applying a quantitative threshold.",
+        source_refs: ["genereviews_fabry", "orphadata_2026_06"]
+    }
+});

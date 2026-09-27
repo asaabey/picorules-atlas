@@ -16,6 +16,7 @@ export interface DiseaseAssociation {
   diseaseId: string;
   version: string;
   sourceRefs: string[];
+  inputLine: number;
 }
 
 export interface AtlasQuestion {
@@ -36,6 +37,12 @@ export interface AtlasSection { id: string; label: string }
 export interface ExecutableRule {
   id: string;
   source: string;
+  authoredSource: string;
+  assetPath: string;
+  label: string;
+  diseaseId: string;
+  version: string;
+  sourceRefs: string[];
 }
 
 export interface CollectionManifest {

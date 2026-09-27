@@ -168,7 +168,7 @@ export function compileCollection(
     const headerValue = object(header.value, path, headers[0].line, 'ruleblock');
     const headerAtlas = object(headerValue.atlas, path, headers[0].line, 'ruleblock atlas');
     if (headerAtlas.schema_version !== '1') fail(path, headers[0].line, 'unsupported atlas schema_version');
-    const disease: DiseaseAssociation = {
+    const disease = {
       ruleId: header.name,
       label: string(headerAtlas.disease_label, path, headers[0].line, 'disease_label'),
       diseaseId: string(headerAtlas.disease_id, path, headers[0].line, 'disease_id'),
@@ -195,7 +195,16 @@ export function compileCollection(
     try { parsed = parse([{ name: header.name, text: executableSource, isActive: true }])[0]; }
     catch (error) { fail(path, body[0]?.line ?? 1, `core parser rejected executable rules: ${(error as Error).message}`); }
     if (parsed.rules.length !== body.length) fail(path, 1, 'core parser did not recognise every executable statement');
-    executable.push({ id: header.name, source: executableSource });
+    executable.push({
+      id: header.name,
+      source: executableSource,
+      authoredSource: source.text,
+      assetPath: `/generated/ruleblocks/${definition.id}/${header.name}-${contentVersion}.prb`,
+      label: disease.label,
+      diseaseId: disease.diseaseId,
+      version: disease.version,
+      sourceRefs: disease.sourceRefs,
+    });
     const inputVariables = new Set<string>();
     for (const rule of parsed.rules) {
       if (rule.ruleType !== RuleType.FETCH_STATEMENT) continue;
@@ -234,7 +243,7 @@ export function compileCollection(
         hpoId,
         ...(atlas.help === undefined ? {} : { help: string(atlas.help, path, meta.statement.line, 'help') }),
         sourceRefs: refs(atlas.source_refs ?? disease.sourceRefs, sources, path, meta.statement.line),
-        diseases: [disease],
+        diseases: [{ ...disease, inputLine: meta.statement.line }],
       };
       const existing = questions.get(featureId);
       if (existing) {
@@ -245,7 +254,7 @@ export function compileCollection(
             `conflicting definition for ${featureId}; first defined at ${firstLocations.get(featureId)}`);
         }
         existing.sourceRefs = [...new Set([...existing.sourceRefs, ...question.sourceRefs])];
-        existing.diseases.push(disease);
+        existing.diseases.push(question.diseases[0]);
       } else {
         questions.set(featureId, question);
         firstLocations.set(featureId, `${path}:${meta.statement.line}`);

@@ -71,8 +71,8 @@ the project has a tracked change history. This milestone does not deploy the sit
 
 | Step | Status | Evidence |
 | --- | --- | --- |
-| Publish exact authored source in the static build | In progress | Pending implementation and source-fidelity tests |
-| Add selected-collection viewer and input links | Planned | Pending keyboard and mobile browser checks |
+| Publish exact authored source in the static build | Done locally | Versioned `.prb` assets, manifest source text, input line locations; source-fidelity and synthetic isolation tests passed |
+| Add selected-collection viewer and input links | In progress | Viewer implemented; browser evidence pending milestone close |
 | Validate and close M2 | Planned | Pending content, typecheck, unit, build, and browser runs |
 
 The current app shows disease context beside each question, but it does not show

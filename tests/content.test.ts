@@ -36,6 +36,10 @@ describe('Atlas content compilation', () => {
     expect(manifest.questions).toHaveLength(1);
     expect(manifest.questions[0].help).toContain('https://example.org/a;b // still text');
     expect(manifest.rules[0].source).toBe('proteinuria => eadv.phen_proteinuria.val.last();');
+    expect(manifest.rules[0].authoredSource).toBe(text);
+    expect(manifest.questions[0].diseases[0].inputLine).toBe(
+      text.slice(0, text.indexOf('#define_attribute(proteinuria')).split('\n').length,
+    );
   });
 
   it('rejects executable directive values', () => {
@@ -75,6 +79,9 @@ describe('Atlas content compilation', () => {
     const second = compileCollection(definition('two', ['rules/disease_b.prb']), all, sources);
     expect(first.questions[0].diseases.map(d => d.ruleId)).toEqual(['disease_a']);
     expect(second.questions[0].diseases.map(d => d.ruleId)).toEqual(['disease_b']);
+    expect(first.rules.map(rule => [rule.id, rule.authoredSource])).toEqual([['disease_a', all[0].text]]);
+    expect(second.rules.map(rule => [rule.id, rule.authoredSource])).toEqual([['disease_b', all[1].text]]);
+    expect(first.questions[0].diseases[0].inputLine).toBeGreaterThan(1);
   });
 
   it('compiles the ten authored IKD questions with five associations per rule', () => {
@@ -85,6 +92,17 @@ describe('Atlas content compilation', () => {
       path, text: readFileSync(new URL(`collections/ikd/${path}`, root), 'utf8'),
     }));
     const manifest = compileCollection(collection, rules, sourceRecords);
+    for (const rule of manifest.rules) {
+      const committed = rules.find((item: { path: string; text: string }) => item.path.endsWith(`${rule.id}.prb`));
+      expect(rule.authoredSource).toBe(committed?.text);
+      expect(rule.assetPath).toBe(`/generated/ruleblocks/ikd/${rule.id}-test.prb`);
+      for (const question of manifest.questions) {
+        const association = question.diseases.find(disease => disease.ruleId === rule.id);
+        if (!association) continue;
+        expect(rule.authoredSource.split('\n')[association.inputLine - 1])
+          .toMatch(new RegExp(`^#define_attribute\\(${question.featureId},`));
+      }
+    }
     expect(manifest.questions).toHaveLength(10);
     expect(manifest.questions.filter(q => q.diseases[0].ruleId === 'ikd_fabry')).toHaveLength(5);
     expect(manifest.questions.filter(q => q.diseases[0].ruleId === 'ikd_tuberous_sclerosis')).toHaveLength(5);
