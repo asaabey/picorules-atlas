@@ -72,8 +72,8 @@ the project has a tracked change history. This milestone does not deploy the sit
 | Step | Status | Evidence |
 | --- | --- | --- |
 | Publish exact authored source in the static build | Done locally | Versioned `.prb` assets, manifest source text, input line locations; source-fidelity and synthetic isolation tests passed |
-| Add selected-collection viewer and input links | In progress | Viewer implemented; browser evidence pending milestone close |
-| Validate and close M2 | Planned | Pending content, typecheck, unit, build, and browser runs |
+| Add selected-collection viewer and input links | Done locally | Five static browser tests passed, including keyboard and 390px mobile navigation; rendered source matches authored files |
+| Validate and close M2 | In progress | Final gate and review pending |
 
 The current app shows disease context beside each question, but it does not show
 the authored `.prb` ruleblock. Its static manifest contains executable input

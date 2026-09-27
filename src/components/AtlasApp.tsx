@@ -5,6 +5,7 @@ import { countAnswered, createAnswers, resetAnswers, setAnswer } from '../lib/as
 import { buildAssessmentBundle, type AssessmentBundle } from '../lib/fhir';
 import { parseCollectionRules } from '../lib/runtime/ruleEngine';
 import { createUuid } from '../lib/uuid';
+import RuleblockViewer, { sourceLineId } from './RuleblockViewer';
 import type {
   AnswerState,
   Answers,
@@ -165,6 +166,9 @@ function DiseaseContext({
       <div className="context-body">
         <p><strong>{question.label}</strong> is a feature associated with {disease.label}. This is background context; an answer here does not establish or exclude a diagnosis.</p>
         {question.help && <p>{question.help}</p>}
+        <a className="input-source-link" href={`#${sourceLineId(disease.ruleId, disease.inputLine)}`}>
+          View the {question.featureId} input declaration in {disease.ruleId}
+        </a>
         {refs.length > 0 && (
           <div className="context-sources">
             <span>Sources</span>
@@ -378,6 +382,7 @@ function Assessment({
                   ) : null;
                 })}
               </nav>
+              <a className="sidebar-rule-link" href="#ruleblocks">View collection ruleblocks</a>
               <p className="sidebar-note">Answers are held in this browser tab and clear on reload or close.</p>
             </div>
           </aside>
@@ -416,6 +421,7 @@ function Assessment({
               <div><span aria-hidden="true">✳</span><strong>End of assessment</strong><p>You can review or change any answer above.</p></div>
               <button type="button" className="reset-button" onClick={onReset}>Reset answers</button>
             </div>
+            <RuleblockViewer collection={collection} />
           </div>
         </div>
       </main>
