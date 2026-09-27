@@ -20,15 +20,29 @@ dates are assigned.
 | M8 | Binary checkboxes and focused feature views | Complete locally |
 | M9 | Hosted demonstration | Deferred at user request |
 | M10 | Family-history inheritance-pattern prompts | Complete locally |
-| M11 | Six missing nephronophthisis and ciliopathy entities | In progress |
+| M11 | Six missing nephronophthisis and ciliopathy entities | Complete locally |
 
-## M11 — Complete the six missing entity profiles (in progress)
+## M11 — Complete the six missing entity profiles (complete locally)
 
-Add broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome, and
-Mainzer–Saldino as authored ruleblocks. Reuse shared findings, retain source and
-mapping caveats, and show a separate unweighted present-feature count for these
-new profiles. This is application coverage of the original entity list, not
-clinical validation or proof that closely related subtypes can be distinguished.
+Broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome, and
+Mainzer–Saldino now have authored ruleblocks, increasing the IKD collection to
+14 profiles and 60 shared questions. Each new rule counts present clinical
+findings at one point each; pedigree context adds zero. Its model and FHIR code
+are distinct from the eight existing LIRICAL-weighted profiles. The 46 new
+disease–question associations have a source crosswalk and a regenerated review
+packet at content version `f74409e920c619b1`.
+
+On 27 September 2026, `content:check`, `review:check`, `typecheck`, 49 unit
+tests, the static build, and 15 static browser tests passed. Browser tests cover
+the exact six new authored sources and their question links, mobile keyboard
+filtering, inline count results, and the FHIR download. Implementation commit:
+`97a594f`.
+
+This completes application coverage of the six previously missing entities,
+not clinical validation or proof that related subtypes can be distinguished.
+NPHP12 has sparse subtype annotations, and Joubert and Mainzer–Saldino source
+crosswalks need review. Broad Alport and Fabry profiles still stand in for five
+distinct entities on the original 17-item list.
 
 ## End-to-end proof of concept (complete locally)
 
@@ -46,9 +60,8 @@ and deployment remain separate decisions.
 | Complete review, result, and FHIR download UI | Done locally | Eight static browser tests passed, including changed-answer output, FHIR download, keyboard, mobile, and privacy checks |
 | Validate full flow and record evidence | Done locally | `content:check`, `review:check`, `typecheck`, 26 unit tests, static build, and eight static browser tests passed on 27 September 2026 |
 
-The next application step adds structured rule scores and possible diagnoses to
-the downloaded FHIR handoff. Prototype score semantics remain the authored
-present-feature count and two-feature threshold.
+Later milestones replaced the illustrative two-feature threshold with the
+versioned research scores and present-feature counts described above.
 
 The browser checks cover both branches of the illustrative conclusion, answer
 editing, the downloaded FHIR observations, keyboard focus, a 390px viewport,
