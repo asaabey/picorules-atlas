@@ -7,12 +7,12 @@ below remains pending for any later clinical release claim.
 
 ## Current calculation boundary
 
-Eight rules calculate candidate LIRICAL-weighted phenotype matching scores. Six new nephronophthisis and ciliopathy rules count present clinical features, one point each. Both models give zero for family-history context and unticked findings; their totals have different units. Results and the FHIR handoff distinguish the models and apply no diagnostic cutoff. See [implementation details and limitations](WEIGHTING-IMPLEMENTATION.md). Clinical approval remains pending.
+Seven rules calculate candidate LIRICAL-weighted phenotype matching scores. Twenty-one profiles, including the expanded HNF1B profile, count present clinical features, one point each. Both models give zero for family-history context and unticked findings; their totals have different units. Results and the FHIR handoff distinguish the models and apply no diagnostic cutoff. See [implementation details and limitations](WEIGHTING-IMPLEMENTATION.md). Clinical approval remains pending.
 
 ## What to review
 
 Open the static Atlas assessment and [candidate content packet](CANDIDATE-CONTENT.md)
-for the content version named in the packet. Check each of the 60 questions against the
+for the content version named in the packet. Check each of the 95 questions against the
 authored ruleblock and its sources. For every feature, decide whether the short
 label, HPO code and meaning, question, help text, section, answer control, and
 disease association are suitable. Check the shared answer semantics, disease
@@ -59,7 +59,7 @@ completed review record still match the manifest. It does not signify approval.
 
 ## Points needing explicit clinical judgment
 
-- The 60 questions are a compact demonstration, not a complete inherited kidney
+- The 95 questions are a compact demonstration, not a complete inherited kidney
   disease screen, diagnostic criteria, or a sensitivity claim. Recorded absence
   does not exclude either disease.
 - The TSC questions record single findings. They do not capture lesion counts,
@@ -95,3 +95,7 @@ Three shared prompts record documented pedigree patterns suggesting autosomal do
 ## Six-profile ciliopathy extension
 
 Broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome, and Mainzer–Saldino syndrome add 18 new shared questions, giving 60 in total. Their 46 new disease–question associations are recorded in [ciliopathy-evidence.json](ciliopathy-evidence.json). Each present clinical finding contributes one point; the shared recessive pedigree prompt contributes zero. This simple count keeps the application flow working while exact subtype mappings and performance remain unreviewed. NPHP12 has particularly sparse subtype annotations; related profiles can produce the same count. The generic Joubert and Mainzer–Saldino profiles use GeneReviews and Orphanet descriptions rather than treating narrower or broader source profiles as exact equivalents.
+
+## Tubulopathy extension
+
+Collection 0.8.0-tubulopathies adds 14 profiles and extends HNF1B, bringing the total to 28 profiles and 95 shared questions. The extension adds 35 distinct findings and reuses 16 existing findings for its 131 new disease–question associations. Existing HNF1B associations remain; its score changes to a present-feature count because the pinned weights do not cover the added findings. See [implementation and feature-reuse audit](TUBULOPATHY-IMPLEMENTATION.md) and [source crosswalk](tubulopathy-evidence.json). All detailed review decisions remain pending.

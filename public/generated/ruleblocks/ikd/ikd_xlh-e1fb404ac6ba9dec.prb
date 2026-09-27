@@ -1,0 +1,175 @@
+/* X-linked hypophosphataemia: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_xlh, {
+    "description": "X-linked hypophosphataemia candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "X-linked hypophosphataemia",
+        "disease_id": "ORPHA:89936",
+        "source_refs": [
+            "genereviews_xlh"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "genereviews_xlh"
+            ],
+            "weights": {
+                "renal_phosphate_wasting": 1,
+                "hypophosphatemia": 1,
+                "rickets": 1,
+                "short_stature": 1,
+                "bone_pain": 1,
+                "recurrent_dental_abscesses": 1,
+                "family_history_x_linked": 0
+            }
+        }
+    }
+});
+
+renal_phosphate_wasting => eadv.phen_renal_phosphate_wasting.val.last();
+hypophosphatemia => eadv.phen_hypophosphatemia.val.last();
+rickets => eadv.phen_rickets.val.last();
+short_stature => eadv.phen_short_stature.val.last();
+bone_pain => eadv.phen_bone_pain.val.last();
+recurrent_dental_abscesses => eadv.phen_recurrent_dental_abscesses.val.last();
+family_history_x_linked => eadv.phen_family_history_x_linked.val.last();
+
+present_feature_count : { . => coalesce(renal_phosphate_wasting, 0) + coalesce(hypophosphatemia, 0) + coalesce(rickets, 0) + coalesce(short_stature, 0) + coalesce(bone_pain, 0) + coalesce(recurrent_dental_abscesses, 0) + coalesce(family_history_x_linked, 0) };
+contribution_renal_phosphate_wasting : { renal_phosphate_wasting = 1 => 1 }, { => 0 };
+contribution_hypophosphatemia : { hypophosphatemia = 1 => 1 }, { => 0 };
+contribution_rickets : { rickets = 1 => 1 }, { => 0 };
+contribution_short_stature : { short_stature = 1 => 1 }, { => 0 };
+contribution_bone_pain : { bone_pain = 1 => 1 }, { => 0 };
+contribution_recurrent_dental_abscesses : { recurrent_dental_abscesses = 1 => 1 }, { => 0 };
+contribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_renal_phosphate_wasting + contribution_hypophosphatemia + contribution_rickets + contribution_short_stature + contribution_bone_pain + contribution_recurrent_dental_abscesses + contribution_family_history_x_linked };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(renal_phosphate_wasting, {
+    "label": "Renal phosphate wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_phosphate_wasting",
+        "source_attribute": "phen_renal_phosphate_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has inappropriate renal phosphate loss been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000117",
+        "help": "Requires a documented renal phosphate-handling assessment; low blood phosphate alone is insufficient.",
+        "source_refs": [
+            "genereviews_xlh",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypophosphatemia, {
+    "label": "Hypophosphataemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypophosphatemia",
+        "source_attribute": "phen_hypophosphatemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypophosphataemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002148",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "genereviews_xlh",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(rickets, {
+    "label": "Rickets",
+    "atlas": {
+        "role": "input",
+        "feature_id": "rickets",
+        "source_attribute": "phen_rickets",
+        "section": "skeletal",
+        "question": "Has rickets been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002748",
+        "help": "Use a documented clinical or radiological diagnosis; adult osteomalacia is a different finding.",
+        "source_refs": [
+            "genereviews_xlh",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(short_stature, {
+    "label": "Short stature",
+    "atlas": {
+        "role": "input",
+        "feature_id": "short_stature",
+        "source_attribute": "phen_short_stature",
+        "section": "endocrine_metabolic",
+        "question": "Has short stature been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0004322",
+        "help": "Records documented stature without applying a new height cutoff.",
+        "source_refs": [
+            "genereviews_xlh"
+        ]
+    }
+});
+
+#define_attribute(bone_pain, {
+    "label": "Bone pain",
+    "atlas": {
+        "role": "input",
+        "feature_id": "bone_pain",
+        "source_attribute": "phen_bone_pain",
+        "section": "skeletal",
+        "question": "Has bone pain been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002653",
+        "help": "Records pain localised to bone rather than nonspecific joint or muscle pain.",
+        "source_refs": [
+            "genereviews_xlh",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(recurrent_dental_abscesses, {
+    "label": "Recurrent dental abscesses",
+    "atlas": {
+        "role": "input",
+        "feature_id": "recurrent_dental_abscesses",
+        "source_attribute": "phen_recurrent_dental_abscesses",
+        "section": "skeletal",
+        "question": "Have recurrent dental abscesses been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:5210249",
+        "help": "Use documented recurrent abscesses; toothache alone is insufficient.",
+        "source_refs": [
+            "genereviews_xlh",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(family_history_x_linked, {
+    "label": "Documented family history suggesting X-linked inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_x_linked",
+        "source_attribute": "phen_family_history_x_linked",
+        "section": "family_history",
+        "question": "Does transmission among affected relatives in the documented family history suggest an X-linked pattern?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001417",
+        "help": "Affected relatives through the maternal line or affected daughters of an affected father may suggest X-linked inheritance. There is no father-to-son transmission. Females can also be affected, and an unclear pedigree does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "genereviews_xlh"
+        ]
+    }
+});

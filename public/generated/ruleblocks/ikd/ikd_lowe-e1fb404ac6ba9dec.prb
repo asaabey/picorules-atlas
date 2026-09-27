@@ -1,0 +1,278 @@
+/* Lowe syndrome: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_lowe, {
+    "description": "Lowe syndrome candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "Lowe syndrome",
+        "disease_id": "ORPHA:534",
+        "source_refs": [
+            "genereviews_lowe"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "genereviews_lowe"
+            ],
+            "weights": {
+                "low_molecular_weight_proteinuria": 1,
+                "generalized_aminoaciduria": 1,
+                "metabolic_acidosis": 1,
+                "renal_phosphate_wasting": 1,
+                "hypophosphatemia": 1,
+                "hypercalciuria": 1,
+                "rickets": 1,
+                "developmental_cataract": 1,
+                "hypotonia": 1,
+                "global_developmental_delay": 1,
+                "renal_insufficiency": 1,
+                "family_history_x_linked": 0
+            }
+        }
+    }
+});
+
+low_molecular_weight_proteinuria => eadv.phen_low_molecular_weight_proteinuria.val.last();
+generalized_aminoaciduria => eadv.phen_generalized_aminoaciduria.val.last();
+metabolic_acidosis => eadv.phen_metabolic_acidosis.val.last();
+renal_phosphate_wasting => eadv.phen_renal_phosphate_wasting.val.last();
+hypophosphatemia => eadv.phen_hypophosphatemia.val.last();
+hypercalciuria => eadv.phen_hypercalciuria.val.last();
+rickets => eadv.phen_rickets.val.last();
+developmental_cataract => eadv.phen_developmental_cataract.val.last();
+hypotonia => eadv.phen_hypotonia.val.last();
+global_developmental_delay => eadv.phen_global_developmental_delay.val.last();
+renal_insufficiency => eadv.phen_renal_insufficiency.val.last();
+family_history_x_linked => eadv.phen_family_history_x_linked.val.last();
+
+present_feature_count : { . => coalesce(low_molecular_weight_proteinuria, 0) + coalesce(generalized_aminoaciduria, 0) + coalesce(metabolic_acidosis, 0) + coalesce(renal_phosphate_wasting, 0) + coalesce(hypophosphatemia, 0) + coalesce(hypercalciuria, 0) + coalesce(rickets, 0) + coalesce(developmental_cataract, 0) + coalesce(hypotonia, 0) + coalesce(global_developmental_delay, 0) + coalesce(renal_insufficiency, 0) + coalesce(family_history_x_linked, 0) };
+contribution_low_molecular_weight_proteinuria : { low_molecular_weight_proteinuria = 1 => 1 }, { => 0 };
+contribution_generalized_aminoaciduria : { generalized_aminoaciduria = 1 => 1 }, { => 0 };
+contribution_metabolic_acidosis : { metabolic_acidosis = 1 => 1 }, { => 0 };
+contribution_renal_phosphate_wasting : { renal_phosphate_wasting = 1 => 1 }, { => 0 };
+contribution_hypophosphatemia : { hypophosphatemia = 1 => 1 }, { => 0 };
+contribution_hypercalciuria : { hypercalciuria = 1 => 1 }, { => 0 };
+contribution_rickets : { rickets = 1 => 1 }, { => 0 };
+contribution_developmental_cataract : { developmental_cataract = 1 => 1 }, { => 0 };
+contribution_hypotonia : { hypotonia = 1 => 1 }, { => 0 };
+contribution_global_developmental_delay : { global_developmental_delay = 1 => 1 }, { => 0 };
+contribution_renal_insufficiency : { renal_insufficiency = 1 => 1 }, { => 0 };
+contribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_low_molecular_weight_proteinuria + contribution_generalized_aminoaciduria + contribution_metabolic_acidosis + contribution_renal_phosphate_wasting + contribution_hypophosphatemia + contribution_hypercalciuria + contribution_rickets + contribution_developmental_cataract + contribution_hypotonia + contribution_global_developmental_delay + contribution_renal_insufficiency + contribution_family_history_x_linked };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(low_molecular_weight_proteinuria, {
+    "label": "Low-molecular-weight proteinuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "low_molecular_weight_proteinuria",
+        "source_attribute": "phen_low_molecular_weight_proteinuria",
+        "section": "electrolytes_tubular",
+        "question": "Has low-molecular-weight proteinuria been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003126",
+        "help": "Requires a documented tubular protein measurement or assessment; a routine positive protein dipstick or albuminuria alone is insufficient.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(generalized_aminoaciduria, {
+    "label": "Generalised aminoaciduria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "generalized_aminoaciduria",
+        "source_attribute": "phen_generalized_aminoaciduria",
+        "section": "electrolytes_tubular",
+        "question": "Has generalised aminoaciduria been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002909",
+        "help": "Requires increased urinary loss of multiple amino acids; an isolated amino acid abnormality is insufficient.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(metabolic_acidosis, {
+    "label": "Metabolic acidosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "metabolic_acidosis",
+        "source_attribute": "phen_metabolic_acidosis",
+        "section": "electrolytes_tubular",
+        "question": "Has metabolic acidosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001942",
+        "help": "Use a documented acid–base assessment. This broad finding does not establish renal tubular acidosis.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_phosphate_wasting, {
+    "label": "Renal phosphate wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_phosphate_wasting",
+        "source_attribute": "phen_renal_phosphate_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has inappropriate renal phosphate loss been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000117",
+        "help": "Requires a documented renal phosphate-handling assessment; low blood phosphate alone is insufficient.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypophosphatemia, {
+    "label": "Hypophosphataemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypophosphatemia",
+        "source_attribute": "phen_hypophosphatemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypophosphataemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002148",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypercalciuria, {
+    "label": "High urinary calcium",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypercalciuria",
+        "source_attribute": "phen_hypercalciuria",
+        "section": "electrolytes_tubular",
+        "question": "Has high urinary calcium excretion been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002150",
+        "help": "Use urine measurements interpreted for age, collection method and treatment; this is not high blood calcium.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(rickets, {
+    "label": "Rickets",
+    "atlas": {
+        "role": "input",
+        "feature_id": "rickets",
+        "source_attribute": "phen_rickets",
+        "section": "skeletal",
+        "question": "Has rickets been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002748",
+        "help": "Use a documented clinical or radiological diagnosis; adult osteomalacia is a different finding.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(developmental_cataract, {
+    "label": "Congenital developmental cataract",
+    "atlas": {
+        "role": "input",
+        "feature_id": "developmental_cataract",
+        "source_attribute": "phen_developmental_cataract",
+        "section": "eyes",
+        "question": "Has a congenital developmental cataract been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000519",
+        "help": "Uses the HPO developmental cataract term for congenital lens opacity; an acquired adult cataract is not equivalent.",
+        "source_refs": [
+            "genereviews_lowe",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypotonia, {
+    "label": "Hypotonia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypotonia",
+        "source_attribute": "phen_hypotonia",
+        "section": "neurological_history",
+        "question": "Has hypotonia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001252",
+        "help": "Records reduced muscle tone observed clinically.",
+        "source_refs": [
+            "genereviews_lowe"
+        ]
+    }
+});
+
+#define_attribute(global_developmental_delay, {
+    "label": "Global developmental delay",
+    "atlas": {
+        "role": "input",
+        "feature_id": "global_developmental_delay",
+        "source_attribute": "phen_global_developmental_delay",
+        "section": "neurological_history",
+        "question": "Was global developmental delay documented in childhood?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001263",
+        "help": "A historical developmental finding; do not infer it from kidney disease.",
+        "source_refs": [
+            "genereviews_lowe"
+        ]
+    }
+});
+
+#define_attribute(renal_insufficiency, {
+    "label": "Reduced kidney function",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_insufficiency",
+        "source_attribute": "phen_renal_insufficiency",
+        "section": "kidney",
+        "question": "Has reduced kidney function been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000083",
+        "help": "Records an existing finding without assigning a cause or a new laboratory threshold.",
+        "source_refs": [
+            "genereviews_lowe"
+        ]
+    }
+});
+
+#define_attribute(family_history_x_linked, {
+    "label": "Documented family history suggesting X-linked inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_x_linked",
+        "source_attribute": "phen_family_history_x_linked",
+        "section": "family_history",
+        "question": "Does transmission among affected relatives in the documented family history suggest an X-linked pattern?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001417",
+        "help": "Affected relatives through the maternal line or affected daughters of an affected father may suggest X-linked inheritance. There is no father-to-son transmission. Females can also be affected, and an unclear pedigree does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "genereviews_lowe"
+        ]
+    }
+});

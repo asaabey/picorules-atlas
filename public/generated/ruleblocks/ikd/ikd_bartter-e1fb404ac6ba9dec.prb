@@ -1,0 +1,298 @@
+/* Bartter syndrome: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_bartter, {
+    "description": "Bartter syndrome candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "Bartter syndrome",
+        "disease_id": "ORPHA:112",
+        "source_refs": [
+            "erknet_bartter"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "erknet_bartter"
+            ],
+            "weights": {
+                "hypokalemia": 1,
+                "metabolic_alkalosis": 1,
+                "renal_salt_wasting": 1,
+                "hypercalciuria": 1,
+                "nephrocalcinosis": 1,
+                "polyuria": 1,
+                "polydipsia": 1,
+                "growth_delay": 1,
+                "polyhydramnios": 1,
+                "premature_birth": 1,
+                "bilateral_sensorineural_hearing_impairment": 1,
+                "family_history_autosomal_recessive": 0,
+                "family_history_x_linked": 0
+            }
+        }
+    }
+});
+
+hypokalemia => eadv.phen_hypokalemia.val.last();
+metabolic_alkalosis => eadv.phen_metabolic_alkalosis.val.last();
+renal_salt_wasting => eadv.phen_renal_salt_wasting.val.last();
+hypercalciuria => eadv.phen_hypercalciuria.val.last();
+nephrocalcinosis => eadv.phen_nephrocalcinosis.val.last();
+polyuria => eadv.phen_polyuria.val.last();
+polydipsia => eadv.phen_polydipsia.val.last();
+growth_delay => eadv.phen_growth_delay.val.last();
+polyhydramnios => eadv.phen_polyhydramnios.val.last();
+premature_birth => eadv.phen_premature_birth.val.last();
+bilateral_sensorineural_hearing_impairment => eadv.phen_bilateral_sensorineural_hearing_impairment.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+family_history_x_linked => eadv.phen_family_history_x_linked.val.last();
+
+present_feature_count : { . => coalesce(hypokalemia, 0) + coalesce(metabolic_alkalosis, 0) + coalesce(renal_salt_wasting, 0) + coalesce(hypercalciuria, 0) + coalesce(nephrocalcinosis, 0) + coalesce(polyuria, 0) + coalesce(polydipsia, 0) + coalesce(growth_delay, 0) + coalesce(polyhydramnios, 0) + coalesce(premature_birth, 0) + coalesce(bilateral_sensorineural_hearing_impairment, 0) + coalesce(family_history_autosomal_recessive, 0) + coalesce(family_history_x_linked, 0) };
+contribution_hypokalemia : { hypokalemia = 1 => 1 }, { => 0 };
+contribution_metabolic_alkalosis : { metabolic_alkalosis = 1 => 1 }, { => 0 };
+contribution_renal_salt_wasting : { renal_salt_wasting = 1 => 1 }, { => 0 };
+contribution_hypercalciuria : { hypercalciuria = 1 => 1 }, { => 0 };
+contribution_nephrocalcinosis : { nephrocalcinosis = 1 => 1 }, { => 0 };
+contribution_polyuria : { polyuria = 1 => 1 }, { => 0 };
+contribution_polydipsia : { polydipsia = 1 => 1 }, { => 0 };
+contribution_growth_delay : { growth_delay = 1 => 1 }, { => 0 };
+contribution_polyhydramnios : { polyhydramnios = 1 => 1 }, { => 0 };
+contribution_premature_birth : { premature_birth = 1 => 1 }, { => 0 };
+contribution_bilateral_sensorineural_hearing_impairment : { bilateral_sensorineural_hearing_impairment = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+contribution_family_history_x_linked : { family_history_x_linked = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_hypokalemia + contribution_metabolic_alkalosis + contribution_renal_salt_wasting + contribution_hypercalciuria + contribution_nephrocalcinosis + contribution_polyuria + contribution_polydipsia + contribution_growth_delay + contribution_polyhydramnios + contribution_premature_birth + contribution_bilateral_sensorineural_hearing_impairment + contribution_family_history_autosomal_recessive + contribution_family_history_x_linked };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(hypokalemia, {
+    "label": "Hypokalaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypokalemia",
+        "source_attribute": "phen_hypokalemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypokalaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002900",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "erknet_bartter",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(metabolic_alkalosis, {
+    "label": "Metabolic alkalosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "metabolic_alkalosis",
+        "source_attribute": "phen_metabolic_alkalosis",
+        "section": "electrolytes_tubular",
+        "question": "Has metabolic alkalosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0200114",
+        "help": "Use a documented acid–base assessment; an isolated bicarbonate result is not sufficient.",
+        "source_refs": [
+            "erknet_bartter",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_salt_wasting, {
+    "label": "Renal salt wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_salt_wasting",
+        "source_attribute": "phen_renal_salt_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has renal salt wasting been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000127",
+        "help": "Requires evidence of inappropriate renal salt loss; low blood sodium or dehydration alone is insufficient.",
+        "source_refs": [
+            "erknet_bartter",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypercalciuria, {
+    "label": "High urinary calcium",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypercalciuria",
+        "source_attribute": "phen_hypercalciuria",
+        "section": "electrolytes_tubular",
+        "question": "Has high urinary calcium excretion been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002150",
+        "help": "Use urine measurements interpreted for age, collection method and treatment; this is not high blood calcium.",
+        "source_refs": [
+            "erknet_bartter",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(nephrocalcinosis, {
+    "label": "Nephrocalcinosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "nephrocalcinosis",
+        "source_attribute": "phen_nephrocalcinosis",
+        "section": "kidney",
+        "question": "Has nephrocalcinosis been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000121",
+        "help": "Records calcium deposition in kidney tissue; a discrete kidney stone alone is not equivalent.",
+        "source_refs": [
+            "erknet_bartter",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(polyuria, {
+    "label": "Polyuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polyuria",
+        "source_attribute": "phen_polyuria",
+        "section": "kidney",
+        "question": "Has persistent excessive urine output been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000103",
+        "help": "Records the history or measured finding without setting a volume threshold.",
+        "source_refs": [
+            "erknet_bartter"
+        ]
+    }
+});
+
+#define_attribute(polydipsia, {
+    "label": "Polydipsia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polydipsia",
+        "source_attribute": "phen_polydipsia",
+        "section": "kidney",
+        "question": "Has persistent excessive thirst been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001959",
+        "help": "Records excessive thirst without assuming a kidney cause.",
+        "source_refs": [
+            "erknet_bartter"
+        ]
+    }
+});
+
+#define_attribute(growth_delay, {
+    "label": "Growth delay",
+    "atlas": {
+        "role": "input",
+        "feature_id": "growth_delay",
+        "source_attribute": "phen_growth_delay",
+        "section": "endocrine_metabolic",
+        "question": "Was delayed growth documented during childhood?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001510",
+        "help": "A historical childhood finding; adult short stature alone is not the same observation.",
+        "source_refs": [
+            "erknet_bartter"
+        ]
+    }
+});
+
+#define_attribute(polyhydramnios, {
+    "label": "Polyhydramnios in the patient’s prenatal history",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polyhydramnios",
+        "source_attribute": "phen_polyhydramnios",
+        "section": "liver_pregnancy",
+        "question": "Was polyhydramnios documented during the pregnancy in which this patient was carried?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001561",
+        "help": "Refers to the assessed patient’s prenatal history, not a pregnancy they subsequently carried.",
+        "source_refs": [
+            "erknet_bartter",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(premature_birth, {
+    "label": "Premature birth",
+    "atlas": {
+        "role": "input",
+        "feature_id": "premature_birth",
+        "source_attribute": "phen_premature_birth",
+        "section": "liver_pregnancy",
+        "question": "Was this patient born prematurely?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001622",
+        "help": "Use the documented birth history.",
+        "source_refs": [
+            "erknet_bartter",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(bilateral_sensorineural_hearing_impairment, {
+    "label": "Bilateral sensorineural hearing impairment",
+    "atlas": {
+        "role": "input",
+        "feature_id": "bilateral_sensorineural_hearing_impairment",
+        "source_attribute": "phen_bilateral_sensorineural_hearing_impairment",
+        "section": "hearing",
+        "question": "Has sensorineural hearing impairment in both ears been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0008619",
+        "help": "Documented sensorineural impairment affecting both ears.",
+        "source_refs": [
+            "erknet_bartter"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "erknet_bartter"
+        ]
+    }
+});
+
+#define_attribute(family_history_x_linked, {
+    "label": "Documented family history suggesting X-linked inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_x_linked",
+        "source_attribute": "phen_family_history_x_linked",
+        "section": "family_history",
+        "question": "Does transmission among affected relatives in the documented family history suggest an X-linked pattern?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001417",
+        "help": "Affected relatives through the maternal line or affected daughters of an affected father may suggest X-linked inheritance. There is no father-to-son transmission. Females can also be affected, and an unclear pedigree does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "erknet_bartter"
+        ]
+    }
+});

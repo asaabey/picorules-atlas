@@ -1,0 +1,154 @@
+/* Liddle syndrome: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_liddle, {
+    "description": "Liddle syndrome candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "Liddle syndrome",
+        "disease_id": "ORPHA:526",
+        "source_refs": [
+            "medline_liddle"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "medline_liddle"
+            ],
+            "weights": {
+                "hypokalemia": 1,
+                "metabolic_alkalosis": 1,
+                "hypertension": 1,
+                "decreased_renin": 1,
+                "decreased_aldosterone": 1,
+                "family_history_autosomal_dominant": 0
+            }
+        }
+    }
+});
+
+hypokalemia => eadv.phen_hypokalemia.val.last();
+metabolic_alkalosis => eadv.phen_metabolic_alkalosis.val.last();
+hypertension => eadv.phen_hypertension.val.last();
+decreased_renin => eadv.phen_decreased_renin.val.last();
+decreased_aldosterone => eadv.phen_decreased_aldosterone.val.last();
+family_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();
+
+present_feature_count : { . => coalesce(hypokalemia, 0) + coalesce(metabolic_alkalosis, 0) + coalesce(hypertension, 0) + coalesce(decreased_renin, 0) + coalesce(decreased_aldosterone, 0) + coalesce(family_history_autosomal_dominant, 0) };
+contribution_hypokalemia : { hypokalemia = 1 => 1 }, { => 0 };
+contribution_metabolic_alkalosis : { metabolic_alkalosis = 1 => 1 }, { => 0 };
+contribution_hypertension : { hypertension = 1 => 1 }, { => 0 };
+contribution_decreased_renin : { decreased_renin = 1 => 1 }, { => 0 };
+contribution_decreased_aldosterone : { decreased_aldosterone = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_hypokalemia + contribution_metabolic_alkalosis + contribution_hypertension + contribution_decreased_renin + contribution_decreased_aldosterone + contribution_family_history_autosomal_dominant };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(hypokalemia, {
+    "label": "Hypokalaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypokalemia",
+        "source_attribute": "phen_hypokalemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypokalaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002900",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "medline_liddle",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(metabolic_alkalosis, {
+    "label": "Metabolic alkalosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "metabolic_alkalosis",
+        "source_attribute": "phen_metabolic_alkalosis",
+        "section": "electrolytes_tubular",
+        "question": "Has metabolic alkalosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0200114",
+        "help": "Use a documented acid–base assessment; an isolated bicarbonate result is not sufficient.",
+        "source_refs": [
+            "medline_liddle",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypertension, {
+    "label": "Hypertension",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypertension",
+        "source_attribute": "phen_hypertension",
+        "section": "cardiovascular",
+        "question": "Has hypertension been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000822",
+        "help": "Documented hypertension without deriving a diagnosis from a single blood pressure.",
+        "source_refs": [
+            "medline_liddle"
+        ]
+    }
+});
+
+#define_attribute(decreased_renin, {
+    "label": "Low circulating renin",
+    "atlas": {
+        "role": "input",
+        "feature_id": "decreased_renin",
+        "source_attribute": "phen_decreased_renin",
+        "section": "electrolytes_tubular",
+        "question": "Has suppressed or low circulating renin been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003351",
+        "help": "Use the documented interpretation with posture, salt intake and medications considered.",
+        "source_refs": [
+            "medline_liddle",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(decreased_aldosterone, {
+    "label": "Low circulating aldosterone",
+    "atlas": {
+        "role": "input",
+        "feature_id": "decreased_aldosterone",
+        "source_attribute": "phen_decreased_aldosterone",
+        "section": "electrolytes_tubular",
+        "question": "Has suppressed or low circulating aldosterone been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0004319",
+        "help": "Use the documented interpretation with potassium, medications and sampling conditions considered.",
+        "source_refs": [
+            "medline_liddle",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_dominant, {
+    "label": "Documented family history suggesting autosomal dominant inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_dominant",
+        "source_attribute": "phen_family_history_autosomal_dominant",
+        "section": "family_history",
+        "question": "Does the documented family history show a similar condition in successive generations?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000006",
+        "help": "A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "medline_liddle"
+        ]
+    }
+});

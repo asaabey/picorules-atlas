@@ -12,12 +12,16 @@ const expected: Record<string, string[]> = {
   family_history_autosomal_dominant: [
     'ikd_tuberous_sclerosis', 'ikd_alport', 'ikd_hnf1b', 'ikd_vhl',
     'ikd_adtkd_umod', 'ikd_adtkd_muc1',
+    'ikd_drta', 'ikd_liddle', 'ikd_gordon', 'ikd_pha1', 'ikd_ndi',
   ],
   family_history_autosomal_recessive: [
     'ikd_alport', 'ikd_arpkd', 'ikd_nephronophthisis', 'ikd_nphp1', 'ikd_nphp4',
     'ikd_nphp12', 'ikd_joubert', 'ikd_mainzer_saldino',
+    'ikd_gitelman', 'ikd_bartter', 'ikd_east', 'ikd_drta', 'ikd_cystinosis',
+    'ikd_fhhnc', 'ikd_hhrh', 'ikd_gordon', 'ikd_pha1', 'ikd_ndi',
   ],
-  family_history_x_linked: ['ikd_fabry', 'ikd_alport'],
+  family_history_x_linked: ['ikd_fabry', 'ikd_alport', 'ikd_bartter', 'ikd_dent',
+    'ikd_lowe', 'ikd_xlh', 'ikd_ndi'],
 };
 
 describe('authored family-history patterns', () => {

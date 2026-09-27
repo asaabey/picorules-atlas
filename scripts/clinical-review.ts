@@ -30,8 +30,12 @@ const inheritanceEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'inherit
 const ciliopathyEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'ciliopathy-evidence.json'), 'utf8')) as {
   description: string; associations: typeof evidence.associations;
 };
+const tubulopathyEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'tubulopathy-evidence.json'), 'utf8')) as {
+  description: string; associations: typeof evidence.associations;
+};
 const allEvidence = [...evidence.associations, ...adtkdEvidence.associations,
-  ...inheritanceEvidence.associations, ...ciliopathyEvidence.associations];
+  ...inheritanceEvidence.associations, ...ciliopathyEvidence.associations,
+  ...tubulopathyEvidence.associations];
 const record = JSON.parse(readFileSync(resolve(reviewRoot, 'review-record.json'), 'utf8')) as ClinicalReviewRecord;
 
 function assert(condition: unknown, message: string): asserts condition {
@@ -58,6 +62,8 @@ assert(inheritanceEvidence.associations.every(row => row.sourceId && manifest.so
 assert(ciliopathyEvidence.associations.length === 46, 'expected 46 ciliopathy source associations');
 assert(ciliopathyEvidence.associations.every(row => row.sourceId && manifest.sources[row.sourceId]),
   'ciliopathy source reference is missing');
+assert(tubulopathyEvidence.associations.every(row => row.sourceId && manifest.sources[row.sourceId]),
+  'tubulopathy source reference is missing');
 const associations = manifest.questions.flatMap(question => question.diseases.map(disease => ({ question, disease })));
 assert(allEvidence.length === associations.length, 'source crosswalk has the wrong row count');
 const evidenceByKey = new Map(allEvidence.map(row => [`${row.ruleId}/${row.featureId}`, row]));
@@ -110,6 +116,7 @@ const lines = [
   '',
   `- HPOA ADTKD evidence: release ${adtkdEvidence.sourceRelease}, SHA-256 ${adtkdEvidence.sourceSha256}. See adtkd-evidence.json for original annotation references and evidence codes.`,
   '- Six added profiles: ciliopathy-evidence.json separates exact HPOA and Orphadata annotations from supplemental GeneReviews and Orphanet descriptions. The present-feature count is Atlas-authored and has no clinical calibration.',
+  '- Tubulopathy extension: tubulopathy-evidence.json records 14 new profiles and three added HNF1B associations, terminology verification, reused features and broad-code limitations. All use the present-feature count model; HNF1B no longer uses its historical candidate weights.',
   '- Family-history patterns: GeneReviews inheritance and pedigree descriptions are mapped in inheritance-evidence.json. These are contextual observations, not HPO phenotype annotations or LIRICAL-weighted findings.',
   '## Candidate features',
   '',
@@ -146,7 +153,7 @@ lines.push(
   '- FHIR mapping: all selected features produce boolean Observations, including false for unticked findings. Check displayed wording against this assumption.',
   '- Disease context: an association is background information and cannot establish or exclude disease.',
   '- Research output: each rule sums its declared weights for present features. Unticked features are absent and contribute zero. No diagnostic cutoff is applied. Review weights, correlated findings, feature selection and population calibration before clinical use.',
-  `- Scope: ${manifest.questions.length} candidate features across ${manifest.rules.length} disease ruleblocks. This is not a complete inherited kidney disease screen or diagnostic criteria. It does not rank diseases or use Orphadata frequency categories as weights.`,
+  `- Scope: ${manifest.questions.length} candidate features across ${manifest.rules.length} disease ruleblocks. This is not a complete inherited kidney disease screen or diagnostic criteria. The display sorts positive numerical scores and hides zeros; this is not a ranking of disease likelihoods. Orphadata frequency categories are not used as weights.`,
   '- Reviewer checks: confirm source attribution, release/version, terminology meaning, wording, limitations, and whether any feature needs added clinical context.',
   '',
 );

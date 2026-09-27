@@ -1,0 +1,214 @@
+/* EAST / SeSAME syndrome: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_east, {
+    "description": "EAST / SeSAME syndrome candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "EAST / SeSAME syndrome",
+        "disease_id": "ORPHA:199343",
+        "source_refs": [
+            "east_kcnj10"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "east_kcnj10"
+            ],
+            "weights": {
+                "hypokalemia": 1,
+                "metabolic_alkalosis": 1,
+                "hypomagnesemia": 1,
+                "renal_salt_wasting": 1,
+                "seizure": 1,
+                "ataxia": 1,
+                "bilateral_sensorineural_hearing_impairment": 1,
+                "global_developmental_delay": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+hypokalemia => eadv.phen_hypokalemia.val.last();
+metabolic_alkalosis => eadv.phen_metabolic_alkalosis.val.last();
+hypomagnesemia => eadv.phen_hypomagnesemia.val.last();
+renal_salt_wasting => eadv.phen_renal_salt_wasting.val.last();
+seizure => eadv.phen_seizure.val.last();
+ataxia => eadv.phen_ataxia.val.last();
+bilateral_sensorineural_hearing_impairment => eadv.phen_bilateral_sensorineural_hearing_impairment.val.last();
+global_developmental_delay => eadv.phen_global_developmental_delay.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(hypokalemia, 0) + coalesce(metabolic_alkalosis, 0) + coalesce(hypomagnesemia, 0) + coalesce(renal_salt_wasting, 0) + coalesce(seizure, 0) + coalesce(ataxia, 0) + coalesce(bilateral_sensorineural_hearing_impairment, 0) + coalesce(global_developmental_delay, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_hypokalemia : { hypokalemia = 1 => 1 }, { => 0 };
+contribution_metabolic_alkalosis : { metabolic_alkalosis = 1 => 1 }, { => 0 };
+contribution_hypomagnesemia : { hypomagnesemia = 1 => 1 }, { => 0 };
+contribution_renal_salt_wasting : { renal_salt_wasting = 1 => 1 }, { => 0 };
+contribution_seizure : { seizure = 1 => 1 }, { => 0 };
+contribution_ataxia : { ataxia = 1 => 1 }, { => 0 };
+contribution_bilateral_sensorineural_hearing_impairment : { bilateral_sensorineural_hearing_impairment = 1 => 1 }, { => 0 };
+contribution_global_developmental_delay : { global_developmental_delay = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_hypokalemia + contribution_metabolic_alkalosis + contribution_hypomagnesemia + contribution_renal_salt_wasting + contribution_seizure + contribution_ataxia + contribution_bilateral_sensorineural_hearing_impairment + contribution_global_developmental_delay + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(hypokalemia, {
+    "label": "Hypokalaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypokalemia",
+        "source_attribute": "phen_hypokalemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypokalaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002900",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "east_kcnj10",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(metabolic_alkalosis, {
+    "label": "Metabolic alkalosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "metabolic_alkalosis",
+        "source_attribute": "phen_metabolic_alkalosis",
+        "section": "electrolytes_tubular",
+        "question": "Has metabolic alkalosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0200114",
+        "help": "Use a documented acid–base assessment; an isolated bicarbonate result is not sufficient.",
+        "source_refs": [
+            "east_kcnj10",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypomagnesemia, {
+    "label": "Hypomagnesaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypomagnesemia",
+        "source_attribute": "phen_hypomagnesemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypomagnesaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002917",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "east_kcnj10",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_salt_wasting, {
+    "label": "Renal salt wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_salt_wasting",
+        "source_attribute": "phen_renal_salt_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has renal salt wasting been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000127",
+        "help": "Requires evidence of inappropriate renal salt loss; low blood sodium or dehydration alone is insufficient.",
+        "source_refs": [
+            "east_kcnj10",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(seizure, {
+    "label": "Seizures",
+    "atlas": {
+        "role": "input",
+        "feature_id": "seizure",
+        "source_attribute": "phen_seizure",
+        "section": "neurological_history",
+        "question": "Is there a history of seizures?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001250",
+        "help": "Records a history of seizures without implying when they occurred.",
+        "source_refs": [
+            "east_kcnj10"
+        ]
+    }
+});
+
+#define_attribute(ataxia, {
+    "label": "Ataxia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "ataxia",
+        "source_attribute": "phen_ataxia",
+        "section": "neurological_history",
+        "question": "Has ataxia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001251",
+        "help": "Records an established coordination finding, including a historical finding.",
+        "source_refs": [
+            "east_kcnj10"
+        ]
+    }
+});
+
+#define_attribute(bilateral_sensorineural_hearing_impairment, {
+    "label": "Bilateral sensorineural hearing impairment",
+    "atlas": {
+        "role": "input",
+        "feature_id": "bilateral_sensorineural_hearing_impairment",
+        "source_attribute": "phen_bilateral_sensorineural_hearing_impairment",
+        "section": "hearing",
+        "question": "Has sensorineural hearing impairment in both ears been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0008619",
+        "help": "Documented sensorineural impairment affecting both ears.",
+        "source_refs": [
+            "east_kcnj10"
+        ]
+    }
+});
+
+#define_attribute(global_developmental_delay, {
+    "label": "Global developmental delay",
+    "atlas": {
+        "role": "input",
+        "feature_id": "global_developmental_delay",
+        "source_attribute": "phen_global_developmental_delay",
+        "section": "neurological_history",
+        "question": "Was global developmental delay documented in childhood?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001263",
+        "help": "A historical developmental finding; do not infer it from kidney disease.",
+        "source_refs": [
+            "east_kcnj10"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "east_kcnj10"
+        ]
+    }
+});

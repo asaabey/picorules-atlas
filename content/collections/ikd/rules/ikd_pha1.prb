@@ -1,0 +1,217 @@
+/* Inherited pseudohypoaldosteronism type I: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_pha1, {
+    "description": "Inherited pseudohypoaldosteronism type I candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "Inherited pseudohypoaldosteronism type I",
+        "disease_id": "ORPHA:756",
+        "source_refs": [
+            "medline_pha1"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "medline_pha1"
+            ],
+            "weights": {
+                "renal_salt_wasting": 1,
+                "hyponatremia": 1,
+                "hyperkalemia": 1,
+                "metabolic_acidosis": 1,
+                "increased_aldosterone": 1,
+                "dehydration": 1,
+                "growth_delay": 1,
+                "family_history_autosomal_dominant": 0,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+renal_salt_wasting => eadv.phen_renal_salt_wasting.val.last();
+hyponatremia => eadv.phen_hyponatremia.val.last();
+hyperkalemia => eadv.phen_hyperkalemia.val.last();
+metabolic_acidosis => eadv.phen_metabolic_acidosis.val.last();
+increased_aldosterone => eadv.phen_increased_aldosterone.val.last();
+dehydration => eadv.phen_dehydration.val.last();
+growth_delay => eadv.phen_growth_delay.val.last();
+family_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(renal_salt_wasting, 0) + coalesce(hyponatremia, 0) + coalesce(hyperkalemia, 0) + coalesce(metabolic_acidosis, 0) + coalesce(increased_aldosterone, 0) + coalesce(dehydration, 0) + coalesce(growth_delay, 0) + coalesce(family_history_autosomal_dominant, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_renal_salt_wasting : { renal_salt_wasting = 1 => 1 }, { => 0 };
+contribution_hyponatremia : { hyponatremia = 1 => 1 }, { => 0 };
+contribution_hyperkalemia : { hyperkalemia = 1 => 1 }, { => 0 };
+contribution_metabolic_acidosis : { metabolic_acidosis = 1 => 1 }, { => 0 };
+contribution_increased_aldosterone : { increased_aldosterone = 1 => 1 }, { => 0 };
+contribution_dehydration : { dehydration = 1 => 1 }, { => 0 };
+contribution_growth_delay : { growth_delay = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_renal_salt_wasting + contribution_hyponatremia + contribution_hyperkalemia + contribution_metabolic_acidosis + contribution_increased_aldosterone + contribution_dehydration + contribution_growth_delay + contribution_family_history_autosomal_dominant + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(renal_salt_wasting, {
+    "label": "Renal salt wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_salt_wasting",
+        "source_attribute": "phen_renal_salt_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has renal salt wasting been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000127",
+        "help": "Requires evidence of inappropriate renal salt loss; low blood sodium or dehydration alone is insufficient.",
+        "source_refs": [
+            "medline_pha1",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hyponatremia, {
+    "label": "Hyponatraemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hyponatremia",
+        "source_attribute": "phen_hyponatremia",
+        "section": "electrolytes_tubular",
+        "question": "Has hyponatraemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002902",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "medline_pha1",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hyperkalemia, {
+    "label": "Hyperkalaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hyperkalemia",
+        "source_attribute": "phen_hyperkalemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hyperkalaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002153",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "medline_pha1",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(metabolic_acidosis, {
+    "label": "Metabolic acidosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "metabolic_acidosis",
+        "source_attribute": "phen_metabolic_acidosis",
+        "section": "electrolytes_tubular",
+        "question": "Has metabolic acidosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001942",
+        "help": "Use a documented acid–base assessment. This broad finding does not establish renal tubular acidosis.",
+        "source_refs": [
+            "medline_pha1",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(increased_aldosterone, {
+    "label": "High circulating aldosterone",
+    "atlas": {
+        "role": "input",
+        "feature_id": "increased_aldosterone",
+        "source_attribute": "phen_increased_aldosterone",
+        "section": "electrolytes_tubular",
+        "question": "Has elevated circulating aldosterone been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000859",
+        "help": "Records a measured hormonal finding; it does not establish primary aldosteronism.",
+        "source_refs": [
+            "medline_pha1",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(dehydration, {
+    "label": "Dehydration",
+    "atlas": {
+        "role": "input",
+        "feature_id": "dehydration",
+        "source_attribute": "phen_dehydration",
+        "section": "kidney",
+        "question": "Has dehydration been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001944",
+        "help": "Records a clinical finding without inferring renal salt or water loss.",
+        "source_refs": [
+            "medline_pha1",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(growth_delay, {
+    "label": "Growth delay",
+    "atlas": {
+        "role": "input",
+        "feature_id": "growth_delay",
+        "source_attribute": "phen_growth_delay",
+        "section": "endocrine_metabolic",
+        "question": "Was delayed growth documented during childhood?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001510",
+        "help": "A historical childhood finding; adult short stature alone is not the same observation.",
+        "source_refs": [
+            "medline_pha1"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_dominant, {
+    "label": "Documented family history suggesting autosomal dominant inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_dominant",
+        "source_attribute": "phen_family_history_autosomal_dominant",
+        "section": "family_history",
+        "question": "Does the documented family history show a similar condition in successive generations?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000006",
+        "help": "A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "medline_pha1"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "medline_pha1"
+        ]
+    }
+});

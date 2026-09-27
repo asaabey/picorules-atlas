@@ -1,0 +1,175 @@
+/* Hereditary hypophosphataemic rickets with hypercalciuria: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_hhrh, {
+    "description": "Hereditary hypophosphataemic rickets with hypercalciuria candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "Hereditary hypophosphataemic rickets with hypercalciuria",
+        "disease_id": "ORPHA:157215",
+        "source_refs": [
+            "hhrh_original"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "hhrh_original"
+            ],
+            "weights": {
+                "renal_phosphate_wasting": 1,
+                "hypophosphatemia": 1,
+                "hypercalciuria": 1,
+                "elevated_calcitriol": 1,
+                "rickets": 1,
+                "short_stature": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+renal_phosphate_wasting => eadv.phen_renal_phosphate_wasting.val.last();
+hypophosphatemia => eadv.phen_hypophosphatemia.val.last();
+hypercalciuria => eadv.phen_hypercalciuria.val.last();
+elevated_calcitriol => eadv.phen_elevated_calcitriol.val.last();
+rickets => eadv.phen_rickets.val.last();
+short_stature => eadv.phen_short_stature.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(renal_phosphate_wasting, 0) + coalesce(hypophosphatemia, 0) + coalesce(hypercalciuria, 0) + coalesce(elevated_calcitriol, 0) + coalesce(rickets, 0) + coalesce(short_stature, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_renal_phosphate_wasting : { renal_phosphate_wasting = 1 => 1 }, { => 0 };
+contribution_hypophosphatemia : { hypophosphatemia = 1 => 1 }, { => 0 };
+contribution_hypercalciuria : { hypercalciuria = 1 => 1 }, { => 0 };
+contribution_elevated_calcitriol : { elevated_calcitriol = 1 => 1 }, { => 0 };
+contribution_rickets : { rickets = 1 => 1 }, { => 0 };
+contribution_short_stature : { short_stature = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_renal_phosphate_wasting + contribution_hypophosphatemia + contribution_hypercalciuria + contribution_elevated_calcitriol + contribution_rickets + contribution_short_stature + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(renal_phosphate_wasting, {
+    "label": "Renal phosphate wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_phosphate_wasting",
+        "source_attribute": "phen_renal_phosphate_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has inappropriate renal phosphate loss been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000117",
+        "help": "Requires a documented renal phosphate-handling assessment; low blood phosphate alone is insufficient.",
+        "source_refs": [
+            "hhrh_original",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypophosphatemia, {
+    "label": "Hypophosphataemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypophosphatemia",
+        "source_attribute": "phen_hypophosphatemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypophosphataemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002148",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "hhrh_original",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypercalciuria, {
+    "label": "High urinary calcium",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypercalciuria",
+        "source_attribute": "phen_hypercalciuria",
+        "section": "electrolytes_tubular",
+        "question": "Has high urinary calcium excretion been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002150",
+        "help": "Use urine measurements interpreted for age, collection method and treatment; this is not high blood calcium.",
+        "source_refs": [
+            "hhrh_original",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(elevated_calcitriol, {
+    "label": "Elevated calcitriol",
+    "atlas": {
+        "role": "input",
+        "feature_id": "elevated_calcitriol",
+        "source_attribute": "phen_elevated_calcitriol",
+        "section": "electrolytes_tubular",
+        "question": "Has elevated blood 1,25-dihydroxyvitamin D (calcitriol) been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0031415",
+        "help": "This is the active vitamin D metabolite, not the routine 25-hydroxyvitamin D measurement. Consider supplementation when interpreting it.",
+        "source_refs": [
+            "hhrh_original",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(rickets, {
+    "label": "Rickets",
+    "atlas": {
+        "role": "input",
+        "feature_id": "rickets",
+        "source_attribute": "phen_rickets",
+        "section": "skeletal",
+        "question": "Has rickets been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002748",
+        "help": "Use a documented clinical or radiological diagnosis; adult osteomalacia is a different finding.",
+        "source_refs": [
+            "hhrh_original",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(short_stature, {
+    "label": "Short stature",
+    "atlas": {
+        "role": "input",
+        "feature_id": "short_stature",
+        "source_attribute": "phen_short_stature",
+        "section": "endocrine_metabolic",
+        "question": "Has short stature been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0004322",
+        "help": "Records documented stature without applying a new height cutoff.",
+        "source_refs": [
+            "hhrh_original"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "hhrh_original"
+        ]
+    }
+});

@@ -3,8 +3,8 @@
   "id": "ikd",
   "title": "Inherited kidney disease",
   "description": "Structured history and findings for an inherited kidney disease assessment.",
-  "version": "0.7.0-ciliopathies",
-  "limitations": "These candidate questions across fourteen disease profiles are an incomplete research assessment. Six added nephronophthisis and ciliopathy profiles use an Atlas-authored present clinical feature count of one point per marked finding; existing eight profiles retain LIRICAL-derived candidate weights. The two score models have different units and totals cannot be compared as likelihoods. Family-history prompts add zero to both models. Unticked findings are recorded as absent for this proof of concept. A zero score does not exclude disease. Closely related nephronophthisis subtypes may yield similar scores; NPHP12 source coverage is sparse. Joubert and Mainzer–Saldino source mappings need review. Alport and Fabry remain broad profiles without subtype scores. These outputs are not diagnostic criteria, probabilities, or treatment advice.",
+  "version": "0.8.0-tubulopathies",
+  "limitations": "These candidate questions across 28 disease profiles are an incomplete research assessment. Twenty-one profiles, including the tubulopathies and expanded HNF1B profile, count one point per marked clinical finding; seven retain LIRICAL-derived candidate weights. The models have different units and totals cannot be compared as likelihoods. Family-history prompts add zero. Unticked findings are recorded as absent for this proof of concept. A zero score does not exclude disease. Related profiles and correlated findings may yield similar or inflated counts. Tubulopathy profiles combine manifestations that vary by age and genetic subtype; electrolyte findings do not establish renal wasting or an inherited cause. Broad dRTA, cystinosis and NDI terminology codes cover more than the inherited renal presentations assessed here. NPHP12 source coverage is sparse; Joubert and Mainzer–Saldino source mappings need review. Outputs are not diagnostic criteria, probabilities, or treatment advice.",
   "associationContext": "This is background context; an answer here does not establish or exclude a diagnosis.",
   "sections": [
     {
@@ -14,6 +14,10 @@
     {
       "id": "kidney",
       "label": "Kidney"
+    },
+    {
+      "id": "electrolytes_tubular",
+      "label": "Electrolytes and tubular function"
     },
     {
       "id": "skin_sweating",
@@ -62,6 +66,20 @@
     "rules/ikd_nphp4.prb",
     "rules/ikd_nphp12.prb",
     "rules/ikd_joubert.prb",
-    "rules/ikd_mainzer_saldino.prb"
+    "rules/ikd_mainzer_saldino.prb",
+    "rules/ikd_gitelman.prb",
+    "rules/ikd_bartter.prb",
+    "rules/ikd_east.prb",
+    "rules/ikd_drta.prb",
+    "rules/ikd_dent.prb",
+    "rules/ikd_cystinosis.prb",
+    "rules/ikd_lowe.prb",
+    "rules/ikd_fhhnc.prb",
+    "rules/ikd_hhrh.prb",
+    "rules/ikd_xlh.prb",
+    "rules/ikd_liddle.prb",
+    "rules/ikd_gordon.prb",
+    "rules/ikd_pha1.prb",
+    "rules/ikd_ndi.prb"
   ]
 }

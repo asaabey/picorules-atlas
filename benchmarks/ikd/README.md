@@ -1,8 +1,8 @@
 # Six-disease phenotype-weighting benchmark
 
-Research harness for Fabry, tuberous sclerosis complex, broad Alport, HNF1B-related disease, ARPKD and VHL. This harness remains independent of the application build. Atlas now uses the 35 declared positive weights in a separate prototype model: see [implementation](../../reviews/ikd/WEIGHTING-IMPLEMENTATION.md). The benchmark below preserves the earlier count baseline and full LIRICAL comparison.
+Research harness for Fabry, tuberous sclerosis complex, broad Alport, HNF1B-related disease, ARPKD and VHL. This harness remains independent of the application build. Atlas retains the extracted positive weights for five of these six profiles; expanded HNF1B now uses a present-feature count: see [implementation](../../reviews/ikd/WEIGHTING-IMPLEMENTATION.md). The benchmark below preserves the earlier count baseline and full LIRICAL comparison.
 
-Read [REPORT.md](REPORT.md) for observed results and limitations. [candidate-weights.csv](candidate-weights.csv) contains **204 per-present-finding contributions: 34 Atlas findings × six disease profiles**. Each is the published LIRICAL engine's likelihood ratio and log10 weight, with match type and matched HPO term. These are research candidates, not approved clinical weights. Only 35 of those pairs are currently declared disease–feature associations in Atlas. A nonmatching annotation may receive a heuristic negative weight; this does not prove clinical exclusion.
+Read [REPORT.md](REPORT.md) for observed results and limitations. [candidate-weights.csv](candidate-weights.csv) contains **204 per-present-finding contributions: 34 Atlas findings × six disease profiles**. Each is the published LIRICAL engine's likelihood ratio and log10 weight, with match type and matched HPO term. These are research candidates, not approved clinical weights. The original 35 declared pairs are preserved here as a historical extraction; six HNF1B weights are no longer executed in Atlas. A nonmatching annotation may receive a heuristic negative weight; this does not prove clinical exclusion.
 
 ## Methods and inputs
 

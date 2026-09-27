@@ -1,13 +1,13 @@
 # Weighted phenotype matching prototype
 
-Implemented in eight IKD ruleblocks. Collection version 0.5.0-weighted adds ADTKD–UMOD and ADTKD–MUC1.
+Originally implemented in eight IKD ruleblocks. Since collection 0.8.0-tubulopathies, seven retain these weights; expanded HNF1B uses a present-feature count alongside the other 20 count profiles. Historical HNF1B candidate weights remain in the benchmark snapshot but are no longer executed.
 
 - Model: `ikd-positive-log10-v1`, research status.
 - Source: `benchmarks/ikd/candidate-weights.csv`, SHA-256 `705e8b041e8e7dab17f3071d0bf017ceac5d1aec6971d764efd6961885cc82eb`. Engine/data pins and extraction provenance remain in that directory.
-- The original 35 declared disease–feature associations use the extracted log10 likelihood-ratio weights rounded to six decimals. The other 169 matrix rows are not used. This is a selected-feature positive matching score, not the full LIRICAL analysis or its probability.
+- The original extraction contains 35 declared disease–feature associations with the extracted log10 likelihood-ratio weights rounded to six decimals. The other 169 matrix rows are not used. This is a selected-feature positive matching score, not the full LIRICAL analysis or its probability.
 - Answers are present or absent. Omitted and unticked answers become absent, contribute zero, and are exported as false. No negative evidence is inferred from the default absence assumption.
 - Each `.prb` declares its disease-specific weights in `atlas.scoring`, computes individual contributions, then sums them into `weighted_score` and its primary output. The compiler requires exact agreement between metadata and executable arithmetic. Shared questions retain one answer.
-- No threshold or diagnosis is inferred. Results retain collection order and expose all contributions. Empty assessments yield eight zero scores, not exclusions or a ranked winner.
+- No threshold or diagnosis is inferred. The displayed list hides zero scores and sorts positive scores numerically from highest to lowest, retaining collection order for ties. This display order is not a disease-likelihood ranking. The FHIR handoff preserves every rule score and its contributions. Empty assessments yield zero for all 28 profiles, not exclusions or a ranked winner.
 - FHIR uses Observation `valueQuantity`, with code `phenotype-match-ikd-positive-log10-v1`. Model, rule version and contributions are preserved in notes. ClinicalImpression refers to the scores without creating candidate diagnoses from a cutoff.
 
 ## Limits to review

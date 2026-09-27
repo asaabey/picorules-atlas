@@ -77,7 +77,7 @@ test('disease filter shows exact rule inputs and keeps answers across views', as
   await expect(page.getByText(`1 / ${collection.questions.length} present`)).toBeVisible();
 
   await page.getByRole('button', { name: 'Show results' }).click();
-  await expect(page.locator('.result-card')).toHaveCount(collection.rules.length);
+  await expect(page.locator('.result-card')).toHaveCount(0);
   await all.click();
   await expect(page.locator('article.question-card')).toHaveCount(collection.questions.length);
   await expect(checked).toBeChecked();
@@ -120,8 +120,12 @@ test('inheritance patterns are shared, keyboard reachable, and visible without c
   await expect(xLinked).toBeChecked();
 
   await page.getByRole('button', { name: 'Show results' }).click();
+  await expect(page.locator('.result-card')).toHaveCount(0);
+  await expect(page.getByText('No diseases have a positive score for these answers.')).toBeVisible();
+  await page.getByRole('checkbox', { name: 'Mark Proteinuria as present', exact: true }).check();
+  await page.getByRole('button', { name: 'Show results' }).click();
   const fabryResult = page.locator('#result-ikd_fabry').locator('..');
-  await expect(fabryResult).toContainText('Phenotype matching score: 0.000');
+  await expect(fabryResult).toContainText('Phenotype matching score: 1.583');
   await expect(fabryResult).toContainText('Family history recorded for context (unweighted)');
   await expect(fabryResult).toContainText('X-linked inheritance');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
@@ -142,17 +146,17 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
 
   await page.getByRole('button', { name: 'Open assessment' }).click();
   await expect(page.getByRole('heading', { name: 'Inherited kidney disease' })).toBeVisible();
-  await expect(page.locator('article.question-card')).toHaveCount(60);
+  await expect(page.locator('article.question-card')).toHaveCount(collections.ikd.questions.length);
   for (const section of ['Kidney', 'Skin and sweating', 'Eyes', 'Neurological history']) {
     await expect(page.getByRole('heading', { name: section, exact: true })).toBeVisible();
   }
-  await expect(page.getByText('0 / 60 present')).toBeVisible();
+  await expect(page.getByText(`0 / ${collections.ikd.questions.length} present`)).toBeVisible();
   await expect(page.getByText('Tick documented findings and family-history patterns. Unticked items are treated as absent when you show results.')).toBeVisible();
   await expect(page.locator('article.question-card input:checked')).toHaveCount(0);
-  await page.screenshot({ path: testInfo.outputPath('assessment.png'), fullPage: true });
+  await page.screenshot({ path: testInfo.outputPath('assessment.png') });
 
   const proteinuria = page.locator('article.question-card').filter({
-    has: page.getByRole('heading', { name: 'Proteinuria' }),
+    has: page.getByRole('heading', { name: 'Proteinuria', exact: true }),
   });
   const requestsAfterAnswering: string[] = [];
   page.on('request', request => requestsAfterAnswering.push(request.url()));
@@ -160,10 +164,10 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   await proteinuriaCheckbox.focus();
   await page.keyboard.press('Space');
   await expect(proteinuriaCheckbox).toBeChecked();
-  await expect(page.getByText('1 / 60 present')).toBeVisible();
+  await expect(page.getByText(`1 / ${collections.ikd.questions.length} present`)).toBeVisible();
   await page.keyboard.press('Space');
   await expect(proteinuriaCheckbox).not.toBeChecked();
-  await expect(page.getByText('0 / 60 present')).toBeVisible();
+  await expect(page.getByText(`0 / ${collections.ikd.questions.length} present`)).toBeVisible();
   expect(requestsAfterAnswering).toEqual([]);
   expect(await page.evaluate(() => ({
     local: Object.keys(localStorage),
@@ -173,7 +177,7 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   await proteinuria.locator('summary').filter({ hasText: 'Fabry disease' }).click();
   await expect(proteinuria.getByText('This is background context').first()).toBeVisible();
   await expect(proteinuria.getByRole('link', { name: /GeneReviews/i })).toHaveAttribute('href', /^https:\/\//);
-  await page.screenshot({ path: testInfo.outputPath('disease-context.png'), fullPage: true });
+  await proteinuria.screenshot({ path: testInfo.outputPath('disease-context.png') });
   await proteinuria.locator('summary').filter({ hasText: 'Fabry disease' }).focus();
   await page.keyboard.press('Enter');
   await expect(proteinuria.getByText('This is background context').first()).toBeHidden();
@@ -181,7 +185,7 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   await expect(proteinuria.getByText('This is background context').first()).toBeVisible();
 
   await page.getByRole('button', { name: 'Reset answers' }).click();
-  await expect(page.getByText('0 / 60 present')).toBeVisible();
+  await expect(page.getByText(`0 / ${collections.ikd.questions.length} present`)).toBeVisible();
   await expect(page.locator('article.question-card input:checked')).toHaveCount(0);
 
   await proteinuriaCheckbox.check();
@@ -212,7 +216,7 @@ test('mobile assessment has usable controls without horizontal overflow', async 
   await proteinuria.getByRole('checkbox', { name: 'Mark Proteinuria as present' }).check();
   await proteinuria.locator('summary').filter({ hasText: 'Fabry disease' }).click();
   await expect(proteinuria.getByRole('link', { name: /GeneReviews/i })).toBeVisible();
-  await expect(page.getByText('1 / 60 present')).toBeVisible();
+  await expect(page.getByText(`1 / ${collections.ikd.questions.length} present`)).toBeVisible();
 
   const dimensions = await page.evaluate(() => ({
     documentWidth: document.documentElement.scrollWidth,
@@ -223,7 +227,7 @@ test('mobile assessment has usable controls without horizontal overflow', async 
     local: Object.keys(localStorage),
     session: Object.keys(sessionStorage),
   }))).toEqual({ local: [], session: [] });
-  await page.screenshot({ path: testInfo.outputPath('assessment-mobile.png'), fullPage: true });
+  await page.screenshot({ path: testInfo.outputPath('assessment-mobile.png') });
 
   await page.getByRole('button', { name: 'Reset answers' }).click();
   await expect(page.locator('article.question-card input:checked')).toHaveCount(0);
@@ -236,10 +240,10 @@ test('assessment opens when randomUUID is unavailable on an HTTP LAN origin', as
   await page.goto('/');
   expect(await page.evaluate(() => typeof crypto.randomUUID)).toBe('undefined');
   await page.getByRole('button', { name: 'Open assessment' }).click();
-  await expect(page.locator('article.question-card')).toHaveCount(60);
+  await expect(page.locator('article.question-card')).toHaveCount(collections.ikd.questions.length);
   await expect(page.getByText('This assessment could not be opened. Please try again later.')).toHaveCount(0);
   await page.locator('article.question-card').first().getByRole('checkbox').check();
-  await expect(page.getByText('1 / 60 present')).toBeVisible();
+  await expect(page.getByText(`1 / ${collections.ikd.questions.length} present`)).toBeVisible();
 });
 
 test('one action shows rule results and FHIR download beside editable questions', async ({ page }) => {
@@ -258,7 +262,7 @@ test('one action shows rule results and FHIR download beside editable questions'
   await expect(page.getByRole('button', { name: 'Run demonstration' })).toHaveCount(0);
   await page.getByRole('button', { name: 'Show results' }).click();
   await expect(page.getByRole('heading', { name: 'Rule results' })).toBeFocused();
-  await expect(page.locator('article.question-card')).toHaveCount(60);
+  await expect(page.locator('article.question-card')).toHaveCount(collections.ikd.questions.length);
   await expect(card('Reduced sweating').getByRole('checkbox')).not.toBeChecked();
   await expect(card('Seizures').getByRole('checkbox')).not.toBeChecked();
   await expect(page.getByRole('button', { name: 'Show results' })).toHaveCount(0);
@@ -267,15 +271,15 @@ test('one action shows rule results and FHIR download beside editable questions'
   await expect(fabry).toContainText('Phenotype matching score: 4.651');
   await expect(fabry).toContainText('2 / 6 linked findings');
   await expect(fabry).toContainText('Proteinuria, Angiokeratomas');
-  await expect(tsc).toContainText('Phenotype matching score: 0.000');
-  await expect(tsc).toContainText('0 / 6 linked findings');
+  await expect(tsc).toHaveCount(0);
+  await expect(page.locator('.result-card h3')).toHaveText(['Fabry disease', 'Alport syndrome']);
   await expect(fabry.getByRole('link', { name: /Read exact authored ruleblock/ }))
     .toHaveAttribute('href', /ikd_fabry-.*\.prb$/);
 
   await fabry.getByText('View weights and score breakdown').click();
   await expect(fabry).toContainText('Angiokeratomas: Present · weight 3.069 · contribution 3.069');
   await expect(fabry).toContainText('Reduced sweating: Absent · weight 2.123 · contribution 0.000');
-  await page.screenshot({ path: 'test-results/weighted-results.png', fullPage: true });
+  await fabry.screenshot({ path: 'test-results/weighted-results.png' });
 
   const downloadPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Download FHIR bundle' }).click();
@@ -285,7 +289,7 @@ test('one action shows rule results and FHIR download beside editable questions'
   const bundle = JSON.parse(await fs.readFile(await download.path(), 'utf8'));
   expect(bundle.resourceType).toBe('Bundle');
   expect(bundle.entry.filter((entry: { resource: { resourceType: string } }) =>
-    entry.resource.resourceType === 'Observation')).toHaveLength(74);
+    entry.resource.resourceType === 'Observation')).toHaveLength(collections.ikd.questions.length + collections.ikd.rules.length);
   expect(bundle.entry.some((entry: { resource: { identifier?: { value: string }[]; valueBoolean?: boolean } }) =>
     entry.resource.identifier?.[0]?.value === 'proteinuria' && entry.resource.valueBoolean === true)).toBe(true);
   expect(bundle.entry.some((entry: { resource: { identifier?: { value: string }[]; valueBoolean?: boolean } }) =>
@@ -293,7 +297,8 @@ test('one action shows rule results and FHIR download beside editable questions'
   const scores = bundle.entry.map((entry: { resource: unknown }) => entry.resource)
     .filter((resource: { identifier?: { system: string }[] }) =>
       resource.identifier?.[0]?.system === 'https://atlas.picorules.com/fhir/NamingSystem/rule-id');
-  expect(scores.map((score: { valueQuantity: { value: number } }) => score.valueQuantity.value)).toEqual([4.651364, 0, 1.582841, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  expect(scores.map((score: { valueQuantity: { value: number } }) => score.valueQuantity.value))
+    .toEqual([4.651364, 0, 1.582841, ...Array(collections.ikd.rules.length - 3).fill(0)]);
   const impression = bundle.entry.find((entry: { resource: { resourceType: string } }) =>
     entry.resource.resourceType === 'ClinicalImpression')?.resource;
   expect(impression.finding).toHaveLength(0);
@@ -321,7 +326,10 @@ test('mobile keyboard journey shows inline results without overflow', async ({ p
   await page.getByRole('button', { name: 'Show results' }).focus();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('heading', { name: 'Rule results' })).toBeFocused();
-  await expect(page.locator('article.question-card')).toHaveCount(60);
+  await expect(page.locator('.result-card')).toHaveCount(0);
+  await expect(page.getByText('No diseases have a positive score for these answers.')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Download FHIR bundle' })).toBeVisible();
+  await expect(page.locator('article.question-card')).toHaveCount(collections.ikd.questions.length);
   const dimensions = await page.evaluate(() => ({ document: document.documentElement.scrollWidth, viewport: innerWidth }));
   expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
 });
@@ -359,8 +367,48 @@ test('new ciliopathy profile filters and counts findings on mobile with keyboard
   const result = page.locator('.result-card').filter({ has: page.locator('#result-ikd_joubert') });
   await expect(result).toContainText('Present clinical features: 2');
   await expect(result).toContainText('Retinal dystrophy, Molar tooth sign on MRI');
-  await expect(page.locator('.result-card')).toHaveCount(14);
+  await expect(page.locator('.result-card')).toHaveCount(4);
+  await expect(page.locator('.result-card h3')).toHaveText([
+    'Joubert syndrome', 'Nephronophthisis 1', 'Nephronophthisis 4', 'Mainzer–Saldino syndrome',
+  ]);
   await filters.getByRole('button', { name: 'All diseases' }).click();
   await expect(molarTooth).toBeChecked();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
+test('tubulopathy filters reuse magnesium answers and default new findings to absent', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open assessment' }).click();
+  const filters = page.getByRole('group', { name: 'Filter questions by disease' });
+  await filters.getByRole('button', { name: 'Gitelman syndrome', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Electrolytes and tubular function', exact: true }))
+    .toBeVisible();
+  await expect(page.locator('article.question-card')).toHaveCount(7);
+  await expect(page.locator('article.question-card input:checked')).toHaveCount(0);
+  const magnesium = page.getByRole('checkbox', { name: 'Mark Hypomagnesaemia as present', exact: true });
+  await magnesium.focus();
+  await page.keyboard.press('Space');
+  await expect(magnesium).toBeChecked();
+  await page.getByRole('checkbox', { name: 'Mark Hypokalaemia as present', exact: true }).check();
+  await page.getByRole('button', { name: 'Show results' }).click();
+  const result = (id: string) => page.locator('.result-card').filter({ has: page.locator(`#result-${id}`) });
+  await expect(result('ikd_gitelman')).toContainText('Present clinical features: 2');
+  await expect(result('ikd_hnf1b')).toContainText('Present clinical features: 1');
+  expect(await page.locator('.result-card h3').evaluateAll(headings => headings.map(h => h.id)))
+    .toEqual(['result-ikd_gitelman', 'result-ikd_east', 'result-ikd_hnf1b',
+      'result-ikd_bartter', 'result-ikd_drta', 'result-ikd_fhhnc', 'result-ikd_liddle']);
+  await page.locator('#assessment-results-title').scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'test-results/sorted-results.png' });
+
+  await filters.getByRole('button', { name: 'HNF1B-related disease', exact: true }).click();
+  await expect(magnesium).toHaveCount(1);
+  await expect(magnesium).toBeChecked();
+  await expect(page.getByRole('checkbox', { name: 'Mark Renal magnesium wasting as present', exact: true }))
+    .not.toBeChecked();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.locator('#electrolytes_tubular').scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'test-results/tubulopathies-mobile.png' });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.getByRole('button', { name: 'Reset answers' }).click();
+  await expect(magnesium).not.toBeChecked();
 });

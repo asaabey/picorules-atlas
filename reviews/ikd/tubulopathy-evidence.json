@@ -1,0 +1,1656 @@
+{
+  "description": "Atlas-authored candidate associations for 14 new profiles and three additional HNF1B findings. Clinical descriptions are distinct from formal HPO disease annotations; frequency and diagnostic performance are not inferred.",
+  "terminology": {
+    "sourceId": "hpo_terms_2026_09",
+    "downloadUrl": "https://raw.githubusercontent.com/obophenotype/human-phenotype-ontology/master/hp.obo",
+    "release": "hp/releases/2026-09-01",
+    "sha256": "93dace952fcb3ec4728818857f6ba76bc2d5312f4d83266519b8694b8e798f22",
+    "newTerms": [
+      {
+        "featureId": "alkaline_urine",
+        "hpoId": "HP:0032944",
+        "hpoLabel": "Alkaline urine"
+      },
+      {
+        "featureId": "bone_pain",
+        "hpoId": "HP:0002653",
+        "hpoLabel": "Bone pain"
+      },
+      {
+        "featureId": "calcium_nephrolithiasis",
+        "hpoId": "HP:0004724",
+        "hpoLabel": "Calcium nephrolithiasis"
+      },
+      {
+        "featureId": "corneal_cystine_crystals",
+        "hpoId": "HP:6000955",
+        "hpoLabel": "Corneal cystine crystals"
+      },
+      {
+        "featureId": "decreased_aldosterone",
+        "hpoId": "HP:0004319",
+        "hpoLabel": "Decreased circulating aldosterone concentration"
+      },
+      {
+        "featureId": "decreased_renin",
+        "hpoId": "HP:0003351",
+        "hpoLabel": "Decreased circulating renin concentration"
+      },
+      {
+        "featureId": "dehydration",
+        "hpoId": "HP:0001944",
+        "hpoLabel": "Dehydration"
+      },
+      {
+        "featureId": "developmental_cataract",
+        "hpoId": "HP:0000519",
+        "hpoLabel": "Developmental cataract"
+      },
+      {
+        "featureId": "elevated_calcitriol",
+        "hpoId": "HP:0031415",
+        "hpoLabel": "Elevated circulating calcitriol concentration"
+      },
+      {
+        "featureId": "generalized_aminoaciduria",
+        "hpoId": "HP:0002909",
+        "hpoLabel": "Generalized aminoaciduria"
+      },
+      {
+        "featureId": "glycosuria",
+        "hpoId": "HP:0003076",
+        "hpoLabel": "Glycosuria"
+      },
+      {
+        "featureId": "hypercalciuria",
+        "hpoId": "HP:0002150",
+        "hpoLabel": "Hypercalciuria"
+      },
+      {
+        "featureId": "hyperchloremic_metabolic_acidosis",
+        "hpoId": "HP:0004918",
+        "hpoLabel": "Hyperchloremic metabolic acidosis"
+      },
+      {
+        "featureId": "hyperkalemia",
+        "hpoId": "HP:0002153",
+        "hpoLabel": "Hyperkalemia"
+      },
+      {
+        "featureId": "hypernatremia",
+        "hpoId": "HP:0003228",
+        "hpoLabel": "Hypernatremia"
+      },
+      {
+        "featureId": "hypocalciuria",
+        "hpoId": "HP:0003127",
+        "hpoLabel": "Hypocalciuria"
+      },
+      {
+        "featureId": "hypokalemia",
+        "hpoId": "HP:0002900",
+        "hpoLabel": "Hypokalemia"
+      },
+      {
+        "featureId": "hypomagnesemia",
+        "hpoId": "HP:0002917",
+        "hpoLabel": "Hypomagnesemia"
+      },
+      {
+        "featureId": "hyponatremia",
+        "hpoId": "HP:0002902",
+        "hpoLabel": "Hyponatremia"
+      },
+      {
+        "featureId": "hypophosphatemia",
+        "hpoId": "HP:0002148",
+        "hpoLabel": "Hypophosphatemia"
+      },
+      {
+        "featureId": "hypotension",
+        "hpoId": "HP:0002615",
+        "hpoLabel": "Hypotension"
+      },
+      {
+        "featureId": "increased_aldosterone",
+        "hpoId": "HP:0000859",
+        "hpoLabel": "Increased circulating aldosterone concentration"
+      },
+      {
+        "featureId": "low_molecular_weight_proteinuria",
+        "hpoId": "HP:0003126",
+        "hpoLabel": "Low-molecular-weight proteinuria"
+      },
+      {
+        "featureId": "metabolic_acidosis",
+        "hpoId": "HP:0001942",
+        "hpoLabel": "Metabolic acidosis"
+      },
+      {
+        "featureId": "metabolic_alkalosis",
+        "hpoId": "HP:0200114",
+        "hpoLabel": "Metabolic alkalosis"
+      },
+      {
+        "featureId": "nephrocalcinosis",
+        "hpoId": "HP:0000121",
+        "hpoLabel": "Nephrocalcinosis"
+      },
+      {
+        "featureId": "photophobia",
+        "hpoId": "HP:0000613",
+        "hpoLabel": "Photophobia"
+      },
+      {
+        "featureId": "polyhydramnios",
+        "hpoId": "HP:0001561",
+        "hpoLabel": "Polyhydramnios"
+      },
+      {
+        "featureId": "premature_birth",
+        "hpoId": "HP:0001622",
+        "hpoLabel": "Premature birth"
+      },
+      {
+        "featureId": "recurrent_dental_abscesses",
+        "hpoId": "HP:5210249",
+        "hpoLabel": "Recurrent dental abscesses"
+      },
+      {
+        "featureId": "renal_magnesium_wasting",
+        "hpoId": "HP:0005567",
+        "hpoLabel": "Renal magnesium wasting"
+      },
+      {
+        "featureId": "renal_phosphate_wasting",
+        "hpoId": "HP:0000117",
+        "hpoLabel": "Renal phosphate wasting"
+      },
+      {
+        "featureId": "renal_salt_wasting",
+        "hpoId": "HP:0000127",
+        "hpoLabel": "Renal salt wasting"
+      },
+      {
+        "featureId": "rickets",
+        "hpoId": "HP:0002748",
+        "hpoLabel": "Rickets"
+      },
+      {
+        "featureId": "visual_impairment",
+        "hpoId": "HP:0000505",
+        "hpoLabel": "Visual impairment"
+      }
+    ]
+  },
+  "reusedFeatureIds": [
+    "ataxia",
+    "bilateral_sensorineural_hearing_impairment",
+    "family_history_autosomal_dominant",
+    "family_history_autosomal_recessive",
+    "family_history_x_linked",
+    "global_developmental_delay",
+    "growth_delay",
+    "hypertension",
+    "hyposthenuria",
+    "hypotonia",
+    "polydipsia",
+    "polyuria",
+    "renal_cysts",
+    "renal_insufficiency",
+    "seizure",
+    "short_stature"
+  ],
+  "scopeNotes": [
+    "ORPHA:18 includes acquired dRTA; this profile uses hereditary dRTA descriptions only. Alkaline urine alone does not establish distal acidification failure.",
+    "ORPHA:213 includes ocular cystinosis; the renal profile is nephropathic cystinosis. ORPHA:223 also covers acquired vasopressin resistance; the profile is hereditary NDI.",
+    "Bartter, dRTA, Dent, FHHNC, PHA1 and NDI remain broad profiles without subtype inference. Hearing and ocular findings are subtype-dependent.",
+    "Low-molecular-weight proteinuria is distinct from existing generic proteinuria. Neither auto-selects the other. Broad metabolic acidosis and hyperchloraemic metabolic acidosis are distinct, but no added profile scores both.",
+    "Renal magnesium/phosphate/salt wasting requires documented renal loss; blood concentrations alone do not establish it. Correlated findings each count one and are not independent likelihood evidence.",
+    "Existing hyposthenuria, growth_delay, seizure, ataxia, hearing and family-history definitions are reused verbatim. No unknown state or numeric threshold inference is introduced.",
+    "HNF1B retains its seven earlier associations and gains hypomagnesaemia, renal magnesium wasting and renal cysts. It now uses the count model because the pinned candidate weights do not cover the extension."
+  ],
+  "associations": [
+    {
+      "featureId": "hypokalemia",
+      "ruleId": "ikd_gitelman",
+      "diseaseId": "ORPHA:358",
+      "hpoId": "HP:0002900",
+      "hpoLabel": "Hypokalaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_gitelman"
+    },
+    {
+      "featureId": "metabolic_alkalosis",
+      "ruleId": "ikd_gitelman",
+      "diseaseId": "ORPHA:358",
+      "hpoId": "HP:0200114",
+      "hpoLabel": "Metabolic alkalosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_gitelman"
+    },
+    {
+      "featureId": "hypomagnesemia",
+      "ruleId": "ikd_gitelman",
+      "diseaseId": "ORPHA:358",
+      "hpoId": "HP:0002917",
+      "hpoLabel": "Hypomagnesaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_gitelman"
+    },
+    {
+      "featureId": "hypocalciuria",
+      "ruleId": "ikd_gitelman",
+      "diseaseId": "ORPHA:358",
+      "hpoId": "HP:0003127",
+      "hpoLabel": "Low urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_gitelman"
+    },
+    {
+      "featureId": "renal_salt_wasting",
+      "ruleId": "ikd_gitelman",
+      "diseaseId": "ORPHA:358",
+      "hpoId": "HP:0000127",
+      "hpoLabel": "Renal salt wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_gitelman"
+    },
+    {
+      "featureId": "hypotension",
+      "ruleId": "ikd_gitelman",
+      "diseaseId": "ORPHA:358",
+      "hpoId": "HP:0002615",
+      "hpoLabel": "Hypotension",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_gitelman"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_gitelman",
+      "diseaseId": "ORPHA:358",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_gitelman"
+    },
+    {
+      "featureId": "hypokalemia",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0002900",
+      "hpoLabel": "Hypokalaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "metabolic_alkalosis",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0200114",
+      "hpoLabel": "Metabolic alkalosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "renal_salt_wasting",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0000127",
+      "hpoLabel": "Renal salt wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "hypercalciuria",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0002150",
+      "hpoLabel": "High urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "nephrocalcinosis",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0000121",
+      "hpoLabel": "Nephrocalcinosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "polyuria",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0000103",
+      "hpoLabel": "Polyuria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "polydipsia",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0001959",
+      "hpoLabel": "Polydipsia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "growth_delay",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0001510",
+      "hpoLabel": "Growth delay",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "polyhydramnios",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0001561",
+      "hpoLabel": "Polyhydramnios in the patient’s prenatal history",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "premature_birth",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0001622",
+      "hpoLabel": "Premature birth",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "bilateral_sensorineural_hearing_impairment",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0008619",
+      "hpoLabel": "Bilateral sensorineural hearing impairment",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "family_history_x_linked",
+      "ruleId": "ikd_bartter",
+      "diseaseId": "ORPHA:112",
+      "hpoId": "HP:0001417",
+      "hpoLabel": "Documented family history suggesting X-linked inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_bartter"
+    },
+    {
+      "featureId": "hypokalemia",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0002900",
+      "hpoLabel": "Hypokalaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "metabolic_alkalosis",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0200114",
+      "hpoLabel": "Metabolic alkalosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "hypomagnesemia",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0002917",
+      "hpoLabel": "Hypomagnesaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "renal_salt_wasting",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0000127",
+      "hpoLabel": "Renal salt wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "seizure",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0001250",
+      "hpoLabel": "Seizures",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "ataxia",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0001251",
+      "hpoLabel": "Ataxia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "bilateral_sensorineural_hearing_impairment",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0008619",
+      "hpoLabel": "Bilateral sensorineural hearing impairment",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "global_developmental_delay",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0001263",
+      "hpoLabel": "Global developmental delay",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_east",
+      "diseaseId": "ORPHA:199343",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "east_kcnj10"
+    },
+    {
+      "featureId": "hyperchloremic_metabolic_acidosis",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0004918",
+      "hpoLabel": "Hyperchloraemic metabolic acidosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "hypokalemia",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0002900",
+      "hpoLabel": "Hypokalaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "alkaline_urine",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0032944",
+      "hpoLabel": "Alkaline urine",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "hypercalciuria",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0002150",
+      "hpoLabel": "High urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "nephrocalcinosis",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0000121",
+      "hpoLabel": "Nephrocalcinosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "calcium_nephrolithiasis",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0004724",
+      "hpoLabel": "Calcium kidney stones",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "growth_delay",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0001510",
+      "hpoLabel": "Growth delay",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "rickets",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0002748",
+      "hpoLabel": "Rickets",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "bilateral_sensorineural_hearing_impairment",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0008619",
+      "hpoLabel": "Bilateral sensorineural hearing impairment",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_drta",
+      "diseaseId": "ORPHA:18",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_drta"
+    },
+    {
+      "featureId": "low_molecular_weight_proteinuria",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0003126",
+      "hpoLabel": "Low-molecular-weight proteinuria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "hypercalciuria",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0002150",
+      "hpoLabel": "High urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "nephrocalcinosis",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0000121",
+      "hpoLabel": "Nephrocalcinosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "calcium_nephrolithiasis",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0004724",
+      "hpoLabel": "Calcium kidney stones",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "renal_phosphate_wasting",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0000117",
+      "hpoLabel": "Renal phosphate wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "hypophosphatemia",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0002148",
+      "hpoLabel": "Hypophosphataemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "renal_insufficiency",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0000083",
+      "hpoLabel": "Reduced kidney function",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "rickets",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0002748",
+      "hpoLabel": "Rickets",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "family_history_x_linked",
+      "ruleId": "ikd_dent",
+      "diseaseId": "ORPHA:1652",
+      "hpoId": "HP:0001417",
+      "hpoLabel": "Documented family history suggesting X-linked inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_dent"
+    },
+    {
+      "featureId": "glycosuria",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0003076",
+      "hpoLabel": "Glycosuria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "generalized_aminoaciduria",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0002909",
+      "hpoLabel": "Generalised aminoaciduria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "low_molecular_weight_proteinuria",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0003126",
+      "hpoLabel": "Low-molecular-weight proteinuria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "renal_phosphate_wasting",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0000117",
+      "hpoLabel": "Renal phosphate wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "hypophosphatemia",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0002148",
+      "hpoLabel": "Hypophosphataemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "metabolic_acidosis",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0001942",
+      "hpoLabel": "Metabolic acidosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "polyuria",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0000103",
+      "hpoLabel": "Polyuria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "polydipsia",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0001959",
+      "hpoLabel": "Polydipsia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "dehydration",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0001944",
+      "hpoLabel": "Dehydration",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "growth_delay",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0001510",
+      "hpoLabel": "Growth delay",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "rickets",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0002748",
+      "hpoLabel": "Rickets",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "corneal_cystine_crystals",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:6000955",
+      "hpoLabel": "Corneal cystine crystals",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "photophobia",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0000613",
+      "hpoLabel": "Photophobia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "renal_insufficiency",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0000083",
+      "hpoLabel": "Reduced kidney function",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_cystinosis",
+      "diseaseId": "ORPHA:213",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_cystinosis"
+    },
+    {
+      "featureId": "low_molecular_weight_proteinuria",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0003126",
+      "hpoLabel": "Low-molecular-weight proteinuria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "generalized_aminoaciduria",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0002909",
+      "hpoLabel": "Generalised aminoaciduria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "metabolic_acidosis",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0001942",
+      "hpoLabel": "Metabolic acidosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "renal_phosphate_wasting",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0000117",
+      "hpoLabel": "Renal phosphate wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "hypophosphatemia",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0002148",
+      "hpoLabel": "Hypophosphataemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "hypercalciuria",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0002150",
+      "hpoLabel": "High urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "rickets",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0002748",
+      "hpoLabel": "Rickets",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "developmental_cataract",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0000519",
+      "hpoLabel": "Congenital developmental cataract",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "hypotonia",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0001252",
+      "hpoLabel": "Hypotonia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "global_developmental_delay",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0001263",
+      "hpoLabel": "Global developmental delay",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "renal_insufficiency",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0000083",
+      "hpoLabel": "Reduced kidney function",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "family_history_x_linked",
+      "ruleId": "ikd_lowe",
+      "diseaseId": "ORPHA:534",
+      "hpoId": "HP:0001417",
+      "hpoLabel": "Documented family history suggesting X-linked inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_lowe"
+    },
+    {
+      "featureId": "hypomagnesemia",
+      "ruleId": "ikd_fhhnc",
+      "diseaseId": "ORPHA:306516",
+      "hpoId": "HP:0002917",
+      "hpoLabel": "Hypomagnesaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "fhhnc_cohort"
+    },
+    {
+      "featureId": "renal_magnesium_wasting",
+      "ruleId": "ikd_fhhnc",
+      "diseaseId": "ORPHA:306516",
+      "hpoId": "HP:0005567",
+      "hpoLabel": "Renal magnesium wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "fhhnc_cohort"
+    },
+    {
+      "featureId": "hypercalciuria",
+      "ruleId": "ikd_fhhnc",
+      "diseaseId": "ORPHA:306516",
+      "hpoId": "HP:0002150",
+      "hpoLabel": "High urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "fhhnc_cohort"
+    },
+    {
+      "featureId": "nephrocalcinosis",
+      "ruleId": "ikd_fhhnc",
+      "diseaseId": "ORPHA:306516",
+      "hpoId": "HP:0000121",
+      "hpoLabel": "Nephrocalcinosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "fhhnc_cohort"
+    },
+    {
+      "featureId": "renal_insufficiency",
+      "ruleId": "ikd_fhhnc",
+      "diseaseId": "ORPHA:306516",
+      "hpoId": "HP:0000083",
+      "hpoLabel": "Reduced kidney function",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "fhhnc_cohort"
+    },
+    {
+      "featureId": "visual_impairment",
+      "ruleId": "ikd_fhhnc",
+      "diseaseId": "ORPHA:306516",
+      "hpoId": "HP:0000505",
+      "hpoLabel": "Visual impairment",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "fhhnc_cohort"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_fhhnc",
+      "diseaseId": "ORPHA:306516",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "fhhnc_cohort"
+    },
+    {
+      "featureId": "renal_phosphate_wasting",
+      "ruleId": "ikd_hhrh",
+      "diseaseId": "ORPHA:157215",
+      "hpoId": "HP:0000117",
+      "hpoLabel": "Renal phosphate wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "hhrh_original"
+    },
+    {
+      "featureId": "hypophosphatemia",
+      "ruleId": "ikd_hhrh",
+      "diseaseId": "ORPHA:157215",
+      "hpoId": "HP:0002148",
+      "hpoLabel": "Hypophosphataemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "hhrh_original"
+    },
+    {
+      "featureId": "hypercalciuria",
+      "ruleId": "ikd_hhrh",
+      "diseaseId": "ORPHA:157215",
+      "hpoId": "HP:0002150",
+      "hpoLabel": "High urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "hhrh_original"
+    },
+    {
+      "featureId": "elevated_calcitriol",
+      "ruleId": "ikd_hhrh",
+      "diseaseId": "ORPHA:157215",
+      "hpoId": "HP:0031415",
+      "hpoLabel": "Elevated calcitriol",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "hhrh_original"
+    },
+    {
+      "featureId": "rickets",
+      "ruleId": "ikd_hhrh",
+      "diseaseId": "ORPHA:157215",
+      "hpoId": "HP:0002748",
+      "hpoLabel": "Rickets",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "hhrh_original"
+    },
+    {
+      "featureId": "short_stature",
+      "ruleId": "ikd_hhrh",
+      "diseaseId": "ORPHA:157215",
+      "hpoId": "HP:0004322",
+      "hpoLabel": "Short stature",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "hhrh_original"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_hhrh",
+      "diseaseId": "ORPHA:157215",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "hhrh_original"
+    },
+    {
+      "featureId": "renal_phosphate_wasting",
+      "ruleId": "ikd_xlh",
+      "diseaseId": "ORPHA:89936",
+      "hpoId": "HP:0000117",
+      "hpoLabel": "Renal phosphate wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_xlh"
+    },
+    {
+      "featureId": "hypophosphatemia",
+      "ruleId": "ikd_xlh",
+      "diseaseId": "ORPHA:89936",
+      "hpoId": "HP:0002148",
+      "hpoLabel": "Hypophosphataemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_xlh"
+    },
+    {
+      "featureId": "rickets",
+      "ruleId": "ikd_xlh",
+      "diseaseId": "ORPHA:89936",
+      "hpoId": "HP:0002748",
+      "hpoLabel": "Rickets",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_xlh"
+    },
+    {
+      "featureId": "short_stature",
+      "ruleId": "ikd_xlh",
+      "diseaseId": "ORPHA:89936",
+      "hpoId": "HP:0004322",
+      "hpoLabel": "Short stature",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_xlh"
+    },
+    {
+      "featureId": "bone_pain",
+      "ruleId": "ikd_xlh",
+      "diseaseId": "ORPHA:89936",
+      "hpoId": "HP:0002653",
+      "hpoLabel": "Bone pain",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_xlh"
+    },
+    {
+      "featureId": "recurrent_dental_abscesses",
+      "ruleId": "ikd_xlh",
+      "diseaseId": "ORPHA:89936",
+      "hpoId": "HP:5210249",
+      "hpoLabel": "Recurrent dental abscesses",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_xlh"
+    },
+    {
+      "featureId": "family_history_x_linked",
+      "ruleId": "ikd_xlh",
+      "diseaseId": "ORPHA:89936",
+      "hpoId": "HP:0001417",
+      "hpoLabel": "Documented family history suggesting X-linked inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_xlh"
+    },
+    {
+      "featureId": "hypokalemia",
+      "ruleId": "ikd_liddle",
+      "diseaseId": "ORPHA:526",
+      "hpoId": "HP:0002900",
+      "hpoLabel": "Hypokalaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_liddle"
+    },
+    {
+      "featureId": "metabolic_alkalosis",
+      "ruleId": "ikd_liddle",
+      "diseaseId": "ORPHA:526",
+      "hpoId": "HP:0200114",
+      "hpoLabel": "Metabolic alkalosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_liddle"
+    },
+    {
+      "featureId": "hypertension",
+      "ruleId": "ikd_liddle",
+      "diseaseId": "ORPHA:526",
+      "hpoId": "HP:0000822",
+      "hpoLabel": "Hypertension",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_liddle"
+    },
+    {
+      "featureId": "decreased_renin",
+      "ruleId": "ikd_liddle",
+      "diseaseId": "ORPHA:526",
+      "hpoId": "HP:0003351",
+      "hpoLabel": "Low circulating renin",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_liddle"
+    },
+    {
+      "featureId": "decreased_aldosterone",
+      "ruleId": "ikd_liddle",
+      "diseaseId": "ORPHA:526",
+      "hpoId": "HP:0004319",
+      "hpoLabel": "Low circulating aldosterone",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_liddle"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_liddle",
+      "diseaseId": "ORPHA:526",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_liddle"
+    },
+    {
+      "featureId": "hyperkalemia",
+      "ruleId": "ikd_gordon",
+      "diseaseId": "ORPHA:757",
+      "hpoId": "HP:0002153",
+      "hpoLabel": "Hyperkalaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_gordon"
+    },
+    {
+      "featureId": "hyperchloremic_metabolic_acidosis",
+      "ruleId": "ikd_gordon",
+      "diseaseId": "ORPHA:757",
+      "hpoId": "HP:0004918",
+      "hpoLabel": "Hyperchloraemic metabolic acidosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_gordon"
+    },
+    {
+      "featureId": "hypertension",
+      "ruleId": "ikd_gordon",
+      "diseaseId": "ORPHA:757",
+      "hpoId": "HP:0000822",
+      "hpoLabel": "Hypertension",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_gordon"
+    },
+    {
+      "featureId": "decreased_renin",
+      "ruleId": "ikd_gordon",
+      "diseaseId": "ORPHA:757",
+      "hpoId": "HP:0003351",
+      "hpoLabel": "Low circulating renin",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_gordon"
+    },
+    {
+      "featureId": "hypercalciuria",
+      "ruleId": "ikd_gordon",
+      "diseaseId": "ORPHA:757",
+      "hpoId": "HP:0002150",
+      "hpoLabel": "High urinary calcium",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_gordon"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_gordon",
+      "diseaseId": "ORPHA:757",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_gordon"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_gordon",
+      "diseaseId": "ORPHA:757",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_gordon"
+    },
+    {
+      "featureId": "renal_salt_wasting",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0000127",
+      "hpoLabel": "Renal salt wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "hyponatremia",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0002902",
+      "hpoLabel": "Hyponatraemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "hyperkalemia",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0002153",
+      "hpoLabel": "Hyperkalaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "metabolic_acidosis",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0001942",
+      "hpoLabel": "Metabolic acidosis",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "increased_aldosterone",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0000859",
+      "hpoLabel": "High circulating aldosterone",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "dehydration",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0001944",
+      "hpoLabel": "Dehydration",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "growth_delay",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0001510",
+      "hpoLabel": "Growth delay",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_pha1",
+      "diseaseId": "ORPHA:756",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "medline_pha1"
+    },
+    {
+      "featureId": "polyuria",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0000103",
+      "hpoLabel": "Polyuria",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "polydipsia",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0001959",
+      "hpoLabel": "Polydipsia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "hyposthenuria",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0003158",
+      "hpoLabel": "Reduced urine-concentrating ability",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "hypernatremia",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0003228",
+      "hpoLabel": "Hypernatraemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "dehydration",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0001944",
+      "hpoLabel": "Dehydration",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "growth_delay",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0001510",
+      "hpoLabel": "Growth delay",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "family_history_autosomal_dominant",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0000006",
+      "hpoLabel": "Documented family history suggesting autosomal dominant inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "family_history_autosomal_recessive",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0000007",
+      "hpoLabel": "Documented family history suggesting autosomal recessive inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "family_history_x_linked",
+      "ruleId": "ikd_ndi",
+      "diseaseId": "ORPHA:223",
+      "hpoId": "HP:0001417",
+      "hpoLabel": "Documented family history suggesting X-linked inheritance",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "genereviews_ndi"
+    },
+    {
+      "featureId": "hypomagnesemia",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0002917",
+      "hpoLabel": "Hypomagnesaemia",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_hnf1b"
+    },
+    {
+      "featureId": "renal_magnesium_wasting",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0005567",
+      "hpoLabel": "Renal magnesium wasting",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_hnf1b"
+    },
+    {
+      "featureId": "renal_cysts",
+      "ruleId": "ikd_hnf1b",
+      "diseaseId": "ORPHA:93111",
+      "hpoId": "HP:0000107",
+      "hpoLabel": "Renal cysts",
+      "sourceDate": "2026-09-27",
+      "frequency": "not quantified",
+      "diagnosticCriterion": "no",
+      "sourceId": "erknet_hnf1b"
+    }
+  ]
+}

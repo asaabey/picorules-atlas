@@ -4,7 +4,7 @@
     "url": "https://sciences.orphadata.com/phenotypes/",
     "release": "July 2026 knowledge-base release; source XML generated 2026-06-23",
     "accessed": "2026-09-26",
-    "attribution": "Orphadata Science: Free access data from Orphanet. \u00a9 INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected 38 disease\u2013phenotype associations and adapted the question wording. No endorsement implied.",
+    "attribution": "Orphadata Science: Free access data from Orphanet. © INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected 38 disease–phenotype associations and adapted the question wording. No endorsement implied.",
     "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
   },
   "genereviews_fabry": {
@@ -59,12 +59,12 @@
     "attribution": "Human Phenotype Ontology consortium. Selected OMIM phenotype associations with original evidence and frequency fields retained in the review packet."
   },
   "genereviews_adtkd_umod": {
-    "title": "GeneReviews: ADTKD\u2013UMOD",
+    "title": "GeneReviews: ADTKD–UMOD",
     "url": "https://www.ncbi.nlm.nih.gov/books/NBK1356/",
     "accessed": "2026-09-27"
   },
   "genereviews_adtkd_muc1": {
-    "title": "GeneReviews: ADTKD\u2013MUC1",
+    "title": "GeneReviews: ADTKD–MUC1",
     "url": "https://www.ncbi.nlm.nih.gov/books/NBK153723/",
     "accessed": "2026-09-27"
   },
@@ -89,5 +89,102 @@
     "title": "Orphanet: Saldino-Mainzer syndrome",
     "url": "https://www.orpha.net/en/disease/detail/140969",
     "accessed": "2026-09-27"
+  },
+  "erknet_gitelman": {
+    "title": "ERKNet: Gitelman-like tubulopathies",
+    "url": "https://www.erknet.org/fileadmin/files/user_upload/220628_Nijenhuis_ERKNet_Webinar_Gitelman_final.pdf",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "erknet_bartter": {
+    "title": "ERKNet: Bartter syndrome consensus recommendations",
+    "url": "https://www.erknet.org/fileadmin/files/user_upload/Bartter_syndrome_consensus_paper__extended_version_.pdf",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "east_kcnj10": {
+    "title": "Bockenhauer et al: Epilepsy, ataxia, sensorineural deafness, tubulopathy, and KCNJ10 mutations",
+    "url": "https://www.nejm.org/doi/abs/10.1056/nejmoa0810276",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "erknet_hnf1b": {
+    "title": "ERKNet: HNF1B nephropathy",
+    "url": "https://www.erknet.org/patients/da/your-kidney-disease/hnf1b-nephropathy/disease-information",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "genereviews_drta": {
+    "title": "GeneReviews: Hereditary Distal Renal Tubular Acidosis",
+    "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK547595/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "genereviews_dent": {
+    "title": "GeneReviews: Dent Disease",
+    "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK99494/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "genereviews_cystinosis": {
+    "title": "GeneReviews: Cystinosis",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1400/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "genereviews_lowe": {
+    "title": "GeneReviews: Lowe Syndrome",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1480/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "fhhnc_cohort": {
+    "title": "Claudin-19 mutations and clinical phenotype in Spanish patients with familial hypomagnesemia with hypercalciuria and nephrocalcinosis",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/23301036/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "hhrh_original": {
+    "title": "Tieder et al: Hereditary hypophosphatemic rickets with hypercalciuria",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/2983203/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "genereviews_xlh": {
+    "title": "GeneReviews: X-Linked Hypophosphatemia",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK83985/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "medline_liddle": {
+    "title": "MedlinePlus Genetics: Liddle syndrome",
+    "url": "https://medlineplus.gov/genetics/condition/liddle-syndrome/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "genereviews_gordon": {
+    "title": "GeneReviews: Pseudohypoaldosteronism Type II",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK65707/?report=reader",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "medline_pha1": {
+    "title": "MedlinePlus Genetics: Pseudohypoaldosteronism type 1",
+    "url": "https://medlineplus.gov/genetics/condition/pseudohypoaldosteronism-type-1/",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "genereviews_ndi": {
+    "title": "GeneReviews: Hereditary Nephrogenic Diabetes Insipidus",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1177/?report=printable",
+    "accessed": "2026-09-27",
+    "attribution": "Clinical descriptions adapted to Atlas-authored binary questions. Associations and terminology scope are documented in reviews/ikd/tubulopathy-evidence.json. No source-derived weights or diagnostic criteria are claimed."
+  },
+  "hpo_terms_2026_09": {
+    "title": "Human Phenotype Ontology: September 2026 terminology",
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/tag/v2026-09-01",
+    "release": "hp/releases/2026-09-01",
+    "accessed": "2026-09-27",
+    "attribution": "Selected active IDs and labels checked against hp.obo; download SHA-256 and selected terms recorded in tubulopathy-evidence.json. Terminology verification does not establish disease associations."
   }
 }

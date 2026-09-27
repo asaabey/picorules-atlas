@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1",
   "collectionId": "ikd",
-  "contentVersion": "f74409e920c619b1",
+  "contentVersion": "e1fb404ac6ba9dec",
   "featureReviews": {
     "abnormal_retinal_pigmentation": {
       "status": "pending",
@@ -18,6 +18,13 @@
       "wordingChanges": []
     },
     "adrenal_pheochromocytoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "alkaline_urine": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -66,6 +73,20 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "bone_pain": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "calcium_nephrolithiasis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "cerebellar_hemangioblastoma": {
       "status": "pending",
       "reviewer": null,
@@ -94,6 +115,20 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "corneal_cystine_crystals": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "decreased_aldosterone": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "decreased_glomerular_filtration_rate": {
       "status": "pending",
       "reviewer": null,
@@ -101,7 +136,35 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "decreased_renin": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "dehydration": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "developmental_cataract": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "diabetes_mellitus": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "elevated_calcitriol": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -143,6 +206,13 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "generalized_aminoaciduria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "global_developmental_delay": {
       "status": "pending",
       "reviewer": null,
@@ -151,6 +221,13 @@
       "wordingChanges": []
     },
     "glomerular_basement_membrane_lamellation": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "glycosuria": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -178,7 +255,35 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "hypercalciuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hyperchloremic_metabolic_acidosis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "hyperechogenic_kidneys": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hyperkalemia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypernatremia": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -199,7 +304,28 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "hypocalciuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "hypohidrosis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypokalemia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypomagnesemia": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -213,6 +339,20 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "hyponatremia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypophosphatemia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "hyposthenuria": {
       "status": "pending",
       "reviewer": null,
@@ -220,7 +360,42 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "hypotension": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "hypotonia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "increased_aldosterone": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "low_molecular_weight_proteinuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "metabolic_acidosis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "metabolic_alkalosis": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -255,6 +430,13 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "nephrocalcinosis": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "oculomotor_apraxia": {
       "status": "pending",
       "reviewer": null,
@@ -283,6 +465,13 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "photophobia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "polycystic_kidney_dysplasia": {
       "status": "pending",
       "reviewer": null,
@@ -291,6 +480,13 @@
       "wordingChanges": []
     },
     "polydipsia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "polyhydramnios": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -311,7 +507,21 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "premature_birth": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "proteinuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "recurrent_dental_abscesses": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -360,6 +570,27 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "renal_magnesium_wasting": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_phosphate_wasting": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_salt_wasting": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "renal_tubular_atrophy": {
       "status": "pending",
       "reviewer": null,
@@ -382,6 +613,13 @@
       "wordingChanges": []
     },
     "retinal_flecks": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "rickets": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -417,6 +655,13 @@
       "wordingChanges": []
     },
     "stage_5_ckd": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "visual_impairment": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,

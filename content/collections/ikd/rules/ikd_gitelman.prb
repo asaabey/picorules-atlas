@@ -1,0 +1,176 @@
+/* Gitelman syndrome: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_gitelman, {
+    "description": "Gitelman syndrome candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "Gitelman syndrome",
+        "disease_id": "ORPHA:358",
+        "source_refs": [
+            "erknet_gitelman"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "erknet_gitelman"
+            ],
+            "weights": {
+                "hypokalemia": 1,
+                "metabolic_alkalosis": 1,
+                "hypomagnesemia": 1,
+                "hypocalciuria": 1,
+                "renal_salt_wasting": 1,
+                "hypotension": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+hypokalemia => eadv.phen_hypokalemia.val.last();
+metabolic_alkalosis => eadv.phen_metabolic_alkalosis.val.last();
+hypomagnesemia => eadv.phen_hypomagnesemia.val.last();
+hypocalciuria => eadv.phen_hypocalciuria.val.last();
+renal_salt_wasting => eadv.phen_renal_salt_wasting.val.last();
+hypotension => eadv.phen_hypotension.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(hypokalemia, 0) + coalesce(metabolic_alkalosis, 0) + coalesce(hypomagnesemia, 0) + coalesce(hypocalciuria, 0) + coalesce(renal_salt_wasting, 0) + coalesce(hypotension, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_hypokalemia : { hypokalemia = 1 => 1 }, { => 0 };
+contribution_metabolic_alkalosis : { metabolic_alkalosis = 1 => 1 }, { => 0 };
+contribution_hypomagnesemia : { hypomagnesemia = 1 => 1 }, { => 0 };
+contribution_hypocalciuria : { hypocalciuria = 1 => 1 }, { => 0 };
+contribution_renal_salt_wasting : { renal_salt_wasting = 1 => 1 }, { => 0 };
+contribution_hypotension : { hypotension = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_hypokalemia + contribution_metabolic_alkalosis + contribution_hypomagnesemia + contribution_hypocalciuria + contribution_renal_salt_wasting + contribution_hypotension + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(hypokalemia, {
+    "label": "Hypokalaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypokalemia",
+        "source_attribute": "phen_hypokalemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypokalaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002900",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "erknet_gitelman",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(metabolic_alkalosis, {
+    "label": "Metabolic alkalosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "metabolic_alkalosis",
+        "source_attribute": "phen_metabolic_alkalosis",
+        "section": "electrolytes_tubular",
+        "question": "Has metabolic alkalosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0200114",
+        "help": "Use a documented acid–base assessment; an isolated bicarbonate result is not sufficient.",
+        "source_refs": [
+            "erknet_gitelman",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypomagnesemia, {
+    "label": "Hypomagnesaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypomagnesemia",
+        "source_attribute": "phen_hypomagnesemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypomagnesaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002917",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "erknet_gitelman",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypocalciuria, {
+    "label": "Low urinary calcium",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypocalciuria",
+        "source_attribute": "phen_hypocalciuria",
+        "section": "electrolytes_tubular",
+        "question": "Has low urinary calcium excretion been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003127",
+        "help": "Use urine measurements interpreted for age, collection method and treatment; this is not low blood calcium.",
+        "source_refs": [
+            "erknet_gitelman",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_salt_wasting, {
+    "label": "Renal salt wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_salt_wasting",
+        "source_attribute": "phen_renal_salt_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has renal salt wasting been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000127",
+        "help": "Requires evidence of inappropriate renal salt loss; low blood sodium or dehydration alone is insufficient.",
+        "source_refs": [
+            "erknet_gitelman",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypotension, {
+    "label": "Hypotension",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypotension",
+        "source_attribute": "phen_hypotension",
+        "section": "cardiovascular",
+        "question": "Has low blood pressure been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002615",
+        "help": "Use blood pressure interpreted for age and clinical context. Normal blood pressure is not counted as hypotension.",
+        "source_refs": [
+            "erknet_gitelman",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "erknet_gitelman"
+        ]
+    }
+});

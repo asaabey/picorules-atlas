@@ -1,0 +1,245 @@
+/* HNF1B-related disease: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_hnf1b, {
+    "description": "HNF1B-related disease candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "HNF1B-related disease",
+        "disease_id": "ORPHA:93111",
+        "source_refs": [
+            "orphadata_2026_06",
+            "erknet_hnf1b"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "erknet_hnf1b"
+            ],
+            "weights": {
+                "diabetes_mellitus": 1,
+                "horseshoe_kidney": 1,
+                "hyperuricemia": 1,
+                "multicystic_kidney_dysplasia": 1,
+                "pancreatic_aplasia_hypoplasia": 1,
+                "renal_agenesis": 1,
+                "family_history_autosomal_dominant": 0,
+                "hypomagnesemia": 1,
+                "renal_magnesium_wasting": 1,
+                "renal_cysts": 1
+            }
+        }
+    }
+});
+
+diabetes_mellitus => eadv.phen_diabetes_mellitus.val.last();
+horseshoe_kidney => eadv.phen_horseshoe_kidney.val.last();
+hyperuricemia => eadv.phen_hyperuricemia.val.last();
+multicystic_kidney_dysplasia => eadv.phen_multicystic_kidney_dysplasia.val.last();
+pancreatic_aplasia_hypoplasia => eadv.phen_pancreatic_aplasia_hypoplasia.val.last();
+renal_agenesis => eadv.phen_renal_agenesis.val.last();
+family_history_autosomal_dominant => eadv.phen_family_history_autosomal_dominant.val.last();
+hypomagnesemia => eadv.phen_hypomagnesemia.val.last();
+renal_magnesium_wasting => eadv.phen_renal_magnesium_wasting.val.last();
+renal_cysts => eadv.phen_renal_cysts.val.last();
+
+present_feature_count : { . => coalesce(diabetes_mellitus, 0) + coalesce(horseshoe_kidney, 0) + coalesce(hyperuricemia, 0) + coalesce(multicystic_kidney_dysplasia, 0) + coalesce(pancreatic_aplasia_hypoplasia, 0) + coalesce(renal_agenesis, 0) + coalesce(family_history_autosomal_dominant, 0) + coalesce(hypomagnesemia, 0) + coalesce(renal_magnesium_wasting, 0) + coalesce(renal_cysts, 0) };
+contribution_diabetes_mellitus : { diabetes_mellitus = 1 => 1 }, { => 0 };
+contribution_horseshoe_kidney : { horseshoe_kidney = 1 => 1 }, { => 0 };
+contribution_hyperuricemia : { hyperuricemia = 1 => 1 }, { => 0 };
+contribution_multicystic_kidney_dysplasia : { multicystic_kidney_dysplasia = 1 => 1 }, { => 0 };
+contribution_pancreatic_aplasia_hypoplasia : { pancreatic_aplasia_hypoplasia = 1 => 1 }, { => 0 };
+contribution_renal_agenesis : { renal_agenesis = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_dominant : { family_history_autosomal_dominant = 1 => 0 }, { => 0 };
+contribution_hypomagnesemia : { hypomagnesemia = 1 => 1 }, { => 0 };
+contribution_renal_magnesium_wasting : { renal_magnesium_wasting = 1 => 1 }, { => 0 };
+contribution_renal_cysts : { renal_cysts = 1 => 1 }, { => 0 };
+weighted_score : { . => contribution_diabetes_mellitus + contribution_horseshoe_kidney + contribution_hyperuricemia + contribution_multicystic_kidney_dysplasia + contribution_pancreatic_aplasia_hypoplasia + contribution_renal_agenesis + contribution_family_history_autosomal_dominant + contribution_hypomagnesemia + contribution_renal_magnesium_wasting + contribution_renal_cysts };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(diabetes_mellitus, {
+    "label": "Diabetes mellitus",
+    "atlas": {
+        "role": "input",
+        "feature_id": "diabetes_mellitus",
+        "source_attribute": "phen_diabetes_mellitus",
+        "section": "endocrine_metabolic",
+        "question": "Has diabetes mellitus been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000819",
+        "help": "Records documented diabetes without inferring its type, genetic cause or age at onset.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(horseshoe_kidney, {
+    "label": "Horseshoe kidney",
+    "atlas": {
+        "role": "input",
+        "feature_id": "horseshoe_kidney",
+        "source_attribute": "phen_horseshoe_kidney",
+        "section": "kidney",
+        "question": "Has a horseshoe kidney been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000085",
+        "help": "Records the named structural kidney finding.",
+        "image_guidance": {
+            "category": "radiology",
+            "modality": "Axial CT",
+            "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+            "asset_status": "not_selected"
+        },
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(hyperuricemia, {
+    "label": "Hyperuricaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hyperuricemia",
+        "source_attribute": "phen_hyperuricemia",
+        "section": "endocrine_metabolic",
+        "question": "Has hyperuricaemia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002149",
+        "help": "Records a documented elevated urate finding without applying a new laboratory threshold.",
+        "source_refs": [
+            "orphadata_2026_06",
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(multicystic_kidney_dysplasia, {
+    "label": "Multicystic kidney dysplasia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "multicystic_kidney_dysplasia",
+        "source_attribute": "phen_multicystic_kidney_dysplasia",
+        "section": "kidney",
+        "question": "Has multicystic kidney dysplasia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000003",
+        "help": "Records explicitly documented dysplasia. renal cysts alone do not establish this finding.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(pancreatic_aplasia_hypoplasia, {
+    "label": "Pancreatic aplasia or hypoplasia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "pancreatic_aplasia_hypoplasia",
+        "source_attribute": "phen_pancreatic_aplasia_hypoplasia",
+        "section": "endocrine_metabolic",
+        "question": "Has pancreatic aplasia or hypoplasia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0100800",
+        "help": "Records documented absent or underdeveloped pancreatic tissue. diabetes alone is insufficient.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(renal_agenesis, {
+    "label": "Renal agenesis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_agenesis",
+        "source_attribute": "phen_renal_agenesis",
+        "section": "kidney",
+        "question": "Has renal agenesis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000104",
+        "help": "Records congenital absence of a kidney. an acquired solitary kidney is not equivalent.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_dominant, {
+    "label": "Documented family history suggesting autosomal dominant inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_dominant",
+        "source_attribute": "phen_family_history_autosomal_dominant",
+        "section": "family_history",
+        "question": "Does the documented family history show a similar condition in successive generations?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000006",
+        "help": "A pattern in a parent and child or across successive generations may suggest dominant inheritance. A negative or unclear family history does not exclude disease.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "genereviews_tsc",
+            "genereviews_alport",
+            "genereviews_hnf1b",
+            "genereviews_vhl",
+            "genereviews_adtkd_umod",
+            "genereviews_adtkd_muc1"
+        ]
+    }
+});
+
+#define_attribute(hypomagnesemia, {
+    "label": "Hypomagnesaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypomagnesemia",
+        "source_attribute": "phen_hypomagnesemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypomagnesaemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002917",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "erknet_hnf1b",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_magnesium_wasting, {
+    "label": "Renal magnesium wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_magnesium_wasting",
+        "source_attribute": "phen_renal_magnesium_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has inappropriate renal magnesium loss been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0005567",
+        "help": "Requires a clinical assessment of urinary magnesium in relation to blood magnesium and kidney function; hypomagnesaemia alone is insufficient.",
+        "source_refs": [
+            "erknet_hnf1b",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_cysts, {
+    "label": "Renal cysts",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_cysts",
+        "source_attribute": "phen_renal_cysts",
+        "section": "kidney",
+        "question": "Have renal cysts been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000107",
+        "help": "Records cysts without inferring their location or type.",
+        "source_refs": [
+            "erknet_hnf1b"
+        ]
+    }
+});

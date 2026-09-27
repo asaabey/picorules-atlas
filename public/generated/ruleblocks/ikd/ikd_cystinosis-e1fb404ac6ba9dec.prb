@@ -1,0 +1,340 @@
+/* Nephropathic cystinosis: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_cystinosis, {
+    "description": "Nephropathic cystinosis candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.8.0-tubulopathies",
+        "disease_label": "Nephropathic cystinosis",
+        "disease_id": "ORPHA:213",
+        "source_refs": [
+            "genereviews_cystinosis"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "genereviews_cystinosis"
+            ],
+            "weights": {
+                "glycosuria": 1,
+                "generalized_aminoaciduria": 1,
+                "low_molecular_weight_proteinuria": 1,
+                "renal_phosphate_wasting": 1,
+                "hypophosphatemia": 1,
+                "metabolic_acidosis": 1,
+                "polyuria": 1,
+                "polydipsia": 1,
+                "dehydration": 1,
+                "growth_delay": 1,
+                "rickets": 1,
+                "corneal_cystine_crystals": 1,
+                "photophobia": 1,
+                "renal_insufficiency": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+glycosuria => eadv.phen_glycosuria.val.last();
+generalized_aminoaciduria => eadv.phen_generalized_aminoaciduria.val.last();
+low_molecular_weight_proteinuria => eadv.phen_low_molecular_weight_proteinuria.val.last();
+renal_phosphate_wasting => eadv.phen_renal_phosphate_wasting.val.last();
+hypophosphatemia => eadv.phen_hypophosphatemia.val.last();
+metabolic_acidosis => eadv.phen_metabolic_acidosis.val.last();
+polyuria => eadv.phen_polyuria.val.last();
+polydipsia => eadv.phen_polydipsia.val.last();
+dehydration => eadv.phen_dehydration.val.last();
+growth_delay => eadv.phen_growth_delay.val.last();
+rickets => eadv.phen_rickets.val.last();
+corneal_cystine_crystals => eadv.phen_corneal_cystine_crystals.val.last();
+photophobia => eadv.phen_photophobia.val.last();
+renal_insufficiency => eadv.phen_renal_insufficiency.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(glycosuria, 0) + coalesce(generalized_aminoaciduria, 0) + coalesce(low_molecular_weight_proteinuria, 0) + coalesce(renal_phosphate_wasting, 0) + coalesce(hypophosphatemia, 0) + coalesce(metabolic_acidosis, 0) + coalesce(polyuria, 0) + coalesce(polydipsia, 0) + coalesce(dehydration, 0) + coalesce(growth_delay, 0) + coalesce(rickets, 0) + coalesce(corneal_cystine_crystals, 0) + coalesce(photophobia, 0) + coalesce(renal_insufficiency, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_glycosuria : { glycosuria = 1 => 1 }, { => 0 };
+contribution_generalized_aminoaciduria : { generalized_aminoaciduria = 1 => 1 }, { => 0 };
+contribution_low_molecular_weight_proteinuria : { low_molecular_weight_proteinuria = 1 => 1 }, { => 0 };
+contribution_renal_phosphate_wasting : { renal_phosphate_wasting = 1 => 1 }, { => 0 };
+contribution_hypophosphatemia : { hypophosphatemia = 1 => 1 }, { => 0 };
+contribution_metabolic_acidosis : { metabolic_acidosis = 1 => 1 }, { => 0 };
+contribution_polyuria : { polyuria = 1 => 1 }, { => 0 };
+contribution_polydipsia : { polydipsia = 1 => 1 }, { => 0 };
+contribution_dehydration : { dehydration = 1 => 1 }, { => 0 };
+contribution_growth_delay : { growth_delay = 1 => 1 }, { => 0 };
+contribution_rickets : { rickets = 1 => 1 }, { => 0 };
+contribution_corneal_cystine_crystals : { corneal_cystine_crystals = 1 => 1 }, { => 0 };
+contribution_photophobia : { photophobia = 1 => 1 }, { => 0 };
+contribution_renal_insufficiency : { renal_insufficiency = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_glycosuria + contribution_generalized_aminoaciduria + contribution_low_molecular_weight_proteinuria + contribution_renal_phosphate_wasting + contribution_hypophosphatemia + contribution_metabolic_acidosis + contribution_polyuria + contribution_polydipsia + contribution_dehydration + contribution_growth_delay + contribution_rickets + contribution_corneal_cystine_crystals + contribution_photophobia + contribution_renal_insufficiency + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(glycosuria, {
+    "label": "Glycosuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "glycosuria",
+        "source_attribute": "phen_glycosuria",
+        "section": "electrolytes_tubular",
+        "question": "Has glucose in the urine been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003076",
+        "help": "Record the urine finding. Proximal tubular interpretation requires blood glucose and medication context; this finding alone does not establish Fanconi syndrome.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(generalized_aminoaciduria, {
+    "label": "Generalised aminoaciduria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "generalized_aminoaciduria",
+        "source_attribute": "phen_generalized_aminoaciduria",
+        "section": "electrolytes_tubular",
+        "question": "Has generalised aminoaciduria been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002909",
+        "help": "Requires increased urinary loss of multiple amino acids; an isolated amino acid abnormality is insufficient.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(low_molecular_weight_proteinuria, {
+    "label": "Low-molecular-weight proteinuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "low_molecular_weight_proteinuria",
+        "source_attribute": "phen_low_molecular_weight_proteinuria",
+        "section": "electrolytes_tubular",
+        "question": "Has low-molecular-weight proteinuria been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003126",
+        "help": "Requires a documented tubular protein measurement or assessment; a routine positive protein dipstick or albuminuria alone is insufficient.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_phosphate_wasting, {
+    "label": "Renal phosphate wasting",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_phosphate_wasting",
+        "source_attribute": "phen_renal_phosphate_wasting",
+        "section": "electrolytes_tubular",
+        "question": "Has inappropriate renal phosphate loss been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000117",
+        "help": "Requires a documented renal phosphate-handling assessment; low blood phosphate alone is insufficient.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hypophosphatemia, {
+    "label": "Hypophosphataemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hypophosphatemia",
+        "source_attribute": "phen_hypophosphatemia",
+        "section": "electrolytes_tubular",
+        "question": "Has hypophosphataemia been documented on blood testing?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002148",
+        "help": "Use a documented laboratory finding interpreted for age and clinical context. A low or high blood concentration alone does not establish renal wasting or an inherited cause.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(metabolic_acidosis, {
+    "label": "Metabolic acidosis",
+    "atlas": {
+        "role": "input",
+        "feature_id": "metabolic_acidosis",
+        "source_attribute": "phen_metabolic_acidosis",
+        "section": "electrolytes_tubular",
+        "question": "Has metabolic acidosis been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001942",
+        "help": "Use a documented acid–base assessment. This broad finding does not establish renal tubular acidosis.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(polyuria, {
+    "label": "Polyuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polyuria",
+        "source_attribute": "phen_polyuria",
+        "section": "kidney",
+        "question": "Has persistent excessive urine output been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000103",
+        "help": "Records the history or measured finding without setting a volume threshold.",
+        "source_refs": [
+            "genereviews_cystinosis"
+        ]
+    }
+});
+
+#define_attribute(polydipsia, {
+    "label": "Polydipsia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polydipsia",
+        "source_attribute": "phen_polydipsia",
+        "section": "kidney",
+        "question": "Has persistent excessive thirst been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001959",
+        "help": "Records excessive thirst without assuming a kidney cause.",
+        "source_refs": [
+            "genereviews_cystinosis"
+        ]
+    }
+});
+
+#define_attribute(dehydration, {
+    "label": "Dehydration",
+    "atlas": {
+        "role": "input",
+        "feature_id": "dehydration",
+        "source_attribute": "phen_dehydration",
+        "section": "kidney",
+        "question": "Has dehydration been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001944",
+        "help": "Records a clinical finding without inferring renal salt or water loss.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(growth_delay, {
+    "label": "Growth delay",
+    "atlas": {
+        "role": "input",
+        "feature_id": "growth_delay",
+        "source_attribute": "phen_growth_delay",
+        "section": "endocrine_metabolic",
+        "question": "Was delayed growth documented during childhood?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001510",
+        "help": "A historical childhood finding; adult short stature alone is not the same observation.",
+        "source_refs": [
+            "genereviews_cystinosis"
+        ]
+    }
+});
+
+#define_attribute(rickets, {
+    "label": "Rickets",
+    "atlas": {
+        "role": "input",
+        "feature_id": "rickets",
+        "source_attribute": "phen_rickets",
+        "section": "skeletal",
+        "question": "Has rickets been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0002748",
+        "help": "Use a documented clinical or radiological diagnosis; adult osteomalacia is a different finding.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(corneal_cystine_crystals, {
+    "label": "Corneal cystine crystals",
+    "atlas": {
+        "role": "input",
+        "feature_id": "corneal_cystine_crystals",
+        "source_attribute": "phen_corneal_cystine_crystals",
+        "section": "eyes",
+        "question": "Have corneal cystine crystals been documented by an eye specialist?",
+        "answer_type": "presence",
+        "hpo_id": "HP:6000955",
+        "help": "Requires the named crystal finding; corneal verticillata or nonspecific corneal changes are not equivalent.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(photophobia, {
+    "label": "Photophobia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "photophobia",
+        "source_attribute": "phen_photophobia",
+        "section": "eyes",
+        "question": "Has abnormal sensitivity to light been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000613",
+        "help": "Records the symptom without inferring corneal crystals.",
+        "source_refs": [
+            "genereviews_cystinosis",
+            "hpo_terms_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_insufficiency, {
+    "label": "Reduced kidney function",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_insufficiency",
+        "source_attribute": "phen_renal_insufficiency",
+        "section": "kidney",
+        "question": "Has reduced kidney function been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000083",
+        "help": "Records an existing finding without assigning a cause or a new laboratory threshold.",
+        "source_refs": [
+            "genereviews_cystinosis"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "evidence_kind": "family_history",
+        "source_refs": [
+            "genereviews_cystinosis"
+        ]
+    }
+});

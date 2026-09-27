@@ -40,7 +40,8 @@ describe('FHIR rule-result handoff', () => {
     expect(scores[0].note[0].text).toContain('Angiokeratomas: present');
     expect(impression.finding).toEqual([]);
     expect(impression.summary).toContain('No diagnosis is confirmed');
-    expect(results.map(result => result.presentCount)).toEqual([2, 1, 1, ...Array(11).fill(0)]);
+    expect(results.filter(result => result.presentCount > 0).map(result => [result.ruleId, result.presentCount]))
+      .toEqual([['ikd_fabry', 2], ['ikd_tuberous_sclerosis', 1], ['ikd_alport', 1], ['ikd_east', 1]]);
     expect(JSON.stringify(assessment)).not.toContain('ClinicalImpression');
     const patient = bundle.entry.find(entry => entry.resource.resourceType === 'Patient');
     expect(patient?.resource).toEqual({ resourceType: 'Patient', id: patient?.fullUrl.replace('urn:uuid:', '') });
@@ -51,7 +52,7 @@ describe('FHIR rule-result handoff', () => {
   it('exports zero scores and no possible diagnoses without falsely excluding disease', () => {
     const { bundle } = handoff([]);
     const { scores, impression } = output(bundle);
-    expect(scores.map(score => score.valueQuantity?.value)).toEqual(Array(14).fill(0));
+    expect(scores.map(score => score.valueQuantity?.value)).toEqual(Array(manifest.rules.length).fill(0));
     expect(impression.finding).toEqual([]);
     expect(impression.summary).toContain('does not exclude');
   });

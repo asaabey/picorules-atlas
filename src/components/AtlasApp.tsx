@@ -493,6 +493,10 @@ function ResultsPanel({ collection, results, onDownload }: {
   results: DemoResult[];
   onDownload: () => void;
 }) {
+  const visibleResults = results
+    .filter(result => (result.weightedScore ?? 0) > 0)
+    .sort((a, b) => (b.weightedScore ?? 0) - (a.weightedScore ?? 0));
+
   return (
     <section id="assessment-results" className="inline-results" aria-labelledby="assessment-results-title">
       <p className="overline">ASSESSMENT / {collection.id.toUpperCase()} / RESULTS</p>
@@ -500,13 +504,14 @@ function ResultsPanel({ collection, results, onDownload }: {
       <p className="flow-version">Collection {collection.version} · Content {collection.contentVersion}</p>
       <div className="context-banner flow-warning"><span className="banner-icon" aria-hidden="true">i</span><div>
         <strong>Proof of concept only</strong>
-        <p>Existing profiles use candidate LIRICAL weights; the six new ciliopathy profiles count present
+        <p>Profiles use either candidate LIRICAL weights or a count of present
           clinical findings, one point each. Family-history patterns add zero. Unticked items are absent and
           add zero. These models have different units and their totals must not be compared as disease
           probabilities or diagnostic cutoffs. A zero score does not exclude disease.</p>
       </div></div>
+      {visibleResults.length === 0 && <p>No diseases have a positive score for these answers.</p>}
       <div className="result-list">
-        {results.map(result => {
+        {visibleResults.map(result => {
           const rule = collection.rules.find(item => item.id === result.ruleId)!;
           const scored = result.presentFeatures.filter(feature => rule.scoring?.weights[feature.featureId] !== 0);
           const familyHistory = result.presentFeatures.filter(feature => rule.scoring?.weights[feature.featureId] === 0);

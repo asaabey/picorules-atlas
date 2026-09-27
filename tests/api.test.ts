@@ -31,7 +31,7 @@ describe('FHIR evaluation API', () => {
     const scores = (bundle: typeof browser) => bundle.entry.flatMap(({ resource }) =>
       'valueQuantity' in resource ? [resource.valueQuantity?.value] : []);
     expect(scores(output)).toEqual(scores(browser));
-    expect(scores(output)).toHaveLength(14);
+    expect(scores(output)).toHaveLength(manifest.rules.length);
     for (const { resource } of output.entry) {
       if (resource.subject) expect(resource.subject.reference).toBe('Patient/example');
     }
