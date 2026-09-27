@@ -1,7 +1,7 @@
 # Picorules Atlas development milestones
 
 Status date: 27 September 2026. This roadmap covers development after the initial
-questionnaire scaffold in [SPEC.md](SPEC.md). Milestones M1–M5 are proposed work,
+questionnaire scaffold in [SPEC.md](SPEC.md). Milestones M1–M6 are proposed work,
 not features of the current app. No target dates are assigned.
 
 ## Current position
@@ -9,11 +9,12 @@ not features of the current app. No target dates are assigned.
 | Milestone | Outcome | Status |
 | --- | --- | --- |
 | M0 | Ten-question IKD scaffold | Verified locally |
-| M1 | Reproducible project baseline | Next |
-| M2 | Clinically reviewed IKD content | Planned |
-| M3 | Assessment review and FHIR handoff | Planned |
-| M4 | Questionnaire pilot on HTTPS | Planned |
-| M5 | Validated clinical evaluation, if pursued | Decision gate |
+| M1 | Reproducible project baseline | In progress |
+| M2 | Read-only Picorules ruleblock viewer | Planned |
+| M3 | Clinically reviewed IKD content | Planned |
+| M4 | Assessment review and FHIR handoff | Planned |
+| M5 | Questionnaire pilot on HTTPS | Planned |
+| M6 | Validated clinical evaluation, if pursued | Decision gate |
 
 Mark a milestone complete only when its exit checks and review evidence are recorded
 here or linked from here. Keep candidate clinical content and unvalidated evaluation
@@ -32,14 +33,14 @@ The served build opened all ten questions through an HTTP LAN address after the 
 compatibility fix. Reference screenshots are in `screenshots/`.
 
 **Limit:** This is a demonstration scaffold, not a clinically reviewed instrument.
-The Atlas directory is currently untracked by the workspace Git repository.
+Atlas was added to the workspace Git repository in commit `cc2ce19`.
 
-## M1 — Reproducible project baseline (next)
+## M1 — Reproducible project baseline (in progress)
 
 **Work**
 
-- Put Atlas under version control with a clear repository owner and document how its
-  adjacent `picorules-compiler-js-core` dependency is built from a clean checkout.
+- Document how Atlas and its adjacent `picorules-compiler-js-core` dependency are
+  built from a clean checkout. Atlas is now tracked in the workspace repository.
 - Add CI for content validation, typecheck, unit tests, static build, and browser
   checks. Run at least one browser check in an ordinary HTTP LAN origin or with
   secure-context-only APIs unavailable.
@@ -51,7 +52,31 @@ The Atlas directory is currently untracked by the workspace Git repository.
 commands; CI passes; the collection opens and answers work on the preview URL;
 the project has a tracked change history. This milestone does not deploy the site.
 
-## M2 — Clinically reviewed IKD content
+## M2 — Read-only Picorules ruleblock viewer
+
+The current app shows disease context beside each question, but it does not show
+the authored `.prb` ruleblock. Its static manifest contains executable input
+statements and metadata-derived questions, not the complete source text.
+
+**Work**
+
+- Add a read-only view of each ruleblock in the selected collection, showing its
+  exact versioned `.prb` source, rule ID, disease label, version, and references.
+  The build must supply the source as a static asset; the browser must not read the
+  server filesystem or call a rule service.
+- Link each question's disease association to the relevant ruleblock and input
+  declaration. Keep ruleblocks from other collections out of the selected view.
+- Render source as escaped text with keyboard-accessible navigation and a usable
+  mobile layout. Display the content version so reviewers can identify the source
+  they inspected.
+
+**Exit checks:** Both IKD ruleblocks are viewable and match the committed `.prb`
+files; question links lead to the correct input declaration; synthetic collection
+tests verify isolation; browser tests cover keyboard and mobile access. Explain in
+the viewer that these first ruleblocks declare features and do not contain a
+diagnostic algorithm.
+
+## M3 — Clinically reviewed IKD content
 
 **Work**
 
@@ -66,7 +91,7 @@ the project has a tracked change history. This milestone does not deploy the sit
 sign off on the questionnaire and limitations; content, FHIR, and browser checks pass.
 Any added feature has a documented source and clinical meaning.
 
-## M3 — Assessment review and FHIR handoff
+## M4 — Assessment review and FHIR handoff
 
 **Work**
 
@@ -84,7 +109,7 @@ exported bundle matches the displayed answers and validates; reload still clears
 the assessment; there is no disease ranking or diagnostic conclusion. Confirm the
 review and export behavior with users before implementation.
 
-## M4 — Questionnaire pilot on HTTPS
+## M5 — Questionnaire pilot on HTTPS
 
 **Work**
 
@@ -99,7 +124,7 @@ review and export behavior with users before implementation.
 smoke checks; clinical reviewers approve the pilot content; a feedback and issue
 triage process exists. This milestone can ship the questionnaire without evaluation.
 
-## M5 — Validated clinical evaluation (decision gate)
+## M6 — Validated clinical evaluation (decision gate)
 
 Do not begin user-visible scoring or disease conclusions solely because ten answers
 have been recorded. First decide whether Atlas should evaluate rules at all and what
@@ -118,8 +143,9 @@ documented limitations, and approval of the exact user-facing result language.
 
 | Decision | Needed for | Current assumption |
 | --- | --- | --- |
-| Atlas repository and CI location | M1 | No location chosen |
-| Named clinical reviewers and review process | M2 | Review required before clinical use |
-| Completion summary and FHIR download behavior | M3 | Proposed; no results today |
-| Hosting, DNS, and pilot access | M4 | No deployment authorized by this roadmap |
-| Whether to provide clinical evaluation | M5 | Undecided; no score or diagnosis today |
+| CI workflow and clean-checkout setup | M1 | Atlas is in the workspace repository; CI remains to be added |
+| Ruleblock source display and navigation | M2 | Read-only, selected collection only |
+| Named clinical reviewers and review process | M3 | Review required before clinical use |
+| Completion summary and FHIR download behavior | M4 | Proposed; no results today |
+| Hosting, DNS, and pilot access | M5 | No deployment authorized by this roadmap |
+| Whether to provide clinical evaluation | M6 | Undecided; no score or diagnosis today |
