@@ -10,7 +10,7 @@ not features of the current app. No target dates are assigned.
 | --- | --- | --- |
 | M0 | Ten-question IKD scaffold | Verified locally |
 | M1 | Reproducible project baseline | Complete |
-| M2 | Read-only Picorules ruleblock viewer | Next |
+| M2 | Read-only Picorules ruleblock viewer | In progress |
 | M3 | Clinically reviewed IKD content | Planned |
 | M4 | Assessment review and FHIR handoff | Planned |
 | M5 | Questionnaire pilot on HTTPS | Planned |
@@ -66,6 +66,14 @@ commands; CI passes; the collection opens and answers work on the preview URL;
 the project has a tracked change history. This milestone does not deploy the site.
 
 ## M2 — Read-only Picorules ruleblock viewer
+
+**Progress record**
+
+| Step | Status | Evidence |
+| --- | --- | --- |
+| Publish exact authored source in the static build | In progress | Pending implementation and source-fidelity tests |
+| Add selected-collection viewer and input links | Planned | Pending keyboard and mobile browser checks |
+| Validate and close M2 | Planned | Pending content, typecheck, unit, build, and browser runs |
 
 The current app shows disease context beside each question, but it does not show
 the authored `.prb` ruleblock. Its static manifest contains executable input
