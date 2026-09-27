@@ -56,6 +56,21 @@ export default function RuleblockViewer({ collection }: { collection: Collection
           <AuthoredSource rule={rule} />
         </article>
       ))}
+      <details className="source-provenance">
+        <summary>Source and license details</summary>
+        <div>
+          {Object.entries(collection.sources).filter(([id]) =>
+            collection.rules.some(rule => rule.sourceRefs.includes(id))).map(([id, source]) => (
+            <section key={id} aria-label={source.title}>
+              <h3><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></h3>
+              {source.release && <p>Release: {source.release}</p>}
+              {source.accessed && <p>Accessed: {source.accessed}</p>}
+              {source.attribution && <p>{source.attribution}</p>}
+              {source.license && <p>License: {source.license}</p>}
+            </section>
+          ))}
+        </div>
+      </details>
     </section>
   );
 }

@@ -197,6 +197,13 @@ a { color: inherit; }
 .rule-source span { scroll-margin-top: 35px; }
 .rule-source span:target { background: #f9df9a; outline: 2px solid #b8782d; }
 .rule-source span:focus { outline: 2px solid #b8782d; }
+.source-provenance { margin-top: 12px; border: 1px solid var(--line); background: var(--paper); }
+.source-provenance summary { cursor: pointer; padding: 16px 20px; color: var(--pine); font-size: 13px; font-weight: 700; }
+.source-provenance > div { padding: 0 20px 10px; }
+.source-provenance section { padding: 12px 0; border-top: 1px solid var(--line); }
+.source-provenance h3 { margin: 0 0 8px; font-size: 13px; }
+.source-provenance h3 a { color: #226b5b; }
+.source-provenance p { margin: 5px 0; color: var(--ink-soft); font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
 
 @media (max-width: 900px) {
   .landing-hero { grid-template-columns: 1fr 310px; gap: 20px; min-height: 480px; }

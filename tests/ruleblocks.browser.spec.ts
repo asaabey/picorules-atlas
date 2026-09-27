@@ -52,3 +52,16 @@ test('keyboard and mobile users can reach the input declaration', async ({ page 
   await expect(page.locator(target!)).toContainText('#define_attribute(proteinuria,');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
+
+test('candidate limitations and source provenance are visible to reviewers', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open assessment' }).click();
+  await expect(page.getByText(/not a complete screening instrument or diagnostic criteria/)).toBeVisible();
+  await expect(page.getByText(/an absent finding does not exclude it/)).toBeVisible();
+  const provenance = page.locator('details.source-provenance');
+  await provenance.locator('summary').focus();
+  await page.keyboard.press('Enter');
+  await expect(provenance.getByText(/Orphadata Science: Free access data from Orphanet/)).toBeVisible();
+  await expect(provenance.getByText(/July 2026 knowledge-base release/)).toBeVisible();
+  await expect(provenance.getByText(/CC BY 4.0/)).toBeVisible();
+});
