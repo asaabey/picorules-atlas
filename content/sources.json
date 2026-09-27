@@ -4,7 +4,7 @@
     "url": "https://sciences.orphadata.com/phenotypes/",
     "release": "July 2026 knowledge-base release; source XML generated 2026-06-23",
     "accessed": "2026-09-26",
-    "attribution": "Orphadata Science: Free access data from Orphanet. \u00a9 INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected 35 disease\u2013phenotype associations across six profiles and adapted the question wording. No endorsement implied.",
+    "attribution": "Orphadata Science: Free access data from Orphanet. \u00a9 INSERM 1999. Available at https://sciences.orphadata.com/. Changes: selected kidney disease profiles and transformed XML to CSV; Atlas selected 38 disease\u2013phenotype associations and adapted the question wording. No endorsement implied.",
     "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
   },
   "genereviews_fabry": {
@@ -73,5 +73,21 @@
     "url": "https://github.com/TheJacksonLaboratory/LIRICAL/releases/tag/v2.4.1",
     "release": "HPO v2026-09-01, annotations 2026-09-02",
     "attribution": "Extraction and provenance: benchmarks/ikd/adtkd-weights.json. Uncalibrated positive-only research weights."
+  },
+  "genereviews_nphp": {
+    "title": "GeneReviews: Nephronophthisis-Related Ciliopathies",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK368475/",
+    "release": "Updated 2023-03-02",
+    "accessed": "2026-09-27"
+  },
+  "genereviews_joubert": {
+    "title": "GeneReviews: Joubert Syndrome",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1325/",
+    "accessed": "2026-09-27"
+  },
+  "orphanet_mainzer": {
+    "title": "Orphanet: Saldino-Mainzer syndrome",
+    "url": "https://www.orpha.net/en/disease/detail/140969",
+    "accessed": "2026-09-27"
   }
 }

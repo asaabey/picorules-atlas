@@ -221,13 +221,13 @@ export function compileCollection(
     let scoring: CollectionManifest['rules'][number]['scoring'];
     if (headerAtlas.scoring !== undefined) {
       const model = object(headerAtlas.scoring, path, 1, 'scoring');
-      if (demo || model.model !== 'ikd-positive-log10-v1' || model.status !== 'research' ||
+      if (demo || !['ikd-positive-log10-v1', 'ikd-present-count-v1'].includes(model.model as string) || model.status !== 'research' ||
         model.absent_weight !== 0) fail(path, 1, 'unsupported weighted scoring contract');
       const weights = object(model.weights, path, 1, 'scoring.weights');
       if (Object.values(weights).some(weight => typeof weight !== 'number' ||
         !Number.isFinite(weight) || weight < 0)) fail(path, 1, 'weights must be finite nonnegative numbers');
       scoring = {
-        model: model.model, status: 'research', absentWeight: 0,
+        model: model.model as string, status: 'research', absentWeight: 0,
         sourceRefs: refs(model.source_refs, sources, path, 1),
         weights: weights as Record<string, number>,
       };
@@ -359,6 +359,10 @@ export function compileCollection(
       if (Object.keys(scoring.weights).length !== variables.length ||
         variables.some(variable => scoring.weights[variable] === undefined)) {
         fail(path, 1, 'weighted rule must declare exactly one weight per input');
+      }
+      if (scoring.model === 'ikd-present-count-v1' && variables.some(variable =>
+        scoring!.weights[variable] !== (questions.get(variable)?.evidenceKind === 'family_history' ? 0 : 1))) {
+        fail(path, 1, 'present-count rule must assign one per clinical feature and zero to family history');
       }
       const expected = [
         ...variables.map(variable => `${variable} => eadv.phen_${variable}.val.last();`),

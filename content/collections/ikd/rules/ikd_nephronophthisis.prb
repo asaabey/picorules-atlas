@@ -1,0 +1,177 @@
+/* Nephronophthisis, unspecified: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_nephronophthisis, {
+    "description": "Nephronophthisis, unspecified candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.7.0-ciliopathies",
+        "disease_label": "Nephronophthisis, unspecified",
+        "disease_id": "ORPHA:655",
+        "source_refs": [
+            "orphadata_2026_06",
+            "genereviews_nphp"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "genereviews_nphp"
+            ],
+            "weights": {
+                "renal_insufficiency": 1,
+                "anemia": 1,
+                "abnormal_retinal_pigmentation": 1,
+                "polyuria": 1,
+                "polydipsia": 1,
+                "renal_corticomedullary_cysts": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+renal_insufficiency => eadv.phen_renal_insufficiency.val.last();
+anemia => eadv.phen_anemia.val.last();
+abnormal_retinal_pigmentation => eadv.phen_abnormal_retinal_pigmentation.val.last();
+polyuria => eadv.phen_polyuria.val.last();
+polydipsia => eadv.phen_polydipsia.val.last();
+renal_corticomedullary_cysts => eadv.phen_renal_corticomedullary_cysts.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(renal_insufficiency, 0) + coalesce(anemia, 0) + coalesce(abnormal_retinal_pigmentation, 0) + coalesce(polyuria, 0) + coalesce(polydipsia, 0) + coalesce(renal_corticomedullary_cysts, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_renal_insufficiency : { renal_insufficiency = 1 => 1 }, { => 0 };
+contribution_anemia : { anemia = 1 => 1 }, { => 0 };
+contribution_abnormal_retinal_pigmentation : { abnormal_retinal_pigmentation = 1 => 1 }, { => 0 };
+contribution_polyuria : { polyuria = 1 => 1 }, { => 0 };
+contribution_polydipsia : { polydipsia = 1 => 1 }, { => 0 };
+contribution_renal_corticomedullary_cysts : { renal_corticomedullary_cysts = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_renal_insufficiency + contribution_anemia + contribution_abnormal_retinal_pigmentation + contribution_polyuria + contribution_polydipsia + contribution_renal_corticomedullary_cysts + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(renal_insufficiency, {
+    "label": "Reduced kidney function",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_insufficiency",
+        "source_attribute": "phen_renal_insufficiency",
+        "section": "kidney",
+        "question": "Has reduced kidney function been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000083",
+        "help": "Records an existing finding without assigning a cause or a new laboratory threshold.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(anemia, {
+    "label": "Anaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "anemia",
+        "source_attribute": "phen_anemia",
+        "section": "kidney",
+        "question": "Has anaemia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001903",
+        "help": "Records anaemia without assuming that kidney disease caused it.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(abnormal_retinal_pigmentation, {
+    "label": "Abnormal retinal pigmentation",
+    "atlas": {
+        "role": "input",
+        "feature_id": "abnormal_retinal_pigmentation",
+        "source_attribute": "phen_abnormal_retinal_pigmentation",
+        "section": "eyes",
+        "question": "Has abnormal retinal pigmentation been documented by an eye specialist?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0007703",
+        "help": "Use a documented examination finding; this is not equivalent to all forms of retinal dystrophy.",
+        "source_refs": [
+            "orphadata_2026_06"
+        ]
+    }
+});
+
+#define_attribute(polyuria, {
+    "label": "Polyuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polyuria",
+        "source_attribute": "phen_polyuria",
+        "section": "kidney",
+        "question": "Has persistent excessive urine output been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000103",
+        "help": "Records the history or measured finding without setting a volume threshold.",
+        "source_refs": [
+            "genereviews_nphp"
+        ]
+    }
+});
+
+#define_attribute(polydipsia, {
+    "label": "Polydipsia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polydipsia",
+        "source_attribute": "phen_polydipsia",
+        "section": "kidney",
+        "question": "Has persistent excessive thirst been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001959",
+        "help": "Records excessive thirst without assuming a kidney cause.",
+        "source_refs": [
+            "genereviews_nphp"
+        ]
+    }
+});
+
+#define_attribute(renal_corticomedullary_cysts, {
+    "label": "Renal corticomedullary cysts",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_corticomedullary_cysts",
+        "source_attribute": "phen_renal_corticomedullary_cysts",
+        "section": "kidney",
+        "question": "Have renal corticomedullary cysts been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000108",
+        "help": "Requires documented corticomedullary location. Simple cysts elsewhere are not equivalent. Cysts may be absent in ADTKD.",
+        "source_refs": [
+            "genereviews_nphp"
+        ],
+        "image_guidance": {
+            "category": "radiology",
+            "modality": "CT and T2-weighted MRI",
+            "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+            "asset_status": "not_selected"
+        }
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "source_refs": [
+            "genereviews_nphp"
+        ],
+        "evidence_kind": "family_history"
+    }
+});

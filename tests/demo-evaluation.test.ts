@@ -48,7 +48,7 @@ describe('authored demonstration rules', () => {
     expect(fabry.presentFeatures.map(feature => feature.featureId)).toEqual(['proteinuria', 'angiokeratoma']);
     expect(tsc).toMatchObject({ ruleId: 'ikd_tuberous_sclerosis', presentCount: 0, flagged: false });
     expect(run(['proteinuria'])[0]).toMatchObject({ presentCount: 1, flagged: false });
-    expect(run([]).map(result => result.presentCount)).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
+    expect(run([]).map(result => result.presentCount)).toEqual(Array(14).fill(0));
     expect(run(['seizure', 'angiofibromas'])[1]).toMatchObject({ presentCount: 2, flagged: false });
   });
 
@@ -63,8 +63,9 @@ describe('authored demonstration rules', () => {
       const rule = manifest.rules.find(rule => rule.id === row[0])!;
       expect(rule.scoring!.weights[row[2]]).toBe(Number(Number(row.at(-3)).toFixed(6)));
     }
-    expect(manifest.rules.reduce((sum, rule) => sum + Object.values(rule.scoring!.weights)
-      .filter(weight => weight! > 0).length, 0)).toBe(46);
+    expect(manifest.rules.filter(rule => rule.scoring?.model === 'ikd-positive-log10-v1')
+      .reduce((sum, rule) => sum + Object.values(rule.scoring!.weights)
+        .filter(weight => weight! > 0).length, 0)).toBe(46);
   });
 
   it('weights distinctive findings more and treats omitted answers as absent', () => {
@@ -72,7 +73,7 @@ describe('authored demonstration rules', () => {
     expect(run(['acroparesthesia'])[0].weightedScore).toBeGreaterThan(run(['proteinuria'])[0].weightedScore!);
     expect(run(['anterior_lenticonus'])[2].weightedScore).toBeCloseTo(2.787697, 6);
     const omitted = evaluateCollectionDemo(manifest, buildAssessmentBundle(manifest, {}, sessionId));
-    expect(omitted.map(result => result.weightedScore)).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
+    expect(omitted.map(result => result.weightedScore)).toEqual(Array(14).fill(0));
     expect(omitted.every(result => result.contributions!.every(item => !item.present && item.value === 0))).toBe(true);
     const both = run(['acroparesthesia', 'proteinuria'])[0];
     expect(both.weightedScore).toBeCloseTo(4.616602, 6);

@@ -13,7 +13,10 @@ const expected: Record<string, string[]> = {
     'ikd_tuberous_sclerosis', 'ikd_alport', 'ikd_hnf1b', 'ikd_vhl',
     'ikd_adtkd_umod', 'ikd_adtkd_muc1',
   ],
-  family_history_autosomal_recessive: ['ikd_alport', 'ikd_arpkd'],
+  family_history_autosomal_recessive: [
+    'ikd_alport', 'ikd_arpkd', 'ikd_nephronophthisis', 'ikd_nphp1', 'ikd_nphp4',
+    'ikd_nphp12', 'ikd_joubert', 'ikd_mainzer_saldino',
+  ],
   family_history_x_linked: ['ikd_fabry', 'ikd_alport'],
 };
 

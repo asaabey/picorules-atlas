@@ -1,18 +1,18 @@
 # IKD clinical content review (M3)
 
-**Status: original prototype accepted; four new profiles and detailed accuracy review pending.** The
+**Status: original prototype accepted; later profiles and detailed accuracy review pending.** The
 clinical reviewer accepted the original ten questions and workflow for application
 development in [prototype sign-off](PROTOTYPE-SIGNOFF.md). The decision record
 below remains pending for any later clinical release claim.
 
 ## Current calculation boundary
 
-The eight rules now calculate weighted phenotype matching scores. Present findings add declared weights; absent and unticked findings add zero. Results and the FHIR handoff show research scores without a diagnostic cutoff. See [implementation details and limitations](WEIGHTING-IMPLEMENTATION.md). Clinical approval remains pending.
+Eight rules calculate candidate LIRICAL-weighted phenotype matching scores. Six new nephronophthisis and ciliopathy rules count present clinical features, one point each. Both models give zero for family-history context and unticked findings; their totals have different units. Results and the FHIR handoff distinguish the models and apply no diagnostic cutoff. See [implementation details and limitations](WEIGHTING-IMPLEMENTATION.md). Clinical approval remains pending.
 
 ## What to review
 
 Open the static Atlas assessment and [candidate content packet](CANDIDATE-CONTENT.md)
-for the content version named in the packet. Check each of the 42 questions against the
+for the content version named in the packet. Check each of the 60 questions against the
 authored ruleblock and its sources. For every feature, decide whether the short
 label, HPO code and meaning, question, help text, section, answer control, and
 disease association are suitable. Check the shared answer semantics, disease
@@ -59,7 +59,7 @@ completed review record still match the manifest. It does not signify approval.
 
 ## Points needing explicit clinical judgment
 
-- The 42 questions are a compact demonstration, not a complete inherited kidney
+- The 60 questions are a compact demonstration, not a complete inherited kidney
   disease screen, diagnostic criteria, or a sensitivity claim. Recorded absence
   does not exclude either disease.
 - The TSC questions record single findings. They do not capture lesion counts,
@@ -91,3 +91,7 @@ UMOD (6 inputs) and MUC1 (5 inputs) add five unique questions, giving 39 questio
 ## Family-history extension
 
 Three shared prompts record documented pedigree patterns suggesting autosomal dominant, autosomal recessive, or X-linked inheritance. Alport links to all three because its inheritance varies by genetic subtype. These prompts are context, not proof of a molecular diagnosis, and add zero to the LIRICAL-derived score. The ten rule associations and GeneReviews sources are recorded in [inheritance-evidence.json](inheritance-evidence.json). Negative or unclear family history does not exclude any profile.
+
+## Six-profile ciliopathy extension
+
+Broad nephronophthisis, NPHP1, NPHP4, NPHP12, Joubert syndrome, and Mainzer–Saldino syndrome add 18 new shared questions, giving 60 in total. Their 46 new disease–question associations are recorded in [ciliopathy-evidence.json](ciliopathy-evidence.json). Each present clinical finding contributes one point; the shared recessive pedigree prompt contributes zero. This simple count keeps the application flow working while exact subtype mappings and performance remain unreviewed. NPHP12 has particularly sparse subtype annotations; related profiles can produce the same count. The generic Joubert and Mainzer–Saldino profiles use GeneReviews and Orphanet descriptions rather than treating narrower or broader source profiles as exact equivalents.

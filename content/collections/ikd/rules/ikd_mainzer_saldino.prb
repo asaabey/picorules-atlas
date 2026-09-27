@@ -1,0 +1,170 @@
+/* Mainzer–Saldino syndrome: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_mainzer_saldino, {
+    "description": "Mainzer–Saldino syndrome candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.7.0-ciliopathies",
+        "disease_label": "Mainzer–Saldino syndrome",
+        "disease_id": "ORPHA:140969",
+        "source_refs": [
+            "orphanet_mainzer"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "orphanet_mainzer"
+            ],
+            "weights": {
+                "renal_insufficiency": 1,
+                "retinal_dystrophy": 1,
+                "cone_shaped_phalangeal_epiphyses": 1,
+                "ataxia": 1,
+                "short_stature": 1,
+                "short_thorax": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+renal_insufficiency => eadv.phen_renal_insufficiency.val.last();
+retinal_dystrophy => eadv.phen_retinal_dystrophy.val.last();
+cone_shaped_phalangeal_epiphyses => eadv.phen_cone_shaped_phalangeal_epiphyses.val.last();
+ataxia => eadv.phen_ataxia.val.last();
+short_stature => eadv.phen_short_stature.val.last();
+short_thorax => eadv.phen_short_thorax.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(renal_insufficiency, 0) + coalesce(retinal_dystrophy, 0) + coalesce(cone_shaped_phalangeal_epiphyses, 0) + coalesce(ataxia, 0) + coalesce(short_stature, 0) + coalesce(short_thorax, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_renal_insufficiency : { renal_insufficiency = 1 => 1 }, { => 0 };
+contribution_retinal_dystrophy : { retinal_dystrophy = 1 => 1 }, { => 0 };
+contribution_cone_shaped_phalangeal_epiphyses : { cone_shaped_phalangeal_epiphyses = 1 => 1 }, { => 0 };
+contribution_ataxia : { ataxia = 1 => 1 }, { => 0 };
+contribution_short_stature : { short_stature = 1 => 1 }, { => 0 };
+contribution_short_thorax : { short_thorax = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_renal_insufficiency + contribution_retinal_dystrophy + contribution_cone_shaped_phalangeal_epiphyses + contribution_ataxia + contribution_short_stature + contribution_short_thorax + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(renal_insufficiency, {
+    "label": "Reduced kidney function",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_insufficiency",
+        "source_attribute": "phen_renal_insufficiency",
+        "section": "kidney",
+        "question": "Has reduced kidney function been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000083",
+        "help": "Records an existing finding without assigning a cause or a new laboratory threshold.",
+        "source_refs": [
+            "orphanet_mainzer"
+        ]
+    }
+});
+
+#define_attribute(retinal_dystrophy, {
+    "label": "Retinal dystrophy",
+    "atlas": {
+        "role": "input",
+        "feature_id": "retinal_dystrophy",
+        "source_attribute": "phen_retinal_dystrophy",
+        "section": "eyes",
+        "question": "Has retinal dystrophy been documented by an eye specialist?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000556",
+        "help": "Use a documented retinal diagnosis; nonspecific visual impairment is insufficient.",
+        "source_refs": [
+            "orphanet_mainzer"
+        ]
+    }
+});
+
+#define_attribute(cone_shaped_phalangeal_epiphyses, {
+    "label": "Cone-shaped finger-bone epiphyses",
+    "atlas": {
+        "role": "input",
+        "feature_id": "cone_shaped_phalangeal_epiphyses",
+        "source_attribute": "phen_cone_shaped_phalangeal_epiphyses",
+        "section": "skeletal",
+        "question": "Have cone-shaped finger-bone epiphyses been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0034281",
+        "help": "Use the named skeletal radiology finding.",
+        "source_refs": [
+            "orphanet_mainzer"
+        ]
+    }
+});
+
+#define_attribute(ataxia, {
+    "label": "Ataxia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "ataxia",
+        "source_attribute": "phen_ataxia",
+        "section": "neurological_history",
+        "question": "Has ataxia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001251",
+        "help": "Records an established coordination finding, including a historical finding.",
+        "source_refs": [
+            "orphanet_mainzer"
+        ]
+    }
+});
+
+#define_attribute(short_stature, {
+    "label": "Short stature",
+    "atlas": {
+        "role": "input",
+        "feature_id": "short_stature",
+        "source_attribute": "phen_short_stature",
+        "section": "endocrine_metabolic",
+        "question": "Has short stature been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0004322",
+        "help": "Records documented stature without applying a new height cutoff.",
+        "source_refs": [
+            "orphanet_mainzer"
+        ]
+    }
+});
+
+#define_attribute(short_thorax, {
+    "label": "Short thorax",
+    "atlas": {
+        "role": "input",
+        "feature_id": "short_thorax",
+        "source_attribute": "phen_short_thorax",
+        "section": "skeletal",
+        "question": "Has a short thorax been documented on examination or imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0010306",
+        "help": "Records the described skeletal finding without using it to assign a genetic subtype.",
+        "source_refs": [
+            "orphanet_mainzer"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "source_refs": [
+            "orphanet_mainzer"
+        ],
+        "evidence_kind": "family_history"
+    }
+});

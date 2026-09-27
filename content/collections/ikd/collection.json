@@ -3,8 +3,8 @@
   "id": "ikd",
   "title": "Inherited kidney disease",
   "description": "Structured history and findings for an inherited kidney disease assessment.",
-  "version": "0.6.0-family-history",
-  "limitations": "These 42 questions across eight disease profiles are an incomplete research assessment. Three shared family-history prompts record patterns that may suggest dominant, recessive, or X-linked inheritance; they do not establish a genetic diagnosis. Unticked findings are recorded as absent for this proof of concept. Family-history prompts have zero score weight while the other present findings add candidate weights derived from LIRICAL. Scores are not calibrated disease probabilities or diagnostic criteria. A zero score does not exclude disease. A negative or unclear family history does not exclude disease, and Alport remains a broad profile without inheritance subtypes. Related findings may inflate totals, profiles have different selected features, and UMOD and MUC1 remain hard to distinguish. Timing of gout is not encoded.",
+  "version": "0.7.0-ciliopathies",
+  "limitations": "These candidate questions across fourteen disease profiles are an incomplete research assessment. Six added nephronophthisis and ciliopathy profiles use an Atlas-authored present clinical feature count of one point per marked finding; existing eight profiles retain LIRICAL-derived candidate weights. The two score models have different units and totals cannot be compared as likelihoods. Family-history prompts add zero to both models. Unticked findings are recorded as absent for this proof of concept. A zero score does not exclude disease. Closely related nephronophthisis subtypes may yield similar scores; NPHP12 source coverage is sparse. Joubert and Mainzer–Saldino source mappings need review. Alport and Fabry remain broad profiles without subtype scores. These outputs are not diagnostic criteria, probabilities, or treatment advice.",
   "associationContext": "This is background context; an answer here does not establish or exclude a diagnosis.",
   "sections": [
     {
@@ -26,6 +26,10 @@
     {
       "id": "neurological_history",
       "label": "Neurological history"
+    },
+    {
+      "id": "skeletal",
+      "label": "Skeletal"
     },
     {
       "id": "hearing",
@@ -52,6 +56,12 @@
     "rules/ikd_arpkd.prb",
     "rules/ikd_vhl.prb",
     "rules/ikd_adtkd_umod.prb",
-    "rules/ikd_adtkd_muc1.prb"
+    "rules/ikd_adtkd_muc1.prb",
+    "rules/ikd_nephronophthisis.prb",
+    "rules/ikd_nphp1.prb",
+    "rules/ikd_nphp4.prb",
+    "rules/ikd_nphp12.prb",
+    "rules/ikd_joubert.prb",
+    "rules/ikd_mainzer_saldino.prb"
   ]
 }

@@ -3,8 +3,9 @@ import collections from '../src/generated/collections.json';
 import evidence from '../reviews/ikd/orphadata-evidence.json';
 import adtkdEvidence from '../reviews/ikd/adtkd-evidence.json';
 import inheritanceEvidence from '../reviews/ikd/inheritance-evidence.json';
+import ciliopathyEvidence from '../reviews/ikd/ciliopathy-evidence.json';
 const allEvidence = [...evidence.associations, ...adtkdEvidence.associations,
-  ...inheritanceEvidence.associations];
+  ...inheritanceEvidence.associations, ...ciliopathyEvidence.associations];
 import { buildAssessmentBundle, buildQuestionnaire, HPO_SYSTEM } from '../src/lib/fhir';
 import { observationsToEadv } from '../src/lib/runtime/featureAdapter';
 import type { AnswerState, CollectionManifest } from '../src/lib/types';
@@ -25,7 +26,7 @@ describe('IKD candidate content review mapping', () => {
     }))));
     expect(pairings).toHaveLength(allEvidence.length);
     const items = buildQuestionnaire(manifest).item.flatMap(section => section.item ?? []);
-    expect(items).toHaveLength(42);
+    expect(items).toHaveLength(60);
     for (const item of items) {
       const source = allEvidence.find(row => row.featureId === item.linkId);
       expect(item.code).toContainEqual({

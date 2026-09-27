@@ -1,8 +1,15 @@
 {
   "schemaVersion": "1",
   "collectionId": "ikd",
-  "contentVersion": "bda54c22d356132f",
+  "contentVersion": "f74409e920c619b1",
   "featureReviews": {
+    "abnormal_retinal_pigmentation": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "acroparesthesia": {
       "status": "pending",
       "reviewer": null,
@@ -11,6 +18,13 @@
       "wordingChanges": []
     },
     "adrenal_pheochromocytoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "anemia": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -38,6 +52,13 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "ataxia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "bilateral_sensorineural_hearing_impairment": {
       "status": "pending",
       "reviewer": null,
@@ -46,6 +67,13 @@
       "wordingChanges": []
     },
     "cerebellar_hemangioblastoma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "cone_shaped_phalangeal_epiphyses": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -115,6 +143,13 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "global_developmental_delay": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "glomerular_basement_membrane_lamellation": {
       "status": "pending",
       "reviewer": null,
@@ -123,6 +158,13 @@
       "wordingChanges": []
     },
     "gout": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "growth_delay": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -171,7 +213,28 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "hyposthenuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "hypotonia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "microscopic_hematuria": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "molar_tooth_sign": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -186,6 +249,13 @@
       "wordingChanges": []
     },
     "multiple_renal_cysts": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "oculomotor_apraxia": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -214,6 +284,20 @@
       "wordingChanges": []
     },
     "polycystic_kidney_dysplasia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "polydipsia": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "polyuria": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -262,6 +346,20 @@
       "decisionNotes": "",
       "wordingChanges": []
     },
+    "renal_cysts": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "renal_insufficiency": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
     "renal_tubular_atrophy": {
       "status": "pending",
       "reviewer": null,
@@ -270,6 +368,13 @@
       "wordingChanges": []
     },
     "retinal_capillary_hemangioma": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "retinal_dystrophy": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,
@@ -291,6 +396,27 @@
       "wordingChanges": []
     },
     "shagreen_patch": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "short_stature": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "short_thorax": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionNotes": "",
+      "wordingChanges": []
+    },
+    "stage_5_ckd": {
       "status": "pending",
       "reviewer": null,
       "reviewedAt": null,

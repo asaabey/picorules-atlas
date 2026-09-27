@@ -27,8 +27,11 @@ const adtkdEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'adtkd-evidenc
 const inheritanceEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'inheritance-evidence.json'), 'utf8')) as {
   description: string; associations: typeof evidence.associations;
 };
+const ciliopathyEvidence = JSON.parse(readFileSync(resolve(reviewRoot, 'ciliopathy-evidence.json'), 'utf8')) as {
+  description: string; associations: typeof evidence.associations;
+};
 const allEvidence = [...evidence.associations, ...adtkdEvidence.associations,
-  ...inheritanceEvidence.associations];
+  ...inheritanceEvidence.associations, ...ciliopathyEvidence.associations];
 const record = JSON.parse(readFileSync(resolve(reviewRoot, 'review-record.json'), 'utf8')) as ClinicalReviewRecord;
 
 function assert(condition: unknown, message: string): asserts condition {
@@ -52,6 +55,9 @@ assert(adtkdEvidence.sourceRelease === manifest.sources[adtkdEvidence.sourceId]?
 assert(inheritanceEvidence.associations.length === 10, 'expected ten inheritance-pattern associations');
 assert(inheritanceEvidence.associations.every(row => row.sourceId && manifest.sources[row.sourceId]),
   'inheritance-pattern source reference is missing');
+assert(ciliopathyEvidence.associations.length === 46, 'expected 46 ciliopathy source associations');
+assert(ciliopathyEvidence.associations.every(row => row.sourceId && manifest.sources[row.sourceId]),
+  'ciliopathy source reference is missing');
 const associations = manifest.questions.flatMap(question => question.diseases.map(disease => ({ question, disease })));
 assert(allEvidence.length === associations.length, 'source crosswalk has the wrong row count');
 const evidenceByKey = new Map(allEvidence.map(row => [`${row.ruleId}/${row.featureId}`, row]));
@@ -100,9 +106,10 @@ const lines = [
   ...Object.entries(manifest.sources).flatMap(([id, source]) => [
     `- **${id}:** [${source.title}](${source.url}). ${source.release ?? 'Release unspecified'}. Accessed ${source.accessed ?? 'date unspecified'}.`,
   ]),
-  `- Orphadata source XML: [download](${evidence.sourceUrl}); SHA-256 \`${evidence.sourceSha256}\`; ${evidence.license}. The ${evidence.associations.length} rows in \`orphadata-evidence.json\` were copied from the local source audit.`,
+  `- Orphadata source XML: [download](${evidence.sourceUrl}); SHA-256 \`${evidence.sourceSha256}\`; ${evidence.license}. The ${evidence.associations.length} original rows in \`orphadata-evidence.json\` and three broad nephronophthisis rows in \`ciliopathy-evidence.json\` came from the local source audit.`,
   '',
   `- HPOA ADTKD evidence: release ${adtkdEvidence.sourceRelease}, SHA-256 ${adtkdEvidence.sourceSha256}. See adtkd-evidence.json for original annotation references and evidence codes.`,
+  '- Six added profiles: ciliopathy-evidence.json separates exact HPOA and Orphadata annotations from supplemental GeneReviews and Orphanet descriptions. The present-feature count is Atlas-authored and has no clinical calibration.',
   '- Family-history patterns: GeneReviews inheritance and pedigree descriptions are mapped in inheritance-evidence.json. These are contextual observations, not HPO phenotype annotations or LIRICAL-weighted findings.',
   '## Candidate features',
   '',

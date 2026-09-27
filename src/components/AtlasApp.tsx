@@ -498,9 +498,10 @@ function ResultsPanel({ collection, results, onDownload }: {
       <p className="flow-version">Collection {collection.version} · Content {collection.contentVersion}</p>
       <div className="context-banner flow-warning"><span className="banner-icon" aria-hidden="true">i</span><div>
         <strong>Proof of concept only</strong>
-        <p>Present clinical findings add disease-specific weights. Family-history patterns are recorded but currently add no score weight. Unticked items are absent and add zero.
-          These research scores are not disease probabilities or diagnostic cutoffs. Related findings may
-          inflate totals, and the profiles contain different selected features. A zero score does not exclude disease.</p>
+        <p>Existing profiles use candidate LIRICAL weights; the six new ciliopathy profiles count present
+          clinical findings, one point each. Family-history patterns add zero. Unticked items are absent and
+          add zero. These models have different units and their totals must not be compared as disease
+          probabilities or diagnostic cutoffs. A zero score does not exclude disease.</p>
       </div></div>
       <div className="result-list">
         {results.map(result => {
@@ -512,7 +513,9 @@ function ResultsPanel({ collection, results, onDownload }: {
           return <section className="result-card" key={result.ruleId} aria-labelledby={`result-${result.ruleId}`}>
             <p className="overline">AUTHORED RULE / {result.ruleId} / v{result.ruleVersion}</p>
             <h3 id={`result-${result.ruleId}`}>{result.label}</h3>
-            <p className="result-status">Phenotype matching score: {(result.weightedScore ?? 0).toFixed(3)}</p>
+            <p className="result-status">{result.scoringModel === 'ikd-present-count-v1'
+              ? `Present clinical features: ${result.weightedScore ?? 0}`
+              : `Phenotype matching score: ${(result.weightedScore ?? 0).toFixed(3)}`}</p>
             <p>{result.presentCount} / {result.totalFeatures} linked findings marked present.</p>
             <p><strong>Contributing findings:</strong> {scored.length
               ? scored.map(feature => feature.label).join(', ') : 'None marked present'}.</p>
@@ -527,9 +530,10 @@ function ResultsPanel({ collection, results, onDownload }: {
                     `weight ${item.weight.toFixed(3)} · contribution ${item.value.toFixed(3)}`}
                 </li>)}
               </ul>
-              <p>Model: {result.scoringModel}. Weights are derived from LIRICAL and rounded to six
-                decimals in the rule. Absent findings contribute zero. This selected-feature sum has
-                not been calibrated in a kidney clinic population.</p>
+              <p>Model: {result.scoringModel}. {result.scoringModel === 'ikd-present-count-v1'
+                ? 'Each present clinical feature contributes one. The count is not a calibrated likelihood and shared findings may give similar scores to related profiles.'
+                : 'Weights are derived from LIRICAL and rounded to six decimals in the rule. This selected-feature sum has not been calibrated in a kidney clinic population.'}
+                {' '}Absent findings contribute zero.</p>
             </details>
             <a href={rule.assetPath} target="_blank" rel="noopener noreferrer">
               Read exact authored ruleblock <span className="sr-only">(opens in a new tab)</span>

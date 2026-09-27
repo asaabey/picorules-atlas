@@ -96,7 +96,7 @@ describe('Atlas content compilation', () => {
     expect(first.questions[0].diseases[0].inputLine).toBeGreaterThan(1);
   });
 
-  it('compiles eight authored IKD profiles with shared source-backed questions', () => {
+  it('compiles fourteen authored IKD profiles with shared source-backed questions', () => {
     const root = new URL('../content/', import.meta.url);
     const collection = JSON.parse(readFileSync(new URL('collections/ikd/collection.json', root), 'utf8'));
     const sourceRecords = JSON.parse(readFileSync(new URL('sources.json', root), 'utf8'));
@@ -115,8 +115,10 @@ describe('Atlas content compilation', () => {
           .toMatch(new RegExp(`^#define_attribute\\(${question.featureId},`));
       }
     }
-    expect(manifest.questions).toHaveLength(42);
-    expect(manifest.rules.every(rule => rule.scoring?.model === 'ikd-positive-log10-v1')).toBe(true);
+    expect(manifest.questions).toHaveLength(60);
+    expect(manifest.rules).toHaveLength(14);
+    expect(manifest.rules.slice(0, 8).every(rule => rule.scoring?.model === 'ikd-positive-log10-v1')).toBe(true);
+    expect(manifest.rules.slice(8).every(rule => rule.scoring?.model === 'ikd-present-count-v1')).toBe(true);
     expect(manifest.rules.every(rule => rule.source.includes('present_feature_count :'))).toBe(true);
     expect(manifest.questions.filter(q => q.diseases.some(d => d.ruleId === 'ikd_fabry'))).toHaveLength(6);
     expect(manifest.questions.filter(q => q.diseases.some(d => d.ruleId === 'ikd_tuberous_sclerosis'))).toHaveLength(6);

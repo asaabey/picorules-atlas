@@ -1,0 +1,243 @@
+/* Nephronophthisis 1: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_nphp1, {
+    "description": "Nephronophthisis 1 candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.7.0-ciliopathies",
+        "disease_label": "Nephronophthisis 1",
+        "disease_id": "OMIM:256100",
+        "source_refs": [
+            "hpoa_2026_09",
+            "genereviews_nphp"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "genereviews_nphp"
+            ],
+            "weights": {
+                "polyuria": 1,
+                "polydipsia": 1,
+                "anemia": 1,
+                "growth_delay": 1,
+                "hyposthenuria": 1,
+                "renal_corticomedullary_cysts": 1,
+                "renal_tubular_atrophy": 1,
+                "stage_5_ckd": 1,
+                "retinal_dystrophy": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+polyuria => eadv.phen_polyuria.val.last();
+polydipsia => eadv.phen_polydipsia.val.last();
+anemia => eadv.phen_anemia.val.last();
+growth_delay => eadv.phen_growth_delay.val.last();
+hyposthenuria => eadv.phen_hyposthenuria.val.last();
+renal_corticomedullary_cysts => eadv.phen_renal_corticomedullary_cysts.val.last();
+renal_tubular_atrophy => eadv.phen_renal_tubular_atrophy.val.last();
+stage_5_ckd => eadv.phen_stage_5_ckd.val.last();
+retinal_dystrophy => eadv.phen_retinal_dystrophy.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(polyuria, 0) + coalesce(polydipsia, 0) + coalesce(anemia, 0) + coalesce(growth_delay, 0) + coalesce(hyposthenuria, 0) + coalesce(renal_corticomedullary_cysts, 0) + coalesce(renal_tubular_atrophy, 0) + coalesce(stage_5_ckd, 0) + coalesce(retinal_dystrophy, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_polyuria : { polyuria = 1 => 1 }, { => 0 };
+contribution_polydipsia : { polydipsia = 1 => 1 }, { => 0 };
+contribution_anemia : { anemia = 1 => 1 }, { => 0 };
+contribution_growth_delay : { growth_delay = 1 => 1 }, { => 0 };
+contribution_hyposthenuria : { hyposthenuria = 1 => 1 }, { => 0 };
+contribution_renal_corticomedullary_cysts : { renal_corticomedullary_cysts = 1 => 1 }, { => 0 };
+contribution_renal_tubular_atrophy : { renal_tubular_atrophy = 1 => 1 }, { => 0 };
+contribution_stage_5_ckd : { stage_5_ckd = 1 => 1 }, { => 0 };
+contribution_retinal_dystrophy : { retinal_dystrophy = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_polyuria + contribution_polydipsia + contribution_anemia + contribution_growth_delay + contribution_hyposthenuria + contribution_renal_corticomedullary_cysts + contribution_renal_tubular_atrophy + contribution_stage_5_ckd + contribution_retinal_dystrophy + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(polyuria, {
+    "label": "Polyuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polyuria",
+        "source_attribute": "phen_polyuria",
+        "section": "kidney",
+        "question": "Has persistent excessive urine output been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000103",
+        "help": "Records the history or measured finding without setting a volume threshold.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(polydipsia, {
+    "label": "Polydipsia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polydipsia",
+        "source_attribute": "phen_polydipsia",
+        "section": "kidney",
+        "question": "Has persistent excessive thirst been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001959",
+        "help": "Records excessive thirst without assuming a kidney cause.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(anemia, {
+    "label": "Anaemia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "anemia",
+        "source_attribute": "phen_anemia",
+        "section": "kidney",
+        "question": "Has anaemia been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001903",
+        "help": "Records anaemia without assuming that kidney disease caused it.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(growth_delay, {
+    "label": "Growth delay",
+    "atlas": {
+        "role": "input",
+        "feature_id": "growth_delay",
+        "source_attribute": "phen_growth_delay",
+        "section": "endocrine_metabolic",
+        "question": "Was delayed growth documented during childhood?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001510",
+        "help": "A historical childhood finding; adult short stature alone is not the same observation.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(hyposthenuria, {
+    "label": "Reduced urine-concentrating ability",
+    "atlas": {
+        "role": "input",
+        "feature_id": "hyposthenuria",
+        "source_attribute": "phen_hyposthenuria",
+        "section": "kidney",
+        "question": "Has reduced urine-concentrating ability been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003158",
+        "help": "Use a documented concentrating defect; polyuria alone does not establish it.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(renal_corticomedullary_cysts, {
+    "label": "Renal corticomedullary cysts",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_corticomedullary_cysts",
+        "source_attribute": "phen_renal_corticomedullary_cysts",
+        "section": "kidney",
+        "question": "Have renal corticomedullary cysts been documented on imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000108",
+        "help": "Requires documented corticomedullary location. Simple cysts elsewhere are not equivalent. Cysts may be absent in ADTKD.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ],
+        "image_guidance": {
+            "category": "radiology",
+            "modality": "CT and T2-weighted MRI",
+            "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+            "asset_status": "not_selected"
+        }
+    }
+});
+
+#define_attribute(renal_tubular_atrophy, {
+    "label": "Renal tubular atrophy",
+    "atlas": {
+        "role": "input",
+        "feature_id": "renal_tubular_atrophy",
+        "source_attribute": "phen_renal_tubular_atrophy",
+        "section": "kidney",
+        "question": "Has renal tubular atrophy been documented on a previous kidney biopsy?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000092",
+        "help": "Use an existing histopathology report. This assessment does not recommend obtaining a biopsy.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ],
+        "image_guidance": {
+            "category": "histopathology",
+            "modality": "Light microscopy",
+            "description": "No reference image selected: this finding does not need a visual recognition aid in Atlas.",
+            "asset_status": "not_selected"
+        }
+    }
+});
+
+#define_attribute(stage_5_ckd, {
+    "label": "Stage 5 chronic kidney disease",
+    "atlas": {
+        "role": "input",
+        "feature_id": "stage_5_ckd",
+        "source_attribute": "phen_stage_5_ckd",
+        "section": "kidney",
+        "question": "Has stage 5 chronic kidney disease been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003774",
+        "help": "Records an existing advanced kidney disease stage, not a recommendation to investigate.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(retinal_dystrophy, {
+    "label": "Retinal dystrophy",
+    "atlas": {
+        "role": "input",
+        "feature_id": "retinal_dystrophy",
+        "source_attribute": "phen_retinal_dystrophy",
+        "section": "eyes",
+        "question": "Has retinal dystrophy been documented by an eye specialist?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000556",
+        "help": "Use a documented retinal diagnosis; nonspecific visual impairment is insufficient.",
+        "source_refs": [
+            "genereviews_nphp"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "source_refs": [
+            "genereviews_nphp"
+        ],
+        "evidence_kind": "family_history"
+    }
+});

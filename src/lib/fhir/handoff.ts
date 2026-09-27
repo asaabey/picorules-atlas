@@ -93,12 +93,16 @@ export function buildHandoffBundle(
         resourceType: 'Observation', id, status: 'preliminary',
         identifier: [{ system: RULE_ID_SYSTEM, value: result.ruleId }],
         code: { coding: [{ system: RULE_SCORE_SYSTEM,
-          code: result.scoringModel ? 'phenotype-match-ikd-positive-log10-v1' : 'present-feature-count',
-          display: result.scoringModel ? 'Research phenotype matching score' : 'Present feature count',
+          code: result.scoringModel === 'ikd-positive-log10-v1'
+            ? 'phenotype-match-ikd-positive-log10-v1' : 'present-feature-count',
+          display: result.scoringModel === 'ikd-positive-log10-v1'
+            ? 'Research phenotype matching score' : 'Present clinical feature count',
         }], text: `${result.label} research score` },
         subject: { reference: patientReference },
         ...(result.weightedScore === undefined ? { valueInteger: result.presentCount } : {
-          valueQuantity: { value: result.weightedScore, unit: 'score', system: 'http://unitsofmeasure.org', code: '1' },
+          valueQuantity: { value: result.weightedScore,
+            unit: result.scoringModel === 'ikd-present-count-v1' ? 'count' : 'score',
+            system: 'http://unitsofmeasure.org', code: '1' },
         }),
         component: [
           scoreComponent('total-features', 'Total declared features', result.totalFeatures),
@@ -106,7 +110,7 @@ export function buildHandoffBundle(
         ],
         derivedFrom: [{ reference: response.fullUrl }],
         note: [{ text: `Rule ${result.ruleId} v${result.ruleVersion}; model ${result.scoringModel ?? 'count'}. ` +
-          'Research score, not a diagnostic probability. Unstated findings are absent and contribute zero. ' +
+          'Research output, not a diagnostic probability. Unstated findings are absent and contribute zero. ' +
           (result.contributions ?? []).map(item => `${item.label}: ${item.present ? 'present' : 'absent'}, weight ${item.weight}, contribution ${item.value}`).join('; ') }],
       },
     });

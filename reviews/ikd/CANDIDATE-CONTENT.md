@@ -3,8 +3,8 @@
 > Review packet only. No clinical approval or diagnostic performance is implied.
 > These ruleblocks calculate research phenotype matching scores using declared positive-finding weights. This is not a diagnostic criterion, probability, or clinical recommendation.
 
-Collection: Inherited kidney disease (ikd), version 0.6.0-family-history.
-Content version: `bda54c22d356132f`.
+Collection: Inherited kidney disease (ikd), version 0.7.0-ciliopathies.
+Content version: `f74409e920c619b1`.
 
 Review every feature label, HPO mapping, question, help text, disease association, and source link.
 Record decisions and wording changes in `review-record.json` against this content version.
@@ -25,9 +25,13 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - **genereviews_adtkd_umod:** [GeneReviews: ADTKD–UMOD](https://www.ncbi.nlm.nih.gov/books/NBK1356/). Release unspecified. Accessed 2026-09-27.
 - **genereviews_adtkd_muc1:** [GeneReviews: ADTKD–MUC1](https://www.ncbi.nlm.nih.gov/books/NBK153723/). Release unspecified. Accessed 2026-09-27.
 - **adtkd_weights_2026_09:** [ADTKD candidate weights from pinned LIRICAL 2.4.1](https://github.com/TheJacksonLaboratory/LIRICAL/releases/tag/v2.4.1). HPO v2026-09-01, annotations 2026-09-02. Accessed date unspecified.
-- Orphadata source XML: [download](https://www.orphadata.com/data/xml/en_product4.xml); SHA-256 `4f44e8a61201399911aa1ba44a293c0ccaa5ce11272c47d40862255cb72f6b32`; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). The 35 rows in `orphadata-evidence.json` were copied from the local source audit.
+- **genereviews_nphp:** [GeneReviews: Nephronophthisis-Related Ciliopathies](https://www.ncbi.nlm.nih.gov/books/NBK368475/). Updated 2023-03-02. Accessed 2026-09-27.
+- **genereviews_joubert:** [GeneReviews: Joubert Syndrome](https://www.ncbi.nlm.nih.gov/books/NBK1325/). Release unspecified. Accessed 2026-09-27.
+- **orphanet_mainzer:** [Orphanet: Saldino-Mainzer syndrome](https://www.orpha.net/en/disease/detail/140969). Release unspecified. Accessed 2026-09-27.
+- Orphadata source XML: [download](https://www.orphadata.com/data/xml/en_product4.xml); SHA-256 `4f44e8a61201399911aa1ba44a293c0ccaa5ce11272c47d40862255cb72f6b32`; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). The 35 original rows in `orphadata-evidence.json` and three broad nephronophthisis rows in `ciliopathy-evidence.json` came from the local source audit.
 
 - HPOA ADTKD evidence: release 2026-09-02, SHA-256 e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72. See adtkd-evidence.json for original annotation references and evidence codes.
+- Six added profiles: ciliopathy-evidence.json separates exact HPOA and Orphadata annotations from supplemental GeneReviews and Orphanet descriptions. The present-feature count is Atlas-authored and has no clinical calibration.
 - Family-history patterns: GeneReviews inheritance and pedigree descriptions are mapped in inheritance-evidence.json. These are contextual observations, not HPO phenotype annotations or LIRICAL-weighted findings.
 ## Candidate features
 
@@ -63,13 +67,31 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - HPO: HP:0000007; EADV input: `phen_family_history_autosomal_recessive`.
 - Question: Does the documented family history show affected siblings with unaffected parents?
 - Help: Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.
-- Feature source IDs: genereviews_alport, genereviews_arpkd.
+- Feature source IDs: genereviews_alport, genereviews_arpkd, genereviews_nphp, genereviews_joubert, orphanet_mainzer.
 - Association: Alport syndrome (ORPHA:63); rule `ikd_alport` v0.6.0-family-history, input declaration line 181.
 - Source row (genereviews_alport): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
 - Disease source IDs: orphadata_2026_06.
 - Association: Autosomal recessive polycystic kidney disease (ORPHA:731); rule `ikd_arpkd` v0.6.0-family-history, input declaration line 159.
 - Source row (genereviews_arpkd): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
 - Disease source IDs: orphadata_2026_06.
+- Association: Nephronophthisis, unspecified (ORPHA:655); rule `ikd_nephronophthisis` v0.7.0-ciliopathies, input declaration line 161.
+- Source row (genereviews_nphp): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
+- Disease source IDs: orphadata_2026_06, genereviews_nphp.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 227.
+- Source row (genereviews_nphp): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 207.
+- Source row (genereviews_nphp): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 12 (OMIM:613820); rule `ikd_nphp12` v0.7.0-ciliopathies, input declaration line 115.
+- Source row (genereviews_nphp): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 174.
+- Source row (genereviews_joubert): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
+- Disease source IDs: genereviews_joubert.
+- Association: Mainzer–Saldino syndrome (ORPHA:140969); rule `ikd_mainzer_saldino` v0.7.0-ciliopathies, input declaration line 154.
+- Source row (orphanet_mainzer): HP:0000007 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
+- Disease source IDs: orphanet_mainzer.
 
 ### 3. Documented family history suggesting X-linked inheritance (`family_history_x_linked`)
 
@@ -85,7 +107,24 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (genereviews_alport): HP:0001417 inheritance-mode term; family-history pattern recorded for context with zero score weight. Source checked 2026-09-27.
 - Disease source IDs: orphadata_2026_06.
 
-### 4. Decreased glomerular filtration rate (`decreased_glomerular_filtration_rate`)
+### 4. Anaemia (`anemia`)
+
+- Section: Kidney
+- HPO: HP:0001903; EADV input: `phen_anemia`.
+- Question: Has anaemia been documented?
+- Help: Records anaemia without assuming that kidney disease caused it.
+- Feature source IDs: orphadata_2026_06, hpoa_2026_09.
+- Association: Nephronophthisis, unspecified (ORPHA:655); rule `ikd_nephronophthisis` v0.7.0-ciliopathies, input declaration line 70.
+- Source row (orphadata_2026_06): HP:0001903 “Anemia”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphadata_2026_06, genereviews_nphp.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 96.
+- Source row (hpoa_2026_09): HP:0001903 “Anaemia”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 93.
+- Source row (hpoa_2026_09): HP:0001903 “Anaemia”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+
+### 5. Decreased glomerular filtration rate (`decreased_glomerular_filtration_rate`)
 
 - Section: Kidney
 - HPO: HP:0012213; EADV input: `phen_decreased_glomerular_filtration_rate`.
@@ -99,7 +138,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (hpoa_2026_09): HP:0012213 “Decreased glomerular filtration rate”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
 - Disease source IDs: hpoa_2026_09, genereviews_adtkd_muc1.
 
-### 5. Enlarged kidney (`enlarged_kidney`)
+### 6. Enlarged kidney (`enlarged_kidney`)
 
 - Section: Kidney
 - HPO: HP:0000105; EADV input: `phen_enlarged_kidney`.
@@ -110,7 +149,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000105 “Enlarged kidney”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 6. Glomerular basement membrane lamellation (`glomerular_basement_membrane_lamellation`)
+### 7. Glomerular basement membrane lamellation (`glomerular_basement_membrane_lamellation`)
 
 - Section: Kidney
 - HPO: HP:0030034; EADV input: `phen_glomerular_basement_membrane_lamellation`.
@@ -121,7 +160,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0030034 “Glomerular basement membrane lamellation”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 7. Horseshoe kidney (`horseshoe_kidney`)
+### 8. Horseshoe kidney (`horseshoe_kidney`)
 
 - Section: Kidney
 - HPO: HP:0000085; EADV input: `phen_horseshoe_kidney`.
@@ -133,7 +172,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000085 “Horseshoe kidney”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 8. Hyperechogenic kidneys (`hyperechogenic_kidneys`)
+### 9. Hyperechogenic kidneys (`hyperechogenic_kidneys`)
 
 - Section: Kidney
 - HPO: HP:0004719; EADV input: `phen_hyperechogenic_kidneys`.
@@ -145,7 +184,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (hpoa_2026_09): HP:0004719 “Hyperechogenic kidneys”, source date 2026-09-02; frequency category “4/23” is provenance context only, never a score or patient probability.
 - Disease source IDs: hpoa_2026_09, genereviews_adtkd_umod.
 
-### 9. Microscopic haematuria (`microscopic_hematuria`)
+### 10. Microscopic haematuria (`microscopic_hematuria`)
 
 - Section: Kidney
 - HPO: HP:0002907; EADV input: `phen_microscopic_hematuria`.
@@ -156,7 +195,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0002907 “Microscopic hematuria”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 10. Multicystic kidney dysplasia (`multicystic_kidney_dysplasia`)
+### 11. Multicystic kidney dysplasia (`multicystic_kidney_dysplasia`)
 
 - Section: Kidney
 - HPO: HP:0000003; EADV input: `phen_multicystic_kidney_dysplasia`.
@@ -167,7 +206,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000003 “Multicystic kidney dysplasia”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 11. Multiple renal cysts (`multiple_renal_cysts`)
+### 12. Multiple renal cysts (`multiple_renal_cysts`)
 
 - Section: Kidney
 - HPO: HP:0005562; EADV input: `phen_multiple_renal_cysts`.
@@ -178,7 +217,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0005562 “Multiple renal cysts”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 12. Polycystic kidney dysplasia (`polycystic_kidney_dysplasia`)
+### 13. Polycystic kidney dysplasia (`polycystic_kidney_dysplasia`)
 
 - Section: Kidney
 - HPO: HP:0000113; EADV input: `phen_polycystic_kidney_dysplasia`.
@@ -189,7 +228,47 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000113 “Polycystic kidney dysplasia”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 13. Proteinuria (`proteinuria`)
+### 14. Polydipsia (`polydipsia`)
+
+- Section: Kidney
+- HPO: HP:0001959; EADV input: `phen_polydipsia`.
+- Question: Has persistent excessive thirst been documented?
+- Help: Records excessive thirst without assuming a kidney cause.
+- Feature source IDs: genereviews_nphp, hpoa_2026_09.
+- Association: Nephronophthisis, unspecified (ORPHA:655); rule `ikd_nephronophthisis` v0.7.0-ciliopathies, input declaration line 121.
+- Source row (genereviews_nphp): HP:0001959 “Polydipsia”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphadata_2026_06, genereviews_nphp.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 79.
+- Source row (hpoa_2026_09): HP:0001959 “Polydipsia”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 76.
+- Source row (hpoa_2026_09): HP:0001959 “Polydipsia”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 12 (OMIM:613820); rule `ikd_nphp12` v0.7.0-ciliopathies, input declaration line 64.
+- Source row (genereviews_nphp): HP:0001959 “Polydipsia”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+
+### 15. Polyuria (`polyuria`)
+
+- Section: Kidney
+- HPO: HP:0000103; EADV input: `phen_polyuria`.
+- Question: Has persistent excessive urine output been documented?
+- Help: Records the history or measured finding without setting a volume threshold.
+- Feature source IDs: genereviews_nphp, hpoa_2026_09.
+- Association: Nephronophthisis, unspecified (ORPHA:655); rule `ikd_nephronophthisis` v0.7.0-ciliopathies, input declaration line 104.
+- Source row (genereviews_nphp): HP:0000103 “Polyuria”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphadata_2026_06, genereviews_nphp.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 62.
+- Source row (hpoa_2026_09): HP:0000103 “Polyuria”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 59.
+- Source row (hpoa_2026_09): HP:0000103 “Polyuria”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 12 (OMIM:613820); rule `ikd_nphp12` v0.7.0-ciliopathies, input declaration line 47.
+- Source row (genereviews_nphp): HP:0000103 “Polyuria”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+
+### 16. Proteinuria (`proteinuria`)
 
 - Section: Kidney
 - HPO: HP:0000093; EADV input: `phen_proteinuria`.
@@ -203,7 +282,32 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000093 “Proteinuria”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 14. Renal agenesis (`renal_agenesis`)
+### 17. Reduced kidney function (`renal_insufficiency`)
+
+- Section: Kidney
+- HPO: HP:0000083; EADV input: `phen_renal_insufficiency`.
+- Question: Has reduced kidney function been documented?
+- Help: Records an existing finding without assigning a cause or a new laboratory threshold.
+- Feature source IDs: orphadata_2026_06, orphanet_mainzer.
+- Association: Nephronophthisis, unspecified (ORPHA:655); rule `ikd_nephronophthisis` v0.7.0-ciliopathies, input declaration line 53.
+- Source row (orphadata_2026_06): HP:0000083 “Renal insufficiency”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphadata_2026_06, genereviews_nphp.
+- Association: Mainzer–Saldino syndrome (ORPHA:140969); rule `ikd_mainzer_saldino` v0.7.0-ciliopathies, input declaration line 52.
+- Source row (orphanet_mainzer): HP:0000083 “Reduced kidney function”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphanet_mainzer.
+
+### 18. Reduced urine-concentrating ability (`hyposthenuria`)
+
+- Section: Kidney
+- HPO: HP:0003158; EADV input: `phen_hyposthenuria`.
+- Question: Has reduced urine-concentrating ability been documented?
+- Help: Use a documented concentrating defect; polyuria alone does not establish it.
+- Feature source IDs: hpoa_2026_09.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 130.
+- Source row (hpoa_2026_09): HP:0003158 “Reduced urine-concentrating ability”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+
+### 19. Renal agenesis (`renal_agenesis`)
 
 - Section: Kidney
 - HPO: HP:0000104; EADV input: `phen_renal_agenesis`.
@@ -214,7 +318,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000104 “Renal agenesis”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 15. Renal angiomyolipoma (`renal_angiomyolipoma`)
+### 20. Renal angiomyolipoma (`renal_angiomyolipoma`)
 
 - Section: Kidney
 - HPO: HP:0006772; EADV input: `phen_renal_angiomyolipoma`.
@@ -226,7 +330,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0006772 “Renal angiomyolipoma”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
-### 16. Renal cell carcinoma (`renal_cell_carcinoma`)
+### 21. Renal cell carcinoma (`renal_cell_carcinoma`)
 
 - Section: Kidney
 - HPO: HP:0005584; EADV input: `phen_renal_cell_carcinoma`.
@@ -237,22 +341,42 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0005584 “Renal cell carcinoma”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 17. Renal corticomedullary cysts (`renal_corticomedullary_cysts`)
+### 22. Renal corticomedullary cysts (`renal_corticomedullary_cysts`)
 
 - Section: Kidney
 - HPO: HP:0000108; EADV input: `phen_renal_corticomedullary_cysts`.
 - Question: Have renal corticomedullary cysts been documented on imaging?
 - Help: Requires documented corticomedullary location. Simple cysts elsewhere are not equivalent. Cysts may be absent in ADTKD.
 - Image metadata: radiology, CT and T2-weighted MRI. No reference image selected: this finding does not need a visual recognition aid in Atlas. Reference asset status: not_selected.
-- Feature source IDs: hpoa_2026_09.
+- Feature source IDs: hpoa_2026_09, genereviews_nphp.
 - Association: ADTKD–UMOD (OMIM:162000); rule `ikd_adtkd_umod` v0.6.0-family-history, input declaration line 130.
 - Source row (hpoa_2026_09): HP:0000108 “Renal corticomedullary cysts”, source date 2026-09-02; frequency category “2/3” is provenance context only, never a score or patient probability.
 - Disease source IDs: hpoa_2026_09, genereviews_adtkd_umod.
 - Association: ADTKD–MUC1 (OMIM:174000); rule `ikd_adtkd_muc1` v0.6.0-family-history, input declaration line 127.
 - Source row (hpoa_2026_09): HP:0000108 “Renal corticomedullary cysts”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
 - Disease source IDs: hpoa_2026_09, genereviews_adtkd_muc1.
+- Association: Nephronophthisis, unspecified (ORPHA:655); rule `ikd_nephronophthisis` v0.7.0-ciliopathies, input declaration line 138.
+- Source row (genereviews_nphp): HP:0000108 “Renal corticomedullary cysts”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphadata_2026_06, genereviews_nphp.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 147.
+- Source row (hpoa_2026_09): HP:0000108 “Renal corticomedullary cysts”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 127.
+- Source row (hpoa_2026_09): HP:0000108 “Renal corticomedullary cysts”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
 
-### 18. Renal tubular atrophy (`renal_tubular_atrophy`)
+### 23. Renal cysts (`renal_cysts`)
+
+- Section: Kidney
+- HPO: HP:0000107; EADV input: `phen_renal_cysts`.
+- Question: Have renal cysts been documented on imaging?
+- Help: Records cysts without inferring their location or type.
+- Feature source IDs: genereviews_joubert.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 157.
+- Source row (genereviews_joubert): HP:0000107 “Renal cysts”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: genereviews_joubert.
+
+### 24. Renal tubular atrophy (`renal_tubular_atrophy`)
 
 - Section: Kidney
 - HPO: HP:0000092; EADV input: `phen_renal_tubular_atrophy`.
@@ -266,8 +390,31 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Association: ADTKD–MUC1 (OMIM:174000); rule `ikd_adtkd_muc1` v0.6.0-family-history, input declaration line 104.
 - Source row (hpoa_2026_09): HP:0000092 “Renal tubular atrophy”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
 - Disease source IDs: hpoa_2026_09, genereviews_adtkd_muc1.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 170.
+- Source row (hpoa_2026_09): HP:0000092 “Renal tubular atrophy”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 150.
+- Source row (hpoa_2026_09): HP:0000092 “Renal tubular atrophy”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
 
-### 19. Angiofibromas (`angiofibromas`)
+### 25. Stage 5 chronic kidney disease (`stage_5_ckd`)
+
+- Section: Kidney
+- HPO: HP:0003774; EADV input: `phen_stage_5_ckd`.
+- Question: Has stage 5 chronic kidney disease been documented?
+- Help: Records an existing advanced kidney disease stage, not a recommendation to investigate.
+- Feature source IDs: hpoa_2026_09.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 193.
+- Source row (hpoa_2026_09): HP:0003774 “Stage 5 chronic kidney disease”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 173.
+- Source row (hpoa_2026_09): HP:0003774 “Stage 5 chronic kidney disease”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 12 (OMIM:613820); rule `ikd_nphp12` v0.7.0-ciliopathies, input declaration line 81.
+- Source row (hpoa_2026_09): HP:0003774 “Stage 5 chronic kidney disease”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+
+### 26. Angiofibromas (`angiofibromas`)
 
 - Section: Skin and sweating
 - HPO: HP:0010615; EADV input: `phen_angiofibromas`.
@@ -280,7 +427,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0010615 “Angiofibromas”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
-### 20. Angiokeratomas (`angiokeratoma`)
+### 27. Angiokeratomas (`angiokeratoma`)
 
 - Section: Skin and sweating
 - HPO: HP:0001014; EADV input: `phen_angiokeratoma`.
@@ -292,7 +439,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0001014 “Angiokeratoma”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
-### 21. Hypomelanotic macules (`hypomelanotic_macule`)
+### 28. Hypomelanotic macules (`hypomelanotic_macule`)
 
 - Section: Skin and sweating
 - HPO: HP:0009719; EADV input: `phen_hypomelanotic_macule`.
@@ -304,7 +451,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0009719 “Hypomelanotic macule”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
-### 22. Reduced sweating (`hypohidrosis`)
+### 29. Reduced sweating (`hypohidrosis`)
 
 - Section: Skin and sweating
 - HPO: HP:0000966; EADV input: `phen_hypohidrosis`.
@@ -315,7 +462,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000966 “Hypohidrosis”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
-### 23. Shagreen patch (`shagreen_patch`)
+### 30. Shagreen patch (`shagreen_patch`)
 
 - Section: Skin and sweating
 - HPO: HP:0009721; EADV input: `phen_shagreen_patch`.
@@ -327,7 +474,18 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0009721 “Shagreen patch”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
-### 24. Anterior lenticonus (`anterior_lenticonus`)
+### 31. Abnormal retinal pigmentation (`abnormal_retinal_pigmentation`)
+
+- Section: Eyes
+- HPO: HP:0007703; EADV input: `phen_abnormal_retinal_pigmentation`.
+- Question: Has abnormal retinal pigmentation been documented by an eye specialist?
+- Help: Use a documented examination finding; this is not equivalent to all forms of retinal dystrophy.
+- Feature source IDs: orphadata_2026_06.
+- Association: Nephronophthisis, unspecified (ORPHA:655); rule `ikd_nephronophthisis` v0.7.0-ciliopathies, input declaration line 87.
+- Source row (orphadata_2026_06): HP:0007703 “Abnormality of retinal pigmentation”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphadata_2026_06, genereviews_nphp.
+
+### 32. Anterior lenticonus (`anterior_lenticonus`)
 
 - Section: Eyes
 - HPO: HP:0011501; EADV input: `phen_anterior_lenticonus`.
@@ -338,7 +496,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0011501 “Anterior lenticonus”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 25. Cornea verticillata (`cornea_verticillata`)
+### 33. Cornea verticillata (`cornea_verticillata`)
 
 - Section: Eyes
 - HPO: HP:0500008; EADV input: `phen_cornea_verticillata`.
@@ -350,7 +508,18 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0500008 “Cornea verticillata”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
-### 26. Retinal capillary haemangioma (`retinal_capillary_hemangioma`)
+### 34. Oculomotor apraxia (`oculomotor_apraxia`)
+
+- Section: Eyes
+- HPO: HP:0000657; EADV input: `phen_oculomotor_apraxia`.
+- Question: Has oculomotor apraxia been documented?
+- Help: Use a named eye-movement finding from an examination.
+- Feature source IDs: genereviews_joubert.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 123.
+- Source row (genereviews_joubert): HP:0000657 “Oculomotor apraxia”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: genereviews_joubert.
+
+### 35. Retinal capillary haemangioma (`retinal_capillary_hemangioma`)
 
 - Section: Eyes
 - HPO: HP:0009711; EADV input: `phen_retinal_capillary_hemangioma`.
@@ -361,7 +530,27 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0009711 “Retinal capillary hemangioma”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 27. Retinal flecks (`retinal_flecks`)
+### 36. Retinal dystrophy (`retinal_dystrophy`)
+
+- Section: Eyes
+- HPO: HP:0000556; EADV input: `phen_retinal_dystrophy`.
+- Question: Has retinal dystrophy been documented by an eye specialist?
+- Help: Use a documented retinal diagnosis; nonspecific visual impairment is insufficient.
+- Feature source IDs: genereviews_nphp, genereviews_joubert, orphanet_mainzer.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 210.
+- Source row (genereviews_nphp): HP:0000556 “Retinal dystrophy”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 190.
+- Source row (genereviews_nphp): HP:0000556 “Retinal dystrophy”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 140.
+- Source row (genereviews_joubert): HP:0000556 “Retinal dystrophy”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: genereviews_joubert.
+- Association: Mainzer–Saldino syndrome (ORPHA:140969); rule `ikd_mainzer_saldino` v0.7.0-ciliopathies, input declaration line 69.
+- Source row (orphanet_mainzer): HP:0000556 “Retinal dystrophy”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphanet_mainzer.
+
+### 37. Retinal flecks (`retinal_flecks`)
 
 - Section: Eyes
 - HPO: HP:0012045; EADV input: `phen_retinal_flecks`.
@@ -372,7 +561,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0012045 “Retinal flecks”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 28. Acroparaesthesia (`acroparesthesia`)
+### 38. Acroparaesthesia (`acroparesthesia`)
 
 - Section: Neurological history
 - HPO: HP:0031006; EADV input: `phen_acroparesthesia`.
@@ -383,7 +572,21 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0031006 “Acroparesthesia”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_fabry, orphadata_2026_06.
 
-### 29. Cerebellar haemangioblastoma (`cerebellar_hemangioblastoma`)
+### 39. Ataxia (`ataxia`)
+
+- Section: Neurological history
+- HPO: HP:0001251; EADV input: `phen_ataxia`.
+- Question: Has ataxia been documented?
+- Help: Records an established coordination finding, including a historical finding.
+- Feature source IDs: genereviews_joubert, orphanet_mainzer.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 106.
+- Source row (genereviews_joubert): HP:0001251 “Ataxia”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: genereviews_joubert.
+- Association: Mainzer–Saldino syndrome (ORPHA:140969); rule `ikd_mainzer_saldino` v0.7.0-ciliopathies, input declaration line 103.
+- Source row (orphanet_mainzer): HP:0001251 “Ataxia”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphanet_mainzer.
+
+### 40. Cerebellar haemangioblastoma (`cerebellar_hemangioblastoma`)
 
 - Section: Neurological history
 - HPO: HP:0006880; EADV input: `phen_cerebellar_hemangioblastoma`.
@@ -394,7 +597,40 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0006880 “Cerebellar hemangioblastoma”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 30. Seizures (`seizure`)
+### 41. Global developmental delay (`global_developmental_delay`)
+
+- Section: Neurological history
+- HPO: HP:0001263; EADV input: `phen_global_developmental_delay`.
+- Question: Was global developmental delay documented in childhood?
+- Help: A historical developmental finding; do not infer it from kidney disease.
+- Feature source IDs: genereviews_joubert.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 89.
+- Source row (genereviews_joubert): HP:0001263 “Global developmental delay”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: genereviews_joubert.
+
+### 42. Hypotonia (`hypotonia`)
+
+- Section: Neurological history
+- HPO: HP:0001252; EADV input: `phen_hypotonia`.
+- Question: Has hypotonia been documented?
+- Help: Records reduced muscle tone observed clinically.
+- Feature source IDs: genereviews_joubert.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 72.
+- Source row (genereviews_joubert): HP:0001252 “Hypotonia”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: genereviews_joubert.
+
+### 43. Molar tooth sign on MRI (`molar_tooth_sign`)
+
+- Section: Neurological history
+- HPO: HP:0002419; EADV input: `phen_molar_tooth_sign`.
+- Question: Has a molar tooth sign been documented on brain MRI?
+- Help: Use the named radiology finding, not an inferred interpretation of an unrelated MRI.
+- Feature source IDs: genereviews_joubert.
+- Association: Joubert syndrome (ORPHA:140874); rule `ikd_joubert` v0.7.0-ciliopathies, input declaration line 55.
+- Source row (genereviews_joubert): HP:0002419 “Molar tooth sign on MRI”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: genereviews_joubert.
+
+### 44. Seizures (`seizure`)
 
 - Section: Neurological history
 - HPO: HP:0001250; EADV input: `phen_seizure`.
@@ -405,7 +641,32 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0001250 “Seizure”, source date 2026-06-23 07:57:18; frequency category “Very frequent (99-80%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: genereviews_tsc, orphadata_2026_06.
 
-### 31. Bilateral sensorineural hearing impairment (`bilateral_sensorineural_hearing_impairment`)
+### 45. Cone-shaped finger-bone epiphyses (`cone_shaped_phalangeal_epiphyses`)
+
+- Section: Skeletal
+- HPO: HP:0034281; EADV input: `phen_cone_shaped_phalangeal_epiphyses`.
+- Question: Have cone-shaped finger-bone epiphyses been documented on imaging?
+- Help: Use the named skeletal radiology finding.
+- Feature source IDs: orphanet_mainzer.
+- Association: Mainzer–Saldino syndrome (ORPHA:140969); rule `ikd_mainzer_saldino` v0.7.0-ciliopathies, input declaration line 86.
+- Source row (orphanet_mainzer): HP:0034281 “Cone-shaped finger-bone epiphyses”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphanet_mainzer.
+
+### 46. Short thorax (`short_thorax`)
+
+- Section: Skeletal
+- HPO: HP:0010306; EADV input: `phen_short_thorax`.
+- Question: Has a short thorax been documented on examination or imaging?
+- Help: Records the described skeletal finding without using it to assign a genetic subtype.
+- Feature source IDs: genereviews_nphp, orphanet_mainzer.
+- Association: Nephronophthisis 12 (OMIM:613820); rule `ikd_nphp12` v0.7.0-ciliopathies, input declaration line 98.
+- Source row (genereviews_nphp): HP:0010306 “Short thorax”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Mainzer–Saldino syndrome (ORPHA:140969); rule `ikd_mainzer_saldino` v0.7.0-ciliopathies, input declaration line 137.
+- Source row (orphanet_mainzer): HP:0010306 “Short thorax”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphanet_mainzer.
+
+### 47. Bilateral sensorineural hearing impairment (`bilateral_sensorineural_hearing_impairment`)
 
 - Section: Hearing
 - HPO: HP:0008619; EADV input: `phen_bilateral_sensorineural_hearing_impairment`.
@@ -416,7 +677,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0008619 “Bilateral sensorineural hearing impairment”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 32. Endolymphatic sac tumour (`endolymphatic_sac_tumor`)
+### 48. Endolymphatic sac tumour (`endolymphatic_sac_tumor`)
 
 - Section: Hearing
 - HPO: HP:0030393; EADV input: `phen_endolymphatic_sac_tumor`.
@@ -427,7 +688,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0030393 “Endolymphatic sac tumor”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 33. Adrenal pheochromocytoma (`adrenal_pheochromocytoma`)
+### 49. Adrenal pheochromocytoma (`adrenal_pheochromocytoma`)
 
 - Section: Endocrine and metabolic
 - HPO: HP:0006748; EADV input: `phen_adrenal_pheochromocytoma`.
@@ -438,7 +699,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0006748 “Adrenal pheochromocytoma”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 34. Diabetes mellitus (`diabetes_mellitus`)
+### 50. Diabetes mellitus (`diabetes_mellitus`)
 
 - Section: Endocrine and metabolic
 - HPO: HP:0000819; EADV input: `phen_diabetes_mellitus`.
@@ -449,7 +710,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0000819 “Diabetes mellitus”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 35. Gout (`gout`)
+### 51. Gout (`gout`)
 
 - Section: Endocrine and metabolic
 - HPO: HP:0001997; EADV input: `phen_gout`.
@@ -463,7 +724,21 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (hpoa_2026_09): HP:0001997 “Gout”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
 - Disease source IDs: hpoa_2026_09, genereviews_adtkd_muc1.
 
-### 36. Hyperuricaemia (`hyperuricemia`)
+### 52. Growth delay (`growth_delay`)
+
+- Section: Endocrine and metabolic
+- HPO: HP:0001510; EADV input: `phen_growth_delay`.
+- Question: Was delayed growth documented during childhood?
+- Help: A historical childhood finding; adult short stature alone is not the same observation.
+- Feature source IDs: hpoa_2026_09.
+- Association: Nephronophthisis 1 (OMIM:256100); rule `ikd_nphp1` v0.7.0-ciliopathies, input declaration line 113.
+- Source row (hpoa_2026_09): HP:0001510 “Growth delay”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+- Association: Nephronophthisis 4 (OMIM:606966); rule `ikd_nphp4` v0.7.0-ciliopathies, input declaration line 110.
+- Source row (hpoa_2026_09): HP:0001510 “Growth delay”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
+- Disease source IDs: hpoa_2026_09, genereviews_nphp.
+
+### 53. Hyperuricaemia (`hyperuricemia`)
 
 - Section: Endocrine and metabolic
 - HPO: HP:0002149; EADV input: `phen_hyperuricemia`.
@@ -480,7 +755,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (hpoa_2026_09): HP:0002149 “Hyperuricemia”, source date 2026-09-02; frequency category “Not supplied” is provenance context only, never a score or patient probability.
 - Disease source IDs: hpoa_2026_09, genereviews_adtkd_muc1.
 
-### 37. Pancreatic aplasia or hypoplasia (`pancreatic_aplasia_hypoplasia`)
+### 54. Pancreatic aplasia or hypoplasia (`pancreatic_aplasia_hypoplasia`)
 
 - Section: Endocrine and metabolic
 - HPO: HP:0100800; EADV input: `phen_pancreatic_aplasia_hypoplasia`.
@@ -491,7 +766,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0100800 “Aplasia/Hypoplasia of the pancreas”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 38. Pancreatic endocrine tumour (`pancreatic_endocrine_tumor`)
+### 55. Pancreatic endocrine tumour (`pancreatic_endocrine_tumor`)
 
 - Section: Endocrine and metabolic
 - HPO: HP:0030405; EADV input: `phen_pancreatic_endocrine_tumor`.
@@ -502,7 +777,18 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0030405 “Pancreatic endocrine tumor”, source date 2026-06-23 07:57:18; frequency category “Occasional (29-5%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 39. Congenital hepatic fibrosis (`congenital_hepatic_fibrosis`)
+### 56. Short stature (`short_stature`)
+
+- Section: Endocrine and metabolic
+- HPO: HP:0004322; EADV input: `phen_short_stature`.
+- Question: Has short stature been documented?
+- Help: Records documented stature without applying a new height cutoff.
+- Feature source IDs: orphanet_mainzer.
+- Association: Mainzer–Saldino syndrome (ORPHA:140969); rule `ikd_mainzer_saldino` v0.7.0-ciliopathies, input declaration line 120.
+- Source row (orphanet_mainzer): HP:0004322 “Short stature”, source date 2026-09-27; frequency category “not quantified” is provenance context only, never a score or patient probability.
+- Disease source IDs: orphanet_mainzer.
+
+### 57. Congenital hepatic fibrosis (`congenital_hepatic_fibrosis`)
 
 - Section: Liver and prenatal history
 - HPO: HP:0002612; EADV input: `phen_congenital_hepatic_fibrosis`.
@@ -513,7 +799,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0002612 “Congenital hepatic fibrosis”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 40. Oligohydramnios in the patient’s prenatal history (`oligohydramnios`)
+### 58. Oligohydramnios in the patient’s prenatal history (`oligohydramnios`)
 
 - Section: Liver and prenatal history
 - HPO: HP:0001562; EADV input: `phen_oligohydramnios`.
@@ -524,7 +810,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0001562 “Oligohydramnios”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 41. Portal hypertension (`portal_hypertension`)
+### 59. Portal hypertension (`portal_hypertension`)
 
 - Section: Liver and prenatal history
 - HPO: HP:0001409; EADV input: `phen_portal_hypertension`.
@@ -535,7 +821,7 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 - Source row (orphadata_2026_06): HP:0001409 “Portal hypertension”, source date 2026-06-23 07:57:18; frequency category “Frequent (79-30%)” is provenance context only, never a score or patient probability.
 - Disease source IDs: orphadata_2026_06.
 
-### 42. Hypertension (`hypertension`)
+### 60. Hypertension (`hypertension`)
 
 - Section: Cardiovascular
 - HPO: HP:0000822; EADV input: `phen_hypertension`.
@@ -548,12 +834,12 @@ After a wording or mapping change, rebuild the content, regenerate this packet, 
 
 ## Shared review decisions
 
-- Assessment limitations shown in Atlas: These 42 questions across eight disease profiles are an incomplete research assessment. Three shared family-history prompts record patterns that may suggest dominant, recessive, or X-linked inheritance; they do not establish a genetic diagnosis. Unticked findings are recorded as absent for this proof of concept. Family-history prompts have zero score weight while the other present findings add candidate weights derived from LIRICAL. Scores are not calibrated disease probabilities or diagnostic criteria. A zero score does not exclude disease. A negative or unclear family history does not exclude disease, and Alport remains a broad profile without inheritance subtypes. Related findings may inflate totals, profiles have different selected features, and UMOD and MUC1 remain hard to distinguish. Timing of gout is not encoded.
+- Assessment limitations shown in Atlas: These candidate questions across fourteen disease profiles are an incomplete research assessment. Six added nephronophthisis and ciliopathy profiles use an Atlas-authored present clinical feature count of one point per marked finding; existing eight profiles retain LIRICAL-derived candidate weights. The two score models have different units and totals cannot be compared as likelihoods. Family-history prompts add zero to both models. Unticked findings are recorded as absent for this proof of concept. A zero score does not exclude disease. Closely related nephronophthisis subtypes may yield similar scores; NPHP12 source coverage is sparse. Joubert and Mainzer–Saldino source mappings need review. Alport and Fabry remain broad profiles without subtype scores. These outputs are not diagnostic criteria, probabilities, or treatment advice.
 - Disease association context shown in Atlas: This is background context; an answer here does not establish or exclude a diagnosis.
 - Answer semantics: tick a finding to record present; every unticked finding is assumed absent for this demonstration.
 - FHIR mapping: all selected features produce boolean Observations, including false for unticked findings. Check displayed wording against this assumption.
 - Disease context: an association is background information and cannot establish or exclude disease.
 - Research output: each rule sums its declared weights for present features. Unticked features are absent and contribute zero. No diagnostic cutoff is applied. Review weights, correlated findings, feature selection and population calibration before clinical use.
-- Scope: 42 candidate features across 8 disease ruleblocks. This is not a complete inherited kidney disease screen or diagnostic criteria. It does not rank diseases or use Orphadata frequency categories as weights.
+- Scope: 60 candidate features across 14 disease ruleblocks. This is not a complete inherited kidney disease screen or diagnostic criteria. It does not rank diseases or use Orphadata frequency categories as weights.
 - Reviewer checks: confirm source attribution, release/version, terminology meaning, wording, limitations, and whether any feature needs added clinical context.
 

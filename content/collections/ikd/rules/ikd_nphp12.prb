@@ -1,0 +1,131 @@
+/* Nephronophthisis 12: candidate presence count. One point per clinical finding; no diagnostic cutoff. */
+#define_ruleblock(ikd_nphp12, {
+    "description": "Nephronophthisis 12 candidate feature count",
+    "is_active": 2,
+    "atlas": {
+        "schema_version": "1",
+        "version": "0.7.0-ciliopathies",
+        "disease_label": "Nephronophthisis 12",
+        "disease_id": "OMIM:613820",
+        "source_refs": [
+            "hpoa_2026_09",
+            "genereviews_nphp"
+        ],
+        "scoring": {
+            "model": "ikd-present-count-v1",
+            "status": "research",
+            "absent_weight": 0,
+            "source_refs": [
+                "genereviews_nphp"
+            ],
+            "weights": {
+                "polyuria": 1,
+                "polydipsia": 1,
+                "stage_5_ckd": 1,
+                "short_thorax": 1,
+                "family_history_autosomal_recessive": 0
+            }
+        }
+    }
+});
+
+polyuria => eadv.phen_polyuria.val.last();
+polydipsia => eadv.phen_polydipsia.val.last();
+stage_5_ckd => eadv.phen_stage_5_ckd.val.last();
+short_thorax => eadv.phen_short_thorax.val.last();
+family_history_autosomal_recessive => eadv.phen_family_history_autosomal_recessive.val.last();
+
+present_feature_count : { . => coalesce(polyuria, 0) + coalesce(polydipsia, 0) + coalesce(stage_5_ckd, 0) + coalesce(short_thorax, 0) + coalesce(family_history_autosomal_recessive, 0) };
+contribution_polyuria : { polyuria = 1 => 1 }, { => 0 };
+contribution_polydipsia : { polydipsia = 1 => 1 }, { => 0 };
+contribution_stage_5_ckd : { stage_5_ckd = 1 => 1 }, { => 0 };
+contribution_short_thorax : { short_thorax = 1 => 1 }, { => 0 };
+contribution_family_history_autosomal_recessive : { family_history_autosomal_recessive = 1 => 0 }, { => 0 };
+weighted_score : { . => contribution_polyuria + contribution_polydipsia + contribution_stage_5_ckd + contribution_short_thorax + contribution_family_history_autosomal_recessive };
+[[rb_id]] : { . => weighted_score };
+
+#define_attribute(polyuria, {
+    "label": "Polyuria",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polyuria",
+        "source_attribute": "phen_polyuria",
+        "section": "kidney",
+        "question": "Has persistent excessive urine output been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000103",
+        "help": "Records the history or measured finding without setting a volume threshold.",
+        "source_refs": [
+            "genereviews_nphp"
+        ]
+    }
+});
+
+#define_attribute(polydipsia, {
+    "label": "Polydipsia",
+    "atlas": {
+        "role": "input",
+        "feature_id": "polydipsia",
+        "source_attribute": "phen_polydipsia",
+        "section": "kidney",
+        "question": "Has persistent excessive thirst been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0001959",
+        "help": "Records excessive thirst without assuming a kidney cause.",
+        "source_refs": [
+            "genereviews_nphp"
+        ]
+    }
+});
+
+#define_attribute(stage_5_ckd, {
+    "label": "Stage 5 chronic kidney disease",
+    "atlas": {
+        "role": "input",
+        "feature_id": "stage_5_ckd",
+        "source_attribute": "phen_stage_5_ckd",
+        "section": "kidney",
+        "question": "Has stage 5 chronic kidney disease been documented?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0003774",
+        "help": "Records an existing advanced kidney disease stage, not a recommendation to investigate.",
+        "source_refs": [
+            "hpoa_2026_09"
+        ]
+    }
+});
+
+#define_attribute(short_thorax, {
+    "label": "Short thorax",
+    "atlas": {
+        "role": "input",
+        "feature_id": "short_thorax",
+        "source_attribute": "phen_short_thorax",
+        "section": "skeletal",
+        "question": "Has a short thorax been documented on examination or imaging?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0010306",
+        "help": "Records the described skeletal finding without using it to assign a genetic subtype.",
+        "source_refs": [
+            "genereviews_nphp"
+        ]
+    }
+});
+
+#define_attribute(family_history_autosomal_recessive, {
+    "label": "Documented family history suggesting autosomal recessive inheritance",
+    "atlas": {
+        "role": "input",
+        "feature_id": "family_history_autosomal_recessive",
+        "source_attribute": "phen_family_history_autosomal_recessive",
+        "section": "family_history",
+        "question": "Does the documented family history show affected siblings with unaffected parents?",
+        "answer_type": "presence",
+        "hpo_id": "HP:0000007",
+        "help": "Affected siblings with unaffected parents may suggest recessive inheritance. An isolated case or no affected siblings does not exclude it.",
+        "source_refs": [
+            "genereviews_nphp"
+        ],
+        "evidence_kind": "family_history"
+    }
+});

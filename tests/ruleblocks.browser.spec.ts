@@ -2,14 +2,14 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { expect, test } from '@playwright/test';
 
-test('static viewer preserves all eight authored IKD sources and question declaration links', async ({ page, request }) => {
+test('static viewer preserves all fourteen authored IKD sources and question declaration links', async ({ page, request }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Open assessment' }).click();
   await expect(page.getByRole('heading', { name: 'Ruleblocks in this collection' })).toBeVisible();
-  await expect(page.locator('article.ruleblock-card')).toHaveCount(8);
+  await expect(page.locator('article.ruleblock-card')).toHaveCount(14);
   await expect(page.getByText('They do not contain diagnostic logic')).toBeVisible();
 
-  for (const ruleId of ['ikd_fabry', 'ikd_tuberous_sclerosis', 'ikd_alport', 'ikd_hnf1b', 'ikd_arpkd', 'ikd_vhl', 'ikd_adtkd_umod', 'ikd_adtkd_muc1']) {
+  for (const ruleId of ['ikd_fabry', 'ikd_tuberous_sclerosis', 'ikd_alport', 'ikd_hnf1b', 'ikd_arpkd', 'ikd_vhl', 'ikd_adtkd_umod', 'ikd_adtkd_muc1', 'ikd_nephronophthisis', 'ikd_nphp1', 'ikd_nphp4', 'ikd_nphp12', 'ikd_joubert', 'ikd_mainzer_saldino']) {
     const card = page.locator('article.ruleblock-card').filter({ has: page.locator(`#rule-title-${ruleId}`) });
     const committedBytes = readFileSync(resolve(process.cwd(), `content/collections/ikd/rules/${ruleId}.prb`));
     const committed = committedBytes.toString('utf8');

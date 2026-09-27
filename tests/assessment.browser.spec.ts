@@ -142,11 +142,11 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
 
   await page.getByRole('button', { name: 'Open assessment' }).click();
   await expect(page.getByRole('heading', { name: 'Inherited kidney disease' })).toBeVisible();
-  await expect(page.locator('article.question-card')).toHaveCount(42);
+  await expect(page.locator('article.question-card')).toHaveCount(60);
   for (const section of ['Kidney', 'Skin and sweating', 'Eyes', 'Neurological history']) {
     await expect(page.getByRole('heading', { name: section, exact: true })).toBeVisible();
   }
-  await expect(page.getByText('0 / 42 present')).toBeVisible();
+  await expect(page.getByText('0 / 60 present')).toBeVisible();
   await expect(page.getByText('Tick documented findings and family-history patterns. Unticked items are treated as absent when you show results.')).toBeVisible();
   await expect(page.locator('article.question-card input:checked')).toHaveCount(0);
   await page.screenshot({ path: testInfo.outputPath('assessment.png'), fullPage: true });
@@ -160,10 +160,10 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   await proteinuriaCheckbox.focus();
   await page.keyboard.press('Space');
   await expect(proteinuriaCheckbox).toBeChecked();
-  await expect(page.getByText('1 / 42 present')).toBeVisible();
+  await expect(page.getByText('1 / 60 present')).toBeVisible();
   await page.keyboard.press('Space');
   await expect(proteinuriaCheckbox).not.toBeChecked();
-  await expect(page.getByText('0 / 42 present')).toBeVisible();
+  await expect(page.getByText('0 / 60 present')).toBeVisible();
   expect(requestsAfterAnswering).toEqual([]);
   expect(await page.evaluate(() => ({
     local: Object.keys(localStorage),
@@ -181,7 +181,7 @@ test('collection selection, answers, context, reset and leaving', async ({ page 
   await expect(proteinuria.getByText('This is background context').first()).toBeVisible();
 
   await page.getByRole('button', { name: 'Reset answers' }).click();
-  await expect(page.getByText('0 / 42 present')).toBeVisible();
+  await expect(page.getByText('0 / 60 present')).toBeVisible();
   await expect(page.locator('article.question-card input:checked')).toHaveCount(0);
 
   await proteinuriaCheckbox.check();
@@ -212,7 +212,7 @@ test('mobile assessment has usable controls without horizontal overflow', async 
   await proteinuria.getByRole('checkbox', { name: 'Mark Proteinuria as present' }).check();
   await proteinuria.locator('summary').filter({ hasText: 'Fabry disease' }).click();
   await expect(proteinuria.getByRole('link', { name: /GeneReviews/i })).toBeVisible();
-  await expect(page.getByText('1 / 42 present')).toBeVisible();
+  await expect(page.getByText('1 / 60 present')).toBeVisible();
 
   const dimensions = await page.evaluate(() => ({
     documentWidth: document.documentElement.scrollWidth,
@@ -236,10 +236,10 @@ test('assessment opens when randomUUID is unavailable on an HTTP LAN origin', as
   await page.goto('/');
   expect(await page.evaluate(() => typeof crypto.randomUUID)).toBe('undefined');
   await page.getByRole('button', { name: 'Open assessment' }).click();
-  await expect(page.locator('article.question-card')).toHaveCount(42);
+  await expect(page.locator('article.question-card')).toHaveCount(60);
   await expect(page.getByText('This assessment could not be opened. Please try again later.')).toHaveCount(0);
   await page.locator('article.question-card').first().getByRole('checkbox').check();
-  await expect(page.getByText('1 / 42 present')).toBeVisible();
+  await expect(page.getByText('1 / 60 present')).toBeVisible();
 });
 
 test('one action shows rule results and FHIR download beside editable questions', async ({ page }) => {
@@ -258,7 +258,7 @@ test('one action shows rule results and FHIR download beside editable questions'
   await expect(page.getByRole('button', { name: 'Run demonstration' })).toHaveCount(0);
   await page.getByRole('button', { name: 'Show results' }).click();
   await expect(page.getByRole('heading', { name: 'Rule results' })).toBeFocused();
-  await expect(page.locator('article.question-card')).toHaveCount(42);
+  await expect(page.locator('article.question-card')).toHaveCount(60);
   await expect(card('Reduced sweating').getByRole('checkbox')).not.toBeChecked();
   await expect(card('Seizures').getByRole('checkbox')).not.toBeChecked();
   await expect(page.getByRole('button', { name: 'Show results' })).toHaveCount(0);
@@ -285,7 +285,7 @@ test('one action shows rule results and FHIR download beside editable questions'
   const bundle = JSON.parse(await fs.readFile(await download.path(), 'utf8'));
   expect(bundle.resourceType).toBe('Bundle');
   expect(bundle.entry.filter((entry: { resource: { resourceType: string } }) =>
-    entry.resource.resourceType === 'Observation')).toHaveLength(50);
+    entry.resource.resourceType === 'Observation')).toHaveLength(74);
   expect(bundle.entry.some((entry: { resource: { identifier?: { value: string }[]; valueBoolean?: boolean } }) =>
     entry.resource.identifier?.[0]?.value === 'proteinuria' && entry.resource.valueBoolean === true)).toBe(true);
   expect(bundle.entry.some((entry: { resource: { identifier?: { value: string }[]; valueBoolean?: boolean } }) =>
@@ -293,7 +293,7 @@ test('one action shows rule results and FHIR download beside editable questions'
   const scores = bundle.entry.map((entry: { resource: unknown }) => entry.resource)
     .filter((resource: { identifier?: { system: string }[] }) =>
       resource.identifier?.[0]?.system === 'https://atlas.picorules.com/fhir/NamingSystem/rule-id');
-  expect(scores.map((score: { valueQuantity: { value: number } }) => score.valueQuantity.value)).toEqual([4.651364, 0, 1.582841, 0, 0, 0, 0, 0]);
+  expect(scores.map((score: { valueQuantity: { value: number } }) => score.valueQuantity.value)).toEqual([4.651364, 0, 1.582841, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const impression = bundle.entry.find((entry: { resource: { resourceType: string } }) =>
     entry.resource.resourceType === 'ClinicalImpression')?.resource;
   expect(impression.finding).toHaveLength(0);
@@ -321,7 +321,7 @@ test('mobile keyboard journey shows inline results without overflow', async ({ p
   await page.getByRole('button', { name: 'Show results' }).focus();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('heading', { name: 'Rule results' })).toBeFocused();
-  await expect(page.locator('article.question-card')).toHaveCount(42);
+  await expect(page.locator('article.question-card')).toHaveCount(60);
   const dimensions = await page.evaluate(() => ({ document: document.documentElement.scrollWidth, viewport: innerWidth }));
   expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
 });
@@ -338,4 +338,29 @@ test('ADTKD questions omit generic images and produce both weighted results', as
   await page.getByRole('button', { name: 'Show results' }).click();
   await expect(page.locator('#result-ikd_adtkd_umod')).toBeVisible();
   await expect(page.locator('#result-ikd_adtkd_muc1')).toBeVisible();
+});
+
+test('new ciliopathy profile filters and counts findings on mobile with keyboard input', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open assessment' }).click();
+  const filters = page.getByRole('group', { name: 'Filter questions by disease' });
+  const joubert = filters.getByRole('button', { name: 'Joubert syndrome', exact: true });
+  await joubert.focus();
+  await page.keyboard.press('Enter');
+  await expect(joubert).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('article.question-card')).toHaveCount(8);
+  const molarTooth = page.getByRole('checkbox', { name: 'Mark Molar tooth sign on MRI as present' });
+  await molarTooth.focus();
+  await page.keyboard.press('Space');
+  await expect(molarTooth).toBeChecked();
+  await page.getByRole('checkbox', { name: 'Mark Retinal dystrophy as present' }).check();
+  await page.getByRole('button', { name: 'Show results' }).click();
+  const result = page.locator('.result-card').filter({ has: page.locator('#result-ikd_joubert') });
+  await expect(result).toContainText('Present clinical features: 2');
+  await expect(result).toContainText('Retinal dystrophy, Molar tooth sign on MRI');
+  await expect(page.locator('.result-card')).toHaveCount(14);
+  await filters.getByRole('button', { name: 'All diseases' }).click();
+  await expect(molarTooth).toBeChecked();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
